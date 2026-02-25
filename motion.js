@@ -197,6 +197,16 @@
   const navLinks = $$('nav .navlink[data-mega]');
   const menuBtn = $('#menuBtn');
 
+  const MOBILE_BREAKPOINT = 980;
+  const isMobileView = () => {
+    if (window.matchMedia){
+      try{
+        return window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
+      }catch(e){}
+    }
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  };
+
   const megaData = {
     all: [
       { t:'О БАНКЕ', s:'Раздел сайта', href:'https://slavbank.ru/' },
@@ -271,7 +281,7 @@
     navLinks.forEach(a => a.setAttribute('aria-expanded','false'));
     menuBtn && menuBtn.setAttribute('aria-expanded','false');
   }
-  function openMega(key){
+  function openMega(key, trigger){
     if (!mega || !megaLinks) return;
 
     // VAR20 — mega search
@@ -328,20 +338,117 @@
       megaLinks.appendChild(a);
     });
     mega.classList.add('open');
+
+    // Позиционирование под пунктом меню на десктопе
+    if (!isMobileView()){
+      // если есть триггер (элемент меню), выравниваем по нему,
+      // иначе сбрасываем к центру по умолчанию
+      if (trigger && trigger.getBoundingClientRect && header){
+        const headerRect = header.getBoundingClientRect();
+        const triggerRect = trigger.getBoundingClientRect();
+
+        // временно сбрасываем позиционирование, чтобы корректно измерить ширину
+        mega.style.left = '0px';
+        mega.style.right = 'auto';
+        mega.style.transform = 'none';
+
+        const megaWidth = mega.offsetWidth || 0;
+        const triggerCenter = triggerRect.left + triggerRect.width / 2;
+        let left = triggerCenter - headerRect.left - megaWidth / 2;
+
+        const padding = 8;
+        const maxLeft = headerRect.width - megaWidth - padding;
+        if (left < padding) left = padding;
+        if (left > maxLeft) left = maxLeft;
+
+        mega.style.left = `${left}px`;
+      } else {
+        mega.style.left = '';
+        mega.style.right = '';
+        mega.style.transform = '';
+      }
+    } else {
+      // на мобильной версии оставляем позиционирование по CSS
+      mega.style.left = '';
+      mega.style.right = '';
+      mega.style.transform = '';
+    }
+  }
+
+  let hoverCloseTimer = null;
+  function scheduleCloseMega(){
+    if (isMobileView()) return;
+    if (hoverCloseTimer) clearTimeout(hoverCloseTimer);
+    hoverCloseTimer = setTimeout(() => {
+      hoverCloseTimer = null;
+      closeMega();
+    }, 120);
   }
 
   navLinks.forEach(a => {
     a.addEventListener('click', (e) => {
+      // На мобильной версии оставляем открытие по клику
+      if (!isMobileView()) return;
       e.preventDefault();
       const key = a.dataset.mega;
       const isOpen = a.getAttribute('aria-expanded') === 'true';
       closeMega();
       if (!isOpen){
         a.setAttribute('aria-expanded','true');
-        openMega(key);
+        openMega(key, a);
       }
     });
+
+    // На десктопе открываем мегаменю по hover и по фокусу с клавиатуры
+    a.addEventListener('mouseenter', () => {
+      if (isMobileView()) return;
+      const key = a.dataset.mega;
+      if (!key) return;
+      if (hoverCloseTimer){
+        clearTimeout(hoverCloseTimer);
+        hoverCloseTimer = null;
+      }
+      navLinks.forEach(link => link.setAttribute('aria-expanded','false'));
+      a.setAttribute('aria-expanded','true');
+      openMega(key, a);
+    });
+
+    a.addEventListener('mouseleave', () => {
+      if (isMobileView()) return;
+      scheduleCloseMega();
+    });
+
+    a.addEventListener('focus', () => {
+      if (isMobileView()) return;
+      const key = a.dataset.mega;
+      if (!key) return;
+      if (hoverCloseTimer){
+        clearTimeout(hoverCloseTimer);
+        hoverCloseTimer = null;
+      }
+      navLinks.forEach(link => link.setAttribute('aria-expanded','false'));
+      a.setAttribute('aria-expanded','true');
+      openMega(key, a);
+    });
+
+    a.addEventListener('blur', () => {
+      if (isMobileView()) return;
+      scheduleCloseMega();
+    });
   });
+
+  if (mega){
+    mega.addEventListener('mouseenter', () => {
+      if (hoverCloseTimer){
+        clearTimeout(hoverCloseTimer);
+        hoverCloseTimer = null;
+      }
+    });
+    mega.addEventListener('mouseleave', () => {
+      if (isMobileView()) return;
+      scheduleCloseMega();
+    });
+  }
 
   if (menuBtn){
     menuBtn.addEventListener('click', () => {
@@ -349,7 +456,7 @@
       closeMega();
       if (!isOpen){
         menuBtn.setAttribute('aria-expanded','true');
-        openMega('about');
+        openMega('about', null);
       }
     });
   }
