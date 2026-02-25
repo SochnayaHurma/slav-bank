@@ -1,0 +1,176 @@
+/* =========================================================
+   SLAVBANK — Foundation Tokens (based on landing)
+   VAR1: Corporate / SME / FX focus
+   Fonts: Cygre (SemiBold/Book/Light) — put files in assets/fonts/
+   ========================================================= */
+
+:root{
+  /* Brand palette (given) */
+  --c-primary:      #006780; /* Бирюзовый */
+  --c-primary-700:  #005a72;
+  --c-primary-100:  #9fd5d5; /* Светло-бирюзовый */
+  --c-brown-500:    #918078; /* Светло-коричневый */
+  --c-sand-300:     #d0b8a3; /* Песочный */
+
+  /* Neutrals */
+  --c-text:   #0f172a;
+  --c-muted:  #475569;
+  --c-bg:     #f5fafc;
+  --c-surface:#ffffff;
+  --c-border: rgba(2,6,23,.12);
+
+  /* Elevation */
+  --shadow-sm: 0 6px 18px rgba(2,6,23,.08);
+  --shadow-md: 0 14px 40px rgba(2,6,23,.10);
+
+  /* Radii */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-pill: 999px;
+
+  /* Spacing (4px base) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+
+  /* Layout */
+  --container: 1180px;
+
+  /* Motion */
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --t-fast: 120ms;
+  --t-med:  200ms;
+  --t-slow: 280ms;
+}
+
+/* Optional: accessibility mode */
+html[data-a11y="1"]{
+  --c-bg: #ffffff;
+  --c-border: rgba(2,6,23,.22);
+}
+html[data-a11y="1"] body{ font-size: 16px; }
+
+/* Fonts: Cygre (drop .woff2 into assets/fonts/) */
+@font-face{
+  font-family: "Cygre";
+  src: url("assets/fonts/Cygre-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Cygre";
+  src: url("assets/fonts/Cygre-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Cygre";
+  src: url("assets/fonts/Cygre-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base */
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font: 15px/1.52 "Cygre", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+}
+a{ color: inherit; text-decoration:none; }
+a:hover{ text-decoration: none; }
+img{ max-width:100%; height:auto; display:block; }
+:focus-visible{ outline: 3px solid rgba(0,103,128,.35); outline-offset: 2px; }
+
+/* Helpers */
+.container{ max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+.row{ display:flex; gap: 16px; align-items:center; }
+.spacer{ flex:1; }
+.muted{ color: var(--c-muted); }
+.mono{ font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+
+/* UI primitives */
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 6px 10px;
+  border-radius: var(--r-pill);
+  background: rgba(0,103,128,.10);
+  color: var(--c-primary-700);
+  font-weight: 700;
+  font-size: 12px;
+}
+.pill{
+  display:inline-flex; align-items:center; gap:10px;
+  padding: 8px 10px;
+  border:1px solid var(--c-border);
+  border-radius: var(--r-pill);
+  background: rgba(255,255,255,.70);
+  backdrop-filter: blur(10px);
+}
+#searchOpen::before {
+  content: url('./search.png'); /* 🔎*/
+}
+.card{
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+.card.pad{ padding: var(--s-5); }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding: 11px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--c-border);
+  background: #fff;
+  /* font-weight: 800; */
+  cursor:pointer;
+  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+.btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md); border-color: rgba(2,6,23,.18); }
+.btn:active{ transform: translateY(0); }
+
+.btn.primary{
+  background: linear-gradient(135deg, var(--c-primary), #0ea5b7);
+  color:#fff; border-color: rgba(255,255,255,.18);
+}
+.btn.soft{
+  background: rgba(159,213,213,.25);
+  border-color: rgba(0,103,128,.20);
+  color: var(--c-primary-700);
+}
+.btn.ghost{ background: transparent; }
+
+.input{
+  width:100%;
+  padding: 12px 12px;
+  border-radius: var(--r-md);
+  border:1px solid var(--c-border);
+  background:#fff;
+  font: inherit;
+}
+.input:focus{ outline:none; border-color: rgba(0,103,128,.35); box-shadow: 0 0 0 4px rgba(0,103,128,.12); }
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+}
+
+
+/* =========================================================
+   VAR3 Typography Tuning (friendlier)
+   - Slightly increased line-height
+   - Muted text a bit darker for readability
+   ========================================================= */
+:root{
+  --c-muted: #3f5166;
+}

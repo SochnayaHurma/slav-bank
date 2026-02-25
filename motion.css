@@ -1,0 +1,219 @@
+/* =========================================================
+   Motion Pack (bank-safe)
+   - reveal on scroll
+   - hero slider (no external libs)
+   - subtle float
+   ========================================================= */
+
+@media (prefers-reduced-motion: no-preference){
+  .floaty{ animation: floaty 9s var(--ease) infinite; }
+  .floaty.slow{ animation-duration: 14s; }
+  .floaty.fast{ animation-duration: 7s; }
+  @keyframes floaty{
+    0%{ transform: translate3d(0,0,0); }
+    35%{ transform: translate3d(10px,-10px,0); }
+    70%{ transform: translate3d(-8px,8px,0); }
+    100%{ transform: translate3d(0,0,0); }
+  }
+}
+
+/* reveal */
+.reveal{
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.is-in{ opacity:1; transform: translate3d(0,0,0); }
+.reveal[data-reveal="left"]{ transform: translate3d(-14px,0,0); }
+.reveal[data-reveal="right"]{ transform: translate3d(14px,0,0); }
+.reveal[data-reveal="scale"]{ transform: scale(.985); }
+
+/* hero slider */
+.slider{ position: relative; overflow:hidden; border-radius: var(--r-lg); }
+.slider-track{ display:flex; transition: transform var(--t-slow) var(--ease); will-change: transform; }
+.slide{ min-width:100%; padding: var(--s-6); }
+.slide .kicker{
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-primary-700);
+}
+.slide h2{
+  font-family: "Cygre", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  margin: 10px 0 10px;
+  font-size: clamp(26px, 3.3vw, 44px);
+  line-height: 1.06;
+  letter-spacing: -.02em;
+}
+.slide p{ margin:0; color: var(--c-muted); font-weight: 300; max-width: 62ch; }
+
+.slider-ui{
+  padding-left: 16px;
+  padding-bottom: 16px;
+  padding-right: 16px;
+  /* position:absolute; */
+  inset: auto var(--s-4) var(--s-4) var(--s-4);
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  justify-content:space-between;
+  pointer-events:none;
+}
+.slider-ui > *{ pointer-events:auto; }
+
+.dots{ display:flex; gap:8px; align-items:center; }
+.dot{
+  width: 10px; height: 10px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--c-border);
+  background: rgba(255,255,255,.85);
+  cursor:pointer;
+}
+.dot[aria-current="true"]{
+  width: 26px;
+  background: rgba(0,103,128,.16);
+  border-color: rgba(0,103,128,.35);
+}
+.progress{
+  height: 3px;
+  background: rgba(255,255,255,.60);
+  border-radius: var(--r-pill);
+  overflow:hidden;
+  flex: 1;
+  margin: 0 10px;
+  border: 1px solid rgba(2,6,23,.08);
+}
+.progress > i{
+  display:block; height:100%; width:0%;
+  background: linear-gradient(90deg, var(--c-primary), #0ea5b7);
+}
+
+/* ticker */
+.ticker{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 10px 12px;
+  background: rgba(255,255,255,.75);
+  overflow:hidden;
+}
+.ticker strong{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--c-primary-700); }
+.ticker .lane{ display:flex; gap: 24px; white-space:nowrap; will-change: transform; }
+@media (prefers-reduced-motion: no-preference){
+  .ticker .lane{ animation: marquee 16s linear infinite; }
+  .ticker:hover .lane{ animation-play-state: paused; }
+  @keyframes marquee{ 0%{ transform: translateX(0);} 100%{ transform: translateX(-50%);} }
+}
+
+
+/* =========================================================
+   VAR3 — Fresh modern look (palette+fonts preserved)
+   - hero slider kept
+   - dashboard-like gradient used behind hero
+   - procedural SVG illustrations (silk strokes)
+   - button variants + slightly softer weight
+   ========================================================= */
+
+.hero-wrap{
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(255,255,255,.22);
+  box-shadow: 0 22px 60px rgba(2,6,23,.10);
+}
+.hero-wrap::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(520px 300px at 20% 10%, rgba(159,213,213,.55), transparent 60%),
+    radial-gradient(520px 320px at 85% 55%, rgba(208,184,163,.35), transparent 60%),
+    radial-gradient(620px 420px at 65% 0%, rgba(0,103,128,.18), transparent 55%);
+  pointer-events:none;
+  filter: saturate(1.06);
+}
+.hero-wrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.92));
+  pointer-events:none;
+}
+.hero-wrap > *{ position:relative; z-index:1; }
+
+.slide{ padding: var(--s-6); }
+.slide-grid{
+  display:grid;
+  grid-template-columns: 1.10fr .90fr;
+  gap: var(--s-5);
+  align-items:center;
+}
+.slide h2{
+  font-size: clamp(28px, 3.3vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+}
+.slide p{ font-weight: 400; }
+.slide .kicker{ font-weight: 600; opacity: .9; }
+
+.hero-ill{
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(2,6,23,.08);
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px rgba(0,103,128,.10);
+}
+@media (max-width: 980px){
+  .slide-grid{ grid-template-columns: 1fr; }
+  .hero-ill{ max-width: 520px; margin: 0 auto; }
+}
+
+/* "Silk" stroke animation inside SVGs */
+@media (prefers-reduced-motion: no-preference){
+  .hero-ill .silk{
+    stroke-dasharray: 520;
+    stroke-dashoffset: 520;
+    animation: silkDraw 2.2s var(--ease) both;
+  }
+  .hero-ill .silk.s2{ animation-delay: .14s; }
+  .hero-ill .silk.s3{ animation-delay: .26s; }
+  @keyframes silkDraw{ to{ stroke-dashoffset: 0; } }
+}
+
+/* Button variants */
+/* .btn{ font-weight: 750; } */
+.btn.primary{
+  background: linear-gradient(135deg, var(--c-primary), #0ea5b7);
+  color:#fff; border-color: rgba(255,255,255,.18);
+}
+.btn.outline{
+  background: transparent;
+  border-color: rgba(0,103,128,.25);
+  color: var(--c-primary-700);
+}
+.btn.outline:hover{
+  background: rgba(0,103,128,.06);
+  border-color: rgba(0,103,128,.35);
+}
+.btn.glass{
+  background: rgba(255,255,255,.55);
+  border-color: rgba(255,255,255,.28);
+  backdrop-filter: blur(14px);
+}
+.btn.glass:hover{ background: rgba(255,255,255,.74); }
+
+.btn.icon{
+  padding: 11px 12px;
+  width: 44px;
+  justify-content:center;
+}
+
+.navlink{ font-weight: 650; }
+.badge{ font-weight: 800; }
