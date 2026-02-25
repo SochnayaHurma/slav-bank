@@ -110,7 +110,7 @@
     const restart = () => {
       if (timer) clearInterval(timer);
       if (playing && !prefersReduced){
-        timer = setInterval(() => setIdx(idx + 1), 5200);
+        timer = setInterval(() => setIdx(idx + 1), 5400);
       }
     };
 
@@ -316,7 +316,15 @@
       const a = document.createElement('a');
       a.className = 'mega-link';
       a.href = x.href;
-      a.innerHTML = `<span><strong>${x.t}</strong><br><small class="muted">${x.s}</small></span><span aria-hidden="true">→</span>`;
+      a.setAttribute('data-hay', `${x.t} ${x.s} ${x.href}`);
+      a.innerHTML = `
+        <span class="mega-ic" aria-hidden="true">${iconFor(x.t)}</span>
+        <span class="mega-meta">
+          <strong>${x.t}</strong>
+          <small>${x.s}</small>
+        </span>
+        <span class="mega-arrow" aria-hidden="true">→</span>
+      `;
       megaLinks.appendChild(a);
     });
     mega.classList.add('open');

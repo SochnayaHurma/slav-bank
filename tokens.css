@@ -169,7 +169,7 @@ img{ max-width:100%; height:auto; display:block; }
    - Muted text a bit darker for readability
    ========================================================= */
 :root{
-  --c-muted: #03070d;
+  --c-muted: #3f5166;
 }
 
 
