@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="light" />
-  <title>СЛАВЯНБАНК — стартовая (VAR5)</title>
+  <title>СЛАВЯНБАНК — стартовая ()</title>
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="motion.css" />
   <style>
@@ -26,7 +26,7 @@
     }
     html[data-a11y="1"] .header{ background:#fff; }
 
-    .brand{ display:flex; align-items:center; gap:12px; min-width:260px; }
+    .brand{ display:flex; align-items:center; gap:12px; width:172px; }
     .logo{
       width: 40px; height:40px;
       border-radius: var(--r-md);
@@ -37,8 +37,6 @@
       flex: 0 0 auto;
       color:#fff; font-weight:900;
     }
-    .logo img{ width:100%; height:100%; object-fit:cover; display:block; border-radius:inherit; }
-
     .brand h1{ margin:0; font-size: 14px; letter-spacing:.02em; font-weight: 600; }
     .brand .sub{ font-size:12px; color: var(--c-muted); margin-top:2px; font-weight:300; }
 
@@ -79,7 +77,7 @@
 
     main{ padding: var(--s-4) 0 var(--s-7); }
     section.block{ padding: var(--s-5) 0; }
-    .section-head{ display:flex; gap:12px; align-items:baseline; justify-content:space-between; margin: 6px 0 12px; flex-wrap:wrap; }
+    .section-head{ display:flex; gap:12px; align-items:baseline; justify-content:space-between; margin: 6px 0 12px 28px; flex-wrap:wrap; }
     .section-head h2{ margin:0; font-size: 18px; font-weight:600; }
     .section-head p{ margin:0; color: var(--c-muted); font-size: 13px; font-weight:300; }
 
@@ -95,7 +93,7 @@
     }
     .tile:hover{ text-decoration:none; transform: translateY(-1px); box-shadow: var(--shadow-md); }
     .tile h3{ margin: 8px 0 6px; font-size: 14px; font-weight:600; }
-    .tile p{ margin:0; font-size: 12px; color: var(--c-muted); font-weight:300; }
+    .tile p{ margin:0; font-size: 12px; color: var(--c-muted); }
 
     /* News scroller */
     .scroller{ display:flex; gap: var(--s-4); overflow:auto; scroll-snap-type: x mandatory; padding: 4px 2px 10px; }
@@ -127,7 +125,7 @@
     .foot{ padding: var(--s-4); }
     .foot h3{ margin:0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing:.08em; color: var(--c-muted); font-weight:600; }
     .foot a{ display:inline-flex; padding: 6px 0; text-decoration:none; font-weight:300; }
-    .foot a:hover{ text-decoration: underline; }
+    .foot a:hover{ text-decoration: none; }
     .fine{ margin-top: 12px; color: var(--c-muted); font-size: 12px; font-weight:300; }
 
     @media (max-width: 980px){
@@ -139,168 +137,7 @@
       .mega .grid{ grid-template-columns: 1fr; }
       .brand{ min-width:auto; }
     }
-  
-    /* VAR5: FAQ details */
-    .faq{ display:grid; gap:10px; margin-top: 10px; }
-    .faq-item{
-      border: 1px solid var(--c-border);
-      border-radius: 14px;
-      background: rgba(255,255,255,.86);
-      padding: 10px 12px;
-    }
-    .faq-item[open]{ box-shadow: var(--shadow-sm); border-color: rgba(0,103,128,.22); }
-    .faq-item summary{
-      cursor:pointer;
-      list-style:none;
-      font-weight: 600;
-      font-size: 13px;
-      display:flex;
-      gap:10px;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .faq-item summary::-webkit-details-marker{ display:none; }
-    .faq-item summary::after{
-      content:"+";
-      width: 22px; height:22px;
-      display:grid; place-items:center;
-      border-radius: 999px;
-      border: 1px solid rgba(0,103,128,.20);
-      color: var(--c-primary);
-      background: rgba(0,103,128,.06);
-      flex: 0 0 auto;
-    }
-    .faq-item[open] summary::after{ content:"–"; }
-    .faq-body{ padding-top: 8px; }
-    .faq-body p{ margin:0; }
-
-  
-
-    /* =========================================================
-       VAR20 — Header reveal + fintech mega
-       ========================================================= */
-
-    /* Use .is-in on header as a sticky "reveal" state (like on original) */
-    .header.reveal{
-      position: sticky;
-      top:0;
-      z-index: 60;
-      opacity: 1 !important;
-      transform: translate3d(0,-110%,0);
-      transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease), padding var(--t-med) var(--ease), background var(--t-med) var(--ease);
-    }
-    .header.reveal.is-in{ transform: translate3d(0,0,0); }
-
-    .header.scrolled{
-      box-shadow: 0 16px 36px rgba(2,6,23,.10);
-      background: rgba(245,250,252,.78) !important;
-    }
-
-    /* Make room for many items: horizontal scroll + wrap-safe */
-    .header .container.row{ gap: 10px; }
-    nav.nav-scroller{
-      flex: 1 1 auto;
-      min-width: 0;
-      display:flex !important;
-      align-items:center;
-      gap: 6px;
-      overflow-x:auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      padding: 2px 4px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.38);
-      border: 1px solid rgba(2,6,23,.08);
-    }
-    nav.nav-scroller::-webkit-scrollbar{ display:none; }
-    nav.nav-scroller .navlink{
-      flex: 0 0 auto;
-      padding: 9px 10px !important;
-      border-radius: 999px !important;
-    }
-
-    /* Mega menu: fintech grid cards */
-    .mega{
-      border: 1px solid rgba(0,103,128,.16) !important;
-      box-shadow: 0 26px 70px rgba(2,6,23,.18) !important;
-      background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(159,213,213,.16)) !important;
-      backdrop-filter: blur(18px) !important;
-    }
-    .mega .grid{
-      grid-template-columns: 1.35fr 1fr !important;
-    }
-    .mega .col{
-      background: rgba(255,255,255,.84) !important;
-      border-color: rgba(2,6,23,.10) !important;
-    }
-
-    .mega-search{
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(2,6,23,.12);
-      background: rgba(255,255,255,.86);
-      margin-bottom: 10px;
-    }
-    .mega-search input{
-      width:100%;
-      border:none;
-      outline:none;
-      font-size: 14px;
-      background: transparent;
-    }
-    .mega-search .hint{
-      font-size: 12px;
-      color: var(--c-muted);
-      font-weight: 300;
-      white-space: nowrap;
-    }
-
-    #megaLinks{
-      display:grid !important;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 10px !important;
-    }
-    .mega a.mega-link{
-      border: 1px solid rgba(0,103,128,.14);
-      background: rgba(255,255,255,.86);
-      border-radius: 16px;
-      padding: 12px 12px;
-      box-shadow: 0 14px 26px rgba(0,103,128,.08);
-      align-items:center;
-    }
-    .mega a.mega-link:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.96);
-      border-color: rgba(0,103,128,.22);
-      box-shadow: 0 20px 34px rgba(0,103,128,.12);
-    }
-    .mega-ic{
-      width: 34px; height: 34px;
-      border-radius: 12px;
-      display:grid; place-items:center;
-      background: linear-gradient(135deg, rgba(0,103,128,.18), rgba(159,213,213,.28));
-      border: 1px solid rgba(0,103,128,.18);
-      color: rgba(0,103,128,.92);
-      font-weight: 900;
-      flex: 0 0 auto;
-    }
-    .mega-meta{ display:flex; flex-direction:column; gap:2px; min-width:0; }
-    .mega-meta strong{ font-size: 13px; font-weight: 600; }
-    .mega-meta small{ font-size: 12px; font-weight: 300; color: var(--c-muted); }
-    .mega-arrow{ color: rgba(0,103,128,.92); font-weight: 900; }
-
-    @media (max-width: 980px){
-      nav.nav-scroller{ display:none !important; }
-      .menu-btn{ display:inline-flex !important; }
-      .mega{ width: calc(100vw - 22px) !important; }
-      .mega .grid{ grid-template-columns: 1fr !important; }
-    }
-    
-</style>
+  </style>
 </head>
 
 <body>
@@ -321,38 +158,32 @@
 
     <div class="row" style="flex-wrap:wrap;">
       <button class="btn ghost" id="a11yBtn" aria-pressed="false" title="Режим доступности: крупнее шрифт и выше контраст">Aa · Доступность</button>
-      <button class="btn glass" id="searchOpen" aria-haspopup="dialog" aria-controls="searchOverlay">🔎 Поиск <span class="kbd">Ctrl</span><span class="kbd">K</span></button>
+      <button class="btn glass" id="searchOpen" aria-haspopup="dialog" aria-controls="searchOverlay"> Поиск 
+        <!-- <span class="kbd">Ctrl</span><span class="kbd">K</span> -->
+      </button>
     </div>
   </div>
 </div>
 
-<header class="header reveal is-in" data-reveal="scale">
+<header class="header reveal" data-reveal="scale">
   <div class="container row">
     <div class="brand">
-      <div class="logo floaty" aria-hidden="true"><img src="assets/brand-mark.svg" alt="" aria-hidden="true"></div>
-      <div>
-        <h1>СЛАВЯНБАНК</h1>
-        <div class="sub">Комплексное обслуживание ИП и юрлиц · ВЭД · международные расчёты · валютный контроль</div>
-      </div>
+      <img src="./logo2.png" alt="СЛАВЯНБАНК" width="100%">
     </div>
 
-    
-    <nav aria-label="Основное меню" class="nav-scroller">
-      <a class="navlink" href="#" data-mega="all" aria-expanded="false">Разделы</a>
+    <nav aria-label="Основное меню">
       <a class="navlink" href="#" data-mega="about" aria-expanded="false">О банке</a>
-      <a class="navlink" href="#" data-mega="corp" aria-expanded="false">Юрлицам</a>
-      <a class="navlink" href="#" data-mega="tariffs" aria-expanded="false">Тарифы</a>
-      <a class="navlink" href="#" data-mega="support" aria-expanded="false">Поддержка</a>
-      <a class="navlink" href="#" data-mega="contacts" aria-expanded="false">Контакты</a>
-      <a class="navlink" href="news.html">Новости</a>
-      <a class="navlink" href="https://ved.slavbank.ru/">ВЭД</a>
+      <a class="navlink" href="#" data-mega="biz" aria-expanded="false">Бизнесу</a>
+      <a class="navlink" href="#" data-mega="fx" aria-expanded="false">ВЭД</a>
+      <a class="navlink" href="#" data-mega="docs" aria-expanded="false">Документы</a>
+      <a class="navlink" href="#news">Новости</a>
+      <a class="navlink" href="#support">Поддержка</a>
     </nav>
-
 
     <div class="spacer"></div>
 
-    <button class="btn glass pill menu-btn" id="drawerOpen" aria-label="Открыть меню" aria-expanded="false">☰</button>
-    <a class="btn primary has-arrow" href="https://dbo.slavbank.ru:20101/" title="Переход в систему дистанционного обслуживания">Клиент‑Банк <span class="arrow">→</span></a>
+    <button class="btn menu-btn" id="menuBtn" aria-label="Открыть меню" aria-expanded="false">☰ Меню</button>
+    <a class="btn primary" href="#" title="Переход в систему дистанционного обслуживания">Клиент‑Банк →</a>
   </div>
 
   <div class="mega card" id="megaPanel" role="dialog" aria-label="Разделы сайта">
@@ -364,12 +195,12 @@
       <div class="col">
         <h3>Быстрые действия</h3>
         <div style="display:grid; gap:10px;">
-          <a class="tile" href="account-service.html" style="padding:12px; border-radius:16px;">
+          <a class="tile" href="#services" style="padding:12px; border-radius:16px;">
             <div class="badge">РКО</div>
             <div style="font-weight:600; margin-top:6px;">Открыть счёт</div>
             <div class="muted" style="font-size:12px; margin-top:3px; font-weight:300;">Подключение сервисов для бизнеса.</div>
           </a>
-          <a class="tile" href="https://ved.slavbank.ru/" style="padding:12px; border-radius:16px;">
+          <a class="tile" href="#fx" style="padding:12px; border-radius:16px;">
             <div class="badge">ВЭД</div>
             <div style="font-weight:600; margin-top:6px;">Экспертиза контракта</div>
             <div class="muted" style="font-size:12px; margin-top:3px; font-weight:300;">Поможем до сделки и на расчётах.</div>
@@ -383,151 +214,6 @@
     </div>
   </div>
 </header>
-
-<div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
-<aside class="drawer" id="drawer" aria-label="Мобильное меню" aria-hidden="true">
-  <div class="drawer-head">
-    <img src="assets/brand-mark.svg" alt="" aria-hidden="true"/>
-    <div>
-      <div style="font-weight:600;">СЛАВЯНБАНК</div>
-      <div class="muted" style="font-size:12px;">ИП и юрлица · ВЭД · валютный контроль</div>
-    </div>
-    <div class="spacer"></div>
-    <button class="btn icon outline pill" id="drawerClose" aria-label="Закрыть меню">✕</button>
-  </div>
-
-  
-  <div class="drawer-body">
-
-    <a class="navitem" href="https://dbo.slavbank.ru:20101/">Клиент‑Банк вход <span aria-hidden="true">→</span></a>
-    <a class="navitem" href="https://ved.slavbank.ru/">ВЭД <span aria-hidden="true">→</span></a>
-    <a class="navitem" href="https://slavbank.ru/tarify-banka.html">Тарифы банка <span aria-hidden="true">→</span></a>
-    <a class="navitem" href="news.html">Новости <span aria-hidden="true">→</span></a>
-
-    <div class="acc" data-acc>
-      <button type="button" aria-expanded="false">
-        <span>
-          <strong>О БАНКЕ</strong>
-          <small>Раздел и страницы</small>
-        </span>
-        <span class="chev" aria-hidden="true">⌄</span>
-      </button>
-      <div class="body">
-        <div class="drawer-links">
-<a class="drawer-sub" href="https://slavbank.ru/">О БАНКЕ</a>
-<a class="drawer-sub" href="info-bank.html">Информация банка</a>
-<a class="drawer-sub" href="requisites-bank.html">Реквизиты банка</a>
-<a class="drawer-sub" href="https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html">Органы управления</a>
-<a class="drawer-sub" href="https://slavbank.ru/o-banke-html/otchetnost.html">Отчетность</a>
-<a class="drawer-sub" href="https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html">Раскрытие информации для регулятивных целей</a>
-<a class="drawer-sub" href="https://slavbank.ru/informacziya-dlya-notariusov.html">Информация для нотариусов</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="acc" data-acc>
-      <button type="button" aria-expanded="false">
-        <span>
-          <strong>ЮРИДИЧЕСКИМ ЛИЦАМ</strong>
-          <small>Раздел и страницы</small>
-        </span>
-        <span class="chev" aria-hidden="true">⌄</span>
-      </button>
-      <div class="body">
-        <div class="drawer-links">
-<a class="drawer-sub" href="legal-entities.html">ЮРИДИЧЕСКИМ ЛИЦАМ</a>
-<a class="drawer-sub" href="business-deposits.html">Депозиты для юридических лиц</a>
-<a class="drawer-sub" href="business-lending.html">Кредитование юридических лиц</a>
-<a class="drawer-sub" href="account-service.html">Обслуживание счетов в валюте РФ</a>
-<a class="drawer-sub" href="cash-payments.html">Безналичные расчеты</a>
-<a class="drawer-sub" href="cash-payments.html">Наличные расчеты</a>
-<a class="drawer-sub" href="payment-demands.html">Платежные требования с акцептом</a>
-<a class="drawer-sub" href="fx-account-service.html">Обслуживание счетов в иностранной валюте</a>
-<a class="drawer-sub" href="currency-control.html">Валютный контроль</a>
-<a class="drawer-sub" href="aml-fatca.html">ПОД/ФТ/ФРОМУ/FATCA</a>
-<a class="drawer-sub" href="crs.html">CRS — обмен с ФНС</a>
-<a class="drawer-sub" href="https://ved.slavbank.ru/">ВЭД</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="acc" data-acc>
-      <button type="button" aria-expanded="false">
-        <span>
-          <strong>ЧАСТНЫМ ЛИЦАМ</strong>
-          <small>Раздел и страницы</small>
-        </span>
-        <span class="chev" aria-hidden="true">⌄</span>
-      </button>
-      <div class="body">
-        <div class="drawer-links">
-<a class="drawer-sub" href="private-persons.html">ЧАСТНЫМ ЛИЦАМ</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="acc" data-acc>
-      <button type="button" aria-expanded="false">
-        <span>
-          <strong>КЛИЕНТ-БАНК</strong>
-          <small>Раздел и страницы</small>
-        </span>
-        <span class="chev" aria-hidden="true">⌄</span>
-      </button>
-      <div class="body">
-        <div class="drawer-links">
-<a class="drawer-sub" href="client-bank-online.html">КЛИЕНТ-БАНК</a>
-<a class="drawer-sub" href="instruction.html">Инструкция по работе в системе Клиент-Банк</a>
-<a class="drawer-sub" href="faq.html">Часто задаваемые вопросы</a>
-<a class="drawer-sub" href="ecp-regeneration.html">Перегенерация ЭЦП</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="acc" data-acc>
-      <button type="button" aria-expanded="false">
-        <span>
-          <strong>ПОДДЕРЖКА</strong>
-          <small>Раздел и страницы</small>
-        </span>
-        <span class="chev" aria-hidden="true">⌄</span>
-      </button>
-      <div class="body">
-        <div class="drawer-links">
-<a class="drawer-sub" href="support.html">ПОДДЕРЖКА</a>
-<a class="drawer-sub" href="https://www.ammyy.com/ru/">Удаленное управление</a>
-<a class="drawer-sub" href="security.html">Рекомендации по безопасности</a>
-<a class="drawer-sub" href="appeal-123-fz.html">Обращение по 123-ФЗ</a>
-<a class="drawer-sub" href="covid19.html">COVID19</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="acc" data-acc>
-      <button type="button" aria-expanded="false">
-        <span>
-          <strong>КОНТАКТЫ</strong>
-          <small>Раздел и страницы</small>
-        </span>
-        <span class="chev" aria-hidden="true">⌄</span>
-      </button>
-      <div class="body">
-        <div class="drawer-links">
-<a class="drawer-sub" href="https://slavbank.ru/kontakty.html">КОНТАКТЫ</a>
-<a class="drawer-sub" href="write-to-bank.html">НАПИСАТЬ В БАНК</a>
-<a class="drawer-sub" href="vacancies.html">ВАКАНСИИ</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pill" style="margin-top:12px; justify-content:space-between;">
-      <span class="muted" style="font-weight:300;">Подсказка</span>
-      <span style="font-weight:300;">Нажми <span class="kbd">Esc</span> чтобы закрыть</span>
-    </div>
-  </div>
-
-</aside>
-
 
 <div class="overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Поиск по сайту">
   <div class="modal card pad">
@@ -557,58 +243,17 @@
   </div>
 </div>
 
+<main id="main" class="container">
+<section class="block dashv2" id="info-bank">
 
-<main id="main">
-  <section class="block">
-    <div class="container">
-      <div class="hero-wrap" style="padding: var(--s-5);">
-        <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
-          <div style="min-width: 280px; flex: 1 1 520px;">
-            <div class="kicker">О банке</div>
-            <h1 style="margin:8px 0 10px;">Информация банка</h1>
-            <p class="muted" style="max-width:70ch;">
-              Раскрытие информации и документы: списки аффилированных лиц, сведения о контроле/влиянии, сообщения об отчетности.
-              Структурировали материалы “витринно”, чтобы было проще найти нужное.
-            </p>
+  <div class="bento">
+    <div class="bento-card bento-hero " data-reveal="scale">
 
-            <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="info-bank.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#docs">Документы</a>
-              <a class="btn glass" href="#support">Контакты</a>
-            </div>
-          </div>
+          <div class="kicker muted"><h3>Информация банка</h3></div>
 
-          <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстрые контакты</span>
-            <a href="tel:8162665247" class="mono">(8162) 665‑247</a>
-            <span class="muted">·</span>
-            <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block dashv2" id="docs">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Документы и раскрытие</h2>
-          <p>Ключевая информация с этой страницы, но в более удобном виде.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
-
-      <div class="bento">
-        <div class="bento-card" style="padding: var(--s-4); position:relative;">
-          <div class="kicker">Категории</div>
-
-          <div class="dash-tabs" role="tablist" aria-label="Документы">
+          <div class="dash-tabs" role="tablist" aria-label="Документы" >
             <button class="seg" role="tab" data-doc-tab="aff" aria-selected="true">Аффилированные лица</button>
-            <button class="seg" role="tab" data-doc-tab="control" aria-selected="false">Контроль / влияние</button>
+            <button class="seg" role="tab" data-doc-tab="control" aria-selected="false">Список лиц, под контролем, либо значительным влиянием которых, находится банк.</button>
             <button class="seg" role="tab" data-doc-tab="msg" aria-selected="false">Сообщения</button>
           </div>
 
@@ -758,371 +403,91 @@
               </div>
             </div>
           </div>
+
+
+    </div>
+
+    <div class="stack">
+
+
+      <div class="bento-card reveal" data-reveal="right">
+        <h3 style="margin:6px 0 10px;">Курсы обмена валют
+в кассе банка</h3>
+        <div class="kicker">на 25.02.2026г.</div>
+        <div class="fine" style="margin-top:8px;"><b>Валюта:</b> Покупка / Продажа</div>
+
+        <div class="rates">
+          <div class="rate-row"><span class="mono">USD</span><span class="muted">покупка</span><span class="mono">77.00</span><span class="muted">продажа</span><span class="mono">80.00</span></div><div class="rate-row"><span class="mono">EUR</span><span class="muted">покупка</span><span class="mono">88.00</span><span class="muted">продажа</span><span class="mono">92.50</span></div><div class="rate-row"><span class="mono">CNY</span><span class="muted">покупка</span><span class="mono">11.00</span><span class="muted">продажа</span><span class="mono">11.90</span></div>
         </div>
+        <div class="fine" style="margin-top:8px;">АО НКБ "СЛАВЯНБАНК"</div>
+      </div>
 
-        <div class="side-stack">
-          <div class="bento-card" style="padding: var(--s-4); position:relative;">
-            <div class="kicker">Клиент‑Банк</div>
-            <h3 style="margin:8px 0 8px;">Быстрые действия</h3>
 
-            <div class="row" style="gap:10px; flex-wrap:wrap; margin-top: 8px;">
-              <a class="btn primary pill" href="https://dbo.slavbank.ru:20101/" target="_blank" rel="noopener">Войти →</a>
-              <a class="btn outline pill" href="https://slavbank.ru/zapros-na-kreditovanie-msp.html" target="_blank" rel="noopener">Заявка МСП</a>
-            </div>
 
-            <div class="rates" style="margin-top: 14px;">
-              <div class="kicker">Курсы валют</div>
-              <div class="rates-grid"><div class="rate">
-      <div class="k">USD</div>
-      <div class="v"><span>77,00</span><span class="sep">/</span><span>80,00</span></div>
-    </div>
-<div class="rate">
-      <div class="k">EUR</div>
-      <div class="v"><span>89,00</span><span class="sep">/</span><span>93,00</span></div>
-    </div>
-<div class="rate">
-      <div class="k">CNY</div>
-      <div class="v"><span>11,20</span><span class="sep">/</span><span>11,90</span></div>
-    </div></div>
-              <div class="muted" style="margin-top:8px;">Данные взяты со страницы банка (как есть).</div>
-            </div>
-          </div>
-
-          <div class="bento-card" style="padding: var(--s-4); position:relative;">
-            <div class="kicker">Новости</div>
-            <h3 style="margin:8px 0 10px;">Последние публикации</h3>
-            <div class="news-mini-grid">
-              <a class="news-mini" href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-valyute-rf.html" target="_blank" rel="noopener">
-      <div class="meta">19.12.2025</div>
-      <div class="t">Изменение тарифов банка по операциям в валюте РФ!</div>
-    </a>
-<a class="news-mini" href="https://slavbank.ru/news/o-rezhime-raboty-banka-v-prazdnichnie-dni.html" target="_blank" rel="noopener">
-      <div class="meta">12.12.2025</div>
-      <div class="t">О режиме работы банка в праздничные дни</div>
-    </a>
-<a class="news-mini" href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-011225.html" target="_blank" rel="noopener">
-      <div class="meta">19.11.2025</div>
-      <div class="t">Изменение тарифов банка по операциям в иностранной валюте!</div>
-    </a>
-<a class="news-mini" href="https://slavbank.ru/poleznaya_informacia/tarif_depositny_s_01112025.html" target="_blank" rel="noopener">
-      <div class="meta">01.11.2025</div>
-      <div class="t">С 01.11.2025 обновлены тарифные сетки по депозитам юридических лиц + специальное предложение по обслуживанию счетов!</div>
-    </a>
-<a class="news-mini" href="https://slavbank.ru/poleznaya_informacia/tarif_privetstvenny_s_011125.html" target="_blank" rel="noopener">
-      <div class="meta">01.11.2025</div>
-      <div class="t">С 01.11.2025 специальное предложение по обслуживанию счетов для новых клиентов</div>
-    </a>
-            </div>
-          </div>
-
-          <div class="bento-card" id="support" style="padding: var(--s-4); position:relative;">
-            <div class="kicker">Контакты</div>
-            <div class="support-card">
-              <div class="support-ico" aria-hidden="true">☎</div>
-              <div>
-                <div style="font-weight:600;">Свяжитесь с банком</div>
-                <div class="muted" style="margin-top:4px;">Телефон, email и адреса — без поиска по сайту.</div>
-                <div class="row" style="gap:10px; flex-wrap:wrap; margin-top:10px;">
-                  <a class="btn primary pill" href="tel:8162665247">Позвонить</a>
-                  <a class="btn glass pill" href="mailto:nkb@slavbank.ru">Написать</a>
-                </div>
-                <div class="muted" style="margin-top:10px;">
-                  <strong>ВЭД:</strong> <a href="mailto:ved@slavbank.ru">ved@slavbank.ru</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      <div class="bento-card reveal" data-reveal="right">
+        <div class="kicker">Полезная информация</div>
+        <h3 style="margin:6px 0 10px;">Последние публикации</h3>
+        <div class="posts">
+          <a class="post" href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-valyute-rf.html" target="_blank" rel="noopener"><span class="muted">19.12.2025</span><strong>Изменение тарифов банка по операциям в валюте РФ!</strong></a><a class="post" href="https://slavbank.ru/news/o-rezhime-raboty-banka-v-prazdnichnie-dni.html" target="_blank" rel="noopener"><span class="muted">12.12.2025</span><strong>О режиме работы банка в праздничные дни</strong></a><a class="post" href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-011225.html" target="_blank" rel="noopener"><span class="muted">19.11.2025</span><strong>Изменение тарифов банка по операциям в иностранной валюте!</strong></a><a class="post" href="https://slavbank.ru/poleznaya_informacia/tarif_depositny_s_01112025.html" target="_blank" rel="noopener"><span class="muted">01.11.2025</span><strong>С 01.11.2025 обновлены тарифные сетки по депозитам юридических лиц + специальное предложение по обслуживанию счетов!</strong></a>
         </div>
       </div>
+
+      <details class="reveal" data-reveal="right" open>
+        <summary style="cursor:pointer; font-weight:600;">Разделы сайта</summary>
+        <div class="drawer-links" style="margin-top:10px;">
+          <a class="drawer-sub" href="https://slavbank.ru/" target="_blank" rel="noopener">О БАНКЕ</a><a class="drawer-sub" href="https://slavbank.ru/tarify-banka.html" target="_blank" rel="noopener">ТАРИФЫ БАНКА</a><a class="drawer-sub" href="https://slavbank.ru/yuridicheskim-liczam.html" target="_blank" rel="noopener">ЮРИДИЧЕСКИМ ЛИЦАМ</a><a class="drawer-sub" href="https://slavbank.ru/chastnym-liczam.html" target="_blank" rel="noopener">ЧАСТНЫМ ЛИЦАМ</a><a class="drawer-sub" href="https://slavbank.ru/podderzhka.html" target="_blank" rel="noopener">ПОДДЕРЖКА</a><a class="drawer-sub" href="https://slavbank.ru/forma-obratnoj-svyazi.html" target="_blank" rel="noopener">НАПИСАТЬ В БАНК</a><a class="drawer-sub" href="https://slavbank.ru/vakansii.html" target="_blank" rel="noopener">ВАКАНСИИ</a>
+        </div>
+        <!-- <div class="kicker" style="margin-top:12px;">Рубрики</div>
+        <div class="svc-grid" style="margin-top:10px;">
+          <a class="svc-chip ghost"  target="_blank" rel="noopener">АРХИВ</a>
+          <a class="svc-chip ghost"  target="_blank" rel="noopener">ДОКУМЕНТЫ ДЛЯ КЛИЕНТОВ</a>
+          <a class="svc-chip ghost"  target="_blank" rel="noopener">НОВОСТИ</a>
+          <a class="svc-chip ghost"  target="_blank" rel="noopener">ПОЛЕЗНАЯ ИНФОРМАЦИЯ</a>
+        </div> -->
+      </details>
+            <details class="reveal" data-reveal="right" open>
+        <summary style="cursor:pointer; font-weight:600;">Рубрики</summary>
+        <div class="drawer-links" style="margin-top:10px;">
+          <a class="drawer-sub" href="https://slavbank.ru/category/arhiv" target="_blank" rel="noopener">АРХИВ</a>
+          <a class="drawer-sub" href="https://slavbank.ru/category/dokumenty-dlya-klientov" target="_blank" rel="noopener">ДОКУМЕНТЫ ДЛЯ КЛИЕНТОВ</a>
+          <a class="drawer-sub" href="https://slavbank.ru/category/news" target="_blank" rel="noopener">НОВОСТИ</a>
+          <a class="drawer-sub" href="https://slavbank.ru/category/poleznaya_informacia" target="_blank" rel="noopener">ПОЛЕЗНАЯ ИНФОРМАЦИЯ</a>
+        </div>
+      </details>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
-
-
 <footer>
-  <div class="container footer-v2">
-    <div class="card foot reveal" data-reveal="left">
-      <h3>СЛАВЯНБАНК · VAR7</h3>
+  <div class="container footer-grid">
+    <!-- <div class="card foot reveal" data-reveal="left">
+      <h3>СЛАВЯНБАНК · </h3>
       <div class="muted" style="font-size:13px; font-weight:300;">
-        Эксперимент: перенос контента оригинальной главной + “пафосный” дашборд в стиле VAR6.
+        тест текст текст
       </div>
-      <div class="fine">Фокус: ИП и юридические лица, включая ВЭД (экспертиза контрактов, расчёты, валютный контроль).</div>
-    </div>
+      <div class="fine">фундамент фундамент фундамент фундамент.</div>
+    </div> -->
 
     <div class="card foot reveal" data-reveal="scale">
       <h3>Контакты</h3>
-      <div class="muted" style="font-weight:300;">ВЭД</div>
-      <div><a href="tel:+7(495)198-99-51" class="mono">+7(495)198-99-51</a></div>
-      <div><a href="mailto:ved@slavbank.ru">ved@slavbank.ru</a></div>
-      <div class="muted" style="font-weight:300; margin-top:10px;">Общие</div>
+      <div><a href="tel:8162665247" class="mono">(8162) 665‑247</a></div>
       <div><a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a></div>
+      <div><a href="mailto:ved@slavbank.ru">ved@slavbank.ru</a></div>
+      <div class="fine">Адрес/график добавим из реальных страниц.</div>
     </div>
 
     <div class="card foot reveal" data-reveal="right">
-      <h3>Навигация</h3>
-      <div class="foot-links">
-        <a href="https://slavbank.ru/" target="_blank" rel="noopener">О банке</a>
-        <a href="https://slavbank.ru/tarify-banka.html" target="_blank" rel="noopener">Тарифы</a>
-        <a href="legal-entities.html" target="_blank" rel="noopener">Юрлицам</a>
-        <a href="https://ved.slavbank.ru/" target="_blank" rel="noopener">ВЭД</a>
-        <a href="support.html" target="_blank" rel="noopener">Поддержка</a>
-        <a href="https://slavbank.ru/kontakty.html" target="_blank" rel="noopener">Контакты</a>
-      </div>
-      <div class="fine">© прототип. Ссылки ведут на оригинальный сайт.</div>
-    </div>
-
-    <div class="card foot reveal" data-reveal="right">
-      <h3>Рубрики</h3>
-      <div class="foot-links">
-        <a href="https://slavbank.ru/category/arhiv" target="_blank" rel="noopener">АРХИВ</a><a href="https://slavbank.ru/category/dokumenty-dlya-klientov" target="_blank" rel="noopener">ДОКУМЕНТЫ ДЛЯ КЛИЕНТОВ</a><a href="https://slavbank.ru/category/news" target="_blank" rel="noopener">НОВОСТИ</a><a href="https://slavbank.ru/category/poleznaya_informacia" target="_blank" rel="noopener">ПОЛЕЗНАЯ ИНФОРМАЦИЯ</a>
-      </div>
-      <div class="fine">Вар. футера — для теста структуры.</div>
+      <h3>Разделы</h3>
+      <div><a href="#services">Сервисы</a></div>
+      <div><a href="#fx">ВЭД</a></div>
+      <div><a href="#tariffs">Тарифы</a></div>
+      <div><a href="#docs">Документы</a></div>
+      <div><a href="#support">Поддержка</a></div>
+      <div class="fine">© СЛАВЯНБАНК — прототип</div>
     </div>
   </div>
 </footer>
-
-
-
-<!-- SVG illustrations (VAR5) -->
-<template id="ill-rko-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Иллюстрация: РКО и документы">
-  <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#006780" stop-opacity=".9"/>
-      <stop offset="1" stop-color="#9fd5d5" stop-opacity=".85"/>
-    </linearGradient>
-    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d0b8a3" stop-opacity=".85"/>
-      <stop offset="1" stop-color="#918078" stop-opacity=".55"/>
-    </linearGradient>
-  </defs>
-
-  <circle cx="180" cy="130" r="110" fill="url(#g1)" opacity=".16"/>
-  <circle cx="740" cy="420" r="140" fill="url(#g2)" opacity=".14"/>
-
-  <path class="silk s1" d="M40 330 C160 250, 250 420, 360 340 S 560 180, 690 240 S 820 380, 860 320"
-        fill="none" stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".55" />
-  <path class="silk s2" d="M70 380 C200 300, 260 500, 420 420 S 620 220, 760 310 S 840 420, 880 360"
-        fill="none" stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".72" />
-  <path class="silk s3" d="M90 260 C210 200, 300 340, 420 280 S 610 120, 760 200 S 860 310, 880 260"
-        fill="none" stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" />
-  
-
-  <g transform="translate(565 120)">
-    <rect x="0" y="0" rx="22" ry="22" width="260" height="320" fill="#fff" opacity=".85" stroke="rgba(2,6,23,.12)" stroke-width="2"/>
-    <rect x="36" y="62" rx="10" ry="10" width="188" height="16" fill="#006780" opacity=".22"/>
-    <rect x="36" y="98" rx="10" ry="10" width="146" height="14" fill="#006780" opacity=".16"/>
-    <rect x="36" y="146" rx="10" ry="10" width="188" height="14" fill="#006780" opacity=".14"/>
-    <rect x="36" y="176" rx="10" ry="10" width="166" height="14" fill="#006780" opacity=".12"/>
-    <g transform="translate(36 230)" opacity=".9">
-      <rect x="0" y="0" rx="14" ry="14" width="188" height="54" fill="url(#g1)" opacity=".20" stroke="rgba(0,103,128,.25)"/>
-      <path d="M24 27 H124" stroke="#006780" stroke-width="4" stroke-linecap="round" opacity=".7"/>
-      <path d="M124 18 L144 27 L124 36" fill="none" stroke="#006780" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
-    </g>
-  </g>
-</svg></template>
-<template id="ill-rko-b"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Иллюстрация: РКО и документы">
-  <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#006780" stop-opacity=".9"/>
-      <stop offset="1" stop-color="#9fd5d5" stop-opacity=".85"/>
-    </linearGradient>
-    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d0b8a3" stop-opacity=".85"/>
-      <stop offset="1" stop-color="#918078" stop-opacity=".55"/>
-    </linearGradient>
-  </defs>
-
-  <circle cx="180" cy="130" r="110" fill="url(#g1)" opacity=".16"/>
-  <circle cx="740" cy="420" r="140" fill="url(#g2)" opacity=".14"/>
-
-  <path class="silk s1" d="M40 330 C160 250, 250 420, 360 340 S 560 180, 690 240 S 820 380, 860 320"
-        fill="none" stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".60" stroke-dasharray="14 12"/>
-  <path class="silk s2" d="M70 380 C200 300, 260 500, 420 420 S 620 220, 760 310 S 840 420, 880 360"
-        fill="none" stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".72" stroke-dasharray="14 12"/>
-  <path class="silk s3" d="M90 260 C210 200, 300 340, 420 280 S 610 120, 760 200 S 860 310, 880 260"
-        fill="none" stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" stroke-dasharray="14 12"/>
-  <path class="silk s3" d="M40 120 H860" fill="none" stroke="#006780" stroke-width="2" opacity=".10"/>
-
-  <g transform="translate(565 120)">
-    <rect x="0" y="0" rx="22" ry="22" width="260" height="320" fill="#fff" opacity=".85" stroke="rgba(2,6,23,.12)" stroke-width="2"/>
-    <rect x="36" y="62" rx="10" ry="10" width="188" height="16" fill="#006780" opacity=".22"/>
-    <rect x="36" y="98" rx="10" ry="10" width="146" height="14" fill="#006780" opacity=".16"/>
-    <rect x="36" y="146" rx="10" ry="10" width="188" height="14" fill="#006780" opacity=".14"/>
-    <rect x="36" y="176" rx="10" ry="10" width="166" height="14" fill="#006780" opacity=".12"/>
-    <g transform="translate(36 230)" opacity=".9">
-      <rect x="0" y="0" rx="14" ry="14" width="188" height="54" fill="url(#g1)" opacity=".20" stroke="rgba(0,103,128,.25)"/>
-      <path d="M24 27 H124" stroke="#006780" stroke-width="4" stroke-linecap="round" opacity=".7"/>
-      <path d="M124 18 L144 27 L124 36" fill="none" stroke="#006780" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
-    </g>
-  </g>
-</svg></template>
-<template id="ill-ved-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Иллюстрация: ВЭД и расчёты">
-  <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#006780" stop-opacity=".95"/>
-      <stop offset="1" stop-color="#0ea5b7" stop-opacity=".85"/>
-    </linearGradient>
-    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#9fd5d5" stop-opacity=".85"/>
-      <stop offset="1" stop-color="#d0b8a3" stop-opacity=".55"/>
-    </linearGradient>
-  </defs>
-
-  <circle cx="210" cy="420" r="150" fill="url(#g2)" opacity=".14"/>
-  <circle cx="720" cy="160" r="130" fill="url(#g1)" opacity=".14"/>
-
-  <g transform="translate(150 120)">
-    <circle cx="210" cy="160" r="150" fill="#fff" opacity=".82" stroke="rgba(2,6,23,.10)" stroke-width="2"/>
-    <circle cx="210" cy="160" r="110" fill="none" stroke="rgba(0,103,128,.18)" stroke-width="2"/>
-    <circle cx="210" cy="160" r="70" fill="none" stroke="rgba(0,103,128,.14)" stroke-width="2"/>
-    <path class="silk s1" d="M60 160 C120 80, 300 80, 360 160 C300 240, 120 240, 60 160 Z"
-          fill="none" stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".55" />
-    <path class="silk s2" d="M90 110 C150 150, 270 150, 330 110"
-          fill="none" stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".78" />
-    <path class="silk s3" d="M90 210 C150 170, 270 170, 330 210"
-          fill="none" stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".66" />
-  </g>
-
-  <path class="silk s1" d="M430 160 C520 120, 620 120, 710 160" fill="none" stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".55" />
-  <path class="silk s2" d="M430 220 C520 180, 640 180, 760 240" fill="none" stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".70" />
-  <path class="silk s3" d="M430 290 C540 260, 650 260, 820 320" fill="none" stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" />
-  
-
-  <g transform="translate(585 320)">
-    <rect x="0" y="0" rx="22" ry="22" width="280" height="170" fill="#fff" opacity=".86" stroke="rgba(2,6,23,.12)" stroke-width="2"/>
-    <path d="M44 88 L76 118 L132 58" fill="none" stroke="#006780" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>
-    <path d="M170 60 H236" stroke="rgba(0,103,128,.35)" stroke-width="5" stroke-linecap="round"/>
-    <path d="M170 96 H250" stroke="rgba(0,103,128,.28)" stroke-width="5" stroke-linecap="round"/>
-    <path d="M170 132 H232" stroke="rgba(0,103,128,.22)" stroke-width="5" stroke-linecap="round"/>
-  </g>
-</svg></template>
-<template id="ill-ved-b"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Иллюстрация: ВЭД и расчёты">
-  <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#006780" stop-opacity=".95"/>
-      <stop offset="1" stop-color="#0ea5b7" stop-opacity=".85"/>
-    </linearGradient>
-    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#9fd5d5" stop-opacity=".85"/>
-      <stop offset="1" stop-color="#d0b8a3" stop-opacity=".55"/>
-    </linearGradient>
-  </defs>
-
-  <circle cx="210" cy="420" r="150" fill="url(#g2)" opacity=".14"/>
-  <circle cx="720" cy="160" r="130" fill="url(#g1)" opacity=".14"/>
-
-  <g transform="translate(150 120)">
-    <circle cx="210" cy="160" r="150" fill="#fff" opacity=".82" stroke="rgba(2,6,23,.10)" stroke-width="2"/>
-    <circle cx="210" cy="160" r="110" fill="none" stroke="rgba(0,103,128,.18)" stroke-width="2"/>
-    <circle cx="210" cy="160" r="70" fill="none" stroke="rgba(0,103,128,.14)" stroke-width="2"/>
-    <path class="silk s1" d="M60 160 C120 80, 300 80, 360 160 C300 240, 120 240, 60 160 Z"
-          fill="none" stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".58" stroke-dasharray="10 10"/>
-    <path class="silk s2" d="M90 110 C150 150, 270 150, 330 110"
-          fill="none" stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".78" stroke-dasharray="10 10"/>
-    <path class="silk s3" d="M90 210 C150 170, 270 170, 330 210"
-          fill="none" stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".66" stroke-dasharray="10 10"/>
-  </g>
-
-  <path class="silk s1" d="M430 160 C520 120, 620 120, 710 160" fill="none" stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".58" stroke-dasharray="10 10"/>
-  <path class="silk s2" d="M430 220 C520 180, 640 180, 760 240" fill="none" stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".70" stroke-dasharray="10 10"/>
-  <path class="silk s3" d="M430 290 C540 260, 650 260, 820 320" fill="none" stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" stroke-dasharray="10 10"/>
-  
-  <g opacity=".10" stroke="#006780" stroke-width="2">
-    <path d="M420 80H860"/><path d="M420 120H860"/><path d="M420 160H860"/>
-    <path d="M420 200H860"/><path d="M420 240H860"/>
-  </g>
-
-  <g transform="translate(585 320)">
-    <rect x="0" y="0" rx="22" ry="22" width="280" height="170" fill="#fff" opacity=".86" stroke="rgba(2,6,23,.12)" stroke-width="2"/>
-    <path d="M44 88 L76 118 L132 58" fill="none" stroke="#006780" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>
-    <path d="M170 60 H236" stroke="rgba(0,103,128,.35)" stroke-width="5" stroke-linecap="round"/>
-    <path d="M170 96 H250" stroke="rgba(0,103,128,.28)" stroke-width="5" stroke-linecap="round"/>
-    <path d="M170 132 H232" stroke="rgba(0,103,128,.22)" stroke-width="5" stroke-linecap="round"/>
-  </g>
-</svg></template>
-<template id="ill-control-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Иллюстрация: валютный контроль">
-  <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#006780" stop-opacity=".95"/>
-      <stop offset="1" stop-color="#9fd5d5" stop-opacity=".85"/>
-    </linearGradient>
-    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d0b8a3" stop-opacity=".80"/>
-      <stop offset="1" stop-color="#918078" stop-opacity=".55"/>
-    </linearGradient>
-  </defs>
-
-  <circle cx="220" cy="140" r="120" fill="url(#g2)" opacity=".14"/>
-  <circle cx="740" cy="420" r="150" fill="url(#g1)" opacity=".12"/>
-
-  <path class="silk s1" d="M50 420 C160 340, 230 520, 360 430 S 560 240, 690 320 S 820 490, 870 420"
-        fill="none" stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".52" />
-  <path class="silk s2" d="M70 300 C200 230, 280 390, 420 320 S 620 160, 760 260 S 860 360, 890 300"
-        fill="none" stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".72" />
-  <path class="silk s3" d="M100 210 C220 150, 300 260, 420 220 S 610 80, 760 160 S 860 240, 890 210"
-        fill="none" stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" />
-  
-
-  <g transform="translate(300 110)">
-    <path d="M150 0 C240 40, 300 50, 300 120 C300 230, 210 320, 150 350 C90 320, 0 230, 0 120 C0 50, 60 40, 150 0 Z"
-          fill="#fff" opacity=".86" stroke="rgba(2,6,23,.12)" stroke-width="2"/>
-    <path d="M86 170 L132 216 L216 128" fill="none" stroke="#006780" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity=".72"/>
-    <path d="M52 78 C96 100, 204 100, 248 78" fill="none" stroke="rgba(0,103,128,.18)" stroke-width="4" stroke-linecap="round"/>
-  </g>
-
-  <g transform="translate(610 90)">
-    <rect x="0" y="0" rx="22" ry="22" width="250" height="320" fill="#fff" opacity=".84" stroke="rgba(2,6,23,.12)" stroke-width="2"/>
-    <rect x="30" y="54" rx="10" ry="10" width="190" height="16" fill="#006780" opacity=".18"/>
-    <rect x="30" y="90" rx="10" ry="10" width="160" height="14" fill="#006780" opacity=".14"/>
-    <rect x="30" y="136" rx="10" ry="10" width="190" height="14" fill="#006780" opacity=".12"/>
-    <rect x="30" y="168" rx="10" ry="10" width="168" height="14" fill="#006780" opacity=".10"/>
-    <rect x="30" y="214" rx="14" ry="14" width="190" height="54" fill="url(#g1)" opacity=".16" stroke="rgba(0,103,128,.20)"/>
-  </g>
-</svg></template>
-<template id="ill-control-b"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Иллюстрация: валютный контроль">
-  <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#006780" stop-opacity=".95"/>
-      <stop offset="1" stop-color="#9fd5d5" stop-opacity=".85"/>
-    </linearGradient>
-    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d0b8a3" stop-opacity=".80"/>
-      <stop offset="1" stop-color="#918078" stop-opacity=".55"/>
-    </linearGradient>
-  </defs>
-
-  <circle cx="220" cy="140" r="120" fill="url(#g2)" opacity=".14"/>
-  <circle cx="740" cy="420" r="150" fill="url(#g1)" opacity=".12"/>
-
-  <path class="silk s1" d="M50 420 C160 340, 230 520, 360 430 S 560 240, 690 320 S 820 490, 870 420"
-        fill="none" stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".56" stroke-dasharray="16 10"/>
-  <path class="silk s2" d="M70 300 C200 230, 280 390, 420 320 S 620 160, 760 260 S 860 360, 890 300"
-        fill="none" stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".72" stroke-dasharray="16 10"/>
-  <path class="silk s3" d="M100 210 C220 150, 300 260, 420 220 S 610 80, 760 160 S 860 240, 890 210"
-        fill="none" stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" stroke-dasharray="16 10"/>
-  
-  <g opacity=".10" stroke="#006780" stroke-width="2">
-    <path d="M50 80V500"/><path d="M90 80V500"/><path d="M130 80V500"/>
-  </g>
-
-  <g transform="translate(300 110)">
-    <path d="M150 0 C240 40, 300 50, 300 120 C300 230, 210 320, 150 350 C90 320, 0 230, 0 120 C0 50, 60 40, 150 0 Z"
-          fill="#fff" opacity=".86" stroke="rgba(2,6,23,.12)" stroke-width="2"/>
-    <path d="M86 170 L132 216 L216 128" fill="none" stroke="#006780" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity=".72"/>
-    <path d="M52 78 C96 100, 204 100, 248 78" fill="none" stroke="rgba(0,103,128,.18)" stroke-width="4" stroke-linecap="round"/>
-  </g>
-
-  <g transform="translate(610 90)">
-    <rect x="0" y="0" rx="22" ry="22" width="250" height="320" fill="#fff" opacity=".84" stroke="rgba(2,6,23,.12)" stroke-width="2"/>
-    <rect x="30" y="54" rx="10" ry="10" width="190" height="16" fill="#006780" opacity=".18"/>
-    <rect x="30" y="90" rx="10" ry="10" width="160" height="14" fill="#006780" opacity=".14"/>
-    <rect x="30" y="136" rx="10" ry="10" width="190" height="14" fill="#006780" opacity=".12"/>
-    <rect x="30" y="168" rx="10" ry="10" width="168" height="14" fill="#006780" opacity=".10"/>
-    <rect x="30" y="214" rx="14" ry="14" width="190" height="54" fill="url(#g1)" opacity=".16" stroke="rgba(0,103,128,.20)"/>
-  </g>
-</svg></template>
 
 <script src="motion.js"></script>
 </body>

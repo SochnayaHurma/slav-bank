@@ -3,6 +3,45 @@
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
   const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // =========================================================
+  // VAR20 — header sticky reveal (like original: header.header reveal is-in)
+  // =========================================================
+  const header = document.querySelector('.header.reveal');
+  if (header){
+    let lastY = window.scrollY || 0;
+    const threshold = 10;
+    let ticking = false;
+
+    const apply = () => {
+      const y = window.scrollY || 0;
+
+      header.classList.toggle('scrolled', y > 8);
+
+      // always show at top, show on scroll up, hide on scroll down
+      if (y <= threshold || y < lastY){
+        header.classList.add('is-in');
+      } else {
+        header.classList.remove('is-in');
+        // close mega when header hides
+        try{ closeMega(); }catch(e){}
+      }
+
+      lastY = y;
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking){
+        ticking = true;
+        requestAnimationFrame(apply);
+      }
+    }, { passive:true });
+
+    // initial
+    header.classList.add('is-in');
+    apply();
+  }
+
   // Reveal
   const revealEls = $$('.reveal');
   if ('IntersectionObserver' in window && revealEls.length){
@@ -152,6 +191,7 @@
   });
 
   // Mega menu
+  // VAR20 — mega search + fintech cards
   const mega = $('#megaPanel');
   const megaLinks = $('#megaLinks');
   const navLinks = $$('nav .navlink[data-mega]');
@@ -233,9 +273,48 @@
   }
   function openMega(key){
     if (!mega || !megaLinks) return;
+
+    // VAR20 — mega search
+    if (!document.getElementById('megaSearch')){
+      const wrap = document.createElement('div');
+      wrap.className = 'mega-search';
+      wrap.innerHTML = `<span class="mega-ic" aria-hidden="true">⌕</span><input id="megaSearch" type="search" placeholder="Поиск по разделам…" autocomplete="off"/><span class="hint">Esc · закрыть</span>`;
+      megaLinks.parentElement.insertBefore(wrap, megaLinks);
+
+      const input = wrap.querySelector('input');
+      input.addEventListener('input', () => {
+        const q = (input.value || '').trim().toLowerCase();
+        const items = Array.from(megaLinks.querySelectorAll('a.mega-link'));
+        items.forEach(a => {
+          const hay = (a.getAttribute('data-hay') || '').toLowerCase();
+          a.style.display = (!q || hay.includes(q)) ? '' : 'none';
+        });
+      });
+
+      // focus search when opening
+      setTimeout(() => { try{ input.focus(); }catch(e){} }, 0);
+    } else {
+      const input = document.getElementById('megaSearch');
+      if (input){ input.value = ''; }
+    }
+
     megaLinks.innerHTML = '';
+
+    const iconFor = (t) => {
+      const s = (t || '').toLowerCase();
+      if (s.includes('тариф')) return '₽';
+      if (s.includes('кредит')) return '↗';
+      if (s.includes('депозит')) return '⟡';
+      if (s.includes('валют')) return '₿';
+      if (s.includes('контакт') || s.includes('напис')) return '✉';
+      if (s.includes('новост')) return '✦';
+      if (s.includes('клиент')) return '⌁';
+      return '◈';
+    };
+
     (megaData[key] || []).forEach(x => {
       const a = document.createElement('a');
+      a.className = 'mega-link';
       a.href = x.href;
       a.innerHTML = `<span><strong>${x.t}</strong><br><small class="muted">${x.s}</small></span><span aria-hidden="true">→</span>`;
       megaLinks.appendChild(a);
@@ -389,4 +468,142 @@
     if (e.key === 'Escape') closeDrawer();
   });
 
+})();
+
+
+/* VAR8: dashboard tabs (services section) */
+(() => {
+  const $  = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const tabs = $$('[data-dash-tab]');
+  const panels = $$('[data-dash-panel]');
+  if (!tabs.length || !panels.length) return;
+
+  const withVT = (fn) => {
+    const d = document;
+    if (d.startViewTransition && !prefersReduced){
+      try { d.startViewTransition(() => fn()); }
+      catch { fn(); }
+    } else fn();
+  };
+
+  function setTab(key){
+    localStorage.setItem('slavbank_dash_tab', key);
+    tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.dashTab === key)));
+    panels.forEach(p => {
+      const on = p.dataset.dashPanel === key;
+      if (on){
+        p.hidden = false;
+        p.classList.add('is-active');
+        // reset silk animation in media panel by cloning svg wrapper
+        if (key === 'about'){
+          const ill = document.querySelector('.media-card[data-ill] svg');
+          if (ill){
+            const clone = ill.cloneNode(true);
+            ill.replaceWith(clone);
+          }
+        }
+      } else {
+        p.hidden = true;
+        p.classList.remove('is-active');
+      }
+    });
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => withVT(() => setTab(t.dataset.dashTab))));
+  const saved = localStorage.getItem('slavbank_dash_tab') || 'about';
+  setTab(saved);
+})();
+
+/* VAR9: document tabs (info-bank page) */
+(() => {
+  const tabs = Array.from(document.querySelectorAll('[data-doc-tab]'));
+  const panels = Array.from(document.querySelectorAll('[data-doc-panel]'));
+  if (!tabs.length || !panels.length) return;
+
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const withVT = (fn) => {
+    const d = document;
+    if (d.startViewTransition && !prefersReduced){
+      try { d.startViewTransition(() => fn()); }
+      catch { fn(); }
+    } else fn();
+  };
+
+  function setTab(key){
+    localStorage.setItem('slavbank_docs_tab', key);
+    tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.docTab === key)));
+    panels.forEach(p => {
+      const on = p.dataset.docPanel === key;
+      p.hidden = !on;
+      if (on) p.classList.add('is-active'); else p.classList.remove('is-active');
+    });
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => withVT(() => setTab(t.dataset.docTab))));
+  setTab(localStorage.getItem('slavbank_docs_tab') || 'aff');
+})();
+
+
+/* VAR10: copy-to-clipboard for requisites/table */
+(() => {
+  const toast = document.querySelector('.toast');
+  function showToast(msg){
+    if (!toast) return;
+    toast.textContent = msg || 'Скопировано';
+    toast.hidden = false;
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => { toast.hidden = true; }, 1200);
+  }
+
+  async function copyText(txt){
+    try{
+      await navigator.clipboard.writeText(txt);
+      showToast('Скопировано');
+    }catch(e){
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = txt;
+      ta.style.position='fixed';
+      ta.style.left='-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand('copy'); showToast('Скопировано'); }
+      finally{ ta.remove(); }
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest && e.target.closest('button.copy[data-copy]');
+    if (!btn) return;
+    const txt = btn.getAttribute('data-copy') || '';
+    if (!txt) return;
+    copyText(txt);
+  });
+})();
+
+
+
+/* VAR14: local form submit demo (no backend) */
+(() => {
+  function showToast(msg){
+    const toast = document.querySelector('.toast');
+    if(!toast) return;
+    toast.textContent = msg || 'Готово';
+    toast.hidden = false;
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => { toast.hidden = true; }, 1400);
+  }
+
+  document.addEventListener('submit', (e) => {
+    const form = e.target;
+    if(!form || !form.closest) return;
+    if(!form.closest('[data-form-shell]')) return;
+    e.preventDefault();
+    showToast('Сообщение подготовлено');
+    // clear common inputs
+    form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(el => el.value = '');
+  });
 })();
