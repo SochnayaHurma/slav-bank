@@ -158,25 +158,70 @@
   const menuBtn = $('#menuBtn');
 
   const megaData = {
+    all: [
+      { t:'О БАНКЕ', s:'Раздел сайта', href:'https://slavbank.ru/' },
+      { t:'НОВОСТИ', s:'Раздел сайта', href:'https://slavbank.ru/novosti.html' },
+      { t:'ТАРИФЫ БАНКА', s:'Раздел сайта', href:'https://slavbank.ru/tarify-banka.html' },
+      { t:'ЮРИДИЧЕСКИМ ЛИЦАМ', s:'Раздел сайта', href:'https://slavbank.ru/yuridicheskim-liczam.html' },
+      { t:'ЧАСТНЫМ ЛИЦАМ', s:'Раздел сайта', href:'https://slavbank.ru/chastnym-liczam.html' },
+      { t:'КЛИЕНТ-БАНК', s:'Раздел сайта', href:'https://slavbank.ru/klient-bank-online.html' },
+      { t:'ПОДДЕРЖКА', s:'Раздел сайта', href:'https://slavbank.ru/podderzhka.html' },
+      { t:'КОНТАКТЫ', s:'Раздел сайта', href:'https://slavbank.ru/kontakty.html' },
+    ],
     about: [
-      { t:'О банке', s:'Информация, реквизиты, отчётность', href:'#about' },
-      { t:'Документы', s:'Раскрытие информации и формы', href:'#docs' },
-      { t:'Контакты', s:'Телефон, email, обращения', href:'#support' },
+      { t:'О Банке', s:'Открыть раздел', href:'https://slavbank.ru/' },
+      { t:'Информация банка', s:'О Банке', href:'https://slavbank.ru/o-banke-slavyanbank-html/info_bank-html.html' },
+      { t:'Реквизиты банка', s:'О Банке', href:'https://slavbank.ru/o-banke-slavyanbank-html/rekvizity-banka.html' },
+      { t:'Органы управления', s:'О Банке', href:'https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html' },
+      { t:'Отчетность', s:'О Банке', href:'https://slavbank.ru/o-banke-html/otchetnost.html' },
+      { t:'Раскрытие информации для регулятивных целей', s:'О Банке', href:'https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html' },
+      { t:'Информация для нотариусов', s:'О Банке', href:'https://slavbank.ru/informacziya-dlya-notariusov.html' },
     ],
-    biz: [
-      { t:'РКО для бизнеса', s:'Счёт, платежи, выписки', href:'#services' },
-      { t:'ВЭД и контракты', s:'Экспертиза, расчёты, контроль', href:'#fx' },
-      { t:'Тарифы', s:'Комиссии и обслуживание', href:'#tariffs' },
+    news: [
+      { t:'Новости', s:'Открыть раздел', href:'https://slavbank.ru/novosti.html' },
     ],
-    fx: [
-      { t:'Экспертиза контрактов', s:'Проверка условий и рисков', href:'#fx' },
-      { t:'Международные расчёты', s:'SWIFT/валютные переводы', href:'#fx' },
-      { t:'Валютный контроль', s:'Сопровождение и документы', href:'#fx' },
+    tariffs: [
+      { t:'Тарифы Банка', s:'Открыть раздел', href:'https://slavbank.ru/tarify-banka.html' },
+      { t:'Тарифы по операциям в валюте РФ', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarify_rf.html' },
+      { t:'Тарифы по операциям в рублях и иностранной валюте «Славный»', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarif_slavny.html' },
+      { t:'Тарифы банка в валюте РФ и иностранной валюте «Приветственный»', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html' },
+      { t:'Тарифы по операциям в рублях и иностранной валюте «Депозитный»', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarif_depositny.html' },
+      { t:'Тарифы по операциям в иностранной валюте', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarify_valuta.html' },
     ],
-    docs: [
-      { t:'Раскрытие информации', s:'Регулятивные сведения', href:'#docs' },
-      { t:'ПОД/ФТ', s:'Политики и документы', href:'#docs' },
-      { t:'CRS/FATCA', s:'Информация и формы', href:'#docs' },
+    corp: [
+      { t:'Юридическим Лицам', s:'Открыть раздел', href:'https://slavbank.ru/yuridicheskim-liczam.html' },
+      { t:'Депозиты для юридических лиц', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html' },
+      { t:'Кредитование юридических лиц', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html' },
+      { t:'Обслуживание счетов в валюте РФ', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html' },
+      { t:'Безналичные расчеты', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html' },
+      { t:'Наличные расчеты', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html' },
+      { t:'Платежные требования с акцептом', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html' },
+      { t:'Обслуживание счетов в иностранной валюте', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html' },
+      { t:'Валютный контроль', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/valutny-kontrol.html' },
+      { t:'ПОД/ФТ/ФРОМУ/FATCA', s:'Юридическим Лицам', href:'https://slavbank.ru/pod-ft-fromu.html' },
+      { t:'CRS — обмен с ФНС', s:'Юридическим Лицам', href:'https://slavbank.ru/crs-obmen-s-fns.html' },
+      { t:'ВЭД', s:'Юридическим Лицам', href:'https://ved.slavbank.ru/' },
+    ],
+    retail: [
+      { t:'Частным Лицам', s:'Открыть раздел', href:'https://slavbank.ru/chastnym-liczam.html' },
+    ],
+    dbo: [
+      { t:'Клиент-Банк', s:'Открыть раздел', href:'https://slavbank.ru/klient-bank-online.html' },
+      { t:'Инструкция по работе в системе Клиент-Банк', s:'Клиент-Банк', href:'https://slavbank.ru/podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html' },
+      { t:'Часто задаваемые вопросы', s:'Клиент-Банк', href:'https://slavbank.ru/podderzhka-html/chasto-zadavaemye-voprosy.html' },
+      { t:'Перегенерация ЭЦП', s:'Клиент-Банк', href:'https://slavbank.ru/podderzhka-html/regen.html' },
+    ],
+    support: [
+      { t:'Поддержка', s:'Открыть раздел', href:'https://slavbank.ru/podderzhka.html' },
+      { t:'Удаленное управление', s:'Поддержка', href:'https://www.ammyy.com/ru/' },
+      { t:'Рекомендации по безопасности', s:'Поддержка', href:'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html' },
+      { t:'Обращение по 123-ФЗ', s:'Поддержка', href:'https://slavbank.ru/obrashhenie-po-123-fz.html' },
+      { t:'COVID19', s:'Поддержка', href:'https://slavbank.ru/covid19.html' },
+    ],
+    contacts: [
+      { t:'Контакты', s:'Открыть раздел', href:'https://slavbank.ru/kontakty.html' },
+      { t:'НАПИСАТЬ В БАНК', s:'Контакты', href:'https://slavbank.ru/forma-obratnoj-svyazi.html' },
+      { t:'ВАКАНСИИ', s:'Контакты', href:'https://slavbank.ru/vakansii.html' },
     ],
   };
 
@@ -244,4 +289,104 @@
     pauseBtn.textContent = paused ? 'Пауза' : 'Плей';
     if (lane) lane.style.animationPlayState = paused ? 'running' : 'paused';
   });
+
+
+  // =========================================================
+  // VAR4: illustration style switcher (A/B) for SVG slider
+  // =========================================================
+  const illBtns = $$('[data-ill-style]');
+  const illNodes = $$('[data-ill][data-ill-key]');
+  const getIllStyle = () => (localStorage.getItem('slavbank_ill_style') || 'a');
+
+  function renderIll(node, style){
+    const key = node.getAttribute('data-ill-key');
+    const tpl = document.getElementById(`ill-${key}-${style}`);
+    if (!tpl) return;
+    const frag = tpl.content.cloneNode(true);
+    node.innerHTML = '';
+    node.appendChild(frag);
+  }
+
+  function renderAllIll(style){
+    illNodes.forEach(n => renderIll(n, style));
+    // retrigger animation on active slide
+    const active = $('[data-active]') || $('.slide[aria-hidden="false"]');
+    if (active){
+      const ill = active.querySelector('[data-ill]');
+      if (ill){
+        const clone = ill.cloneNode(true);
+        ill.replaceWith(clone);
+      }
+    }
+  }
+
+  function setIllStyle(style){
+    localStorage.setItem('slavbank_ill_style', style);
+    illBtns.forEach(b => b.setAttribute('aria-pressed', String(b.getAttribute('data-ill-style') === style)));
+    renderAllIll(style);
+  }
+
+  if (illNodes.length){
+    setIllStyle(getIllStyle());
+    illBtns.forEach(b => b.addEventListener('click', () => setIllStyle(b.getAttribute('data-ill-style'))));
+  }
+
+  // =========================================================
+  // VAR4: Accordions
+  // =========================================================
+  const accs = $$('[data-acc]');
+  accs.forEach(acc => {
+    const btn = acc.querySelector('button');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const open = acc.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  // =========================================================
+  // VAR4: Mobile drawer menu
+  // =========================================================
+  const drawerOpen = $('#drawerOpen');
+  const drawer = $('#drawer');
+  const drawerBackdrop = $('#drawerBackdrop');
+  const drawerClose = $('#drawerClose');
+  const drawerSearch = $('#drawerSearch');
+  const drawerA11y = $('#drawerA11y');
+
+  function openDrawer(){
+    if (!drawer || !drawerBackdrop) return;
+    drawer.classList.add('open');
+    drawerBackdrop.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    drawerBackdrop.setAttribute('aria-hidden', 'false');
+    drawerOpen && drawerOpen.setAttribute('aria-expanded', 'true');
+    const first = drawer.querySelector('a,button');
+    first && first.focus();
+  }
+  function closeDrawer(){
+    if (!drawer || !drawerBackdrop) return;
+    drawer.classList.remove('open');
+    drawerBackdrop.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    drawerBackdrop.setAttribute('aria-hidden', 'true');
+    drawerOpen && drawerOpen.setAttribute('aria-expanded', 'false');
+  }
+
+  drawerOpen && drawerOpen.addEventListener('click', openDrawer);
+  drawerClose && drawerClose.addEventListener('click', closeDrawer);
+  drawerBackdrop && drawerBackdrop.addEventListener('click', closeDrawer);
+
+  drawer && drawer.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (a) closeDrawer();
+  });
+
+  drawerSearch && drawerSearch.addEventListener('click', () => { closeDrawer(); openSearch(); });
+  drawerA11y && drawerA11y.addEventListener('click', () => { closeDrawer(); a11yBtn && a11yBtn.click(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+
 })();

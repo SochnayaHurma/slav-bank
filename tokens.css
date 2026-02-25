@@ -82,12 +82,12 @@ html[data-a11y="1"] body{ font-size: 16px; }
 *{ box-sizing:border-box; }
 body{
   margin:0;
-  font: 15px/1.52 "Cygre", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+  font: 15px/1.60 "Cygre", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
   color: var(--c-text);
   background: var(--c-bg);
 }
 a{ color: inherit; text-decoration:none; }
-a:hover{ text-decoration: none; }
+a:hover{ text-decoration: underline; }
 img{ max-width:100%; height:auto; display:block; }
 :focus-visible{ outline: 3px solid rgba(0,103,128,.35); outline-offset: 2px; }
 
@@ -116,9 +116,6 @@ img{ max-width:100%; height:auto; display:block; }
   background: rgba(255,255,255,.70);
   backdrop-filter: blur(10px);
 }
-#searchOpen::before {
-  content: url('./search.png'); /* 🔎*/
-}
 .card{
   background: var(--c-surface);
   border: 1px solid var(--c-border);
@@ -133,7 +130,7 @@ img{ max-width:100%; height:auto; display:block; }
   border-radius: var(--r-md);
   border: 1px solid var(--c-border);
   background: #fff;
-  /* font-weight: 800; */
+  font-weight: 800;
   cursor:pointer;
   transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
@@ -172,5 +169,18 @@ img{ max-width:100%; height:auto; display:block; }
    - Muted text a bit darker for readability
    ========================================================= */
 :root{
-  --c-muted: #3f5166;
+  --c-muted: #03070d;
 }
+
+
+/* =========================================================
+   VAR4 — Typography friendliness
+   ========================================================= */
+:root{
+  --w-body: 400;
+  --w-muted: 300;
+  --w-nav: 700;
+  --w-cta: 850;
+}
+body{ font-weight: var(--w-body); }
+.muted{ font-weight: var(--w-muted); }
