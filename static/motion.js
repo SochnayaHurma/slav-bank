@@ -207,38 +207,75 @@
     return window.innerWidth <= MOBILE_BREAKPOINT;
   };
 
+  const megaData = {
+    all: [
+      { t:'О БАНКЕ', s:'Раздел сайта', href:'https://slavbank.ru/' },
+      { t:'НОВОСТИ', s:'Раздел сайта', href:'https://slavbank.ru/novosti.html' },
+      { t:'ТАРИФЫ БАНКА', s:'Раздел сайта', href:'https://slavbank.ru/tarify-banka.html' },
+      { t:'ЮРИДИЧЕСКИМ ЛИЦАМ', s:'Раздел сайта', href:'https://slavbank.ru/yuridicheskim-liczam.html' },
+      { t:'ЧАСТНЫМ ЛИЦАМ', s:'Раздел сайта', href:'https://slavbank.ru/chastnym-liczam.html' },
+      { t:'КЛИЕНТ-БАНК', s:'Раздел сайта', href:'https://slavbank.ru/klient-bank-online.html' },
+      { t:'ПОДДЕРЖКА', s:'Раздел сайта', href:'https://slavbank.ru/podderzhka.html' },
+      { t:'КОНТАКТЫ', s:'Раздел сайта', href:'https://slavbank.ru/kontakty.html' },
+    ],
+
+    news: [
+      { t:'Новости', s:'Открыть раздел', href:'https://slavbank.ru/novosti.html' },
+    ],
+    tariffs: [
+      { t:'Тарифы Банка', s:'Открыть раздел', href:'https://slavbank.ru/tarify-banka.html' },
+      { t:'Тарифы по операциям в валюте РФ', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarify_rf.html' },
+      { t:'Тарифы по операциям в рублях и иностранной валюте «Славный»', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarif_slavny.html' },
+      { t:'Тарифы банка в валюте РФ и иностранной валюте «Приветственный»', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html' },
+      { t:'Тарифы по операциям в рублях и иностранной валюте «Депозитный»', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarif_depositny.html' },
+      { t:'Тарифы по операциям в иностранной валюте', s:'Тарифы Банка', href:'https://slavbank.ru/tarify-banka-html/tarify_valuta.html' },
+    ],
+    corp: [
+      { t:'Юридическим Лицам', s:'Открыть раздел', href:'https://slavbank.ru/yuridicheskim-liczam.html' },
+      { t:'Депозиты для юридических лиц', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html' },
+      { t:'Кредитование юридических лиц', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html' },
+      { t:'Обслуживание счетов в валюте РФ', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html' },
+      { t:'Безналичные расчеты', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html' },
+      { t:'Наличные расчеты', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html' },
+      { t:'Платежные требования с акцептом', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html' },
+      { t:'Обслуживание счетов в иностранной валюте', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html' },
+      { t:'Валютный контроль', s:'Юридическим Лицам', href:'https://slavbank.ru/yuridicheskim-liczam-html/valutny-kontrol.html' },
+      { t:'ПОД/ФТ/ФРОМУ/FATCA', s:'Юридическим Лицам', href:'https://slavbank.ru/pod-ft-fromu.html' },
+      { t:'CRS — обмен с ФНС', s:'Юридическим Лицам', href:'https://slavbank.ru/crs-obmen-s-fns.html' },
+      { t:'ВЭД', s:'Юридическим Лицам', href:'https://ved.slavbank.ru/' },
+    ],
+    retail: [
+      { t:'Частным Лицам', s:'Открыть раздел', href:'https://slavbank.ru/chastnym-liczam.html' },
+    ],
+    dbo: [
+      { t:'Клиент-Банк', s:'Открыть раздел', href:'https://slavbank.ru/klient-bank-online.html' },
+      { t:'Инструкция по работе в системе Клиент-Банк', s:'Клиент-Банк', href:'https://slavbank.ru/podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html' },
+      { t:'Часто задаваемые вопросы', s:'Клиент-Банк', href:'https://slavbank.ru/podderzhka-html/chasto-zadavaemye-voprosy.html' },
+      { t:'Перегенерация ЭЦП', s:'Клиент-Банк', href:'https://slavbank.ru/podderzhka-html/regen.html' },
+    ],
+    support: [
+      { t:'Поддержка', s:'Открыть раздел', href:'https://slavbank.ru/podderzhka.html' },
+      { t:'Удаленное управление', s:'Поддержка', href:'https://www.ammyy.com/ru/' },
+      { t:'Рекомендации по безопасности', s:'Поддержка', href:'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html' },
+      { t:'Обращение по 123-ФЗ', s:'Поддержка', href:'https://slavbank.ru/obrashhenie-po-123-fz.html' },
+      { t:'COVID19', s:'Поддержка', href:'https://slavbank.ru/covid19.html' },
+    ],
+    contacts: [
+      { t:'Контакты', s:'Открыть раздел', href:'https://slavbank.ru/kontakty.html' },
+      { t:'НАПИСАТЬ В БАНК', s:'Контакты', href:'https://slavbank.ru/forma-obratnoj-svyazi.html' },
+      { t:'ВАКАНСИИ', s:'Контакты', href:'https://slavbank.ru/vakansii.html' },
+    ],
+  };
+
   function closeMega(){
     if (!mega) return;
     mega.classList.remove('open');
     navLinks.forEach(a => a.setAttribute('aria-expanded','false'));
     menuBtn && menuBtn.setAttribute('aria-expanded','false');
   }
-  function openMega(_key, trigger){
-    if (!mega || !megaLinks) return;
+  function openMega(key, trigger){
+    if (!mega) return;
 
-    // VAR20 — mega search
-    if (!document.getElementById('megaSearch')){
-      const wrap = document.createElement('div');
-      wrap.className = 'mega-search';
-      wrap.innerHTML = `<span class="mega-ic" aria-hidden="true">⌕</span><input id="megaSearch" type="search" placeholder="Поиск по разделам…" autocomplete="off"/><span class="hint">Esc · закрыть</span>`;
-      megaLinks.parentElement.insertBefore(wrap, megaLinks);
-
-      const input = wrap.querySelector('input');
-      input.addEventListener('input', () => {
-        const q = (input.value || '').trim().toLowerCase();
-        const items = Array.from(megaLinks.querySelectorAll('a.mega-link'));
-        items.forEach(a => {
-          const hay = (a.getAttribute('data-hay') || '').toLowerCase();
-          a.style.display = (!q || hay.includes(q)) ? '' : 'none';
-        });
-      });
-
-      // focus search when opening
-      setTimeout(() => { try{ input.focus(); }catch(e){} }, 0);
-    } else {
-      const input = document.getElementById('megaSearch');
-      if (input){ input.value = ''; }
-    }
     mega.classList.add('open');
 
     // Позиционирование под пунктом меню на десктопе

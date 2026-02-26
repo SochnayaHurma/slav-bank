@@ -1,0 +1,275 @@
+{% extends "base.html" %} {% block title %} Информация банка — СЛАВЯНБАНК
+{%endblock %} {% block body_content %}
+<main id="main" class="container">
+  <section class="block dashv2" id="info-bank">
+    <div class="bento">
+      <div class="bento-card bento-hero" data-reveal="scale">
+        <div class="kicker muted"><h3>Информация банка</h3></div>
+
+        <div class="dash-tabs" role="tablist" aria-label="Документы">
+          <button
+            class="seg"
+            role="tab"
+            data-doc-tab="aff"
+            aria-selected="true"
+          >
+            Аффилированные лица
+          </button>
+          <button
+            class="seg"
+            role="tab"
+            data-doc-tab="control"
+            aria-selected="false"
+          >
+            Список лиц, под контролем, либо значительным влиянием которых,
+            находится банк.
+          </button>
+          <button
+            class="seg"
+            role="tab"
+            data-doc-tab="msg"
+            aria-selected="false"
+          >
+            Сообщения
+          </button>
+        </div>
+
+        <div class="dash-panels" style="margin-top: 8px">
+          <div class="dash-panel is-active" data-doc-panel="aff">
+            <div class="muted" style="line-height: 1.6">
+              Списки аффилированных лиц (формат XLS). Показали последние
+              обновления, остальное — по раскрытию.
+            </div>
+
+            <div class="doc-list" style="margin-top: 12px">
+              <a
+                class="doc-row"
+                href="https://slavbank.ru/wp-content/uploads/afl29092021.xls"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="doc-date">29.09.2021</span>
+                <span class="doc-title">Список аффилированных лиц</span>
+                <span class="doc-ext">XLS</span>
+                <span class="doc-arrow" aria-hidden="true">→</span>
+              </a>
+
+              <a
+                class="doc-row"
+                href="https://slavbank.ru/wp-content/uploads/afl30062021.xls"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="doc-date">30.06.2021</span>
+                <span class="doc-title">Список аффилированных лиц</span>
+                <span class="doc-ext">XLS</span>
+                <span class="doc-arrow" aria-hidden="true">→</span>
+              </a>
+
+              <a
+                class="doc-row"
+                href="https://slavbank.ru/wp-content/uploads/afl28042021.xls"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="doc-date">28.04.2021</span>
+                <span class="doc-title">Список аффилированных лиц</span>
+                <span class="doc-ext">XLS</span>
+                <span class="doc-arrow" aria-hidden="true">→</span>
+              </a>
+
+              <a
+                class="doc-row"
+                href="https://slavbank.ru/wp-content/uploads/2021/03/afl25022020.xls"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="doc-date">25.02.2020</span>
+                <span class="doc-title">Список аффилированных лиц</span>
+                <span class="doc-ext">XLS</span>
+                <span class="doc-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <details class="dash-more">
+              <summary>Показать все списки</summary>
+              <div class="doc-list" style="margin-top: 10px">
+                <a
+                  class="doc-row"
+                  href="https://slavbank.ru/wp-content/uploads/2021/03/afl20112018.xls"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="doc-date">20.11.2018</span>
+                  <span class="doc-title">Список аффилированных лиц</span>
+                  <span class="doc-ext">XLS</span>
+                  <span class="doc-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a
+                  class="doc-row"
+                  href="https://slavbank.ru/wp-content/uploads/2021/03/afl_130918.xls"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="doc-date">13.09.2018</span>
+                  <span class="doc-title">Список аффилированных лиц</span>
+                  <span class="doc-ext">XLS</span>
+                  <span class="doc-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a
+                  class="doc-row"
+                  href="https://slavbank.ru/wp-content/uploads/2021/03/afl18072018.xls"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="doc-date">18.07.2018</span>
+                  <span class="doc-title">Список аффилированных лиц</span>
+                  <span class="doc-ext">XLS</span>
+                  <span class="doc-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a
+                  class="doc-row"
+                  href="https://slavbank.ru/wp-content/uploads/2021/03/afl13042018.xls"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="doc-date">13.04.2018</span>
+                  <span class="doc-title">Список аффилированных лиц</span>
+                  <span class="doc-ext">XLS</span>
+                  <span class="doc-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a
+                  class="doc-row"
+                  href="https://slavbank.ru/wp-content/uploads/2021/03/afl20032018.xls"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="doc-date">20.03.2018</span>
+                  <span class="doc-title">Список аффилированных лиц</span>
+                  <span class="doc-ext">XLS</span>
+                  <span class="doc-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </details>
+          </div>
+
+          <div class="dash-panel" data-doc-panel="control" hidden>
+            <div class="muted" style="line-height: 1.6">
+              Опубликовано: 20.07.2018 · Актуализировано: 25.03.2020. Документ в
+              формате PDF.
+            </div>
+
+            <a
+              class="doc-hero"
+              href="https://slavbank.ru/wp-content/uploads/2021/03/spisok250320.pdf"
+              target="_blank"
+              rel="noopener"
+              style="margin-top: 12px"
+            >
+              <span class="ico" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    opacity=".8"
+                  />
+                  <path
+                    d="M14 3v4a2 2 0 0 0 2 2h4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    opacity=".5"
+                  />
+                </svg>
+              </span>
+              <span>
+                <strong
+                  >Список лиц, под контролем или значительным влиянием которых
+                  находится банк</strong
+                >
+                <small class="muted">Скачать PDF</small>
+              </span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="dash-panel" data-doc-panel="msg" hidden>
+            <div class="muted" style="line-height: 1.6">
+              Сообщения об утверждении годовой бухгалтерской (финансовой)
+              отчетности.
+            </div>
+
+            <div class="doc-list" style="margin-top: 12px">
+              <a
+                class="doc-row"
+                href="https://slavbank.ru/wp-content/uploads/2021/03/message_rep2017.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="doc-date">2017</span>
+                <span class="doc-title"
+                  >Сообщение об утверждении годовой бухгалтерской (финансовой)
+                  отчетности за 2017 год</span
+                >
+                <span class="doc-ext">PDF</span>
+                <span class="doc-arrow" aria-hidden="true">→</span>
+              </a>
+
+              <a
+                class="doc-row"
+                href="https://slavbank.ru/wp-content/uploads/2021/03/message_rep2018.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="doc-date">2018</span>
+                <span class="doc-title"
+                  >Сообщение об утверждении годовой бухгалтерской (финансовой)
+                  отчетности за 2018 год</span
+                >
+                <span class="doc-ext">PDF</span>
+                <span class="doc-arrow" aria-hidden="true">→</span>
+              </a>
+
+              <a
+                class="doc-row"
+                href="https://slavbank.ru/wp-content/uploads/2021/03/message_rep2019.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="doc-date">2019</span>
+                <span class="doc-title"
+                  >Сообщение об утверждении годовой бухгалтерской (финансовой)
+                  отчетности за 2019 год · 17 апреля 2020</span
+                >
+                <span class="doc-ext">PDF</span>
+                <span class="doc-arrow" aria-hidden="true">→</span>
+              </a>
+
+              <a
+                class="doc-row"
+                href="https://slavbank.ru/wp-content/uploads/message_rep2020.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="doc-date">2020</span>
+                <span class="doc-title"
+                  >Сообщение об утверждении годовой бухгалтерской (финансовой)
+                  отчетности за 2020 год · 23 апреля 2021</span
+                >
+                <span class="doc-ext">PDF</span>
+                <span class="doc-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% include './inc/stack.html' %}
+    </div>
+  </section>
+</main>
+{% endblock %}

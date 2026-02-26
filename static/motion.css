@@ -239,6 +239,9 @@
   pointer-events:none;
 }
 .btn.primary:hover::after{ transform: translate3d(0,0,0); opacity:.9; }
+.btn.primary:hover {
+  text-decoration: none;
+}
 
 .btn.soft{
   background: linear-gradient(180deg, rgba(159,213,213,.40), rgba(159,213,213,.16));
@@ -275,6 +278,7 @@
 .btn.outline:hover{
   background: rgba(0,103,128,.06);
   border-color: rgba(0,103,128,.35);
+  text-decoration: none;
 }
 .btn.glass{
   background: rgba(255,255,255,.55);
@@ -1366,6 +1370,7 @@
   transform: translateY(-1px);
   border-color: rgba(0,103,128,.22);
   box-shadow: 0 16px 30px rgba(0,103,128,.10);
+  text-decoration: none;
 }
 .doc-ext{
   padding: 7px 10px;
@@ -1382,6 +1387,12 @@
   color: rgba(2,6,23,.88);
   line-height: 1.35;
 }
+.doc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .doc-arrow{
   margin-left:auto;
   font-weight: 900;

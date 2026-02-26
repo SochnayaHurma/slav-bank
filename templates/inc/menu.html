@@ -1,0 +1,369 @@
+{% load static %}{% comment %}
+<header class="header reveal" data-reveal="scale">
+  <div class="container row">
+    <div class="brand">
+      <img src="{% static '/logo2.png'%}" alt="СЛАВЯНБАНК" width="100%" />
+    </div>
+
+    <nav aria-label="Основное меню">
+      <a class="navlink" href="#" data-mega="about" aria-expanded="false"
+        >О банке</a
+      >
+      <a class="navlink" href="#" data-mega="biz" aria-expanded="false"
+        >Бизнесу</a
+      >
+      <a class="navlink" href="#" data-mega="fx" aria-expanded="false">ВЭД</a>
+      <a class="navlink" href="#" data-mega="docs" aria-expanded="false"
+        >Документы</a
+      >
+      <a class="navlink" href="#news">Новости</a>
+      <a class="navlink" href="#support">Поддержка</a>
+    </nav>
+
+    <div class="spacer"></div>
+
+    <button
+      class="btn menu-btn"
+      id="menuBtn"
+      aria-label="Открыть меню"
+      aria-expanded="false"
+    >
+      ☰ Меню
+    </button>
+    <a
+      class="btn primary"
+      href="#"
+      title="Переход в систему дистанционного обслуживания"
+      >Клиент‑Банк →</a
+    >
+  </div>
+
+  <div
+    class="mega card"
+    id="megaPanel"
+    role="dialog"
+    aria-label="Разделы сайта"
+  >
+    <div class="grid">
+      <div class="col">
+        <h3>Разделы</h3>
+        <div id="megaLinks" style="display: grid; gap: 4px"></div>
+      </div>
+      <div class="col">
+        <h3>Быстрые действия</h3>
+        <div style="display: grid; gap: 10px">
+          <a
+            class="tile"
+            href="#services"
+            style="padding: 12px; border-radius: 16px"
+          >
+            <div class="badge">РКО</div>
+            <div style="font-weight: 600; margin-top: 6px">Открыть счёт</div>
+            <div
+              class="muted"
+              style="font-size: 12px; margin-top: 3px; font-weight: 300"
+            >
+              Подключение сервисов для бизнеса.
+            </div>
+          </a>
+          <a class="tile" href="#fx" style="padding: 12px; border-radius: 16px">
+            <div class="badge">ВЭД</div>
+            <div style="font-weight: 600; margin-top: 6px">
+              Экспертиза контракта
+            </div>
+            <div
+              class="muted"
+              style="font-size: 12px; margin-top: 3px; font-weight: 300"
+            >
+              Поможем до сделки и на расчётах.
+            </div>
+          </a>
+          <div class="pill" style="justify-content: space-between">
+            <span class="muted" style="font-weight: 300">Подсказка</span>
+            <span style="font-weight: 300"
+              >Нажми <span class="kbd">Esc</span> чтобы закрыть</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{% endcomment %}
+<link rel="stylesheet" href="{% static 'header.css' %}" />
+
+<header class="header reveal" data-reveal="scale">
+  <div class="container row">
+    <div class="brand">
+      <img src="{% static './logo2.png'%}" alt="СЛАВЯНБАНК" width="100%" />
+    </div>
+
+    <nav aria-label="Основное меню">
+      <a class="navlink" href="#" data-mega="about" aria-expanded="false"
+        >О банке</a
+      >
+      <a class="navlink" href="#" data-mega="biz" aria-expanded="false"
+        >Бизнесу</a
+      >
+      <a class="navlink" href="#" data-mega="fx" aria-expanded="false">ВЭД</a>
+      <a class="navlink" href="#" data-mega="docs" aria-expanded="false"
+        >Документы</a
+      >
+      <a class="navlink" href="#news">Новости</a>
+      <a class="navlink" href="#support">Поддержка</a>
+    </nav>
+
+    <div class="spacer"></div>
+
+    <button
+      class="btn menu-btn"
+      id="menuBtn"
+      aria-label="Открыть меню"
+      aria-expanded="false"
+    >
+      ☰ Меню
+    </button>
+    <a
+      class="btn primary"
+      href="#"
+      title="Переход в систему дистанционного обслуживания"
+      >Клиент‑Банк →</a
+    >
+  </div>
+
+  <div
+    class="mega card"
+    id="megaPanel"
+    role="dialog"
+    aria-label="Разделы сайта"
+  >
+    <div class="header-grid">
+      <h3 style="text-align: center">Разделы</h3>
+      <div id="megaLinks" style="display: grid; gap: 4px">
+        <a
+          class="mega-link"
+          href="./o-banke-slavyanbank-html/info_bank-html.html"
+          data-hay="Информация банка О Банке https://slavbank.ru/o-banke-slavyanbank-html/info_bank-html.html"
+        >
+          <span class="mega-ic" aria-hidden="true">◈</span>
+          <span class="mega-meta">
+            <strong>Информация банка</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="{% url 'requisites_bank'%}"
+          data-hay="Реквизиты банка О Банке https://slavbank.ru/o-banke-slavyanbank-html/rekvizity-banka.html"
+        >
+          <span class="mega-ic" aria-hidden="true">◈</span>
+          <span class="mega-meta">
+            <strong>Реквизиты банка</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="{% url 'governance'%}"
+          data-hay="Органы управления О Банке https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html"
+        >
+          <span class="mega-ic" aria-hidden="true">◈</span>
+          <span class="mega-meta">
+            <strong>Органы управления</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="{% url 'reporting' %}"
+          data-hay="Отчетность О Банке https://slavbank.ru/o-banke-html/otchetnost.html"
+        >
+          <span class="mega-ic" aria-hidden="true">◈</span>
+          <span class="mega-meta">
+            <strong>Отчетность</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="{% url 'disclosur-regulatory'%}"
+          data-hay="Раскрытие информации для регулятивных целей О Банке https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html"
+        >
+          <span class="mega-ic" aria-hidden="true">◈</span>
+          <span class="mega-meta">
+            <strong>Раскрытие информации для регулятивных целей</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="{% url 'notaries'%}"
+          data-hay="Информация для нотариусов О Банке https://slavbank.ru/informacziya-dlya-notariusov.html"
+        >
+          <span class="mega-ic" aria-hidden="true">◈</span>
+          <span class="mega-meta">
+            <strong>Информация для нотариусов</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="https://slavbank.ru/tarify-banka.html"
+          data-hay="Тарифы Банка Раздел сайта https://slavbank.ru/tarify-banka.html"
+        >
+          <span class="mega-ic" aria-hidden="true">₽</span>
+          <span class="mega-meta">
+            <strong>Тарифы Банка</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="https://slavbank.ru/yuridicheskim-liczam.html"
+          data-hay="Юридическим Лицам Раздел сайта https://slavbank.ru/yuridicheskim-liczam.html"
+        >
+          <span class="mega-ic" aria-hidden="true">◈</span>
+          <span class="mega-meta">
+            <strong>Юридическим Лицам</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="https://slavbank.ru/chastnym-liczam.html"
+          data-hay="Частным лицам Раздел сайта https://slavbank.ru/chastnym-liczam.html"
+        >
+          <span class="mega-ic" aria-hidden="true">◈</span>
+          <span class="mega-meta">
+            <strong>Частным лицам</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="https://slavbank.ru/klient-bank-online.html"
+          data-hay="Клиент-Банк Раздел сайта https://slavbank.ru/klient-bank-online.html"
+        >
+          <span class="mega-ic" aria-hidden="true">⌁</span>
+          <span class="mega-meta">
+            <strong>Клиент-Банк</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="https://slavbank.ru/podderzhka.html"
+          data-hay="Поддержка Раздел сайта https://slavbank.ru/podderzhka.html"
+        >
+          <span class="mega-ic" aria-hidden="true">✦</span>
+          <span class="mega-meta">
+            <strong>Поддержка</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          class="mega-link"
+          href="https://slavbank.ru/kontakty.html"
+          data-hay="Контакты Раздел сайта https://slavbank.ru/kontakty.html"
+        >
+          <span class="mega-ic" aria-hidden="true">✉</span>
+          <span class="mega-meta">
+            <strong>Контакты</strong>
+          </span>
+          <span class="mega-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+      {% comment %}
+      <div class="col">
+        <h3>Быстрые действия</h3>
+        <div style="display: grid; gap: 10px">
+          <a
+            class="tile"
+            href="#services"
+            style="padding: 12px; border-radius: 16px"
+          >
+            <div class="badge">РКО</div>
+            <div style="font-weight: 600; margin-top: 6px">Открыть счёт</div>
+            <div
+              class="muted"
+              style="font-size: 12px; margin-top: 3px; font-weight: 300"
+            >
+              Подключение сервисов для бизнеса.
+            </div>
+          </a>
+          <a class="tile" href="#fx" style="padding: 12px; border-radius: 16px">
+            <div class="badge">ВЭД</div>
+            <div style="font-weight: 600; margin-top: 6px">
+              Экспертиза контракта
+            </div>
+            <div
+              class="muted"
+              style="font-size: 12px; margin-top: 3px; font-weight: 300"
+            >
+              Поможем до сделки и на расчётах.
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endcomment %}
+    </div>
+  </div>
+</header>
+
+<div
+  class="overlay"
+  id="searchOverlay"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Поиск по сайту"
+>
+  <div class="modal card pad">
+    <div class="row" style="align-items: center">
+      <div style="font-weight: 600">Поиск</div>
+      <div class="spacer"></div>
+      <button class="btn" id="searchClose">Закрыть</button>
+    </div>
+
+    <div class="searchbox" style="margin-top: 12px">
+      <span aria-hidden="true">🔎</span>
+      <input
+        id="searchInput"
+        placeholder="Например: валютный контроль, SWIFT, тарифы, реквизиты…"
+        autocomplete="off"
+      />
+      <span class="kbd">Enter</span>
+    </div>
+
+    <div
+      class="muted"
+      style="margin-top: 10px; font-size: 12px; font-weight: 300"
+    >
+      Демо-поиск. В проде: индексация документов и FAQ.
+    </div>
+
+    <div
+      id="searchHints"
+      style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px"
+    >
+      <button class="btn soft" type="button" data-hint="Экспертиза контрактов">
+        Экспертиза контрактов
+      </button>
+      <button
+        class="btn soft"
+        type="button"
+        data-hint="Международные расчёты (SWIFT)"
+      >
+        SWIFT
+      </button>
+      <button class="btn soft" type="button" data-hint="Валютный контроль">
+        Валютный контроль
+      </button>
+      <button class="btn soft" type="button" data-hint="Тарифы банка">
+        Тарифы
+      </button>
+      <button class="btn soft" type="button" data-hint="Реквизиты">
+        Реквизиты
+      </button>
+    </div>
+  </div>
+</div>
