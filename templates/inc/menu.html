@@ -140,138 +140,276 @@
     <div class="header-grid">
       <h3 style="text-align: center">Разделы</h3>
       <div id="megaLinks" style="display: grid; gap: 4px">
-        <a
-          class="mega-link"
-          href="./o-banke-slavyanbank-html/info_bank-html.html"
-          data-hay="Информация банка О Банке https://slavbank.ru/o-banke-slavyanbank-html/info_bank-html.html"
-        >
-          <span class="mega-ic" aria-hidden="true">◈</span>
-          <span class="mega-meta">
-            <strong>Информация банка</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="{% url 'requisites_bank'%}"
-          data-hay="Реквизиты банка О Банке https://slavbank.ru/o-banke-slavyanbank-html/rekvizity-banka.html"
-        >
-          <span class="mega-ic" aria-hidden="true">◈</span>
-          <span class="mega-meta">
-            <strong>Реквизиты банка</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="{% url 'governance'%}"
-          data-hay="Органы управления О Банке https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html"
-        >
-          <span class="mega-ic" aria-hidden="true">◈</span>
-          <span class="mega-meta">
-            <strong>Органы управления</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="{% url 'reporting' %}"
-          data-hay="Отчетность О Банке https://slavbank.ru/o-banke-html/otchetnost.html"
-        >
-          <span class="mega-ic" aria-hidden="true">◈</span>
-          <span class="mega-meta">
-            <strong>Отчетность</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="{% url 'disclosur-regulatory'%}"
-          data-hay="Раскрытие информации для регулятивных целей О Банке https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html"
-        >
-          <span class="mega-ic" aria-hidden="true">◈</span>
-          <span class="mega-meta">
-            <strong>Раскрытие информации для регулятивных целей</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="{% url 'notaries'%}"
-          data-hay="Информация для нотариусов О Банке https://slavbank.ru/informacziya-dlya-notariusov.html"
-        >
-          <span class="mega-ic" aria-hidden="true">◈</span>
-          <span class="mega-meta">
-            <strong>Информация для нотариусов</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="https://slavbank.ru/tarify-banka.html"
-          data-hay="Тарифы Банка Раздел сайта https://slavbank.ru/tarify-banka.html"
-        >
-          <span class="mega-ic" aria-hidden="true">₽</span>
-          <span class="mega-meta">
-            <strong>Тарифы Банка</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="https://slavbank.ru/yuridicheskim-liczam.html"
-          data-hay="Юридическим Лицам Раздел сайта https://slavbank.ru/yuridicheskim-liczam.html"
-        >
-          <span class="mega-ic" aria-hidden="true">◈</span>
-          <span class="mega-meta">
-            <strong>Юридическим Лицам</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="https://slavbank.ru/chastnym-liczam.html"
-          data-hay="Частным лицам Раздел сайта https://slavbank.ru/chastnym-liczam.html"
-        >
-          <span class="mega-ic" aria-hidden="true">◈</span>
-          <span class="mega-meta">
-            <strong>Частным лицам</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="https://slavbank.ru/klient-bank-online.html"
-          data-hay="Клиент-Банк Раздел сайта https://slavbank.ru/klient-bank-online.html"
-        >
-          <span class="mega-ic" aria-hidden="true">⌁</span>
-          <span class="mega-meta">
-            <strong>Клиент-Банк</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="https://slavbank.ru/podderzhka.html"
-          data-hay="Поддержка Раздел сайта https://slavbank.ru/podderzhka.html"
-        >
-          <span class="mega-ic" aria-hidden="true">✦</span>
-          <span class="mega-meta">
-            <strong>Поддержка</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
-        <a
-          class="mega-link"
-          href="https://slavbank.ru/kontakty.html"
-          data-hay="Контакты Раздел сайта https://slavbank.ru/kontakty.html"
-        >
-          <span class="mega-ic" aria-hidden="true">✉</span>
-          <span class="mega-meta">
-            <strong>Контакты</strong>
-          </span>
-          <span class="mega-arrow" aria-hidden="true">→</span>
-        </a>
+        <!-- Группа: О банке (about) -->
+        <div class="mega-group" data-mega-group="about">
+          <a
+            class="mega-link"
+            href="./o-banke-slavyanbank-html/info_bank-html.html"
+            data-hay="Информация банка О Банке https://slavbank.ru/o-banke-slavyanbank-html/info_bank-html.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>Информация банка</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="{% url 'requisites_bank'%}"
+            data-hay="Реквизиты банка О Банке https://slavbank.ru/o-banke-slavyanbank-html/rekvizity-banka.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>Реквизиты банка</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="{% url 'governance'%}"
+            data-hay="Органы управления О Банке https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>Органы управления</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="{% url 'reporting' %}"
+            data-hay="Отчетность О Банке https://slavbank.ru/o-banke-html/otchetnost.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>Отчетность</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="{% url 'disclosur-regulatory'%}"
+            data-hay="Раскрытие информации для регулятивных целей О Банке https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>Раскрытие информации для регулятивных целей</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="{% url 'notaries'%}"
+            data-hay="Информация для нотариусов О Банке https://slavbank.ru/informacziya-dlya-notariusov.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>Информация для нотариусов</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- Группа: Бизнесу (biz) -->
+        <div class="mega-group" data-mega-group="biz" hidden>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/yuridicheskim-liczam.html"
+            data-hay="Юридическим Лицам Раздел сайта https://slavbank.ru/yuridicheskim-liczam.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>Юридическим лицам</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html"
+            data-hay="Депозиты для юридических лиц Юридическим лицам https://slavbank.ru/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html"
+          >
+            <span class="mega-ic" aria-hidden="true">⟡</span>
+            <span class="mega-meta">
+              <strong>Депозиты для юридических лиц</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html"
+            data-hay="Кредитование юридических лиц Юридическим лицам https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html"
+          >
+            <span class="mega-ic" aria-hidden="true">↗</span>
+            <span class="mega-meta">
+              <strong>Кредитование юридических лиц</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html"
+            data-hay="Обслуживание счетов в валюте РФ Юридическим лицам https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>РКО в рублях</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <!-- пример подпункта: обслуживание валютных счетов -->
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html"
+            data-hay="Обслуживание счетов в иностранной валюте Юридическим лицам https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html"
+          >
+            <span class="mega-ic" aria-hidden="true">₿</span>
+            <span class="mega-meta">
+              <strong>Обслуживание валютных счетов</strong>
+              <small>Подпункт раздела «Бизнесу»</small>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/chastnym-liczam.html"
+            data-hay="Частным лицам Раздел сайта https://slavbank.ru/chastnym-liczam.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>Частным лицам</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/klient-bank-online.html"
+            data-hay="Клиент-Банк Раздел сайта https://slavbank.ru/klient-bank-online.html"
+          >
+            <span class="mega-ic" aria-hidden="true">⌁</span>
+            <span class="mega-meta">
+              <strong>Клиент-Банк</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- Группа: ВЭД (fx) -->
+        <div class="mega-group" data-mega-group="fx" hidden>
+          <a
+            class="mega-link"
+            href="https://ved.slavbank.ru/"
+            data-hay="ВЭД Юридическим лицам https://ved.slavbank.ru/"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>ВЭД‑портал</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/yuridicheskim-liczam-html/valutny-kontrol.html"
+            data-hay="Валютный контроль Юридическим лицам https://slavbank.ru/yuridicheskim-liczam-html/valutny-kontrol.html"
+          >
+            <span class="mega-ic" aria-hidden="true">₿</span>
+            <span class="mega-meta">
+              <strong>Валютный контроль</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/pod-ft-fromu.html"
+            data-hay="ПОД/ФТ/ФРОМУ/FATCA Юридическим лицам https://slavbank.ru/pod-ft-fromu.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>ПОД/ФТ/ФРОМУ/FATCA</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/crs-obmen-s-fns.html"
+            data-hay="CRS — обмен с ФНС Юридическим лицам https://slavbank.ru/crs-obmen-s-fns.html"
+          >
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>CRS — обмен с ФНС</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- Группа: Документы (docs) -->
+        <div class="mega-group" data-mega-group="docs" hidden>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/tarify-banka.html"
+            data-hay="Тарифы Банка Документы https://slavbank.ru/tarify-banka.html"
+          >
+            <span class="mega-ic" aria-hidden="true">₽</span>
+            <span class="mega-meta">
+              <strong>Тарифы Банка</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/tarify-banka-html/tarify_rf.html"
+            data-hay="Тарифы по операциям в валюте РФ Документы https://slavbank.ru/tarify-banka-html/tarify_rf.html"
+          >
+            <span class="mega-ic" aria-hidden="true">₽</span>
+            <span class="mega-meta">
+              <strong>Тарифы по операциям в валюте РФ</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/tarify-banka-html/tarif_slavny.html"
+            data-hay="Тарифы «Славный» Документы https://slavbank.ru/tarify-banka-html/tarif_slavny.html"
+          >
+            <span class="mega-ic" aria-hidden="true">₽</span>
+            <span class="mega-meta">
+              <strong>Тарифы «Славный»</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html"
+            data-hay="Тарифы «Приветственный» Документы https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html"
+          >
+            <span class="mega-ic" aria-hidden="true">₽</span>
+            <span class="mega-meta">
+              <strong>Тарифы «Приветственный»</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/tarify-banka-html/tarif_depositny.html"
+            data-hay="Тарифы «Депозитный» Документы https://slavbank.ru/tarify-banka-html/tarif_depositny.html"
+          >
+            <span class="mega-ic" aria-hidden="true">₽</span>
+            <span class="mega-meta">
+              <strong>Тарифы «Депозитный»</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            class="mega-link"
+            href="https://slavbank.ru/tarify-banka-html/tarify_valuta.html"
+            data-hay="Тарифы по операциям в иностранной валюте Документы https://slavbank.ru/tarify-banka-html/tarify_valuta.html"
+          >
+            <span class="mega-ic" aria-hidden="true">₽</span>
+            <span class="mega-meta">
+              <strong>Тарифы по операциям в иностранной валюте</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
       {% comment %}
       <div class="col">

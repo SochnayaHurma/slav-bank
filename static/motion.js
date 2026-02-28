@@ -196,6 +196,9 @@
   const megaLinks = $('#megaLinks');
   const navLinks = $$('nav .navlink[data-mega]');
   const menuBtn = $('#menuBtn');
+  const megaGroups = mega && megaLinks
+    ? Array.from(megaLinks.querySelectorAll('[data-mega-group]'))
+    : [];
 
   const MOBILE_BREAKPOINT = 980;
   const isMobileView = () => {
@@ -276,7 +279,15 @@
   function openMega(key, trigger){
     if (!mega) return;
 
+    const activeKey = key || 'about';
+
     mega.classList.add('open');
+
+    if (megaGroups && megaGroups.length){
+      megaGroups.forEach(group => {
+        group.hidden = group.dataset.megaGroup !== activeKey;
+      });
+    }
 
     // Позиционирование под пунктом меню на десктопе
     if (!isMobileView()){
