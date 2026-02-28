@@ -1,0 +1,540 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+
+<main id="main">
+  <section class="block">
+    <div class="container">
+      <div class="hero-wrap" style="padding: var(--s-5);">
+        <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
+          <div style="min-width: 280px; flex: 1 1 520px;">
+            <div class="kicker">Тарифы</div>
+            <h1 style="margin:8px 0 10px;">ТАРИФЫ БАНКА</h1>
+            <p class="muted" style="max-width:78ch;">Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК« запускает с 01.11.2025 года
+              специальные предложения для новых клиентов! Также, банк обновил тарифные сетки по денежным средствам,
+              привлекаемым в депозиты от юридических лиц и индивидуальных предпринимателей.</p>
+
+            <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
+              <a class="btn primary" href="tariffs.html" target="_blank" rel="noopener">Открыть оригинал →</a>
+              <a class="btn outline" href="#pdf">PDF</a>
+              <a class="btn glass" href="index.html">На главную</a>
+            </div>
+          </div>
+
+          <div class="pill" style="align-self:flex-start;">
+            <span class="badge">Быстрые страницы</span>
+            <a href="tariffs.html" class="mono">Тарифы банка</a>
+            <span class="muted">·</span>
+            <a href="tariffs-rub.html" class="mono">Валюта РФ</a>
+            <span class="muted">·</span>
+            <a href="tariffs-slavny.html" class="mono">«Славный»</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dashv2" id="pdf">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Просмотр тарифа</h2>
+          <p>Две роли: “контейнер PDF” (для просмотра) + “витрина” (для ссылок и текста).</p>
+        </div>
+        <div class="pill">
+          <span class="badge">Источник</span>
+          <span class="muted">PDF + div.entry-content</span>
+        </div>
+      </div>
+
+      <div class="bento">
+        <div class="bento-card" style="padding: var(--s-4); position:relative;">
+
+          <div class="pdf-shell">
+            <div class="pdf-head">
+              <div>
+                <div class="kicker">PDF-документ</div>
+                <div class="pdf-title">ТАРИФЫ БАНКА</div>
+                <div class="muted" style="margin-top:6px;">Откройте внутри страницы или скачайте файл.</div>
+              </div>
+              <div class="pdf-actions">
+                <a class="btn outline pill"
+                  href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf"
+                  target="_blank" rel="noopener">Открыть</a>
+                <a class="btn glass pill"
+                  href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf"
+                  download>Скачать</a>
+              </div>
+            </div>
+            <div class="pdf-frame">
+              <iframe title="ТАРИФЫ БАНКА"
+                src="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf#view=FitH"
+                loading="lazy"></iframe>
+            </div>
+            <div class="muted" style="margin-top:10px; font-weight:300;">
+              Если PDF не отображается (ограничения браузера/локальной политики), используйте кнопку «Открыть».
+            </div>
+          </div>
+
+
+          <div class="kicker" style="margin-top:12px;">Документы</div>
+          <div class="doc-shelf">
+            <a class="doc-card"
+              href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf"
+              target="_blank" rel="noopener">
+              <span class="doc-ext">PDF</span>
+              <span class="doc-title">ТАРИФОВ</span>
+              <span class="doc-arrow">→</span>
+            </a>
+            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarify-banka-s-01.10.2022.docx"
+              target="_blank" rel="noopener">
+              <span class="doc-ext">DOCX</span>
+              <span class="doc-title">tarify-banka-s-01.10.2022.docx</span>
+              <span class="doc-arrow">→</span>
+            </a>
+            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/standard-osobiy-s-01012026.pdf"
+              target="_blank" rel="noopener">
+              <span class="doc-ext">PDF</span>
+              <span class="doc-title">Тарифы банка в валюте РФ с 01.01.2026</span>
+              <span class="doc-arrow">→</span>
+            </a>
+            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tp-slavny.pdf" target="_blank"
+              rel="noopener">
+              <span class="doc-ext">PDF</span>
+              <span class="doc-title">Тарифы банка в валюте РФ и иностранной валюте «Славный» для новых клиентов с
+                01.12.2025г.</span>
+              <span class="doc-arrow">→</span>
+            </a>
+            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarify-v-in-valyute-s-01122025.pdf"
+              target="_blank" rel="noopener">
+              <span class="doc-ext">PDF</span>
+              <span class="doc-title">Тарифы банка в иностранной валюте с 01.12.2025г.</span>
+              <span class="doc-arrow">→</span>
+            </a>
+            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf" target="_blank"
+              rel="noopener">
+              <span class="doc-ext">PDF</span>
+              <span class="doc-title">Тарифы банка в валюте РФ и иностранной валюте «Приветственный» для новых клиентов
+                с 01.11.2025г.</span>
+              <span class="doc-arrow">→</span>
+            </a>
+            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-depositny.pdf" target="_blank"
+              rel="noopener">
+              <span class="doc-ext">PDF</span>
+              <span class="doc-title">Тарифы банка в валюте РФ и иностранной валюте «Депозитный» для новых клиентов с
+                01.11.2025г.</span>
+              <span class="doc-arrow">→</span>
+            </a>
+            <a class="doc-card"
+              href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-s-01072024-i-in-valyute-s-131025.pdf"
+              target="_blank" rel="noopener">
+              <span class="doc-ext">PDF</span>
+              <span class="doc-title">СКАЧАТЬ ТАРИФЫ БАНКА</span>
+              <span class="doc-arrow">→</span>
+            </a>
+          </div>
+
+
+          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
+          <div class="prose">
+            <div class="entry-content">
+
+              <p class="has-text-color has-background has-link-color wp-elements-5ec1e1b7a0de3db6371bad505a97a4fa">
+                <strong>Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК</strong>«<strong> запускает с 01.11.2025 года специальные
+                  предложения для новых клиентов! Также, банк обновил тарифные сетки по денежным средствам, привлекаемым
+                  в депозиты от юридических лиц и индивидуальных предпринимателей.</strong></p>
+
+
+
+              <h2
+                class="wp-block-heading has-gray-color has-text-color has-link-color wp-elements-9d40a39e619d80072ff9dd97215cf175">
+                <br>АО НКБ «СЛАВЯНБАНК»&nbsp; предлагает к рассмотрению следующие виды <strong><a
+                    href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf"
+                    target="_blank" rel="noreferrer noopener">ТАРИФОВ</a></strong><a
+                  href="https://slavbank.ru/wp-content/uploads/tarify-banka-s-01.10.2022.docx" target="_blank"
+                  rel="noreferrer noopener"> </a>банковских услуг:<br></h2>
+
+
+
+              <p><strong>— скачать:</strong></p>
+
+
+
+              <ul class="wp-block-list">
+                <li class="has-text-color has-link-color wp-elements-a76e3bdfeb8bb9bcddab7443ce57627f"><strong><a
+                      href="https://slavbank.ru/wp-content/uploads/standard-osobiy-s-01012026.pdf">Тарифы банка в валюте
+                      РФ с 01.01.2026</a></strong><a
+                    href="https://slavbank.ru/wp-content/uploads/standard-osobiy-s-01012026.pdf"><strong>г.</strong></a>
+                </li>
+
+
+
+                <li class="has-text-color has-link-color wp-elements-44ca4d1225b0d2beababcfd2ad06cc00"><strong><a
+                      href="https://slavbank.ru/wp-content/uploads/tp-slavny.pdf"><strong>Тарифы банка в валюте РФ и
+                        иностранной валюте «Славный» для новых клиентов с 01.12.2025г.</strong></a></strong></li>
+
+
+
+                <li class="has-text-color has-link-color wp-elements-acd58fe49d8cb5adac033c0eb82f49d5"><strong><a
+                      href="https://slavbank.ru/wp-content/uploads/tarify-v-in-valyute-s-01122025.pdf" target="_blank"
+                      rel="noreferrer noopener">Тарифы банка в иностранной валюте с 01.12.2025г. </a></strong></li>
+
+
+
+                <li class="has-text-color has-link-color wp-elements-25559d0f3ccfb9349d6d765181626f1f"><strong><a
+                      href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf">Тарифы банка в валюте РФ и
+                      иностранной валюте «Приветственный» для новых клиентов с 01.11.2025г.</a></strong></li>
+
+
+
+                <li class="has-text-color has-link-color wp-elements-1ff4796587d9a36d24accd1c6eaefa4d"><strong><a
+                      href="https://slavbank.ru/wp-content/uploads/tarif-depositny.pdf">Тарифы банка в валюте РФ и
+                      иностранной валюте «Депозитный» для новых клиентов с 01.11.2025г.</a></strong></li>
+              </ul>
+
+
+
+              <p
+                class="has-text-align-left has-gray-color has-text-color has-link-color wp-elements-74cabb8f365af0dbcb10079e4af67768">
+              </p>
+
+
+
+              <p><strong>— открыть на сайте:</strong></p>
+
+
+
+              <ul class="wp-block-list">
+                <li><a href="https://slavbank.ru/tarify-banka-html/tarify_rf.html" target="_blank"
+                    rel="noreferrer noopener"><strong>Тарифы банковских услуг по расчетно-кассовому обслуживанию
+                      юридических лиц,</strong> <strong>индивидуальных предпринимателей и физических лиц</strong>
+                    <strong><em>по операциям в валюте РФ (действуют с 01.01.2026г.) </em></strong></a></li>
+
+
+
+                <li><strong><a href="https://slavbank.ru/tarify-banka-html/tarif_slavny.html">Тарифы банковских услуг по
+                      расчетно-кассовому обслуживанию юридических лиц, индивидуальных предпринимателей и физических лиц
+                      <em>по операциям в иностранной валюте и валюте РФ «Славный» (действуют с 13.10.2025г. по
+                        28.02.2026г.)</em></a></strong></li>
+
+
+
+                <li><a href="tariffs-foreign-currency.html" target="_blank" rel="noreferrer noopener"><strong>Тарифы
+                      банковских услуг</strong> <strong>по обслуживанию юридических
+                      лиц,</strong>&nbsp;<strong>индивидуальных предпринимателей и физических лиц</strong>
+                    <strong><em>по операциям в иностранной валюте (действуют с 01.12.2025г.) </em></strong></a></li>
+
+
+
+                <li><strong><a href="tariff-privetstvenny.html">Тарифы банковских услуг по расчетно-кассовому
+                      обслуживанию юридических лиц, индивидуальных предпринимателей и физических лиц <em>по операциям в
+                        иностранной валюте и валюте РФ «Приветственный» (действуют с 01.11.2025г. по
+                        28.02.2026г.)</em></a></strong></li>
+
+
+
+                <li><strong><a href="tariff-depositny.html">Тарифы банковских услуг по расчетно-кассовому обслуживанию
+                      юридических лиц, индивидуальных предпринимателей и физических лиц <em>по операциям в иностранной
+                        валюте и валюте РФ «Депозитный» (действуют с 01.11.2025г. по 28.02.2026г.)</em></a></strong>
+                </li>
+              </ul>
+
+
+
+              <p class="has-text-align-center has-dark-blue-color has-text-color"><strong><span><a
+                      href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-s-01072024-i-in-valyute-s-131025.pdf"
+                      target="_blank" rel="noreferrer noopener">СКАЧАТЬ ТАРИФЫ БАНКА</a></span></strong></p>
+
+
+
+              <div class="wp-block-group">
+                <div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"></div>
+              </div>
+
+
+
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+        {% include './inc/stack.html' %}
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<template id="ill-rko-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"
+    role="img" aria-label="Иллюстрация: РКО и документы">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#006780" stop-opacity=".9" />
+        <stop offset="1" stop-color="#9fd5d5" stop-opacity=".85" />
+      </linearGradient>
+      <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#d0b8a3" stop-opacity=".85" />
+        <stop offset="1" stop-color="#918078" stop-opacity=".55" />
+      </linearGradient>
+    </defs>
+
+    <circle cx="180" cy="130" r="110" fill="url(#g1)" opacity=".16" />
+    <circle cx="740" cy="420" r="140" fill="url(#g2)" opacity=".14" />
+
+    <path class="silk s1" d="M40 330 C160 250, 250 420, 360 340 S 560 180, 690 240 S 820 380, 860 320" fill="none"
+      stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".55" />
+    <path class="silk s2" d="M70 380 C200 300, 260 500, 420 420 S 620 220, 760 310 S 840 420, 880 360" fill="none"
+      stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".72" />
+    <path class="silk s3" d="M90 260 C210 200, 300 340, 420 280 S 610 120, 760 200 S 860 310, 880 260" fill="none"
+      stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" />
+
+
+    <g transform="translate(565 120)">
+      <rect x="0" y="0" rx="22" ry="22" width="260" height="320" fill="#fff" opacity=".85" stroke="rgba(2,6,23,.12)"
+        stroke-width="2" />
+      <rect x="36" y="62" rx="10" ry="10" width="188" height="16" fill="#006780" opacity=".22" />
+      <rect x="36" y="98" rx="10" ry="10" width="146" height="14" fill="#006780" opacity=".16" />
+      <rect x="36" y="146" rx="10" ry="10" width="188" height="14" fill="#006780" opacity=".14" />
+      <rect x="36" y="176" rx="10" ry="10" width="166" height="14" fill="#006780" opacity=".12" />
+      <g transform="translate(36 230)" opacity=".9">
+        <rect x="0" y="0" rx="14" ry="14" width="188" height="54" fill="url(#g1)" opacity=".20"
+          stroke="rgba(0,103,128,.25)" />
+        <path d="M24 27 H124" stroke="#006780" stroke-width="4" stroke-linecap="round" opacity=".7" />
+        <path d="M124 18 L144 27 L124 36" fill="none" stroke="#006780" stroke-width="4" stroke-linecap="round"
+          stroke-linejoin="round" opacity=".7" />
+      </g>
+    </g>
+  </svg></template>
+<template id="ill-rko-b"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"
+    role="img" aria-label="Иллюстрация: РКО и документы">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#006780" stop-opacity=".9" />
+        <stop offset="1" stop-color="#9fd5d5" stop-opacity=".85" />
+      </linearGradient>
+      <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#d0b8a3" stop-opacity=".85" />
+        <stop offset="1" stop-color="#918078" stop-opacity=".55" />
+      </linearGradient>
+    </defs>
+
+    <circle cx="180" cy="130" r="110" fill="url(#g1)" opacity=".16" />
+    <circle cx="740" cy="420" r="140" fill="url(#g2)" opacity=".14" />
+
+    <path class="silk s1" d="M40 330 C160 250, 250 420, 360 340 S 560 180, 690 240 S 820 380, 860 320" fill="none"
+      stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".60" stroke-dasharray="14 12" />
+    <path class="silk s2" d="M70 380 C200 300, 260 500, 420 420 S 620 220, 760 310 S 840 420, 880 360" fill="none"
+      stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".72" stroke-dasharray="14 12" />
+    <path class="silk s3" d="M90 260 C210 200, 300 340, 420 280 S 610 120, 760 200 S 860 310, 880 260" fill="none"
+      stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" stroke-dasharray="14 12" />
+    <path class="silk s3" d="M40 120 H860" fill="none" stroke="#006780" stroke-width="2" opacity=".10" />
+
+    <g transform="translate(565 120)">
+      <rect x="0" y="0" rx="22" ry="22" width="260" height="320" fill="#fff" opacity=".85" stroke="rgba(2,6,23,.12)"
+        stroke-width="2" />
+      <rect x="36" y="62" rx="10" ry="10" width="188" height="16" fill="#006780" opacity=".22" />
+      <rect x="36" y="98" rx="10" ry="10" width="146" height="14" fill="#006780" opacity=".16" />
+      <rect x="36" y="146" rx="10" ry="10" width="188" height="14" fill="#006780" opacity=".14" />
+      <rect x="36" y="176" rx="10" ry="10" width="166" height="14" fill="#006780" opacity=".12" />
+      <g transform="translate(36 230)" opacity=".9">
+        <rect x="0" y="0" rx="14" ry="14" width="188" height="54" fill="url(#g1)" opacity=".20"
+          stroke="rgba(0,103,128,.25)" />
+        <path d="M24 27 H124" stroke="#006780" stroke-width="4" stroke-linecap="round" opacity=".7" />
+        <path d="M124 18 L144 27 L124 36" fill="none" stroke="#006780" stroke-width="4" stroke-linecap="round"
+          stroke-linejoin="round" opacity=".7" />
+      </g>
+    </g>
+  </svg></template>
+<template id="ill-ved-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"
+    role="img" aria-label="Иллюстрация: ВЭД и расчёты">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#006780" stop-opacity=".95" />
+        <stop offset="1" stop-color="#0ea5b7" stop-opacity=".85" />
+      </linearGradient>
+      <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#9fd5d5" stop-opacity=".85" />
+        <stop offset="1" stop-color="#d0b8a3" stop-opacity=".55" />
+      </linearGradient>
+    </defs>
+
+    <circle cx="210" cy="420" r="150" fill="url(#g2)" opacity=".14" />
+    <circle cx="720" cy="160" r="130" fill="url(#g1)" opacity=".14" />
+
+    <g transform="translate(150 120)">
+      <circle cx="210" cy="160" r="150" fill="#fff" opacity=".82" stroke="rgba(2,6,23,.10)" stroke-width="2" />
+      <circle cx="210" cy="160" r="110" fill="none" stroke="rgba(0,103,128,.18)" stroke-width="2" />
+      <circle cx="210" cy="160" r="70" fill="none" stroke="rgba(0,103,128,.14)" stroke-width="2" />
+      <path class="silk s1" d="M60 160 C120 80, 300 80, 360 160 C300 240, 120 240, 60 160 Z" fill="none"
+        stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".55" />
+      <path class="silk s2" d="M90 110 C150 150, 270 150, 330 110" fill="none" stroke="#9fd5d5" stroke-width="5"
+        stroke-linecap="round" opacity=".78" />
+      <path class="silk s3" d="M90 210 C150 170, 270 170, 330 210" fill="none" stroke="#d0b8a3" stroke-width="4"
+        stroke-linecap="round" opacity=".66" />
+    </g>
+
+    <path class="silk s1" d="M430 160 C520 120, 620 120, 710 160" fill="none" stroke="#006780" stroke-width="6"
+      stroke-linecap="round" opacity=".55" />
+    <path class="silk s2" d="M430 220 C520 180, 640 180, 760 240" fill="none" stroke="#9fd5d5" stroke-width="5"
+      stroke-linecap="round" opacity=".70" />
+    <path class="silk s3" d="M430 290 C540 260, 650 260, 820 320" fill="none" stroke="#d0b8a3" stroke-width="4"
+      stroke-linecap="round" opacity=".62" />
+
+
+    <g transform="translate(585 320)">
+      <rect x="0" y="0" rx="22" ry="22" width="280" height="170" fill="#fff" opacity=".86" stroke="rgba(2,6,23,.12)"
+        stroke-width="2" />
+      <path d="M44 88 L76 118 L132 58" fill="none" stroke="#006780" stroke-width="7" stroke-linecap="round"
+        stroke-linejoin="round" opacity=".75" />
+      <path d="M170 60 H236" stroke="rgba(0,103,128,.35)" stroke-width="5" stroke-linecap="round" />
+      <path d="M170 96 H250" stroke="rgba(0,103,128,.28)" stroke-width="5" stroke-linecap="round" />
+      <path d="M170 132 H232" stroke="rgba(0,103,128,.22)" stroke-width="5" stroke-linecap="round" />
+    </g>
+  </svg></template>
+<template id="ill-ved-b"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"
+    role="img" aria-label="Иллюстрация: ВЭД и расчёты">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#006780" stop-opacity=".95" />
+        <stop offset="1" stop-color="#0ea5b7" stop-opacity=".85" />
+      </linearGradient>
+      <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#9fd5d5" stop-opacity=".85" />
+        <stop offset="1" stop-color="#d0b8a3" stop-opacity=".55" />
+      </linearGradient>
+    </defs>
+
+    <circle cx="210" cy="420" r="150" fill="url(#g2)" opacity=".14" />
+    <circle cx="720" cy="160" r="130" fill="url(#g1)" opacity=".14" />
+
+    <g transform="translate(150 120)">
+      <circle cx="210" cy="160" r="150" fill="#fff" opacity=".82" stroke="rgba(2,6,23,.10)" stroke-width="2" />
+      <circle cx="210" cy="160" r="110" fill="none" stroke="rgba(0,103,128,.18)" stroke-width="2" />
+      <circle cx="210" cy="160" r="70" fill="none" stroke="rgba(0,103,128,.14)" stroke-width="2" />
+      <path class="silk s1" d="M60 160 C120 80, 300 80, 360 160 C300 240, 120 240, 60 160 Z" fill="none"
+        stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".58" stroke-dasharray="10 10" />
+      <path class="silk s2" d="M90 110 C150 150, 270 150, 330 110" fill="none" stroke="#9fd5d5" stroke-width="5"
+        stroke-linecap="round" opacity=".78" stroke-dasharray="10 10" />
+      <path class="silk s3" d="M90 210 C150 170, 270 170, 330 210" fill="none" stroke="#d0b8a3" stroke-width="4"
+        stroke-linecap="round" opacity=".66" stroke-dasharray="10 10" />
+    </g>
+
+    <path class="silk s1" d="M430 160 C520 120, 620 120, 710 160" fill="none" stroke="#006780" stroke-width="6"
+      stroke-linecap="round" opacity=".58" stroke-dasharray="10 10" />
+    <path class="silk s2" d="M430 220 C520 180, 640 180, 760 240" fill="none" stroke="#9fd5d5" stroke-width="5"
+      stroke-linecap="round" opacity=".70" stroke-dasharray="10 10" />
+    <path class="silk s3" d="M430 290 C540 260, 650 260, 820 320" fill="none" stroke="#d0b8a3" stroke-width="4"
+      stroke-linecap="round" opacity=".62" stroke-dasharray="10 10" />
+
+    <g opacity=".10" stroke="#006780" stroke-width="2">
+      <path d="M420 80H860" />
+      <path d="M420 120H860" />
+      <path d="M420 160H860" />
+      <path d="M420 200H860" />
+      <path d="M420 240H860" />
+    </g>
+
+    <g transform="translate(585 320)">
+      <rect x="0" y="0" rx="22" ry="22" width="280" height="170" fill="#fff" opacity=".86" stroke="rgba(2,6,23,.12)"
+        stroke-width="2" />
+      <path d="M44 88 L76 118 L132 58" fill="none" stroke="#006780" stroke-width="7" stroke-linecap="round"
+        stroke-linejoin="round" opacity=".75" />
+      <path d="M170 60 H236" stroke="rgba(0,103,128,.35)" stroke-width="5" stroke-linecap="round" />
+      <path d="M170 96 H250" stroke="rgba(0,103,128,.28)" stroke-width="5" stroke-linecap="round" />
+      <path d="M170 132 H232" stroke="rgba(0,103,128,.22)" stroke-width="5" stroke-linecap="round" />
+    </g>
+  </svg></template>
+<template id="ill-control-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"
+    role="img" aria-label="Иллюстрация: валютный контроль">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#006780" stop-opacity=".95" />
+        <stop offset="1" stop-color="#9fd5d5" stop-opacity=".85" />
+      </linearGradient>
+      <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#d0b8a3" stop-opacity=".80" />
+        <stop offset="1" stop-color="#918078" stop-opacity=".55" />
+      </linearGradient>
+    </defs>
+
+    <circle cx="220" cy="140" r="120" fill="url(#g2)" opacity=".14" />
+    <circle cx="740" cy="420" r="150" fill="url(#g1)" opacity=".12" />
+
+    <path class="silk s1" d="M50 420 C160 340, 230 520, 360 430 S 560 240, 690 320 S 820 490, 870 420" fill="none"
+      stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".52" />
+    <path class="silk s2" d="M70 300 C200 230, 280 390, 420 320 S 620 160, 760 260 S 860 360, 890 300" fill="none"
+      stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".72" />
+    <path class="silk s3" d="M100 210 C220 150, 300 260, 420 220 S 610 80, 760 160 S 860 240, 890 210" fill="none"
+      stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" />
+
+
+    <g transform="translate(300 110)">
+      <path d="M150 0 C240 40, 300 50, 300 120 C300 230, 210 320, 150 350 C90 320, 0 230, 0 120 C0 50, 60 40, 150 0 Z"
+        fill="#fff" opacity=".86" stroke="rgba(2,6,23,.12)" stroke-width="2" />
+      <path d="M86 170 L132 216 L216 128" fill="none" stroke="#006780" stroke-width="10" stroke-linecap="round"
+        stroke-linejoin="round" opacity=".72" />
+      <path d="M52 78 C96 100, 204 100, 248 78" fill="none" stroke="rgba(0,103,128,.18)" stroke-width="4"
+        stroke-linecap="round" />
+    </g>
+
+    <g transform="translate(610 90)">
+      <rect x="0" y="0" rx="22" ry="22" width="250" height="320" fill="#fff" opacity=".84" stroke="rgba(2,6,23,.12)"
+        stroke-width="2" />
+      <rect x="30" y="54" rx="10" ry="10" width="190" height="16" fill="#006780" opacity=".18" />
+      <rect x="30" y="90" rx="10" ry="10" width="160" height="14" fill="#006780" opacity=".14" />
+      <rect x="30" y="136" rx="10" ry="10" width="190" height="14" fill="#006780" opacity=".12" />
+      <rect x="30" y="168" rx="10" ry="10" width="168" height="14" fill="#006780" opacity=".10" />
+      <rect x="30" y="214" rx="14" ry="14" width="190" height="54" fill="url(#g1)" opacity=".16"
+        stroke="rgba(0,103,128,.20)" />
+    </g>
+  </svg></template>
+<template id="ill-control-b"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"
+    role="img" aria-label="Иллюстрация: валютный контроль">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#006780" stop-opacity=".95" />
+        <stop offset="1" stop-color="#9fd5d5" stop-opacity=".85" />
+      </linearGradient>
+      <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#d0b8a3" stop-opacity=".80" />
+        <stop offset="1" stop-color="#918078" stop-opacity=".55" />
+      </linearGradient>
+    </defs>
+
+    <circle cx="220" cy="140" r="120" fill="url(#g2)" opacity=".14" />
+    <circle cx="740" cy="420" r="150" fill="url(#g1)" opacity=".12" />
+
+    <path class="silk s1" d="M50 420 C160 340, 230 520, 360 430 S 560 240, 690 320 S 820 490, 870 420" fill="none"
+      stroke="#006780" stroke-width="6" stroke-linecap="round" opacity=".56" stroke-dasharray="16 10" />
+    <path class="silk s2" d="M70 300 C200 230, 280 390, 420 320 S 620 160, 760 260 S 860 360, 890 300" fill="none"
+      stroke="#9fd5d5" stroke-width="5" stroke-linecap="round" opacity=".72" stroke-dasharray="16 10" />
+    <path class="silk s3" d="M100 210 C220 150, 300 260, 420 220 S 610 80, 760 160 S 860 240, 890 210" fill="none"
+      stroke="#d0b8a3" stroke-width="4" stroke-linecap="round" opacity=".62" stroke-dasharray="16 10" />
+
+    <g opacity=".10" stroke="#006780" stroke-width="2">
+      <path d="M50 80V500" />
+      <path d="M90 80V500" />
+      <path d="M130 80V500" />
+    </g>
+
+    <g transform="translate(300 110)">
+      <path d="M150 0 C240 40, 300 50, 300 120 C300 230, 210 320, 150 350 C90 320, 0 230, 0 120 C0 50, 60 40, 150 0 Z"
+        fill="#fff" opacity=".86" stroke="rgba(2,6,23,.12)" stroke-width="2" />
+      <path d="M86 170 L132 216 L216 128" fill="none" stroke="#006780" stroke-width="10" stroke-linecap="round"
+        stroke-linejoin="round" opacity=".72" />
+      <path d="M52 78 C96 100, 204 100, 248 78" fill="none" stroke="rgba(0,103,128,.18)" stroke-width="4"
+        stroke-linecap="round" />
+    </g>
+
+    <g transform="translate(610 90)">
+      <rect x="0" y="0" rx="22" ry="22" width="250" height="320" fill="#fff" opacity=".84" stroke="rgba(2,6,23,.12)"
+        stroke-width="2" />
+      <rect x="30" y="54" rx="10" ry="10" width="190" height="16" fill="#006780" opacity=".18" />
+      <rect x="30" y="90" rx="10" ry="10" width="160" height="14" fill="#006780" opacity=".14" />
+      <rect x="30" y="136" rx="10" ry="10" width="190" height="14" fill="#006780" opacity=".12" />
+      <rect x="30" y="168" rx="10" ry="10" width="168" height="14" fill="#006780" opacity=".10" />
+      <rect x="30" y="214" rx="14" ry="14" width="190" height="54" fill="url(#g1)" opacity=".16"
+        stroke="rgba(0,103,128,.20)" />
+    </g>
+  </svg></template>
+{% endblock %}

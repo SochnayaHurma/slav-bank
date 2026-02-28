@@ -30,3 +30,12 @@ def disclosur_regulatory(request):
 
 def notaries(request):
   return render(request, "notaries.html", {})
+
+def novosti(request):
+  return render(request, "news.html", {})
+
+def tariffs_rub(request):
+  return render(request, "tariffs-rub.html", {})
+
+def tariffs_slavny(request):
+  return render(request, "tariffs-slavny.html", {})
