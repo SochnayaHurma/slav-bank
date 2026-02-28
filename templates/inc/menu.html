@@ -1,77 +1,19 @@
-{% load static %}{% comment %}
-<header class="header reveal" data-reveal="scale">
-  <div class="container row">
-    <div class="brand">
-      <img src="{% static '/logo2.png'%}" alt="СЛАВЯНБАНК" width="100%" />
-    </div>
-
-    <nav aria-label="Основное меню">
-      <a class="navlink" href="#" data-mega="about" aria-expanded="false">О банке</a>
-      <a class="navlink" href="#" data-mega="biz" aria-expanded="false">Бизнесу</a>
-      <a class="navlink" href="#" data-mega="fx" aria-expanded="false">ВЭД</a>
-      <a class="navlink" href="#" data-mega="docs" aria-expanded="false">Документы</a>
-      <a class="navlink" href="#news">Новости</a>
-      <a class="navlink" href="#support">Поддержка</a>
-    </nav>
-
-    <div class="spacer"></div>
-
-    <button class="btn menu-btn" id="menuBtn" aria-label="Открыть меню" aria-expanded="false">
-      ☰ Меню
-    </button>
-    <a class="btn primary" href="#" title="Переход в систему дистанционного обслуживания">Клиент‑Банк →</a>
-  </div>
-
-  <div class="mega card" id="megaPanel" role="dialog" aria-label="Разделы сайта">
-    <div class="grid">
-      <div class="col">
-        <h3>Разделы</h3>
-        <div id="megaLinks" style="display: grid; gap: 4px"></div>
-      </div>
-      <div class="col">
-        <h3>Быстрые действия</h3>
-        <div style="display: grid; gap: 10px">
-          <a class="tile" href="#services" style="padding: 12px; border-radius: 16px">
-            <div class="badge">РКО</div>
-            <div style="font-weight: 600; margin-top: 6px">Открыть счёт</div>
-            <div class="muted" style="font-size: 12px; margin-top: 3px; font-weight: 300">
-              Подключение сервисов для бизнеса.
-            </div>
-          </a>
-          <a class="tile" href="#fx" style="padding: 12px; border-radius: 16px">
-            <div class="badge">ВЭД</div>
-            <div style="font-weight: 600; margin-top: 6px">
-              Экспертиза контракта
-            </div>
-            <div class="muted" style="font-size: 12px; margin-top: 3px; font-weight: 300">
-              Поможем до сделки и на расчётах.
-            </div>
-          </a>
-          <div class="pill" style="justify-content: space-between">
-            <span class="muted" style="font-weight: 300">Подсказка</span>
-            <span style="font-weight: 300">Нажми <span class="kbd">Esc</span> чтобы закрыть</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-{% endcomment %}
+{% load static %}
 <link rel="stylesheet" href="{% static 'header.css' %}" />
 
 <header class="header reveal" data-reveal="scale">
   <div class="container row">
     <div class="brand">
-      <img src="{% static './logo2.png'%}" alt="СЛАВЯНБАНК" width="100%" />
+      <a href="/"><img src="{% static './logo2.png'%}" alt="СЛАВЯНБАНК" width="100%" /></a>
     </div>
 
     <nav aria-label="Основное меню">
-      <a class="navlink" href="#" data-mega="about" aria-expanded="false">О банке</a>
+      <a class="navlink" href="/" data-mega="about" aria-expanded="false">О банке</a>
       <a class="navlink" href="{% url 'novosti' %}" aria-expanded="false">Новости</a>
       <a class="navlink" href="{% url 'tariffs' %}" data-mega="tarif" aria-expanded="false">Тарифы банка</a>
-      <a class="navlink" href="{% url 'legal-entities'%}" data-mega="buisnes" aria-expanded="false">ЮРИДИЧЕСКИМ
-        ЛИЦАМ</a>
-      <a class="navlink" href="{% url 'private-persons'%}" aria-expanded="false">ЧАСТНЫМ ЛИЦАМ</a>
+      <a class="navlink" href="{% url 'legal-entities'%}" data-mega="buisnes" aria-expanded="false">Юридическим
+        лицам</a>
+      <a class="navlink" href="{% url 'private-persons'%}" aria-expanded="false">Частным лицам</a>
       <a class="navlink" href="{% url 'client-bank-online'%}" data-mega="client-bank"
         aria-expanded="false">Клиент-банк</a>
       <a class="navlink" href="{% url 'support' %}" data-mega="support">Поддержка</a>
@@ -301,6 +243,13 @@
             <span class="mega-ic" aria-hidden="true">◈</span>
             <span class="mega-meta">
               <strong>CRS — обмен с ФНС</strong>
+            </span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="mega-link" href="https://ved.slavbank.ru/" data-hay="ВЭД https://ved.slavbank.ru/">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta">
+              <strong>ВЭД</strong>
             </span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
