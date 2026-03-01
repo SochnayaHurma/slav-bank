@@ -13,24 +13,20 @@
             <p class="muted" style="max-width:78ch;">Скачать Тарифы банка »»</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="tariff-privetstvenny.html" target="_blank" rel="noopener">Открыть оригинал
-                →</a>
-              <a class="btn outline" href="#pdf">PDF</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#pdf">Перейти к содержимому</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Тарифные страницы</span>
-            <a href="tariffs.html" class="mono">База</a>
+            <span class="badge">Переход</span>
+                        <span class="muted">·</span>
+            <a href="{% url 'tariffs'%}" class="mono">Тарифы банка</a>
             <span class="muted">·</span>
-            <a href="tariffs-rub.html" class="mono">Валюта РФ</a>
+            <a href="{% url 'tariffs_slavny'%}" class="mono">«Славный»</a>
+
             <span class="muted">·</span>
-            <a href="tariffs-slavny.html" class="mono">«Славный»</a>
-            <span class="muted">·</span>
-            <a href="tariff-privetstvenny.html" class="mono">«Приветственный»</a>
-            <span class="muted">·</span>
-            <a href="tariff-depositny.html" class="mono">«Депозитный»</a>
+            <a href="{% url 'tariff-depositny'%}" class="mono">«Депозитный»</a>
           </div>
         </div>
       </div>
@@ -39,16 +35,7 @@
 
   <section class="block dashv2" id="pdf">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Просмотр тарифа</h2>
-          <p>Контейнер PDF (просмотр) + витринная подача ссылок/пояснений.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">PDF + div.entry-content</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
@@ -80,51 +67,14 @@
           </div>
 
 
-          <div class="kicker" style="margin-top:12px;">Документы</div>
-          <div class="doc-shelf">
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">Скачать Тарифы банка »»</span>
-              <span class="doc-arrow">→</span>
-            </a>
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny-1.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">tarif-privetstvenny</span>
-              <span class="doc-arrow">→</span>
-            </a>
-          </div>
-
-
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
-
-              <p class="has-text-align-right"><strong><a
-                    href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf">Скачать Тарифы банка
-                    »»</a></strong></p>
-
-
-
-              <p class="has-text-align-center"><strong>ТАРИФЫ БАНКОВСКИХ УСЛУГ</strong></p>
-
-
-
-              <p class="has-text-align-center">по расчетно-кассовому обслуживанию юридических лиц,<br>индивидуальных
-                предпринимателей и физических лиц<br><strong><em>по операциям в иностранной валюте и валюте РФ</em>
-                  «Приветственный»</strong> <a
-                  href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf"><em><strong>с 1 ноября 2025 года
-                      по 28 февраля 2026 года</strong></em></a></p>
-
 
 
               <div data-wp-interactive="core/file" class="wp-block-file"><object
                   data-wp-bind--hidden="!state.hasPdfPreview" class="wp-block-file__embed"
                   data="./Тарифы банка в валюте РФ и иностранной валюте «Приветственный» -_files/tarif-privetstvenny-11.pdf"
-                  type="application/pdf" aria-label="Вставка tarif-privetstvenny"></object><a
-                  id="wp-block-file--media-3cc0e9da-19b8-4cf4-b309-5a16bb776f2e"
-                  href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny-1.pdf">tarif-privetstvenny</a><a
+                  type="application/pdf" aria-label="Вставка tarif-privetstvenny"></object><span>tarif-privetstvenny   </span><a
                   href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny-1.pdf"
                   class="wp-block-file__button wp-element-button" download=""
                   aria-describedby="wp-block-file--media-3cc0e9da-19b8-4cf4-b309-5a16bb776f2e">Скачать</a></div>

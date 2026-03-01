@@ -13,19 +13,18 @@
               всегда можете прислать нам своё резюме и мы обязательно рассмотрим его.</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="vacancies.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстро</span>
-            <a href="vacancies.html" class="mono">Вакансии</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'support' %}" class="mono">Поддержка</a>
             <span class="muted">·</span>
-            <a href="write-to-bank.html" class="mono">Написать</a>
+            <a href="{% url 'write-to-bank' %}" class="mono">Написать</a>
             <span class="muted">·</span>
-            <a href="covid19.html" class="mono">COVID19</a>
+            <a href="{% url 'covid19' %}" class="mono">COVID19</a>
           </div>
         </div>
       </div>
@@ -34,23 +33,13 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>Оформление: витрина + читабельный текст из <span class="mono">div.entry-content</span>.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
 
 
 
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose" id="form">
             <div class="entry-content">
 
@@ -89,7 +78,7 @@
 
 
 
-              <p>  Или связаться с нами по&nbsp;<strong><a href="contacts.html" target="_blank"
+              <p>  Или связаться с нами по&nbsp;<strong><a href="{% url 'contacts' %}" target="_blank"
                     rel="noreferrer noopener">контактным телефонам</a></strong>.</p>
             </div>
           </div>

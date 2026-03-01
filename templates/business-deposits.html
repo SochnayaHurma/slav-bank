@@ -13,20 +13,17 @@
             <p class="muted" style="max-width:78ch;">Ставка до 14,5%</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="business-deposits.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
-              <a class="btn outline" href="write-to-bank.html#form">Связаться</a>
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
+              <a class="btn outline" href="{% url 'write-to-bank' %}#form">Связаться</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Бизнес</span>
-            <a href="legal-entities.html" class="mono">Юр. лицам</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'legal-entities'%}" class="mono">Юр. лицам</a>
             <span class="muted">·</span>
-            <a href="business-deposits.html" class="mono">Депозиты</a>
-            <span class="muted">·</span>
-            <a href="business-lending.html" class="mono">Кредитование</a>
+            <a href="{% url 'business-lending'%}" class="mono">Кредитование</a>
           </div>
         </div>
       </div>
@@ -35,17 +32,6 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>Витринная подача + исходный текст из <span class="mono">div.entry-content</span>.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
-
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
 
@@ -53,85 +39,27 @@
           <div class="alert">
             <div class="alert-dot" aria-hidden="true"></div>
             <div>
-              <div style="font-weight:600;">Юридическим лицам</div>
-              <div class="muted" style="margin-top:4px;">Комплексное обслуживание бизнеса и сопровождение ВЭД: расчёты,
-                валютный контроль, поддержка.</div>
+              <div style="font-weight:600;">Депозиты для юридических лиц</div>
+              <div class="muted" style="margin-top:4px;">Ставка до 14,5%</div>
             </div>
           </div>
 
-          <div class="kicker">Ключевые продукты и сервисы</div>
-          <div class="services">
-            <a class="service-card" href="account-service.html">
-              <div class="service-title">Расчётно‑кассовое обслуживание</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-
-            <a class="service-card" href="cashless-payments.html">
-              <div class="service-title">Безналичные платежи</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-
-            <a class="service-card" href="currency-control.html">
-              <div class="service-title">Валютный контроль / ВЭД</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-
-            <a class="service-card" href="fx-account-service.html">
-              <div class="service-title">Счета в иностранной валюте</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-
-            <a class="service-card" href="support.html">
-              <div class="service-title">Клиент‑Банк</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-
-            <a class="service-card" href="write-to-bank.html">
-              <div class="service-title">Написать в банк</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-          </div>
           <div class="summary-grid">
-            <div class="summary-card">
-              <div class="kicker">Фокус</div>
-              <div class="summary-text">🗹 Ежемесячная выплата %; 🗹 Плавающая или фиксированная процентная ставка; 🗹
-                Бонус – начисление процентов на остаток.</div>
+            <div class="summary-card ">
+              <div class="kicker">Ежемесячная выплата %</div>
+
             </div>
 
             <div class="summary-card">
-              <div class="kicker">Сервисы</div>
-              <div class="summary-text">Новым клиентам: специальное предложение по обслуживанию счета!</div>
+              <div class="kicker">Плавающая или фиксированная процентная ставка</div>
             </div>
 
             <div class="summary-card">
-              <div class="kicker">Как начать</div>
-              <div class="summary-text">Более подробную информацию Вы можете получить по телефонам:</div>
+              <div class="kicker">Бонус – начисление процентов на остаток.</div>
             </div>
           </div>
-          <div class="chip-row"><a class="chip" href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf"
-              target="_blank" rel="noopener">специальное предложение по обслуживанию счета!</a></div>
-
-          <div class="kicker" style="margin-top:12px;">Документы</div>
-          <div class="doc-shelf">
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">специальное предложение по обслуживанию счета!</span>
-              <span class="doc-arrow">→</span>
-            </a>
-          </div>
-
-
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
-
-              <p class="has-text-align-center has-large-font-size"> <strong>Ставка до 14,5%</strong></p>
-
-
-
-              <p><br>   🗹 <strong>Ежемесячная выплата %</strong>;<br>   🗹 <strong>Плавающая или фиксированная
-                  процентная ставка;</strong><br>   🗹 <strong>Бонус – начисление процентов на остаток</strong>.</p>
 
 
 

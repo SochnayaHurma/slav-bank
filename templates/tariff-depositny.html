@@ -13,23 +13,19 @@
             <p class="muted" style="max-width:78ch;">Скачать Тарифы банка »»</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="tariff-depositny.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#pdf">PDF</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#pdf">Перейти к содержимому</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Тарифные страницы</span>
-            <a href="tariffs.html" class="mono">База</a>
+            <span class="badge">Переход</span>
             <span class="muted">·</span>
-            <a href="tariffs-rub.html" class="mono">Валюта РФ</a>
+            <a href="{% url 'tariffs'%}" class="mono">Тарифы банка</a>
             <span class="muted">·</span>
-            <a href="tariffs-slavny.html" class="mono">«Славный»</a>
+            <a href="{% url 'tariffs_slavny'%}" class="mono">«Славный»</a>
             <span class="muted">·</span>
-            <a href="tariff-privetstvenny.html" class="mono">«Приветственный»</a>
-            <span class="muted">·</span>
-            <a href="tariff-depositny.html" class="mono">«Депозитный»</a>
+            <a href="{% url 'tariff_privetstvenny'%}" class="mono">«Приветственный»</a>
           </div>
         </div>
       </div>
@@ -38,16 +34,7 @@
 
   <section class="block dashv2" id="pdf">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Просмотр тарифа</h2>
-          <p>Контейнер PDF (просмотр) + витринная подача ссылок/пояснений.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">PDF + div.entry-content</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
@@ -78,52 +65,12 @@
             </div>
           </div>
 
-
-          <div class="kicker" style="margin-top:12px;">Документы</div>
-          <div class="doc-shelf">
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-depositny.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">Скачать Тарифы банка »»</span>
-              <span class="doc-arrow">→</span>
-            </a>
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">tarif-depositny</span>
-              <span class="doc-arrow">→</span>
-            </a>
-          </div>
-
-
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
-
-              <p class="has-text-align-right"><strong><a
-                    href="https://slavbank.ru/wp-content/uploads/tarif-depositny.pdf">Скачать Тарифы банка
-                    »»</a></strong></p>
-
-
-
-              <p class="has-text-align-center"><strong>ТАРИФЫ БАНКОВСКИХ УСЛУГ</strong></p>
-
-
-
-              <p class="has-text-align-center">по расчетно-кассовому обслуживанию юридических лиц,<br>индивидуальных
-                предпринимателей и физических лиц<br><strong><em>по операциям в иностранной валюте и валюте РФ</em>
-                  «Депозитный»</strong> <em><strong><a
-                      href="https://slavbank.ru/wp-content/uploads/tarif-depositny.pdf">с 1 ноября 2025 года по 28
-                      февраля 2026 года</a></strong></em></p>
-
-
-
               <div data-wp-interactive="core/file" class="wp-block-file"><object
                   data-wp-bind--hidden="!state.hasPdfPreview" class="wp-block-file__embed"
                   data="./Тарифы по операциям в рублях и иностранной валюте Депозитный -_files/tarif-depositny-11.pdf"
-                  type="application/pdf" aria-label="Вставка tarif-depositny"></object><a
-                  id="wp-block-file--media-707d70b2-769e-40de-83fa-602a2d7b65e6"
-                  href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf">tarif-depositny</a><a
+                  type="application/pdf" aria-label="Вставка tarif-depositny"></object><span>tarif-depositny   </span><a
                   href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf"
                   class="wp-block-file__button wp-element-button" download=""
                   aria-describedby="wp-block-file--media-707d70b2-769e-40de-83fa-602a2d7b65e6">Скачать</a></div>
@@ -131,132 +78,11 @@
           </div>
         </div>
 
-        <div class="side-stack">
-          <div class="bento-card" style="padding: var(--s-4); position:relative;">
-            <div class="kicker">Клиент‑Банк</div>
-            <h3 style="margin:8px 0 8px;">Быстрые действия</h3>
-
-            <div class="row" style="gap:10px; flex-wrap:wrap; margin-top: 8px;">
-              <a class="btn primary pill" href="https://dbo.slavbank.ru:20101/" target="_blank" rel="noopener">Войти
-                →</a>
-              <a class="btn outline pill" href="https://slavbank.ru/zapros-na-kreditovanie-msp.html" target="_blank"
-                rel="noopener">Заявка МСП</a>
-            </div>
-
-            <div class="rates" style="margin-top: 14px;">
-              <div class="kicker">Курсы валют</div>
-              <div class="rates-grid">
-                <div class="rate">
-                  <div class="k">USD</div>
-                  <div class="v"><span>77,00</span><span class="sep">/</span><span>80,00</span></div>
-                </div>
-                <div class="rate">
-                  <div class="k">EUR</div>
-                  <div class="v"><span>89,00</span><span class="sep">/</span><span>93,00</span></div>
-                </div>
-                <div class="rate">
-                  <div class="k">CNY</div>
-                  <div class="v"><span>11,20</span><span class="sep">/</span><span>11,90</span></div>
-                </div>
-              </div>
-              <div class="muted" style="margin-top:8px;">Данные взяты со страницы банка (как есть).</div>
-            </div>
-          </div>
-
-          <div class="bento-card" style="padding: var(--s-4); position:relative;">
-            <div class="kicker">Новости</div>
-            <h3 style="margin:8px 0 10px;">Последние публикации</h3>
-            <div class="news-mini-grid">
-              <a class="news-mini"
-                href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-valyute-rf.html" target="_blank"
-                rel="noopener">
-                <div class="meta">19.12.2025</div>
-                <div class="t">Изменение тарифов банка по операциям в валюте РФ!</div>
-              </a>
-              <a class="news-mini" href="https://slavbank.ru/news/o-rezhime-raboty-banka-v-prazdnichnie-dni.html"
-                target="_blank" rel="noopener">
-                <div class="meta">12.12.2025</div>
-                <div class="t">О режиме работы банка в праздничные дни</div>
-              </a>
-              <a class="news-mini"
-                href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-011225.html"
-                target="_blank" rel="noopener">
-                <div class="meta">19.11.2025</div>
-                <div class="t">Изменение тарифов банка по операциям в иностранной валюте!</div>
-              </a>
-              <a class="news-mini" href="https://slavbank.ru/poleznaya_informacia/tarif_depositny_s_01112025.html"
-                target="_blank" rel="noopener">
-                <div class="meta">01.11.2025</div>
-                <div class="t">С 01.11.2025 обновлены тарифные сетки по депозитам юридических лиц + специальное
-                  предложение по обслуживанию счетов!</div>
-              </a>
-              <a class="news-mini" href="https://slavbank.ru/poleznaya_informacia/tarif_privetstvenny_s_011125.html"
-                target="_blank" rel="noopener">
-                <div class="meta">01.11.2025</div>
-                <div class="t">С 01.11.2025 специальное предложение по обслуживанию счетов для новых клиентов</div>
-              </a>
-            </div>
-          </div>
-
-          <div class="bento-card" id="support" style="padding: var(--s-4); position:relative;">
-            <div class="kicker">Контакты</div>
-            <div class="support-card">
-              <div class="support-ico" aria-hidden="true">☎</div>
-              <div>
-                <div style="font-weight:600;">Свяжитесь с банком</div>
-                <div class="muted" style="margin-top:4px;">Телефон, email и адреса — без поиска по сайту.</div>
-                <div class="row" style="gap:10px; flex-wrap:wrap; margin-top:10px;">
-                  <a class="btn primary pill" href="tel:8162665247">Позвонить</a>
-                  <a class="btn glass pill" href="mailto:nkb@slavbank.ru">Написать</a>
-                </div>
-                <div class="muted" style="margin-top:10px;">
-                  <strong>ВЭД:</strong> <a href="mailto:ved@slavbank.ru">ved@slavbank.ru</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        {% include './inc/stack.html' %}
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="foot">
-          <div class="brand" style="gap:10px;">
-            <div class="logo" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4Z" stroke="white" stroke-width="2"
-                  opacity=".9" />
-              </svg>
-            </div>
-            <div>
-              <div style="font-weight:600;">СЛАВЯНБАНК</div>
-              <div class="muted" style="font-weight:300;">Тарифы по операциям в рублях и иностранной валюте «Депозитный»
-              </div>
-            </div>
-          </div>
-          <div class="fine">VAR13 · Тарифная страница с PDF‑контейнером и витринным оформлением.</div>
-        </div>
-
-        <div class="foot">
-          <h3>Контакты</h3>
-          <a href="tel:8162665247">(8162) 66‑52‑47</a><br />
-          <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a><br />
-          <a href="https://slavbank.ru/" target="_blank" rel="noopener">slavbank.ru →</a>
-        </div>
-
-        <div class="foot">
-          <h3>Тарифы</h3>
-          <a href="tariffs.html">Тарифы банка</a><br />
-          <a href="tariffs-rub.html">Валюта РФ</a><br />
-          <a href="tariffs-foreign-currency.html">Иностранная валюта</a><br />
-        </div>
-      </div>
-    </div>
-  </footer>
 </main>
 
 <template id="ill-rko-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"

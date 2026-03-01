@@ -14,19 +14,18 @@
               заявителей, направленных:</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="write-to-bank.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстро</span>
-            <a href="vacancies.html" class="mono">Вакансии</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'vacancies'%}" class="mono">Вакансии</a>
             <span class="muted">·</span>
-            <a href="write-to-bank.html" class="mono">Написать</a>
+            <a href="{% url 'write-to-bank'%}" class="mono">Написать</a>
             <span class="muted">·</span>
-            <a href="covid19.html" class="mono">COVID19</a>
+            <a href="{% url 'covid19' %}" class="mono">COVID19</a>
           </div>
         </div>
       </div>
@@ -35,68 +34,13 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>Оформление: витрина + читабельный текст из <span class="mono">div.entry-content</span>.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
-
-
-
-          <div class="form-shell" data-form-shell>
-            <div class="kicker">Форма</div>
-            <h3 style="margin:8px 0 10px;">Обратная связь</h3>
-
-            <div class="form-wrap">
-              <form action="#" class="wpcf7-form init" aria-label="Контактная форма" novalidate="novalidate"
-                data-status="init">
-                <fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="277"><input
-                    type="hidden" name="_wpcf7_version" value="6.1.2"><input type="hidden" name="_wpcf7_locale"
-                    value="ru_RU"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f277-p1237-o1"><input
-                    type="hidden" name="_wpcf7_container_post" value="1237"><input type="hidden"
-                    name="_wpcf7_posted_data_hash" value=""><input type="hidden" name="_wpcf7_recaptcha_response"
-                    value="0cAFcWeA4TBNIRlCoRKdnqkr969raGXtEviigTUg-PzkOHmfjaFIpKaGp62T5VhBLkACJaFLBJEvpHBZDTEtuWOZqEszVxGfE7_q9ajCiV5EJRkorD3evUrXv2sBTLiBXJGrQTKcVNBVJHJ2adZ_PHHs083kQ6OlHNjV0sKD1JJnPM0soEWdX5PhDVqtN2jaRomk9FO3KHWn4A4et8I-RO91_gCgNnQumq_7p9mtDn2WAHVp2ddsqW-FRBoPyllC_fIqXcpyPpQJloT-_eptXtbzwT_587mlV9RS4Z3bcpK1zbYnJ4mi8Ekt0cQKI2xeJvKeC-XyY9ee-7d1gXSyu0DbsCUczsqT3hlSEWuLwQ9blOT70rDiByn4bnijKE1vwj63kdnzZHK4V7PJ1d-K980AlUN__iwgl_dbXJKyvVPZgFjJRdCjdyKeMxt0RJc8JpE34aivm9HT2LGjz378N0nj2iigMEWYcNpM0uEqALB-K_29YzMzP0vZ0Y3CgnlzVmMrH4FJZDa_HbASEfYg5kgcTm_O8qmjIxj9W4S8mkI0SLyd4ALV14h7MXODFPbSvHE0aIZHwBDJpC65yzbwAUr2vi0x-mBguxdwXvPV8HaGshLAFPyOTo7uxZ6oiS2enpZ7B_bX_txYr3Ii69xmIYgVOkqpHvuO38NuPOhwZ16fLf9VJinTe6RHchF7RFNNff4lXX-yKnUXJiGj0tJIOE29iXlsivVR5v4jTdFLijG9RvseiC3MWsRSZwq7WJvcs7EHerJaKDiTyUT6JBvIRa-OVFPdhktV8iw6Dsy4TBGxlz4Q3cQjArc71pAyPA1elSA7bw__DunTG12iPUs7Ci00zBjJUYIPTZgAxjnAm_cmeJ-W1OkeiijPXkIHVRh1tXOZHF2ywM3WnLTg-o6383yloMVslQYn8MGj0TkOGxcTAg1CK5vQTpYWiWCywXZchN71Nqts7KSQhi7ZTnWJOfp6ht2AF3C-7ah7Zt_hlCaSgI1cS5zR88Z55cqA-xdHDM3_f_U1T5J6Cfx7N4wCwgTIWDdNREv9lJS00MXJMFixf6XglXTnvdDm1KhXtwGsVEpjJr0uiyfi0TkmkySJ8w6iHyR7PuSIG0Qso-vuu4csVluQzXjz-FHXOqzX2xLGRWRdAR9KPbPOS8y2I6E3r8pfcrWrRMpdYGJbdL2nh59ESY2HtwilS5PlJlbfku5zI-pGRB-UrxEmrvLwEMxcTxdDTFGuB73nR2qAjBae4FZHdUjvzy2oWymdUJOoslGzOYtWP8QGCQ8VbbxB_uPU25VeZHtkH36PHlOzTsykoML5s3FLwQTLS0OV4KOiNHAoUIs6cAu6K157jcW8XZDFM5ljXbNccsOFkqpG5pOJZ_VAZ3Licj0fO_22ovbDbR4VsgIlv-S_ck8uBWcCnZOPTzLmbDO3XxQFxugYDpv2EeVxgWBk8h2yOJ2aJcpNo-kMRbCZJYn7FH4SPtCQ0dS5r1lZ-Fs5Z_gGDhJvTWHqt-wbI4PMdHI5t0qRNe-03olfuUHoD5C6KZqn_OhKD-QUwQxyOKM5Ybvak2SWxsF2QDLZMNBFNtJSy-M7vp2DpAcXY4eLGH0J9tPqKD51rKb4LnO_G_rpc80sn455R9LN_k-ih-eUkTCYhhWCoqJAKwL6eEOOewzdJiBjSRvREaqqxJG6hMygTbd_jrCPnLqbb7HkYbZkUA3hML2YR0-_8znH6eEAMiGIQO8H5E1nJ0kPUSJGOdPIHLfG-wc1cGwkvBRTQLKWYFP6ndmyL_MZFQ3PB3-jSdPst348waer0Xoufrq1Q7pWb98n00dF7WNzqQJ7Dekj6CU_zt4rk5tdVr806W6gBT8Z5KF9lYTaI_-ZoJOwyo67ul9wuX_ergYmj7EN-uEFMQGZLXxPTVd06QzL3WhCIC8BPX5Iu-TCBLo34Am0_qCZe1-7uVxRoB3J9ZZoUdkfRgKQS54rmKP_jTp5vttImGKRSg9eHAJfT-DRxJzGShDzCY-oNe8n0_DFwtJKoPcrXdfDcGj_1yJY4W6aFS6bXnGmVUA1K2YDSTROtAwyXjdz_RF0YsCCD3kdr_6gOcMYFuu98PaEbfC273MJ4x4m5SmPPFeynfq_EASFlSD-m5uqn8b6TqbW93Js1cFrTEFb2-zOrduOBb9TyXahGK25pRdzqrl6KF">
-                </fieldset>
-                <p><label> Данные для обратной связи (телефон, email)<br>
-                    <span class="wpcf7-form-control-wrap" data-name="your-subject"><input size="40" maxlength="400"
-                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
-                        aria-invalid="false" value="" type="text" name="your-subject"></span> </label>
-                </p>
-                <p><label> Напишите нам сообщение в произвольной форме<br>
-                    <span class="wpcf7-form-control-wrap" data-name="your-message"><textarea cols="40" rows="10"
-                        maxlength="2000" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"
-                        name="your-message"></textarea></span> </label>
-                </p>
-                <p><span class="wpcf7-form-control-wrap" data-name="acceptance-286"><span
-                      class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><input type="checkbox"
-                          name="acceptance-286" value="1" aria-invalid="false"></span></span></span> Нажимая кнопку
-                  "Отправить" Вы даёте свое согласие на обработку введенной персональной информации в соответствии с
-                  Федеральным Законом №152-ФЗ от 27.07.2006 "О персональных данных"
-                </p>
-                <p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Отправить"
-                    disabled=""><span class="wpcf7-spinner"></span>
-                </p>
-                <p class="akismet-fields-container" data-prefix="_wpcf7_ak_"><label>Δ<textarea
-                      name="_wpcf7_ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input
-                    type="hidden" id="ak_js_1" name="_wpcf7_ak_js" value="1771863886709"></p>
-                <div class="wpcf7-response-output" aria-hidden="true"></div>
-              </form>
-            </div>
-          </div>
-
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
-          <div class="prose" id="form">
+                    <div class="prose" id="form">
             <div class="entry-content">
 
-              <p>АО НКБ «СЛАВЯНБАНК» информирует, что в соответствии с Федеральным законом «О банках и банковской
+              <p><b style="font-weight: 700;">АО НКБ «СЛАВЯНБАНК»</b> информирует, что в соответствии с Федеральным законом «О банках и банковской
                 деятельности» с 01 июля 2024 года Банк обеспечивает <strong>прием обращений заявителей</strong>,
                 направленных:</p>
 
@@ -127,7 +71,7 @@
 
 
 
-              <p><strong>Отправьте нам обращение прямо сейчас!</strong><br></p>
+              <h3><strong>Отправьте нам обращение прямо сейчас!</strong><br></h3>
 
 
 
@@ -144,6 +88,46 @@
 
                 </div>
               </div>
+              </div>
+              </div>
+
+
+          <div class="form-shell" data-form-shell>
+            <div class="kicker">Форма</div>
+            <h3 style="margin:8px 0 10px;">Обратная связь</h3>
+
+            <div class="form-wrap">
+              <form action="#" class="wpcf7-form init" aria-label="Контактная форма" novalidate="novalidate"
+                data-status="init">
+
+                <p><label> Данные для обратной связи (телефон, email)<br>
+                    <span class="wpcf7-form-control-wrap" data-name="your-subject"><input size="40" maxlength="400"
+                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                        aria-invalid="false" value="" type="text" name="your-subject"></span> </label>
+                </p>
+                <p><label> Напишите нам сообщение в произвольной форме<br>
+                    <span class="wpcf7-form-control-wrap" data-name="your-message"><textarea cols="40" rows="10"
+                        maxlength="2000" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"
+                        name="your-message"></textarea></span> </label>
+                </p>
+                <p class="rule-apply-checkbox"><span class="wpcf7-form-control-wrap" data-name="acceptance-286"><span
+                      class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><input type="checkbox"
+                          name="acceptance-286" value="1" aria-invalid="false"></span></span></span> Нажимая кнопку
+                  "Отправить" Вы даёте свое согласие на обработку введенной персональной информации в соответствии с
+                  Федеральным Законом №152-ФЗ от 27.07.2006 "О персональных данных"
+                </p>
+                <p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Отправить"
+                    disabled=""><span class="wpcf7-spinner"></span>
+                </p>
+                <p class="akismet-fields-container" data-prefix="_wpcf7_ak_"><label></label><input
+                    type="hidden" id="ak_js_1" name="_wpcf7_ak_js" value="1771863886709"></p>
+                <div class="wpcf7-response-output" aria-hidden="true"></div>
+              </form>
+            </div>
+          </div>
+
+          <div class="prose" id="form">
+            <div class="entry-content">
 
 
 

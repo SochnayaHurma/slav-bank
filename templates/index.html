@@ -27,11 +27,9 @@
           >
         </div>
       </div>
-      <!-- <button class="btn ghost" type="button" id="tickerPause" aria-pressed="false">Пауза</button> -->
     </div>
   </section>
 
-  <!-- HERO SLIDER -->
   <section
     class="block reveal"
     data-reveal="scale"
@@ -58,9 +56,9 @@
                   class="row"
                   style="margin-top: var(--s-4); flex-wrap: wrap"
                 >
-                  <a class="btn primary" href="#fx">Как это работает</a>
-                  <a class="btn outline" href="#support">Поддержка</a>
-                  <a class="btn glass" href="#news">Объявления</a>
+                  <a class="btn primary" href="{% url 'currency-control' %}">Как это работает</a>
+                  <a class="btn outline" href="{% url 'support' %}">Поддержка</a>
+                  <a class="btn glass" href="{% url 'novosti' %}">Объявления</a>
                 </div>
                 <!-- <div class="muted" style="margin-top:12px; font-size:12px; font-weight:300;">Тест текст текст текст</div> -->
               </div>
@@ -265,9 +263,9 @@
                   class="row"
                   style="margin-top: var(--s-4); flex-wrap: wrap"
                 >
-                  <a class="btn primary" href="#services">Открыть счёт</a>
-                  <a class="btn outline" href="#tariffs">Тарифы</a>
-                  <a class="btn glass" href="#support">Консультация</a>
+                  <a class="btn primary" href="{% url 'account-service' %}">Открыть счёт</a>
+                  <a class="btn outline" href="{% url 'tariffs' %}">Тарифы</a>
+                  <a class="btn glass" href="{% url 'write-to-bank' %}#form">Консультация</a>
                 </div>
                 <!-- <div class="muted" style="margin-top:12px; font-size:12px; font-weight:300;">Доп текст/примечание</div> -->
               </div>
@@ -459,9 +457,9 @@
                   class="row"
                   style="margin-top: var(--s-4); flex-wrap: wrap"
                 >
-                  <a class="btn primary" href="#fx">ВЭД‑сервисы</a>
-                  <a class="btn outline" href="#docs">Документы</a>
-                  <a class="btn glass" href="#support">Связаться</a>
+                  <a class="btn primary" href="{% url 'currency-control' %}">ВЭД‑сервисы</a>
+                  <a class="btn outline" href="{% url 'aml-fatca' %}">Документы</a>
+                  <a class="btn glass" href="{% url 'contacts' %}">Связаться</a>
                 </div>
                 <!-- <div class="muted" style="margin-top:12px; font-size:12px; font-weight:300;">Можно добавить “мастер‑шаги” и статусы документов — сделаем в следующем варианте.</div> -->
               </div>
@@ -825,7 +823,6 @@
                 >
                   Экспертиза контрактов · валютный контроль
                 </div>
-                <!-- <div class="muted" style="color:rgba(255,255,255,.85); font-weight:300; margin-top:4px;">Сделали визуал “как витрину” — дальше можно заменить на SVG-шелк.</div> -->
               </div>
             </div>
 

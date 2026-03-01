@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block title %}Часто задаваемые вопросы - АО НКБ "СЛАВЯНБАНК"{% endblock%}
 {% block body_content %}
 
 <main id="main">
@@ -15,21 +15,19 @@
               возникнуть из-за казалось бы незначительных на первый взгляд мелочей. Ответы на часто возникающ</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="faq.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстро</span>
-            <a href="faq.html" class="mono">FAQ</a>
+            <span class="badge">Переход</span>
             <span class="muted">·</span>
-            <a href="instruction.html" class="mono">Инструкция</a>
+            <a href="{% url 'instruction'%}" class="mono">Инструкция</a>
             <span class="muted">·</span>
-            <a href="private-persons.html" class="mono">Частным лицам</a>
+            <a href="{% url 'private-persons' %}" class="mono">Частным лицам</a>
             <span class="muted">·</span>
-            <a href="ecp-regeneration.html" class="mono">ЭЦП</a>
+            <a href="{% url 'ecp-regeneration'%}" class="mono">ЭЦП</a>
           </div>
         </div>
       </div>
@@ -38,30 +36,20 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>Оформлено витринно: интерактивные блоки + читабельный текст.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
 
 
 
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
 
-              <p class="has-dark-blue-color has-text-color">  <strong>Здесь вы найдете ответы на некоторые вопросы,
+              <h4 class="has-dark-blue-color has-text-color">  <strong>Здесь вы найдете ответы на некоторые вопросы,
                   возникающие при работе в системе Клиент-Банк. </strong>Стоит<strong> </strong>помнить, что сбои при
                 входе или в работе системы Клиент-банк могут возникнуть из-за казалось бы незначительных на первый
-                взгляд мелочей. <br>  Ответы на часто возникающие вопросы представлены <strong>ниже</strong>. </p>
+                взгляд мелочей. <br>  Ответы на часто возникающие вопросы представлены <strong>ниже</strong>. </h4>
 
 
 

@@ -38,7 +38,6 @@
     <a style="width: 180px; margin-left: 10px;" class="btn primary clientbank-cta" href="#" title="Переход в систему дистанционного обслуживания">Клиент‑Банк →</a>
   </div>
 
-  {# backdrop for mobile sheets/drawers #}
   <div class="mega-backdrop" data-mega-backdrop aria-hidden="true"></div>
 
   <div class="mega card" data-mega-panel role="dialog" aria-label="Разделы сайта">
@@ -49,14 +48,10 @@
         <button class="btn ghost mega-close" type="button" data-mega-close aria-label="Закрыть меню">✕</button>
       </div>
 
-      {# Mobile root list is built from <nav> by motion.js (always up-to-date) #}
       <div class="mega-mobile-root" data-mega-mobile-root></div>
 
       <div data-mega-links style="display: grid; gap: 6px">
 
-        <!-- =======================
-             Группа: О банке (about)
-             ======================= -->
         <div class="mega-group" data-mega-group="about">
           <a class="mega-link" href="/o-banke-slavyanbank-html/info_bank-html.html/">
             <span class="mega-ic" aria-hidden="true">◈</span>
@@ -95,9 +90,6 @@
           </a>
         </div>
 
-        <!-- =====================
-             Группа: Тарифы (tarif)
-             ===================== -->
         <div class="mega-group" data-mega-group="tarif" hidden>
           <a class="mega-link" href="{% url 'tariffs_rub' %}">
             <span class="mega-ic" aria-hidden="true">◈</span>
@@ -146,21 +138,15 @@
           <details class="mega-item">
             <summary class="mega-link">
               <span class="mega-ic" aria-hidden="true">◈</span>
-              <span class="mega-meta"><strong>Обслуживание счетов в валюте РФ</strong><small>РКО в рублях</small></span>
+              <span class="mega-meta"><strong>Обслуживание счетов в валюте РФ</strong><small>↳</small></span>
               <span class="mega-arrow" aria-hidden="true">▾</span>
             </summary>
             <div class="mega-sub">
-              <details>
-                <summary class="mega-sublink"><span aria-hidden="true">↳</span> Безналичные расчеты</summary>
-                <div class="mega-sub2">
-                  <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html"><span aria-hidden="true">•</span> Платежные поручения</a>
-                  <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html#swift"><span aria-hidden="true">•</span> SWIFT / международные переводы</a>
-                  <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html#docs"><span aria-hidden="true">•</span> Документы и формы</a>
-                </div>
-              </details>
 
-              <a class="mega-sublink" href="{% url '' %}"><span aria-hidden="true">↳</span> Наличные расчеты</a>
-              <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html"><span aria-hidden="true">↳</span> Платежные требования с акцептом</a>
+
+              <a class="mega-sublink" href="{% url 'cashless-payments' %}"><span aria-hidden="true">↳</span> Безналичные расчеты</a>
+              <a class="mega-sublink" href="{% url 'cash-payments' %}"><span aria-hidden="true">↳</span> Наличные расчеты</a>
+              <a class="mega-sublink" href="{% url 'payment-demands' %}"><span aria-hidden="true">↳</span> Платежные требования с акцептом</a>
             </div>
           </details>
 
@@ -195,9 +181,6 @@
           </a>
         </div>
 
-        <!-- ===============================
-             Группа: Клиент-банк (client-bank)
-             =============================== -->
         <div class="mega-group" data-mega-group="client-bank" hidden>
           <a class="mega-link" href="{% url 'instruction' %}">
             <span class="mega-ic" aria-hidden="true">◈</span>
@@ -217,9 +200,6 @@
 
         </div>
 
-        <!-- =======================
-             Группа: Поддержка (support)
-             ======================= -->
         <div class="mega-group" data-mega-group="support" hidden>
           <a class="mega-link" href="https://www.ammyy.com/ru/">
             <span class="mega-ic" aria-hidden="true">◈</span>
@@ -246,9 +226,6 @@
           </a>
         </div>
 
-        <!-- =======================
-             Группа: Контакты (contacts)
-             ======================= -->
         <div class="mega-group" data-mega-group="contacts" hidden>
           <a class="mega-link" href="{% url 'write-to-bank' %}">
             <span class="mega-ic" aria-hidden="true">◈</span>

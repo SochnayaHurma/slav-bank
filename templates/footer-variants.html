@@ -139,7 +139,7 @@
         <p class="muted">Одна страница — 10 разных компоновок футера. Можно копировать HTML снизу каждой секции.</p>
       </div>
       <div class="demo-nav">
-        <a class="btn glass pill" href="index.html">На главную</a>
+        <a class="btn glass pill" href="/">На главную</a>
         <a class="btn outline pill" href="menu-variants.html">10 вариантов меню →</a>
       </div>
     </div>
@@ -167,12 +167,12 @@
                   <h3>Контакты</h3>
                   <a href="tel:78162665247">(8162) 66‑52‑47</a><br />
                   <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a><br />
-                  <a href="write-to-bank.html#form">Написать в банк</a>
+                  <a href="{% url 'write-to-bank' %}#form">Написать в банк</a>
                 </div>
                 <div class="foot">
                   <h3>Разделы</h3>
-                  <a href="legal-entities.html">Юридическим лицам</a><br />
-                  <a href="currency-control.html">Валютный контроль</a><br />
+                  <a href="{% url 'legal-entities'%}">Юридическим лицам</a><br />
+                  <a href="{% url 'currency-control'%}">Валютный контроль</a><br />
                   <a href="tariffs.html">Тарифы</a><br />
                   <a href="news.html">Новости</a>
                 </div>
@@ -241,7 +241,7 @@
                 <div class="row">
                   <a class="muted" href="privacy.html">Политика</a>
                   <span class="muted">·</span>
-                  <a class="muted" href="requisites-bank.html">Реквизиты</a>
+                  <a class="muted" href="{% url 'requisites_bank' %}">Реквизиты</a>
                   <span class="muted">·</span>
                   <a class="muted" href="contacts.html">Контакты</a>
                 </div>
@@ -306,9 +306,9 @@
                 </div>
                 <div class="row">
                   <a class="btn outline pill" style="border-color: rgba(255,255,255,.22); color:#fff;"
-                    href="client-bank-online.html">Клиент‑банк</a>
+                    href="{% url 'client-bank-online'%}">Клиент‑банк</a>
                   <a class="btn glass pill" style="background: rgba(255,255,255,.16); color:#fff;"
-                    href="write-to-bank.html#form">Связаться</a>
+                    href="{% url 'write-to-bank' %}#form">Связаться</a>
                 </div>
               </div>
               <div class="sep" style="margin:16px 0; background: rgba(255,255,255,.18);"></div>
@@ -455,20 +455,20 @@
                   </div>
                 </div>
                 <div class="row">
-                  <a class="btn primary pill" href="write-to-bank.html#form">Оставить заявку</a>
-                  <a class="btn outline pill" href="currency-control.html">Валютный контроль</a>
+                  <a class="btn primary pill" href="{% url 'write-to-bank' %}#form">Оставить заявку</a>
+                  <a class="btn outline pill" href="{% url 'currency-control'%}">Валютный контроль</a>
                 </div>
               </div>
               <div class="footer-grid" style="margin-top:16px;">
                 <div class="foot">
                   <h3>Сервисы</h3>
-                  <a href="legal-entities.html">Юр. лицам</a><br />
-                  <a href="business-lending.html">Кредитование</a><br />
-                  <a href="business-deposits.html">Депозиты</a>
+                  <a href="{% url 'legal-entities'%}">Юр. лицам</a><br />
+                  <a href="{% url 'business-lending'%}">Кредитование</a><br />
+                  <a href="{% url 'business-deposits'%}">Депозиты</a>
                 </div>
                 <div class="foot">
                   <h3>Документы</h3>
-                  <a href="requisites-bank.html">Реквизиты</a><br />
+                  <a href="{% url 'requisites_bank' %}">Реквизиты</a><br />
                   <a href="reporting.html">Отчетность</a><br />
                   <a href="disclosure-regulatory.html">Раскрытие</a>
                 </div>
@@ -567,7 +567,7 @@
                   <div class="muted" style="margin-top:6px;">Офис банка · будни</div>
                   <div class="row" style="margin-top:12px;">
                     <a class="btn primary pill" href="contacts.html">Как добраться</a>
-                    <a class="btn outline pill" href="requisites-bank.html">Реквизиты</a>
+                    <a class="btn outline pill" href="{% url 'requisites_bank' %}">Реквизиты</a>
                   </div>
                 </div>
                 <div class="card" style="flex: 1 1 320px;">
@@ -581,8 +581,8 @@
                     <div style="font-weight:700;">nkb@slavbank.ru</div>
                   </div>
                   <div class="row" style="margin-top:12px;">
-                    <a class="btn outline pill" href="write-to-bank.html#form">Написать</a>
-                    <a class="btn glass pill" href="support.html">Поддержка</a>
+                    <a class="btn outline pill" href="{% url 'write-to-bank' %}#form">Написать</a>
+                    <a class="btn glass pill" href="{% url 'support'%}">Поддержка</a>
                   </div>
                 </div>
               </div>
@@ -674,8 +674,8 @@
               <div class="row" style="justify-content:space-between;">
                 <div class="muted">АО НКБ «СЛАВЯНБАНК»</div>
                 <div class="row">
-                  <a class="muted" href="security.html">Безопасность</a>
-                  <a class="muted" href="support.html">Поддержка</a>
+                  <a class="muted" href="{% url 'security'%}">Безопасность</a>
+                  <a class="muted" href="{% url 'support'%}">Поддержка</a>
                   <a class="muted" href="contacts.html">Контакты</a>
                 </div>
               </div>
@@ -797,17 +797,17 @@
               <div class="sitemap">
                 <div class="sitemapCol">
                   <div class="kicker">О банке</div>
-                  <a href="info-bank.html">Информация банка</a>
-                  <a href="requisites-bank.html">Реквизиты</a>
+                  <a href="{% url 'info_bank'%}">Информация банка</a>
+                  <a href="{% url 'requisites_bank' %}">Реквизиты</a>
                   <a href="governance.html">Органы управления</a>
                   <a href="news.html">Новости</a>
                 </div>
                 <div class="sitemapCol">
                   <div class="kicker">Бизнес</div>
-                  <a href="legal-entities.html">Юридическим лицам</a>
-                  <a href="currency-control.html">Валютный контроль</a>
-                  <a href="business-deposits.html">Депозиты</a>
-                  <a href="business-lending.html">Кредитование</a>
+                  <a href="{% url 'legal-entities'%}">Юридическим лицам</a>
+                  <a href="{% url 'currency-control'%}">Валютный контроль</a>
+                  <a href="{% url 'business-deposits'%}">Депозиты</a>
+                  <a href="{% url 'business-lending'%}">Кредитование</a>
                 </div>
                 <div class="sitemapCol">
                   <div class="kicker">Тарифы</div>
@@ -818,8 +818,8 @@
                 </div>
                 <div class="sitemapCol">
                   <div class="kicker">Поддержка</div>
-                  <a href="support.html">Поддержка</a>
-                  <a href="security.html">Безопасность</a>
+                  <a href="{% url 'support'%}">Поддержка</a>
+                  <a href="{% url 'security'%}">Безопасность</a>
                   <a href="faq.html">FAQ</a>
                   <a href="contacts.html">Контакты</a>
                 </div>
@@ -942,8 +942,8 @@
                   <span class="muted" style="font-weight:300;">(демо‑вариант)</span>
                 </div>
                 <div class="row">
-                  <a class="btn outline pill" href="support.html">Поддержка</a>
-                  <a class="btn primary pill" href="client-bank-online.html">Клиент‑банк</a>
+                  <a class="btn outline pill" href="{% url 'support'%}">Поддержка</a>
+                  <a class="btn primary pill" href="{% url 'client-bank-online'%}">Клиент‑банк</a>
                 </div>
               </div>
             </div>

@@ -19,30 +19,22 @@
             </p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap: wrap">
-              <a
-                class="btn primary"
-                href="cash-payments.html"
-                target="_blank"
-                rel="noopener"
-                >Открыть оригинал →</a
-              >
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
-              <a class="btn outline" href="write-to-bank.html#form"
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
+              <a class="btn outline" href="{% url 'write-to-bank' %}#form"
                 >Задать вопрос</a
               >
             </div>
           </div>
 
           <div class="pill" style="align-self: flex-start">
-            <span class="badge">Платежи</span>
-            <a href="cashless-payments.html" class="mono">Безналичные</a>
+            <span class="badge">Переход</span>
             <span class="muted">·</span>
-            <a href="cash-payments.html" class="mono">Наличные</a>
+            <a href="{% url 'cash-payments'%}" class="mono">Наличные</a>
             <span class="muted">·</span>
-            <a href="account-service.html" class="mono">Счета</a>
+            <a href="{% url 'account-service'%}" class="mono">Счета</a>
             <span class="muted">·</span>
-            <a href="payment-demands.html" class="mono">Требования</a>
+            <a href="{% url 'payment-demands'%}" class="mono">Требования</a>
           </div>
         </div>
       </div>
@@ -51,19 +43,6 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>
-            Витринная подача + исходный текст из
-            <span class="mono">div.entry-content</span>.
-          </p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position: relative">

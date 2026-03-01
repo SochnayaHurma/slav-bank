@@ -15,22 +15,18 @@
               управлять своим расчётным счётом в банке удаленным образом (без визита в банк), используя Интернет.</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="client-bank-online.html" target="_blank" rel="noopener">Открыть оригинал
-                →</a>
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстро</span>
-            <a href="support.html" class="mono">Поддержка</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'support'%}" class="mono">Поддержка</a>
             <span class="muted">·</span>
-            <a href="security.html" class="mono">Безопасность</a>
+            <a href="{% url 'security'%}" class="mono">Безопасность</a>
             <span class="muted">·</span>
-            <a href="client-bank-online.html" class="mono">Клиент‑Банк</a>
-            <span class="muted">·</span>
-            <a href="appeal-123-fz.html" class="mono">123‑ФЗ</a>
+            <a href="{% url 'appeal-123-fz' %}" class="mono">123‑ФЗ</a>
           </div>
         </div>
       </div>
@@ -39,17 +35,7 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>Оформлено витринно: быстрые карточки + читабельный текст из <span class="mono">div.entry-content</span>.
-          </p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
@@ -66,16 +52,12 @@
               <div class="row" style="margin-top:12px; flex-wrap:wrap;">
                 <a class="btn primary pill" href="https://dbo.slavbank.ru:20101/" target="_blank" rel="noopener">Войти
                   →</a>
-                <a class="btn outline pill" href="security.html">Правила безопасности</a>
+                <a class="btn outline pill" href="{% url 'security'%}">Правила безопасности</a>
               </div>
             </div>
 
-
           </div>
 
-
-
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
 

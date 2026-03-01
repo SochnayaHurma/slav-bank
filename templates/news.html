@@ -13,22 +13,21 @@
               объявления.</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn outline" href="news.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Лента</a>
-              <a class="btn glass" href="index.html">На главную</a>
-              <a class="btn primary" href="write-to-bank.html#form">Обращение</a>
+              <a class="btn primary" href="#content">К новостям</a>
+              <a class="btn outline" href="/">На главную</a>
+              <a class="btn glass" href="{% url 'write-to-bank' %}#form">Написать нам</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстро</span>
-            <a href="tariffs.html" class="mono">Тарифы</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'tariffs' %}" class="mono">Тарифы</a>
             <span class="muted">·</span>
-            <a href="legal-entities.html" class="mono">Юр. лицам</a>
+            <a href="{% url 'legal-entities' %}" class="mono">Юр. лицам</a>
             <span class="muted">·</span>
-            <a href="support.html" class="mono">Поддержка</a>
+            <a href="{% url 'support' %}" class="mono">Поддержка</a>
             <span class="muted">·</span>
-            <a href="contacts.html" class="mono">Контакты</a>
+            <a href="{% url 'contacts'%}" class="mono">Контакты</a>
           </div>
         </div>
       </div>
@@ -37,16 +36,7 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Лента</h2>
-          <p>Новости и изменения по сервисам и тарифам.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted mono">novosti.html</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
@@ -55,183 +45,25 @@
             <div class="news-controls">
               <div class="news-search">
                 <span class="mega-ic" aria-hidden="true">⌕</span>
-                <input id="newsQ" type="search" placeholder="Поиск по заголовкам и тексту…" autocomplete="off" />
+                <input id="newsQ" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" type="search" placeholder="Поиск по заголовкам и тексту…" autocomplete="off" />
                 <button class="btn outline pill" id="newsReset" type="button">Сброс</button>
               </div>
-              <div class="muted" style="margin-top:8px; font-weight:300;">
-                Показаны новости с оригинальной страницы. Карточки открывают полную новость на сайте (в новой вкладке).
-              </div>
             </div>
 
-            <div class="news-filter">
-              <div class="kicker">Фильтр</div>
+            <!-- <div class="news-filter">
+              <h4 class="kicker">Фильтр</div>
               <div class="chip-row" id="newsCats">
                 <button type="button" class="chip is-active" data-cat="__all">Все</button>
-                <button type="button" class="chip" data-cat="poleznaya informacia">poleznaya informacia</button>
               </div>
-            </div>
+            </div> -->
 
-            <div class="results-head" style="margin-top:14px;">
+            <!-- <div class="results-head" style="margin-top:14px;">
               <div class="kicker">Новости</div>
               <div class="pill"><span class="badge" id="newsCount">10</span><span class="muted">шт.</span></div>
-            </div>
-
-            <div class="news-grid" id="newsGrid">
-
-              <a class="news-card" href="https://slavbank.ru/news/o-rezhime-raboty-banka-v-fevrale-2026-goda.html"
-                target="_blank" rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">20.02.2026</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">О режиме работы банка в феврале 2026 года</div>
-                <div class="news-excerpt">ВНИМАНИЮ КЛИЕНТОВ АО НКБ «СЛАВЯНБАНК»Устанавливается следующий режим работы
-                  банка: 23 февраля — ВЫХОДНОЙ ДЕНЬ С 24 февраля банк работает в обычном режиме</div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-              <a class="news-card"
-                href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-valyute-rf.html" target="_blank"
-                rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">19.12.2025</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">Изменение тарифов банка по операциям в валюте РФ!</div>
-                <div class="news-excerpt">Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК» сообщает об изменении с 01.01.2026 года
-                  тарифов банка по операциям в валюте РФ</div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-              <a class="news-card" href="https://slavbank.ru/news/o-rezhime-raboty-banka-v-prazdnichnie-dni.html"
-                target="_blank" rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">12.12.2025</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">О режиме работы банка в праздничные дни</div>
-                <div class="news-excerpt">ВНИМАНИЮ КЛИЕНТОВ АО НКБ «СЛАВЯНБАНК»Устанавливается следующий режим работы
-                  банка: 30 декабряУправление по операционной работе с клиентами — с 9:00 — 17:00 без обеда; Кассовые
-                  операции и обменный пункт – с 9:00 — 16:30 без обеда; Читать дальше …</div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-              <a class="news-card"
-                href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-011225.html"
-                target="_blank" rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">19.11.2025</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">Изменение тарифов банка по операциям в иностранной валюте!</div>
-                <div class="news-excerpt">Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК» сообщает об изменении с 01.12.2025 года
-                  тарифов банка по операциям в иностранной валюте.</div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-              <a class="news-card" href="https://slavbank.ru/poleznaya_informacia/tarif_depositny_s_01112025.html"
-                target="_blank" rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">01.11.2025</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">С 01.11.2025 обновлены тарифные сетки по депозитам юридических лиц + специальное
-                  предложение по обслуживанию счетов!</div>
-                <div class="news-excerpt">Уважаемые клиенты! С 01.11.2025 обновлены тарифные сетки по денежным
-                  средствам, привлекаемым в депозиты от юридических лиц и индивидуальных предпринимателей, а также
-                  специальное предложение по обслуживанию счетов!</div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-              <a class="news-card" href="https://slavbank.ru/poleznaya_informacia/tarif_privetstvenny_s_011125.html"
-                target="_blank" rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">01.11.2025</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">С 01.11.2025 специальное предложение по обслуживанию счетов для новых клиентов
-                </div>
-                <div class="news-excerpt">Уважаемые клиенты! С 01.11.2025 специальное предложение по обслуживанию счетов
-                  для новых клиентов до 28.02.2026.</div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-              <a class="news-card" href="https://slavbank.ru/news/o-rezhime-raboty-banka-v-noyabre-2025-goda.html"
-                target="_blank" rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">24.10.2025</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">О режиме работы банка в ноябре 2025 года</div>
-                <div class="news-excerpt">ВНИМАНИЮ КЛИЕНТОВ АО НКБ «СЛАВЯНБАНК»Устанавливается следующий режим работы
-                  банка: 31 октября работаем в обычном режиме; 01 ноября Управление по операционной работе с клиентами —
-                  с 9:00 — 16:00 без обеда; Кассовые операции и Читать дальше …</div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-              <a class="news-card" href="https://slavbank.ru/poleznaya_informacia/tp-slavny-s-13102025.html"
-                target="_blank" rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">13.10.2025</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">С 13.10.2025 тариф «Славный» — бесплатный валютный контроль для новых клиентов
-                  до 31.12.2025</div>
-                <div class="news-excerpt">Уважаемые клиенты! С 13.10.2025 бесплатный валютный контроль для новых
-                  клиентов до 31.12.2025.</div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-              <a class="news-card"
-                href="https://slavbank.ru/poleznaya_informacia/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-2.html"
-                target="_blank" rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">01.10.2025</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">Изменение тарифов банка по операциям в иностранной валюте!</div>
-                <div class="news-excerpt">Изменение тарифов банка по операциям в иностранной валюте!</div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-              <a class="news-card"
-                href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-11-08-25.html"
-                target="_blank" rel="noopener">
-                <div class="news-top">
-                  <span class="news-date">30.07.2025</span>
-                  <span class="news-arrow" aria-hidden="true">→</span>
-                </div>
-                <div class="news-title">Изменение тарифов банка по операциям в иностранной валюте!</div>
-                <div class="news-excerpt">Изменение тарифов банка по операциям в иностранной валюте с 11.08.2025г.!
-                </div>
-                <div class="news-tags"><span class="badge soft">poleznaya informacia</span></div>
-              </a>
-
-            </div>
-
-            <div class="empty" id="newsEmpty" hidden>
-              <div class="empty-ic">✦</div>
-              <div>
-                <div style="font-weight:600;">Ничего не найдено</div>
-                <div class="muted" style="margin-top:4px;">Попробуйте другой запрос или переключите категорию.</div>
-              </div>
-            </div>
-
-            <div class="row" style="margin-top:14px; gap:10px; flex-wrap:wrap;">
-              <a class="btn outline pill" href="search.html">Поиск по разделам →</a>
-              <a class="btn outline pill" href="write-to-bank.html#form">Написать в банк</a>
-              <a class="btn glass pill" href="news.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-            </div>
-
-            <script type="application/json"
-              id="newsData">[{&quot;title&quot;: &quot;О режиме работы банка в феврале 2026 года&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/o-rezhime-raboty-banka-v-fevrale-2026-goda.html&quot;, &quot;date&quot;: &quot;20.02.2026&quot;, &quot;excerpt&quot;: &quot;ВНИМАНИЮ КЛИЕНТОВ АО НКБ «СЛАВЯНБАНК»Устанавливается следующий режим работы банка: 23 февраля — ВЫХОДНОЙ ДЕНЬ С 24 февраля банк работает в обычном режиме&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;o-rezhime-raboty-banka-v-fevrale-2026-goda.html&quot;}, {&quot;title&quot;: &quot;Изменение тарифов банка по операциям в валюте РФ!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-valyute-rf.html&quot;, &quot;date&quot;: &quot;19.12.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК» сообщает об изменении с 01.01.2026 года тарифов банка по операциям в валюте РФ&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;izmenenie-tarifov-banka-po-operacziyam-v-valyute-rf.html&quot;}, {&quot;title&quot;: &quot;О режиме работы банка в праздничные дни&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/o-rezhime-raboty-banka-v-prazdnichnie-dni.html&quot;, &quot;date&quot;: &quot;12.12.2025&quot;, &quot;excerpt&quot;: &quot;ВНИМАНИЮ КЛИЕНТОВ АО НКБ «СЛАВЯНБАНК»Устанавливается следующий режим работы банка: 30 декабряУправление по операционной работе с клиентами — с 9:00 — 17:00 без обеда; Кассовые операции и обменный пункт – с 9:00 — 16:30 без обеда; Читать дальше …&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;o-rezhime-raboty-banka-v-prazdnichnie-dni.html&quot;}, {&quot;title&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-011225.html&quot;, &quot;date&quot;: &quot;19.11.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК» сообщает об изменении с 01.12.2025 года тарифов банка по операциям в иностранной валюте.&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-011225.html&quot;}, {&quot;title&quot;: &quot;С 01.11.2025 обновлены тарифные сетки по депозитам юридических лиц + специальное предложение по обслуживанию счетов!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/poleznaya_informacia/tarif_depositny_s_01112025.html&quot;, &quot;date&quot;: &quot;01.11.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! С 01.11.2025 обновлены тарифные сетки по денежным средствам, привлекаемым в депозиты от юридических лиц и индивидуальных предпринимателей, а также специальное предложение по обслуживанию счетов!&quot;, &quot;cats&quot;: [&quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;tarif_depositny_s_01112025.html&quot;}, {&quot;title&quot;: &quot;С 01.11.2025 специальное предложение по обслуживанию счетов для новых клиентов&quot;, &quot;href&quot;: &quot;https://slavbank.ru/poleznaya_informacia/tarif_privetstvenny_s_011125.html&quot;, &quot;date&quot;: &quot;01.11.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! С 01.11.2025 специальное предложение по обслуживанию счетов для новых клиентов до 28.02.2026.&quot;, &quot;cats&quot;: [&quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;tarif_privetstvenny_s_011125.html&quot;}, {&quot;title&quot;: &quot;О режиме работы банка в ноябре 2025 года&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/o-rezhime-raboty-banka-v-noyabre-2025-goda.html&quot;, &quot;date&quot;: &quot;24.10.2025&quot;, &quot;excerpt&quot;: &quot;ВНИМАНИЮ КЛИЕНТОВ АО НКБ «СЛАВЯНБАНК»Устанавливается следующий режим работы банка: 31 октября работаем в обычном режиме; 01 ноября Управление по операционной работе с клиентами — с 9:00 — 16:00 без обеда; Кассовые операции и Читать дальше …&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;o-rezhime-raboty-banka-v-noyabre-2025-goda.html&quot;}, {&quot;title&quot;: &quot;С 13.10.2025 тариф «Славный» — бесплатный валютный контроль для новых клиентов до 31.12.2025&quot;, &quot;href&quot;: &quot;https://slavbank.ru/poleznaya_informacia/tp-slavny-s-13102025.html&quot;, &quot;date&quot;: &quot;13.10.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! С 13.10.2025 бесплатный валютный контроль для новых клиентов до 31.12.2025.&quot;, &quot;cats&quot;: [&quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;tp-slavny-s-13102025.html&quot;}, {&quot;title&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/poleznaya_informacia/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-2.html&quot;, &quot;date&quot;: &quot;01.10.2025&quot;, &quot;excerpt&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте!&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-2.html&quot;}, {&quot;title&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-11-08-25.html&quot;, &quot;date&quot;: &quot;30.07.2025&quot;, &quot;excerpt&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте с 11.08.2025г.!&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-11-08-25.html&quot;}]</script>
-
-
-            <details class="dash-more" style="margin-top:14px;">
-              <summary>Оригинальная разметка страницы новостей (как на сайте)</summary>
+            </div> -->
               <div class="prose" style="margin-top:12px;">
                 <header>
-                  <h1 class="page-title screen-reader-text">НОВОСТИ</h1>
+                  <h1 class="page-title screen-reader-text" style="text-align: center;">НОВОСТИ</h1>
                 </header>
 
 
@@ -577,6 +409,27 @@
                   </div>
                 </nav>
               </div>
+
+            <div class="empty" id="newsEmpty" hidden>
+              <div class="empty-ic">✦</div>
+              <div>
+                <div style="font-weight:600;">Ничего не найдено</div>
+                <div class="muted" style="margin-top:4px;">Попробуйте другой запрос или переключите категорию.</div>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:14px; gap:10px; flex-wrap:wrap;">
+              <a class="btn outline pill" href="search.html">Поиск по разделам →</a>
+              <a class="btn outline pill" href="{% url 'write-to-bank' %}#form">Написать в банк</a>
+            </div>
+
+            <script type="application/json"
+              id="newsData">[{&quot;title&quot;: &quot;О режиме работы банка в феврале 2026 года&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/o-rezhime-raboty-banka-v-fevrale-2026-goda.html&quot;, &quot;date&quot;: &quot;20.02.2026&quot;, &quot;excerpt&quot;: &quot;ВНИМАНИЮ КЛИЕНТОВ АО НКБ «СЛАВЯНБАНК»Устанавливается следующий режим работы банка: 23 февраля — ВЫХОДНОЙ ДЕНЬ С 24 февраля банк работает в обычном режиме&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;o-rezhime-raboty-banka-v-fevrale-2026-goda.html&quot;}, {&quot;title&quot;: &quot;Изменение тарифов банка по операциям в валюте РФ!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-valyute-rf.html&quot;, &quot;date&quot;: &quot;19.12.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК» сообщает об изменении с 01.01.2026 года тарифов банка по операциям в валюте РФ&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;izmenenie-tarifov-banka-po-operacziyam-v-valyute-rf.html&quot;}, {&quot;title&quot;: &quot;О режиме работы банка в праздничные дни&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/o-rezhime-raboty-banka-v-prazdnichnie-dni.html&quot;, &quot;date&quot;: &quot;12.12.2025&quot;, &quot;excerpt&quot;: &quot;ВНИМАНИЮ КЛИЕНТОВ АО НКБ «СЛАВЯНБАНК»Устанавливается следующий режим работы банка: 30 декабряУправление по операционной работе с клиентами — с 9:00 — 17:00 без обеда; Кассовые операции и обменный пункт – с 9:00 — 16:30 без обеда; Читать дальше …&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;o-rezhime-raboty-banka-v-prazdnichnie-dni.html&quot;}, {&quot;title&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-011225.html&quot;, &quot;date&quot;: &quot;19.11.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК» сообщает об изменении с 01.12.2025 года тарифов банка по операциям в иностранной валюте.&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-011225.html&quot;}, {&quot;title&quot;: &quot;С 01.11.2025 обновлены тарифные сетки по депозитам юридических лиц + специальное предложение по обслуживанию счетов!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/poleznaya_informacia/tarif_depositny_s_01112025.html&quot;, &quot;date&quot;: &quot;01.11.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! С 01.11.2025 обновлены тарифные сетки по денежным средствам, привлекаемым в депозиты от юридических лиц и индивидуальных предпринимателей, а также специальное предложение по обслуживанию счетов!&quot;, &quot;cats&quot;: [&quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;tarif_depositny_s_01112025.html&quot;}, {&quot;title&quot;: &quot;С 01.11.2025 специальное предложение по обслуживанию счетов для новых клиентов&quot;, &quot;href&quot;: &quot;https://slavbank.ru/poleznaya_informacia/tarif_privetstvenny_s_011125.html&quot;, &quot;date&quot;: &quot;01.11.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! С 01.11.2025 специальное предложение по обслуживанию счетов для новых клиентов до 28.02.2026.&quot;, &quot;cats&quot;: [&quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;tarif_privetstvenny_s_011125.html&quot;}, {&quot;title&quot;: &quot;О режиме работы банка в ноябре 2025 года&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/o-rezhime-raboty-banka-v-noyabre-2025-goda.html&quot;, &quot;date&quot;: &quot;24.10.2025&quot;, &quot;excerpt&quot;: &quot;ВНИМАНИЮ КЛИЕНТОВ АО НКБ «СЛАВЯНБАНК»Устанавливается следующий режим работы банка: 31 октября работаем в обычном режиме; 01 ноября Управление по операционной работе с клиентами — с 9:00 — 16:00 без обеда; Кассовые операции и Читать дальше …&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;o-rezhime-raboty-banka-v-noyabre-2025-goda.html&quot;}, {&quot;title&quot;: &quot;С 13.10.2025 тариф «Славный» — бесплатный валютный контроль для новых клиентов до 31.12.2025&quot;, &quot;href&quot;: &quot;https://slavbank.ru/poleznaya_informacia/tp-slavny-s-13102025.html&quot;, &quot;date&quot;: &quot;13.10.2025&quot;, &quot;excerpt&quot;: &quot;Уважаемые клиенты! С 13.10.2025 бесплатный валютный контроль для новых клиентов до 31.12.2025.&quot;, &quot;cats&quot;: [&quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;tp-slavny-s-13102025.html&quot;}, {&quot;title&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/poleznaya_informacia/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-2.html&quot;, &quot;date&quot;: &quot;01.10.2025&quot;, &quot;excerpt&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте!&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-2.html&quot;}, {&quot;title&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте!&quot;, &quot;href&quot;: &quot;https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-11-08-25.html&quot;, &quot;date&quot;: &quot;30.07.2025&quot;, &quot;excerpt&quot;: &quot;Изменение тарифов банка по операциям в иностранной валюте с 11.08.2025г.!&quot;, &quot;cats&quot;: [&quot;news&quot;, &quot;poleznaya informacia&quot;], &quot;slug&quot;: &quot;izmenenie-tarifov-banka-po-operacziyam-v-inostrannoj-valyute-s-11-08-25.html&quot;}]</script>
+
+
+            <details class="dash-more" style="margin-top:14px;">
+              <summary>Оригинальная разметка страницы новостей (как на сайте)</summary>
+
             </details>
 
           </div>

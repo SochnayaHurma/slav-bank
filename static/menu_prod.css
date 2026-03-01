@@ -1,10 +1,4 @@
-/*
-  menu_prod.css — single "adult bank" menu styling
-  - Desktop: corporate mega dropdown (VAR4-inspired)
-  - Mobile: full-screen drawer + drilldown (root categories -> subcategories)
 
-  Scope: header[data-menu-variant="prod"]
-*/
 
 .header[data-menu-variant="prod"] {
   --m-accent: rgba(0, 103, 128, 1);
@@ -13,7 +7,7 @@
   --m-border-soft: rgba(2, 6, 23, .08);
   --m-text: rgba(2, 6, 23, .90);
   --m-muted: rgba(2, 6, 23, .62);
-  --m-panel: rgba(255, 255, 255, .92);
+  --m-panel: rgba(255, 255, 255);
   --m-panel-strong: rgba(255, 255, 255, .98);
   --m-shadow: 0 18px 55px rgba(2, 6, 23, .16);
 }
@@ -40,7 +34,6 @@
   box-shadow: 0 8px 24px rgba(2, 6, 23, .10);
 }
 
-/* Mega container */
 .header[data-menu-variant="prod"] .mega {
   background: var(--m-panel);
   border: 1px solid var(--m-border-soft);
@@ -48,6 +41,7 @@
   box-shadow: var(--m-shadow);
   backdrop-filter: blur(14px);
   z-index: 50;
+  min-width:  340px;;
 }
 
 .header[data-menu-variant="prod"] .mega .header-grid {

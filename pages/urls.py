@@ -2,6 +2,21 @@ from django.urls import path
 from django.views.generic import TemplateView
 from . import views
 
+tariffs_download = [
+    {'date': ' с 01.01.2026г', 'title': 'Тарифы банка в валюте РФ.', 'url': 'https://slavbank.ru/wp-content/uploads/standard-osobiy-s-01012026.pdf'},
+    {'date': ' с 01.12.2025г', 'title': 'Тарифы банка в валюте РФ и иностранной валюте «Славный» для новых клиентов.', 'url': 'https://slavbank.ru/wp-content/uploads/tp-slavny.pdf'},
+    {'date': ' с 01.12.2025г', 'title': 'Тарифы банка в иностранной валюте.', 'url': 'https://slavbank.ru/wp-content/uploads/tarify-v-in-valyute-s-01122025.pdf'},
+    {'date': ' с 01.11.2025г', 'title': 'Тарифы банка в валюте РФ и иностранной валюте «Приветственный» для новых клиентов.', 'url': 'https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf'},
+    {'date': ' с 01.11.2025г', 'title': 'Тарифы банка в валюте РФ и иностранной валюте «Депозитный» для новых клиентов.', 'url': 'https://slavbank.ru/wp-content/uploads/tarif-depositny.pdf'},
+]
+tariffs_view = [
+    {'date': 'действуют с 01.01.2026г.','title': 'Тарифы банковских услуг по расчетно-кассовому обслуживанию юридических лиц, индивидуальных предпринимателей и физических лиц по операциям в валюте РФ', 'url': 'https://slavbank.ru/tarify-banka-html/tarify_rf.html'},
+    {'date': 'действуют с 13.10.2025г. по 28.02.2026г.','title': 'Тарифы банковских услуг по расчетно-кассовому обслуживанию юридических лиц, индивидуальных предпринимателей и физических лиц по операциям в иностранной валюте и валюте РФ «Славный»', 'url': 'https://slavbank.ru/tarify-banka-html/tarif_slavny.html'},
+    {'date': 'действуют с 01.12.2025г.','title': 'Тарифы банковских услуг по обслуживанию юридических лиц, индивидуальных предпринимателей и физических лиц по операциям в иностранной валюте', 'url': 'https://slavbank.ru/tarify-banka-html/tarify_valuta.html'},
+    {'date': 'действуют с 01.11.2025г. по 28.02.2026г.','title': 'Тарифы банковских услуг по расчетно-кассовому обслуживанию юридических лиц, индивидуальных предпринимателей и физических лиц по операциям в иностранной валюте и валюте РФ «Приветственный»', 'url': 'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html'},
+    {'date': 'действуют с 01.11.2025г. по 28.02.2026г.','title': 'Тарифы банковских услуг по расчетно-кассовому обслуживанию юридических лиц, индивидуальных предпринимателей и физических лиц по операциям в иностранной валюте и валюте РФ «Депозитный»', 'url': 'https://slavbank.ru/tarify-banka-html/tarif_depositny.html'},
+]
+
 urlpatterns = [
   path("", views.main_page, name="info_bank"),
     path("search/", TemplateView.as_view(template_name='search.html'), name="search"),
@@ -13,7 +28,7 @@ urlpatterns = [
   path("informacziya-dlya-notariusov.html/", views.notaries, name="notaries"),
   path("novosti.html/", views.novosti, name="novosti"),
   # тарифы
-  path("tarify-banka.html/", TemplateView.as_view(template_name='tariffs.html'), name="tariffs"),
+  path("tarify-banka.html/", TemplateView.as_view(template_name='tariffs.html', extra_context={'tariffs_download': tariffs_download, 'tariffs_view': tariffs_view}), name="tariffs"),
   path("tarify-banka-html/tarify_rf.html/", views.tariffs_rub, name="tariffs_rub"),
   path("tarify-banka-html/tarif_slavny.html/", views.tariffs_slavny, name="tariffs_slavny"),
   path("tarify-banka-html/tarif_privetstvenny.html/", TemplateView.as_view(template_name='tariff-privetstvenny.html'), name="tariff_privetstvenny"),

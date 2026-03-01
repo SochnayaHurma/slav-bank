@@ -15,19 +15,18 @@
               привлекаемым в депозиты от юридических лиц и индивидуальных предпринимателей.</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="tariffs.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#pdf">PDF</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#pdf">Перейти к содержимому</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстрые страницы</span>
-            <a href="tariffs.html" class="mono">Тарифы банка</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'tariff_privetstvenny'%}" class="mono">«Приветственный»</a>
             <span class="muted">·</span>
-            <a href="tariffs-rub.html" class="mono">Валюта РФ</a>
+            <a href="{% url 'tariff-depositny'%}" class="mono">«Депозитный»</a>
             <span class="muted">·</span>
-            <a href="tariffs-slavny.html" class="mono">«Славный»</a>
+            <a href="{% url 'tariffs_slavny'%}" class="mono">«Славный»</a>
           </div>
         </div>
       </div>
@@ -36,160 +35,34 @@
 
   <section class="block dashv2" id="pdf">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Просмотр тарифа</h2>
-          <p>Две роли: “контейнер PDF” (для просмотра) + “витрина” (для ссылок и текста).</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">PDF + div.entry-content</span>
-        </div>
-      </div>
-
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
 
-          <div class="pdf-shell">
-            <div class="pdf-head">
-              <div>
-                <div class="kicker">PDF-документ</div>
-                <div class="pdf-title">ТАРИФЫ БАНКА</div>
-                <div class="muted" style="margin-top:6px;">Откройте внутри страницы или скачайте файл.</div>
-              </div>
-              <div class="pdf-actions">
-                <a class="btn outline pill"
-                  href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf"
-                  target="_blank" rel="noopener">Открыть</a>
-                <a class="btn glass pill"
-                  href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf"
-                  download>Скачать</a>
-              </div>
-            </div>
-            <div class="pdf-frame">
-              <iframe title="ТАРИФЫ БАНКА"
-                src="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf#view=FitH"
-                loading="lazy"></iframe>
-            </div>
-            <div class="muted" style="margin-top:10px; font-weight:300;">
-              Если PDF не отображается (ограничения браузера/локальной политики), используйте кнопку «Открыть».
-            </div>
-          </div>
-
-
-          <div class="kicker" style="margin-top:12px;">Документы</div>
-          <div class="doc-shelf">
-            <a class="doc-card"
-              href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf"
-              target="_blank" rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">ТАРИФОВ</span>
-              <span class="doc-arrow">→</span>
-            </a>
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarify-banka-s-01.10.2022.docx"
-              target="_blank" rel="noopener">
-              <span class="doc-ext">DOCX</span>
-              <span class="doc-title">tarify-banka-s-01.10.2022.docx</span>
-              <span class="doc-arrow">→</span>
-            </a>
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/standard-osobiy-s-01012026.pdf"
-              target="_blank" rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">Тарифы банка в валюте РФ с 01.01.2026</span>
-              <span class="doc-arrow">→</span>
-            </a>
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tp-slavny.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">Тарифы банка в валюте РФ и иностранной валюте «Славный» для новых клиентов с
-                01.12.2025г.</span>
-              <span class="doc-arrow">→</span>
-            </a>
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarify-v-in-valyute-s-01122025.pdf"
-              target="_blank" rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">Тарифы банка в иностранной валюте с 01.12.2025г.</span>
-              <span class="doc-arrow">→</span>
-            </a>
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">Тарифы банка в валюте РФ и иностранной валюте «Приветственный» для новых клиентов
-                с 01.11.2025г.</span>
-              <span class="doc-arrow">→</span>
-            </a>
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-depositny.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">Тарифы банка в валюте РФ и иностранной валюте «Депозитный» для новых клиентов с
-                01.11.2025г.</span>
-              <span class="doc-arrow">→</span>
-            </a>
-            <a class="doc-card"
-              href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-s-01072024-i-in-valyute-s-131025.pdf"
-              target="_blank" rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">СКАЧАТЬ ТАРИФЫ БАНКА</span>
-              <span class="doc-arrow">→</span>
-            </a>
-          </div>
-
-
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
-
-              <p class="has-text-color has-background has-link-color wp-elements-5ec1e1b7a0de3db6371bad505a97a4fa">
-                <strong>Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК</strong>«<strong> запускает с 01.11.2025 года специальные
-                  предложения для новых клиентов! Также, банк обновил тарифные сетки по денежным средствам, привлекаемым
-                  в депозиты от юридических лиц и индивидуальных предпринимателей.</strong></p>
-
-
-
               <h2
-                class="wp-block-heading has-gray-color has-text-color has-link-color wp-elements-9d40a39e619d80072ff9dd97215cf175">
+                class="kicker">
                 <br>АО НКБ «СЛАВЯНБАНК»&nbsp; предлагает к рассмотрению следующие виды <strong><a
                     href="https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf"
                     target="_blank" rel="noreferrer noopener">ТАРИФОВ</a></strong><a
                   href="https://slavbank.ru/wp-content/uploads/tarify-banka-s-01.10.2022.docx" target="_blank"
                   rel="noreferrer noopener"> </a>банковских услуг:<br></h2>
-
-
-
               <p><strong>— скачать:</strong></p>
 
 
 
               <ul class="wp-block-list">
-                <li class="has-text-color has-link-color wp-elements-a76e3bdfeb8bb9bcddab7443ce57627f"><strong><a
-                      href="https://slavbank.ru/wp-content/uploads/standard-osobiy-s-01012026.pdf">Тарифы банка в валюте
-                      РФ с 01.01.2026</a></strong><a
-                    href="https://slavbank.ru/wp-content/uploads/standard-osobiy-s-01012026.pdf"><strong>г.</strong></a>
+                {% for item in tariffs_download %}
+                <li>
+                  <a class="doc-card" href="{{ item.url }}" target="_blank" rel="noopener">
+    
+                    <span class="doc-title" href="https://slavbank.ru/tarify-banka-html/tarify_rf.html" target="_blank"
+                          rel="noreferrer noopener"><strong>{{ item.title }}</strong></span>
+                                        <span class="doc-arrow doc-ext"  style="text-align: center; min-width: 132px;">{{ item.date }}</span>
+                  </a>
                 </li>
+                {% endfor %}
 
-
-
-                <li class="has-text-color has-link-color wp-elements-44ca4d1225b0d2beababcfd2ad06cc00"><strong><a
-                      href="https://slavbank.ru/wp-content/uploads/tp-slavny.pdf"><strong>Тарифы банка в валюте РФ и
-                        иностранной валюте «Славный» для новых клиентов с 01.12.2025г.</strong></a></strong></li>
-
-
-
-                <li class="has-text-color has-link-color wp-elements-acd58fe49d8cb5adac033c0eb82f49d5"><strong><a
-                      href="https://slavbank.ru/wp-content/uploads/tarify-v-in-valyute-s-01122025.pdf" target="_blank"
-                      rel="noreferrer noopener">Тарифы банка в иностранной валюте с 01.12.2025г. </a></strong></li>
-
-
-
-                <li class="has-text-color has-link-color wp-elements-25559d0f3ccfb9349d6d765181626f1f"><strong><a
-                      href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf">Тарифы банка в валюте РФ и
-                      иностранной валюте «Приветственный» для новых клиентов с 01.11.2025г.</a></strong></li>
-
-
-
-                <li class="has-text-color has-link-color wp-elements-1ff4796587d9a36d24accd1c6eaefa4d"><strong><a
-                      href="https://slavbank.ru/wp-content/uploads/tarif-depositny.pdf">Тарифы банка в валюте РФ и
-                      иностранной валюте «Депозитный» для новых клиентов с 01.11.2025г.</a></strong></li>
               </ul>
 
 
@@ -205,38 +78,17 @@
 
 
               <ul class="wp-block-list">
-                <li><a href="https://slavbank.ru/tarify-banka-html/tarify_rf.html" target="_blank"
-                    rel="noreferrer noopener"><strong>Тарифы банковских услуг по расчетно-кассовому обслуживанию
-                      юридических лиц,</strong> <strong>индивидуальных предпринимателей и физических лиц</strong>
-                    <strong><em>по операциям в валюте РФ (действуют с 01.01.2026г.) </em></strong></a></li>
+                {% for item in tariffs_view %}
+                <li>
+                  <a class="doc-card" href="{{ item.url }}" target="_blank" rel="noopener">
+    
+                    <span class="doc-title" href="https://slavbank.ru/tarify-banka-html/tarify_rf.html" target="_blank"
+                          rel="noreferrer noopener"><strong>{{ item.title }}</strong></span>
+                                        <span class="doc-arrow doc-ext" style="text-align: center; min-width: 132px;">{{ item.date }}</span>
 
-
-
-                <li><strong><a href="https://slavbank.ru/tarify-banka-html/tarif_slavny.html">Тарифы банковских услуг по
-                      расчетно-кассовому обслуживанию юридических лиц, индивидуальных предпринимателей и физических лиц
-                      <em>по операциям в иностранной валюте и валюте РФ «Славный» (действуют с 13.10.2025г. по
-                        28.02.2026г.)</em></a></strong></li>
-
-
-
-                <li><a href="tariffs-foreign-currency.html" target="_blank" rel="noreferrer noopener"><strong>Тарифы
-                      банковских услуг</strong> <strong>по обслуживанию юридических
-                      лиц,</strong>&nbsp;<strong>индивидуальных предпринимателей и физических лиц</strong>
-                    <strong><em>по операциям в иностранной валюте (действуют с 01.12.2025г.) </em></strong></a></li>
-
-
-
-                <li><strong><a href="tariff-privetstvenny.html">Тарифы банковских услуг по расчетно-кассовому
-                      обслуживанию юридических лиц, индивидуальных предпринимателей и физических лиц <em>по операциям в
-                        иностранной валюте и валюте РФ «Приветственный» (действуют с 01.11.2025г. по
-                        28.02.2026г.)</em></a></strong></li>
-
-
-
-                <li><strong><a href="tariff-depositny.html">Тарифы банковских услуг по расчетно-кассовому обслуживанию
-                      юридических лиц, индивидуальных предпринимателей и физических лиц <em>по операциям в иностранной
-                        валюте и валюте РФ «Депозитный» (действуют с 01.11.2025г. по 28.02.2026г.)</em></a></strong>
+                  </a>
                 </li>
+                {% endfor %}
               </ul>
 
 

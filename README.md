@@ -34,3 +34,9 @@
 5. клиентбанк скрыть для мобильн
 
 
+- requisites-bank
+- write-to-bank
+- fx-account-service
+- tariff-privetstvenny
+
+# сместился id у формы

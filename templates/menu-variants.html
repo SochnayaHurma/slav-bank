@@ -140,7 +140,7 @@
           копировать.</p>
       </div>
       <div class="demo-nav">
-        <a class="btn glass pill" href="index.html">На главную</a>
+        <a class="btn glass pill" href="/">На главную</a>
         <a class="btn outline pill" href="footer-variants.html">10 вариантов футера →</a>
       </div>
     </div>
@@ -164,12 +164,12 @@
                 <div style="font-weight:700;">СЛАВЯНБАНК</div>
               </div>
               <nav class="row" aria-label="Меню" style="gap:10px;">
-                <a class="navlink" href="legal-entities.html">Юр. лицам</a>
+                <a class="navlink" href="{% url 'legal-entities'%}">Юр. лицам</a>
                 <a class="navlink" href="tariffs.html">Тарифы</a>
-                <a class="navlink" href="support.html">Поддержка</a>
+                <a class="navlink" href="{% url 'support'%}">Поддержка</a>
                 <a class="navlink" href="contacts.html">Контакты</a>
               </nav>
-              <div class="row"><a class="btn outline pill" href="client-bank-online.html">Клиент‑банк</a></div>
+              <div class="row"><a class="btn outline pill" href="{% url 'client-bank-online'%}">Клиент‑банк</a></div>
             </div>
           </header>
           <style>
@@ -221,19 +221,19 @@
                 </div>
                 <div class="row">
                   <a class="muted" href="news.html">Новости</a><span class="muted">·</span>
-                  <a class="muted" href="requisites-bank.html">Реквизиты</a><span class="muted">·</span>
+                  <a class="muted" href="{% url 'requisites_bank' %}">Реквизиты</a><span class="muted">·</span>
                   <a class="muted" href="contacts.html">Контакты</a>
                 </div>
               </div>
               <div class="row" style="justify-content:space-between; margin-top:10px;">
                 <nav class="row" style="gap:10px;">
-                  <a class="navlink" href="legal-entities.html">Юридическим</a>
-                  <a class="navlink" href="currency-control.html">Валютный контроль</a>
-                  <a class="navlink" href="cashless-payments.html">Платежи</a>
+                  <a class="navlink" href="{% url 'legal-entities'%}">Юридическим</a>
+                  <a class="navlink" href="{% url 'currency-control'%}">Валютный контроль</a>
+                  <a class="navlink" href="{% url 'cashless-payments' %}">Платежи</a>
                   <a class="navlink" href="tariffs.html">Тарифы</a>
                   <a class="navlink" href="search.html">Поиск</a>
                 </nav>
-                <a class="btn primary pill" href="write-to-bank.html#form">Оставить заявку</a>
+                <a class="btn primary pill" href="{% url 'write-to-bank' %}#form">Оставить заявку</a>
               </div>
             </div>
           </header>
@@ -298,13 +298,13 @@
                 </div>
               </div>
               <nav class="row" style="gap:8px; flex-wrap:wrap;">
-                <a class="navlink" href="legal-entities.html">Юр. лицам</a>
-                <a class="navlink" href="business-deposits.html">Депозиты</a>
-                <a class="navlink" href="business-lending.html">Кредитование</a>
-                <a class="navlink" href="currency-control.html">Валютный контроль</a>
+                <a class="navlink" href="{% url 'legal-entities'%}">Юр. лицам</a>
+                <a class="navlink" href="{% url 'business-deposits'%}">Депозиты</a>
+                <a class="navlink"href="{% url 'business-lending'%}">Кредитование</a>
+                <a class="navlink" href="{% url 'currency-control'%}">Валютный контроль</a>
               </nav>
-              <div class="row"><a class="btn outline pill" href="support.html">Поддержка</a><a class="btn primary pill"
-                  href="client-bank-online.html">Войти</a></div>
+              <div class="row"><a class="btn outline pill" href="{% url 'support'%}">Поддержка</a><a class="btn primary pill"
+                  href="{% url 'client-bank-online'%}">Войти</a></div>
             </div>
           </header>
           <style>
@@ -352,22 +352,22 @@
                 <div style="font-weight:800;">СЛАВЯНБАНК</div>
               </div>
               <div class="row" style="gap:8px;">
-                <a class="navlink" href="info-bank.html">О банке</a>
+                <a class="navlink" href="{% url 'info_bank'%}">О банке</a>
                 <a class="navlink" href="tariffs.html">Тарифы</a>
-                <a class="navlink" href="legal-entities.html">Бизнес</a>
-                <a class="navlink" href="support.html">Поддержка</a>
+                <a class="navlink" href="{% url 'legal-entities'%}">Бизнес</a>
+                <a class="navlink" href="{% url 'support'%}">Поддержка</a>
                 <div class="miniDrop">
                   <button class="btn outline pill" type="button">Разделы ▾</button>
                   <div class="miniMenu">
-                    <a href="currency-control.html">Валютный контроль</a>
-                    <a href="cashless-payments.html">Безналичные расчёты</a>
+                    <a href="{% url 'currency-control'%}">Валютный контроль</a>
+                    <a href="{% url 'cashless-payments' %}">Безналичные расчёты</a>
                     <a href="reporting.html">Отчётность</a>
                     <a href="contacts.html">Контакты</a>
                     <a href="search.html">Поиск</a>
                   </div>
                 </div>
               </div>
-              <a class="btn primary pill" href="write-to-bank.html#form">Связаться</a>
+              <a class="btn primary pill" href="{% url 'write-to-bank' %}#form">Связаться</a>
             </div>
           </header>
           <style>
@@ -468,11 +468,11 @@
                   onkeydown="if(event.key==='Enter'){location.href='search.html?q='+encodeURIComponent(this.value)}" />
               </div>
               <nav class="row" style="gap:8px;">
-                <a class="navlink" href="legal-entities.html">Юр. лицам</a>
+                <a class="navlink" href="{% url 'legal-entities'%}">Юр. лицам</a>
                 <a class="navlink" href="tariffs.html">Тарифы</a>
                 <a class="navlink" href="contacts.html">Контакты</a>
               </nav>
-              <a class="btn outline pill" href="client-bank-online.html">Клиент‑банк</a>
+              <a class="btn outline pill" href="{% url 'client-bank-online'%}">Клиент‑банк</a>
             </div>
           </header>
           <style>
@@ -550,12 +550,12 @@
                 <div style="font-weight:800;">СЛАВЯНБАНК</div>
               </div>
               <nav class="pillNav" aria-label="Навигация">
-                <a href="legal-entities.html">Бизнес</a>
-                <a href="currency-control.html">ВЭД</a>
+                <a href="{% url 'legal-entities'%}">Бизнес</a>
+                <a href="{% url 'currency-control'%}">ВЭД</a>
                 <a href="tariffs.html">Тарифы</a>
-                <a href="support.html">Поддержка</a>
+                <a href="{% url 'support'%}">Поддержка</a>
               </nav>
-              <a class="btn primary pill" href="client-bank-online.html">Войти</a>
+              <a class="btn primary pill" href="{% url 'client-bank-online'%}">Войти</a>
             </div>
           </header>
           <style>
@@ -627,15 +627,15 @@
                 <div style="font-weight:800;">СЛАВЯНБАНК</div><span class="badge">B2B</span>
               </div>
               <nav class="row" style="gap:10px;">
-                <a class="navlink" href="legal-entities.html">Юр. лицам</a>
-                <a class="navlink" href="cashless-payments.html">Платежи</a>
-                <a class="navlink" href="currency-control.html">Контроль</a>
+                <a class="navlink" href="{% url 'legal-entities'%}">Юр. лицам</a>
+                <a class="navlink" href="{% url 'cashless-payments' %}">Платежи</a>
+                <a class="navlink" href="{% url 'currency-control'%}">Контроль</a>
                 <a class="navlink" href="tariffs.html">Тарифы</a>
               </nav>
               <div class="row">
                 <a class="iconBtn" href="search.html" title="Поиск" aria-label="Поиск">⌕</a>
                 <a class="iconBtn" href="contacts.html" title="Контакты" aria-label="Контакты">☎</a>
-                <a class="btn outline pill" href="client-bank-online.html">Вход</a>
+                <a class="btn outline pill" href="{% url 'client-bank-online'%}">Вход</a>
               </div>
             </div>
           </header>
@@ -708,12 +708,12 @@
                 <div style="font-weight:800;">СЛАВЯНБАНК</div>
               </div>
               <nav class="tabsNav">
-                <a href="info-bank.html" class="is-active">О банке</a>
-                <a href="legal-entities.html">Бизнес</a>
+                <a href="{% url 'info_bank'%}" class="is-active">О банке</a>
+                <a href="{% url 'legal-entities'%}">Бизнес</a>
                 <a href="tariffs.html">Тарифы</a>
-                <a href="support.html">Поддержка</a>
+                <a href="{% url 'support'%}">Поддержка</a>
               </nav>
-              <a class="btn outline pill" href="write-to-bank.html#form">Обращение</a>
+              <a class="btn outline pill" href="{% url 'write-to-bank' %}#form">Обращение</a>
             </div>
           </header>
           <style>
@@ -787,14 +787,14 @@
                 <div style="font-weight:800;">СЛАВЯНБАНК</div>
               </div>
               <nav class="row" style="gap:8px; flex: 1 1 auto; justify-content:center; flex-wrap:wrap;">
-                <a class="navlink" href="legal-entities.html">Юр. лицам</a>
-                <a class="navlink" href="business-deposits.html">Депозиты</a>
-                <a class="navlink" href="business-lending.html">Кредиты</a>
-                <a class="navlink" href="currency-control.html">ВЭД</a>
+                <a class="navlink" href="{% url 'legal-entities'%}">Юр. лицам</a>
+                <a class="navlink" href="{% url 'business-deposits'%}">Депозиты</a>
+                <a class="navlink"href="{% url 'business-lending'%}">Кредиты</a>
+                <a class="navlink" href="{% url 'currency-control'%}">ВЭД</a>
                 <a class="navlink" href="tariffs.html">Тарифы</a>
                 <a class="navlink" href="search.html">Поиск</a>
               </nav>
-              <a class="btn primary pill" href="client-bank-online.html">Клиент‑банк</a>
+              <a class="btn primary pill" href="{% url 'client-bank-online'%}">Клиент‑банк</a>
             </div>
           </header>
           <style>
@@ -844,10 +844,10 @@
             </div>
           </header>
           <nav class="bottomNav" aria-label="Нижнее меню">
-            <a href="index.html"><span class="ic">⌂</span><span>Главная</span></a>
+            <a href="/"><span class="ic">⌂</span><span>Главная</span></a>
             <a href="search.html"><span class="ic">⌕</span><span>Поиск</span></a>
-            <a href="support.html"><span class="ic">✦</span><span>Помощь</span></a>
-            <a href="client-bank-online.html"><span class="ic">⌁</span><span>Вход</span></a>
+            <a href="{% url 'support'%}"><span class="ic">✦</span><span>Помощь</span></a>
+            <a href="{% url 'client-bank-online'%}"><span class="ic">⌁</span><span>Вход</span></a>
           </nav>
           <style>
             .mJ {

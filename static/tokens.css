@@ -57,6 +57,14 @@ html[data-a11y="1"] {
 html[data-a11y="1"] body {
   font-size: 16px;
 }
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+main {
+  flex-grow: 1;
+}
 
 @font-face {
   font-family: "Cygre";
@@ -170,6 +178,16 @@ img {
 
 .card.pad {
   padding: var(--s-5);
+}
+
+.center-h {
+  display: flex;
+  justify-content: center;
+}
+.center-v {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .btn {

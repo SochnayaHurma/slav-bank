@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block title %}КОНТАКТЫ - АО НКБ "СЛАВЯНБАНК" в Великом Новгороде{%endblock%}
 {% block body_content %}
 
 <main id="main">
@@ -14,20 +14,19 @@
               работы.</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn outline" href="contacts.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Контакты</a>
-              <a class="btn glass" href="index.html">На главную</a>
-              <a class="btn primary" href="write-to-bank.html#form">Написать в банк</a>
+              <a class="btn primary" href="#content">К содержимому</a>
+              <a class="btn outline" href="{% url 'write-to-bank' %}#form">Написать в банк</a>
+              <a class="btn glass" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстро</span>
-            <a href="support.html" class="mono">Поддержка</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'support'%}" class="mono">Поддержка</a>
             <span class="muted">·</span>
-            <a href="client-bank-online.html" class="mono">Клиент‑банк</a>
+            <a href="{% url 'client-bank-online'%}" class="mono">Клиент‑банк</a>
             <span class="muted">·</span>
-            <a href="requisites-bank.html" class="mono">Реквизиты</a>
+            <a href="{% url 'requisites_bank' %}" class="mono">Реквизиты</a>
           </div>
         </div>
       </div>
@@ -36,15 +35,7 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Контакты</h2>
-        </div>
-        <div class="pill">
-          <span class="badge">Раздел</span>
-          <span class="muted mono">Контакты</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
@@ -111,8 +102,8 @@
                 </div>
               </div>
               <div class="kv-actions" style="margin-top:12px;">
-                <a class="btn primary" href="write-to-bank.html#form">Написать в банк</a>
-                <a class="btn glass" href="support.html">Поддержка</a>
+                <a class="btn primary" href="{% url 'write-to-bank' %}#form">Написать в банк</a>
+                <a class="btn glass" href="{% url 'support'%}">Поддержка</a>
               </div>
             </div>
           </div>
@@ -121,8 +112,7 @@
             <div class="map-card">
               <div class="kicker">Как нас найти</div>
               <h3 style="margin: 8px 0 10px;">г. Великий Новгород, ул. Черемнова-Конюхова, дом 12</h3>
-              <p class="muted" style="max-width: 80ch;">Витринная карта без внешних виджетов (для локальной версии). Для
-                точной навигации откройте карту по кнопке ниже.</p>
+
               <div class="row" style="margin-top:12px; flex-wrap:wrap;">
                 <a class="btn primary"
                   href="https://yandex.ru/maps/?text=г. Великий Новгород, ул. Черемнова-Конюхова, дом 12"

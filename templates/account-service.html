@@ -15,22 +15,21 @@
               наличные расчеты; 🗹 расчеты с акцептом.</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="account-service.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
-              <a class="btn outline" href="write-to-bank.html#form">Задать вопрос</a>
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
+              <a class="btn outline" href="{% url 'write-to-bank' %}#form">Задать вопрос</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Платежи</span>
-            <a href="cashless-payments.html" class="mono">Безналичные</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'cashless-payments' %}" class="mono">Безналичные</a>
             <span class="muted">·</span>
-            <a href="cash-payments.html" class="mono">Наличные</a>
+            <a href="{% url 'cash-payments'%}" class="mono">Наличные</a>
             <span class="muted">·</span>
-            <a href="account-service.html" class="mono">Счета</a>
+            <a href="{% url 'account-service'%}" class="mono">Счета</a>
             <span class="muted">·</span>
-            <a href="payment-demands.html" class="mono">Требования</a>
+            <a href="{% url 'payment-demands'%}" class="mono">Требования</a>
           </div>
         </div>
       </div>
@@ -39,16 +38,7 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>Витринная подача + исходный текст из <span class="mono">div.entry-content</span>.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
@@ -107,9 +97,9 @@
               rel="noopener">Правила осуществления перевода денежных средств по б</a>
             <a class="chip" href="https://slavbank.ru/wp-content/uploads/zayavlenie-o-podklyuchenii-k-sisteme-dbo.pdf"
               target="_blank" rel="noopener">Заявление на подключение к системе Клиент-Банк</a>
-            <a class="chip" href="cash-payments.html" target="_blank" rel="noopener">🗹 безналичные расчеты;</a>
-            <a class="chip" href="cash-payments.html" target="_blank" rel="noopener">🗹 наличные расчеты;</a>
-            <a class="chip" href="payment-demands.html" target="_blank" rel="noopener">🗹 расчеты с акцептом.</a>
+            <a class="chip" href="{% url 'cash-payments'%}" target="_blank" rel="noopener">🗹 безналичные расчеты;</a>
+            <a class="chip" href="{% url 'cash-payments'%}" target="_blank" rel="noopener">🗹 наличные расчеты;</a>
+            <a class="chip" href="{% url 'payment-demands'%}" target="_blank" rel="noopener">🗹 расчеты с акцептом.</a>
             <a class="chip" href="https://slavbank.ru/wp-content/uploads/soglasie-klient-prilozh-1-k-prikazu-forma.doc"
               target="_blank" rel="noopener">Согласие субъекта персональных данных на обр</a>
             <a class="chip" href="https://slavbank.ru/wp-content/uploads/2021/03/soglasiepd.doc" target="_blank"
@@ -190,9 +180,9 @@
             <div class="entry-content">
 
               <p>  <strong>В АО НКБ «СЛАВЯНБАНК» осуществляются:</strong><br><strong><br>    <a
-                    href="cash-payments.html"><strong>🗹</strong> безналичные расчеты;</a><br>    <a
-                    href="cash-payments.html"><strong>🗹</strong> наличные расчеты;</a><br>    <a
-                    href="payment-demands.html"><strong>🗹</strong> расчеты с акцептом.</a><br></strong></p>
+                    href="{% url 'cash-payments'%}"><strong>🗹</strong> безналичные расчеты;</a><br>    <a
+                    href="{% url 'cash-payments'%}"><strong>🗹</strong> наличные расчеты;</a><br>    <a
+                    href="{% url 'payment-demands'%}"><strong>🗹</strong> расчеты с акцептом.</a><br></strong></p>
 
 
 

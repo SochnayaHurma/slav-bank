@@ -14,17 +14,16 @@
             </p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap: wrap">
-              <a class="btn primary" href="reporting.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self: flex-start">
-            <span class="badge">Быстро</span>
-            <a href="requisites-bank.html" class="mono">Реквизиты</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'requisites_bank' %}" class="mono">Реквизиты</a>
             <span class="muted">·</span>
-            <a href="info-bank.html">Информация банка</a>
+            <a href="{% url 'info_bank'%}">Информация банка</a>
           </div>
         </div>
       </div>
@@ -33,23 +32,18 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>
-            Оформлено витринно: документы сверху, ниже — исходный текст из
-            <span class="mono">div.entry-content</span>.
-          </p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position: relative">
-          <div class="kicker" style="margin-top: 12px">Документы</div>
+                        <h1
+                class="kicker">
+                <strong>ОТЧЕТНОСТЬ АО НКБ «СЛАВЯНБАНК»</strong>
+              </h1>
+                            <p
+                class="has-text-align-center has-gray-color has-text-color has-link-color wp-elements-40198fbd7911d996bea1992cd987118b">
+                <strong>ГОДОВАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ</strong>
+              </p>
           <div class="doc-shelf">
             {% for item in data %}
             <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/azo_-2024_nmm_slavyanbank.pdf"
@@ -66,7 +60,7 @@
             </a>
             {% endfor %}
           </div>
-
+<!-- 
           <details class="dash-more" style="margin-top: 12px">
             <summary>Показать все документы (49)</summary>
             <ul class="doc-list">
@@ -285,30 +279,23 @@
                   <span class="muted">(XLS)</span></a>
               </li>
             </ul>
-          </details>
+          </details> -->
 
-          <div class="kicker" style="margin-top: 12px">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
-              <p
+              <!-- <p
                 class="has-text-align-center has-gray-color has-text-color has-link-color wp-elements-34c310dda5b74b4ab68fd88acae37172">
                 <strong>Бухгалтерская (финансовая) отчетность <br />раскрывается в
                   ограниченном объёме в соответствии <br />с Решением Совета
                   директоров Банка России от 24 декабря 2024 года.</strong>
-              </p>
+              </p> -->
 
               <p class="has-text-align-right"></p>
 
-              <h1
-                class="wp-block-heading has-text-align-center has-text-color has-link-color wp-elements-bb78c9b4b5551e891488e953f6c13801">
-                <strong>ОТЧЕТНОСТЬ АО НКБ «СЛАВЯНБАНК»</strong>
-              </h1>
 
-              <p
-                class="has-text-align-center has-gray-color has-text-color has-link-color wp-elements-40198fbd7911d996bea1992cd987118b">
-                <strong>ГОДОВАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ</strong>
-              </p>
 
+
+<!-- 
               <figure class="wp-block-table is-style-stripes">
                 <table class="has-fixed-layout">
                   <tbody>
@@ -390,20 +377,23 @@
                     </tr>
                   </tbody>
                 </table>
-              </figure>
+              </figure> -->
 
               <p></p>
 
-              <p
-                class="has-text-align-center has-text-color has-link-color wp-elements-1731e611ce7be2c068ed957d4cdf9b17">
-                <strong>ПРОМЕЖУТОЧНАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ,</strong><br /><strong>ПОКАЗАТЕЛИ
+              <h3
+                class="kicker">
+                <strong>ПРОМЕЖУТОЧНАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ,</strong>
+                </h3>
+                <h4 class="kicker">
+                  <strong>ПОКАЗАТЕЛИ
                   ДЕЯТЕЛЬНОСТИ БАНКА</strong>
-              </p>
+                </h2>
 
               <details
                 class="wp-block-details has-gray-color has-text-color has-link-color wp-elements-6094be1a884f101d248f9383e4fde2d5 is-layout-flow wp-block-details-is-layout-flow">
                 <summary>
-                  &gt;&gt;
+                  
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2025
                     год</strong>
                 </summary>
@@ -440,7 +430,7 @@
               <details
                 class="wp-block-details has-gray-color has-text-color has-link-color wp-elements-36bfd15810dc3d28eb02eb981aa728cc is-layout-flow wp-block-details-is-layout-flow">
                 <summary>
-                  &gt;&gt;
+                  
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2024
                     год</strong>
                 </summary>
@@ -483,7 +473,7 @@
               <details
                 class="wp-block-details has-gray-color has-text-color has-link-color wp-elements-1c0cbaf2f381b6c793a3227c14c7ed14 is-layout-flow wp-block-details-is-layout-flow">
                 <summary>
-                  &gt;&gt;
+                  
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2023
                     год</strong>
                 </summary>
@@ -527,7 +517,7 @@
               <details
                 class="wp-block-details has-gray-color has-text-color has-link-color wp-elements-29cde331b4598194bb67c11ac475a8e9 is-layout-flow wp-block-details-is-layout-flow">
                 <summary>
-                  &gt;&gt;
+                  
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2022
                     год</strong>
                 </summary>
@@ -565,7 +555,7 @@
               <details
                 class="wp-block-details has-gray-color has-text-color has-link-color wp-elements-389ec5414216c11d23133fcef6fd05fa is-layout-flow wp-block-details-is-layout-flow">
                 <summary>
-                  &gt;&gt;
+                  
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2021
                     год</strong>
                 </summary>
@@ -733,7 +723,7 @@
               <details
                 class="wp-block-details has-gray-color has-text-color has-link-color wp-elements-c72bfe4d7d46303c55a244e13cddbea0 is-layout-flow wp-block-details-is-layout-flow">
                 <summary>
-                  &gt;&gt;
+                  
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2020
                     год</strong>
                 </summary>
@@ -902,42 +892,6 @@
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="foot">
-          <div class="brand" style="gap: 10px">
-            <div class="logo" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4Z" stroke="white" stroke-width="2"
-                  opacity=".9" />
-              </svg>
-            </div>
-            <div>
-              <div style="font-weight: 600">СЛАВЯНБАНК</div>
-              <div class="muted" style="font-weight: 300">Отчетность</div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="foot">
-          <h3>Контакты</h3>
-          <a href="tel:8162665247">(8162) 66‑52‑47</a><br />
-          <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a><br />
-          <a href="https://slavbank.ru/" target="_blank" rel="noopener">slavbank.ru →</a>
-        </div>
-
-        <div class="foot">
-          <h3>Навигация</h3>
-          <a href="index.html">Главная</a><br />
-          <a href="info-bank.html">Информация банка</a><br />
-          <a href="requisites-bank.html">Реквизиты банка</a><br />
-          <a href="news.html">Новости</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 </main>
 
 <template id="ill-rko-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"

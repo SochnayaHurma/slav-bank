@@ -13,19 +13,18 @@
             <p class="muted" style="max-width:78ch;">Скачать Тарифы банка »»</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="tariffs-slavny.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#pdf">PDF</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#pdf">К содержимому</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстрые страницы</span>
-            <a href="tariffs.html" class="mono">Тарифы банка</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'tariffs' %}" class="mono">Тарифы банка</a>
             <span class="muted">·</span>
-            <a href="tariffs-rub.html" class="mono">Валюта РФ</a>
+            <a href="{% url 'tariff_privetstvenny' %}" class="mono">«Приветственный»</a>
             <span class="muted">·</span>
-            <a href="tariffs-slavny.html" class="mono">«Славный»</a>
+            <a href="{% url 'tariff-depositny'%}" class="mono">«Депозитный»</a>
           </div>
         </div>
       </div>
@@ -34,17 +33,6 @@
 
   <section class="block dashv2" id="pdf">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Просмотр тарифа</h2>
-          <p>Две роли: “контейнер PDF” (для просмотра) + “витрина” (для ссылок и текста).</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">PDF + div.entry-content</span>
-        </div>
-      </div>
-
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
 
@@ -69,52 +57,22 @@
                 src="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте «Славный» -_files/tp-slavny.pdf' %}#view=FitH"
                 loading="lazy"></iframe>
             </div>
-            <div class="muted" style="margin-top:10px; font-weight:300;">
-              Если PDF не отображается (ограничения браузера/локальной политики), используйте кнопку «Открыть».
-            </div>
+
           </div>
 
 
-          <div class="kicker" style="margin-top:12px;">Документы</div>
-          <div class="doc-shelf">
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tp-slavny.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">Скачать Тарифы банка »»</span>
-              <span class="doc-arrow">→</span>
-            </a>
-          </div>
 
-
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
-
-              <p class="has-text-align-right"><strong><a
-                    href="https://slavbank.ru/wp-content/uploads/tp-slavny.pdf">Скачать Тарифы банка »»</a></strong>
-              </p>
-
-
-
-              <p class="has-text-align-center"><strong>ТАРИФЫ БАНКОВСКИХ УСЛУГ</strong></p>
-
-
-
-              <p class="has-text-align-center">по расчетно-кассовому обслуживанию юридических лиц,<br>индивидуальных
-                предпринимателей и физических лиц<br><strong><em>по операциям в иностранной валюте и валюте РФ</em>
-                  «Славный»</strong></p>
-
 
 
               <div data-wp-interactive="core/file" class="wp-block-file"><object
                   data-wp-bind--hidden="!state.hasPdfPreview" class="wp-block-file__embed"
                   data="./Тарифы по операциям в рублях и иностранной валюте «Славный» -_files/tp-slavny.pdf"
-                  type="application/pdf" aria-label="Вставка tp-slavny"></object><a
-                  id="wp-block-file--media-1ae82aa7-690f-40f2-a9b2-304e8fb8ae60"
-                  href="https://slavbank.ru/wp-content/uploads/tp-slavny.pdf">tp-slavny</a><a
+                  type="application/pdf" aria-label="Вставка tp-slavny"></object><span>tp-slavny</span><a
                   href="https://slavbank.ru/wp-content/uploads/tp-slavny.pdf"
                   class="wp-block-file__button wp-element-button" download=""
-                  aria-describedby="wp-block-file--media-1ae82aa7-690f-40f2-a9b2-304e8fb8ae60">Скачать</a></div>
+                  aria-describedby="wp-block-file--media-1ae82aa7-690f-40f2-a9b2-304e8fb8ae60">  Скачать</a></div>
 
 
 
@@ -131,7 +89,6 @@
 </main>
 
 
-<!-- SVG illustrations (VAR5) -->
 <template id="ill-rko-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"
     role="img" aria-label="Иллюстрация: РКО и документы">
     <defs>

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}CRS - обмен с ФНС -{% endblock%}
 {% block body_content %}
 
 <main id="main">
@@ -14,21 +15,18 @@
               сотрудничества и развития). CRS направлен на предотвращение глобального уклонения от уплаты налогов</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="crs.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстро</span>
-            <a href="currency-control.html" class="mono">Валютный контроль</a>
+            <span class="badge">Переход</span>
+            <a href="{% url 'currency-control'%}" class="mono">Валютный контроль</a>
             <span class="muted">·</span>
-            <a href="fx-account-service.html" class="mono">Счета в валюте</a>
+            <a href="{% url 'fx-account-service'%}" class="mono">Счета в валюте</a>
             <span class="muted">·</span>
-            <a href="aml-fatca.html" class="mono">ПОД/ФТ/FATCA</a>
-            <span class="muted">·</span>
-            <a href="crs.html" class="mono">CRS</a>
+            <a href="{% url 'aml-fatca'%}" class="mono">ПОД/ФТ/FATCA</a>
           </div>
         </div>
       </div>
@@ -37,16 +35,7 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>Витринная подача + текст из <span class="mono">div.entry-content</span>.</p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
@@ -60,23 +49,8 @@
                 Раздел содержит материалы и пояснения.</div>
             </div>
           </div>
-          <div class="chip-row"><a class="chip"
-              href="https://data.nalog.ru/html/sites/www.340fzreport.nalog.ru/doc/a_obmen_info_v092020.pdf"
-              target="_blank" rel="noopener">по ссылке</a></div>
-
-          <div class="kicker" style="margin-top:12px;">Документы</div>
-          <div class="doc-shelf">
-            <a class="doc-card"
-              href="https://data.nalog.ru/html/sites/www.340fzreport.nalog.ru/doc/a_obmen_info_v092020.pdf"
-              target="_blank" rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">по ссылке</span>
-              <span class="doc-arrow">→</span>
-            </a>
-          </div>
 
 
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
 
@@ -119,6 +93,16 @@
                   href="https://data.nalog.ru/html/sites/www.340fzreport.nalog.ru/doc/a_obmen_info_v092020.pdf">по
                   ссылке</a>.</p>
             </div>
+          </div>
+          <div class="kicker" style="margin-top:12px;">Ресурсы</div>
+          <div class="doc-shelf">
+            <a class="doc-card"
+              href="https://data.nalog.ru/html/sites/www.340fzreport.nalog.ru/doc/a_obmen_info_v092020.pdf"
+              target="_blank" rel="noopener">
+              <span class="doc-ext">PDF</span>
+              <span class="doc-title">по ссылке</span>
+              <span class="doc-arrow">→</span>
+            </a>
           </div>
 
         </div>

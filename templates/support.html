@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block title %}ПОДДЕРЖКА в Великом Новгороде - АО НКБ "СЛАВЯНБАНК"{%endblock%}
 {% block body_content %}
 
 <main id="main">
@@ -14,21 +14,19 @@
               при работе в системе Клиент-Банк (данный раздел сайта постоянно обновляется и редактируется).</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="support.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Содержание</a>
-              <a class="btn glass" href="index.html">На главную</a>
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Быстро</span>
-            <a href="support.html" class="mono">Поддержка</a>
+            <span class="badge">Переход</span>
             <span class="muted">·</span>
-            <a href="security.html" class="mono">Безопасность</a>
+            <a href="{% url 'security'%}" class="mono">Безопасность</a>
             <span class="muted">·</span>
-            <a href="client-bank-online.html" class="mono">Клиент‑Банк</a>
+            <a href="{% url 'client-bank-online' %}" class="mono">Клиент‑Банк</a>
             <span class="muted">·</span>
-            <a href="appeal-123-fz.html" class="mono">123‑ФЗ</a>
+            <a href="{% url 'appeal-123-fz' %}" class="mono">123‑ФЗ</a>
           </div>
         </div>
       </div>
@@ -37,17 +35,7 @@
 
   <section class="block dashv2" id="content">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Содержание</h2>
-          <p>Оформлено витринно: быстрые карточки + читабельный текст из <span class="mono">div.entry-content</span>.
-          </p>
-        </div>
-        <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
-        </div>
-      </div>
+
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
@@ -65,7 +53,7 @@
               <div class="muted" style="margin-top:6px;">Открыть раздел →</div>
             </a>
 
-            <a class="tile" href="security.html" target="_blank" rel="noopener">
+            <a class="tile" href="{% url 'security'%}" target="_blank" rel="noopener">
               <div class="tile-title">Рекомендации по безопасности</div>
               <div class="muted" style="margin-top:6px;">Открыть раздел →</div>
             </a>
@@ -132,7 +120,7 @@
                       управление</a></span> – здесь вы сможете скачать последнюю версию программы <span>Ammyy
                     Admin</span> удаленного доступа (адрес сайта <span>https://www.ammyy.com/ru</span>/,
                   наименование&nbsp; файла программы <span>AA_v3.exe</span>)</strong></p>
-              <p><strong>&nbsp; &nbsp; &nbsp; <span>&gt;&gt; <a href="security.html">Рекомендации по
+              <p><strong>&nbsp; &nbsp; &nbsp; <span>&gt;&gt; <a href="{% url 'security'%}">Рекомендации по
                       безопасности&nbsp;</a></span>— обращаем Ваше внимание на соответствие доменного имени сайта&nbsp;—
                   <a href="https://slavbank.ru/">www.slavbank.ru</a>&nbsp;или &nbsp;<a
                     href="https://dbo.slavbank.ru:20101/">dbo.slavbank.ru</a>.</strong></p>
