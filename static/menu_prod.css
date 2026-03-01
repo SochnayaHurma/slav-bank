@@ -1,0 +1,359 @@
+/*
+  menu_prod.css — single "adult bank" menu styling
+  - Desktop: corporate mega dropdown (VAR4-inspired)
+  - Mobile: full-screen drawer + drilldown (root categories -> subcategories)
+
+  Scope: header[data-menu-variant="prod"]
+*/
+
+.header[data-menu-variant="prod"] {
+  --m-accent: rgba(0, 103, 128, 1);
+  --m-accent-soft: rgba(0, 103, 128, .10);
+  --m-border: rgba(2, 6, 23, .12);
+  --m-border-soft: rgba(2, 6, 23, .08);
+  --m-text: rgba(2, 6, 23, .90);
+  --m-muted: rgba(2, 6, 23, .62);
+  --m-panel: rgba(255, 255, 255, .92);
+  --m-panel-strong: rgba(255, 255, 255, .98);
+  --m-shadow: 0 18px 55px rgba(2, 6, 23, .16);
+}
+
+/* Top nav — calmer, more "bank" */
+.header[data-menu-variant="prod"] nav .navlink {
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--m-text);
+  background: transparent;
+}
+
+.header[data-menu-variant="prod"] nav .navlink:hover {
+  background: rgba(255, 255, 255, .86);
+  border-color: var(--m-border-soft);
+}
+
+.header[data-menu-variant="prod"] nav .navlink[aria-expanded="true"] {
+  background: rgba(255, 255, 255, .96);
+  border-color: var(--m-border);
+  box-shadow: 0 8px 24px rgba(2, 6, 23, .10);
+}
+
+/* Mega container */
+.header[data-menu-variant="prod"] .mega {
+  background: var(--m-panel);
+  border: 1px solid var(--m-border-soft);
+  border-radius: 20px;
+  box-shadow: var(--m-shadow);
+  backdrop-filter: blur(14px);
+  z-index: 50;
+}
+
+.header[data-menu-variant="prod"] .mega .header-grid {
+  padding: 10px;
+}
+
+/* Never show hidden groups (fix for any custom display rules) */
+.header[data-menu-variant="prod"] .mega-group[hidden] { display: none !important; }
+
+/* Mega links (primary items) */
+.header[data-menu-variant="prod"] .mega-link,
+.header[data-menu-variant="prod"] details.mega-item > summary.mega-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, .70);
+}
+
+.header[data-menu-variant="prod"] .mega-link:hover,
+.header[data-menu-variant="prod"] details.mega-item > summary.mega-link:hover {
+  background: rgba(0, 103, 128, .06);
+  border-color: rgba(0, 103, 128, .18);
+}
+
+.header[data-menu-variant="prod"] .mega-meta strong {
+  color: var(--m-text);
+  font-weight: 650;
+}
+
+.header[data-menu-variant="prod"] .mega-meta small {
+  display: block;
+  margin-top: 2px;
+  color: var(--m-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 2) Pale circle around the diamond icon */
+.header[data-menu-variant="prod"] .mega-ic {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(2, 6, 23, .14);
+  background: rgba(255, 255, 255, .90);
+  box-shadow: 0 0 0 3px rgba(2, 6, 23, .04);
+  color: rgba(0, 103, 128, .92);
+  flex: 0 0 auto;
+}
+
+.header[data-menu-variant="prod"] .mega-arrow {
+  margin-left: auto;
+  opacity: .55;
+  transform: translateX(0);
+  transition: transform .16s ease, opacity .16s ease;
+}
+
+.header[data-menu-variant="prod"] .mega-link:hover .mega-arrow,
+.header[data-menu-variant="prod"] details.mega-item > summary.mega-link:hover .mega-arrow {
+  opacity: .75;
+  transform: translateX(2px);
+}
+
+/* Details/summary cosmetics */
+details.mega-item > summary.mega-link { list-style: none; cursor: pointer; }
+details.mega-item > summary.mega-link::-webkit-details-marker { display: none; }
+
+/* 3) Submenu idea: "rail" + node icons, clear nesting */
+.header[data-menu-variant="prod"] .mega-sub {
+  margin: 6px 0 10px 44px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(2, 6, 23, .14);
+  display: grid;
+  gap: 6px;
+}
+
+.header[data-menu-variant="prod"] .mega-sub2 {
+  margin: 6px 0 10px 18px;
+  padding-left: 14px;
+  border-left: 1px dashed rgba(2, 6, 23, .14);
+  display: grid;
+  gap: 6px;
+}
+
+.header[data-menu-variant="prod"] .mega-sublink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(2, 6, 23, .08);
+  background: rgba(255, 255, 255, .66);
+  color: var(--m-text);
+  text-decoration: none;
+}
+
+.header[data-menu-variant="prod"] .mega-sublink:hover {
+  background: rgba(0, 103, 128, .06);
+  border-color: rgba(0, 103, 128, .18);
+}
+
+.header[data-menu-variant="prod"] .mega-sublink > span[aria-hidden] {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(2, 6, 23, .14);
+  background: rgba(2, 6, 23, .03);
+  color: rgba(0, 103, 128, .92);
+  flex: 0 0 auto;
+}
+
+/* Nested details chevron */
+.header[data-menu-variant="prod"] .mega-sub details > summary.mega-sublink { cursor: pointer; }
+.header[data-menu-variant="prod"] .mega-sub details > summary.mega-sublink::after {
+  content: "›";
+  margin-left: auto;
+  opacity: .55;
+  transition: transform .16s ease, opacity .16s ease;
+}
+.header[data-menu-variant="prod"] .mega-sub details[open] > summary.mega-sublink::after {
+  transform: rotate(90deg);
+  opacity: .8;
+}
+
+/* Backdrop */
+.header[data-menu-variant="prod"] .mega-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, .45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+  z-index: 49;
+}
+
+.header[data-menu-variant="prod"] .mega-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile: full-screen drawer + drilldown */
+@media (max-width: 980px) {
+  /* 1) Hide Client‑Bank CTA button in mobile */
+  .header[data-menu-variant="prod"] .clientbank-cta {
+    display: none !important;
+  }
+
+  .header[data-menu-variant="prod"] .mega {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    border-radius: 0;
+    padding: 0;
+    display: block; /* override header.css (display:none) for animation */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+    background: rgba(245, 250, 252, .92);
+    backdrop-filter: blur(18px);
+  }
+
+  .header[data-menu-variant="prod"] .mega.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .header[data-menu-variant="prod"] .mega .header-grid {
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header[data-menu-variant="prod"] .mega-mhead {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-bottom: 1px solid rgba(2, 6, 23, .10);
+    background: rgba(255, 255, 255, .92);
+  }
+
+  .header[data-menu-variant="prod"] .mega-back {
+    border-radius: 999px;
+    opacity: .0; /* hidden in root view, shown in group view */
+    pointer-events: none;
+  }
+
+  .header[data-menu-variant="prod"] .mega-mobile-title {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(2, 6, 23, .86);
+    letter-spacing: .01em;
+  }
+
+  .header[data-menu-variant="prod"] .mega-close {
+    border-radius: 999px;
+  }
+
+  /* Root list container (built from <nav>) */
+  .header[data-menu-variant="prod"] .mega-mobile-root {
+    display: none;
+    padding: 8px 0 14px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .header[data-menu-variant="prod"] .mega-rootlink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 14px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid rgba(2, 6, 23, .08);
+    text-decoration: none;
+    color: rgba(2, 6, 23, .90);
+    cursor: pointer;
+  }
+
+  .header[data-menu-variant="prod"] .mega-rootlink:first-child {
+    border-top: 1px solid rgba(2, 6, 23, .08);
+  }
+
+  .header[data-menu-variant="prod"] .mega-rootlink:hover {
+    background: rgba(0, 103, 128, .05);
+  }
+
+  .header[data-menu-variant="prod"] .mega-rootic {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(2, 6, 23, .14);
+    background: rgba(255, 255, 255, .94);
+    box-shadow: 0 0 0 3px rgba(2, 6, 23, .04);
+    color: rgba(0, 103, 128, .95);
+    flex: 0 0 auto;
+  }
+
+  .header[data-menu-variant="prod"] .mega-roottext {
+    flex: 1;
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .header[data-menu-variant="prod"] .mega-rootchev {
+    opacity: .7;
+    font-size: 18px;
+  }
+
+  /* Drilldown view switching via data-mobile-view */
+  .header[data-menu-variant="prod"][data-mobile-view="root"] .mega-mobile-root { display: block; }
+  .header[data-menu-variant="prod"][data-mobile-view="root"] [data-mega-links] { display: none !important; }
+  .header[data-menu-variant="prod"][data-mobile-view="root"] .mega-back {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .header[data-menu-variant="prod"][data-mobile-view="group"] .mega-mobile-root { display: none; }
+  .header[data-menu-variant="prod"][data-mobile-view="group"] [data-mega-links] {
+    display: grid !important;
+    gap: 10px !important;
+    padding: 10px 10px 18px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .header[data-menu-variant="prod"][data-mobile-view="group"] .mega-back {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Make primary items in mobile feel touch-friendly */
+  .header[data-menu-variant="prod"][data-mobile-view="group"] .mega-link,
+  .header[data-menu-variant="prod"][data-mobile-view="group"] details.mega-item > summary.mega-link {
+    background: rgba(255, 255, 255, .92);
+    border-color: rgba(2, 6, 23, .10);
+  }
+
+  .header[data-menu-variant="prod"][data-mobile-view="group"] .mega-sub,
+  .header[data-menu-variant="prod"][data-mobile-view="group"] .mega-sub2 {
+    background: rgba(255, 255, 255, .60);
+    border-radius: 14px;
+    padding: 10px 10px 10px 14px;
+  }
+}
+
+/* Desktop: hide the mobile header (drawer top bar) */
+@media (min-width: 981px) {
+  .header[data-menu-variant="prod"] .mega-mhead { display: none; }
+  .header[data-menu-variant="prod"] .mega-mobile-root { display: none !important; }
+}

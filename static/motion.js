@@ -196,95 +196,172 @@
     return window.innerWidth <= MOBILE_BREAKPOINT;
   };
 
-  const megaData = {
-    all: [
-      { t: 'О БАНКЕ', s: 'Раздел сайта', href: 'https://slavbank.ru/' },
-      { t: 'НОВОСТИ', s: 'Раздел сайта', href: 'https://slavbank.ru/novosti.html' },
-      { t: 'ТАРИФЫ БАНКА', s: 'Раздел сайта', href: 'https://slavbank.ru/tarify-banka.html' },
-      { t: 'ЮРИДИЧЕСКИМ ЛИЦАМ', s: 'Раздел сайта', href: 'https://slavbank.ru/yuridicheskim-liczam.html' },
-      { t: 'ЧАСТНЫМ ЛИЦАМ', s: 'Раздел сайта', href: 'https://slavbank.ru/chastnym-liczam.html' },
-      { t: 'КЛИЕНТ-БАНК', s: 'Раздел сайта', href: 'https://slavbank.ru/klient-bank-online.html' },
-      { t: 'ПОДДЕРЖКА', s: 'Раздел сайта', href: 'https://slavbank.ru/podderzhka.html' },
-      { t: 'КОНТАКТЫ', s: 'Раздел сайта', href: 'https://slavbank.ru/kontakty.html' },
-    ],
+  const menuRoots = $$('[data-mega-root]');
+  const megaMenus = menuRoots.map((root, i) => {
+    const mega = root.querySelector('[data-mega-panel]');
+    const megaLinks = root.querySelector('[data-mega-links]');
+    const navLinks = $$('nav .navlink[data-mega]', root);
+    const menuBtn = root.querySelector('[data-mega-btn]');
+    const backdrop = root.querySelector('[data-mega-backdrop]');
+    const closeBtn = root.querySelector('[data-mega-close]');
 
-    news: [
-      { t: 'Новости', s: 'Открыть раздел', href: 'https://slavbank.ru/novosti.html' },
-    ],
-    tariffs: [
-      { t: 'Тарифы Банка', s: 'Открыть раздел', href: 'https://slavbank.ru/tarify-banka.html' },
-      { t: 'Тарифы по операциям в валюте РФ', s: 'Тарифы Банка', href: 'https://slavbank.ru/tarify-banka-html/tarify_rf.html' },
-      { t: 'Тарифы по операциям в рублях и иностранной валюте «Славный»', s: 'Тарифы Банка', href: 'https://slavbank.ru/tarify-banka-html/tarif_slavny.html' },
-      { t: 'Тарифы банка в валюте РФ и иностранной валюте «Приветственный»', s: 'Тарифы Банка', href: 'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html' },
-      { t: 'Тарифы по операциям в рублях и иностранной валюте «Депозитный»', s: 'Тарифы Банка', href: 'https://slavbank.ru/tarify-banka-html/tarif_depositny.html' },
-      { t: 'Тарифы по операциям в иностранной валюте', s: 'Тарифы Банка', href: 'https://slavbank.ru/tarify-banka-html/tarify_valuta.html' },
-    ],
-    corp: [
-      { t: 'Юридическим Лицам', s: 'Открыть раздел', href: 'https://slavbank.ru/yuridicheskim-liczam.html' },
-      { t: 'Депозиты для юридических лиц', s: 'Юридическим Лицам', href: 'https://slavbank.ru/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html' },
-      { t: 'Кредитование юридических лиц', s: 'Юридическим Лицам', href: 'https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html' },
-      { t: 'Обслуживание счетов в валюте РФ', s: 'Юридическим Лицам', href: 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html' },
-      { t: 'Безналичные расчеты', s: 'Юридическим Лицам', href: 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html' },
-      { t: 'Наличные расчеты', s: 'Юридическим Лицам', href: 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html' },
-      { t: 'Платежные требования с акцептом', s: 'Юридическим Лицам', href: 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html' },
-      { t: 'Обслуживание счетов в иностранной валюте', s: 'Юридическим Лицам', href: 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html' },
-      { t: 'Валютный контроль', s: 'Юридическим Лицам', href: 'https://slavbank.ru/yuridicheskim-liczam-html/valutny-kontrol.html' },
-      { t: 'ПОД/ФТ/ФРОМУ/FATCA', s: 'Юридическим Лицам', href: 'https://slavbank.ru/pod-ft-fromu.html' },
-      { t: 'CRS — обмен с ФНС', s: 'Юридическим Лицам', href: 'https://slavbank.ru/crs-obmen-s-fns.html' },
-      { t: 'ВЭД', s: 'Юридическим Лицам', href: 'https://ved.slavbank.ru/' },
-    ],
-    retail: [
-      { t: 'Частным Лицам', s: 'Открыть раздел', href: 'https://slavbank.ru/chastnym-liczam.html' },
-    ],
-    dbo: [
-      { t: 'Клиент-Банк', s: 'Открыть раздел', href: 'https://slavbank.ru/klient-bank-online.html' },
-      { t: 'Инструкция по работе в системе Клиент-Банк', s: 'Клиент-Банк', href: 'https://slavbank.ru/podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html' },
-      { t: 'Часто задаваемые вопросы', s: 'Клиент-Банк', href: 'https://slavbank.ru/podderzhka-html/chasto-zadavaemye-voprosy.html' },
-      { t: 'Перегенерация ЭЦП', s: 'Клиент-Банк', href: 'https://slavbank.ru/podderzhka-html/regen.html' },
-    ],
-    support: [
-      { t: 'Поддержка', s: 'Открыть раздел', href: 'https://slavbank.ru/podderzhka.html' },
-      { t: 'Удаленное управление', s: 'Поддержка', href: 'https://www.ammyy.com/ru/' },
-      { t: 'Рекомендации по безопасности', s: 'Поддержка', href: 'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html' },
-      { t: 'Обращение по 123-ФЗ', s: 'Поддержка', href: 'https://slavbank.ru/obrashhenie-po-123-fz.html' },
-      { t: 'COVID19', s: 'Поддержка', href: 'https://slavbank.ru/covid19.html' },
-    ],
-    contacts: [
-      { t: 'Контакты', s: 'Открыть раздел', href: 'https://slavbank.ru/kontakty.html' },
-      { t: 'НАПИСАТЬ В БАНК', s: 'Контакты', href: 'https://slavbank.ru/forma-obratnoj-svyazi.html' },
-      { t: 'ВАКАНСИИ', s: 'Контакты', href: 'https://slavbank.ru/vakansii.html' },
-    ],
-  };
+    // Optional: mobile drilldown (used in v4)
+    const mobileRoot = root.querySelector('[data-mega-mobile-root]');
+    const mobileHead = root.querySelector('[data-mega-mobile-head]');
+    const mobileTitle = root.querySelector('[data-mega-mobile-title]');
+    const mobileBack = root.querySelector('[data-mega-mobile-back]');
+
+    const megaGroups = megaLinks
+      ? Array.from(megaLinks.querySelectorAll('[data-mega-group]'))
+      : [];
+
+    return {
+      root, mega, megaLinks, navLinks, menuBtn, backdrop, closeBtn, megaGroups,
+      mobileRoot, mobileHead, mobileTitle, mobileBack,
+      _id: i
+    };
+  }).filter(m => m.mega && m.megaLinks);
+
+  const hoverTimers = new Map();
+  function clearHoverTimer(m) {
+    const t = hoverTimers.get(m._id);
+    if (t) clearTimeout(t);
+    hoverTimers.delete(m._id);
+  }
+
+  function setBackdrop(m, on) {
+    if (!m.backdrop) return;
+    m.backdrop.classList.toggle('open', !!on);
+    m.backdrop.setAttribute('aria-hidden', on ? 'false' : 'true');
+  }
 
   function closeMega() {
-    if (!mega) return;
-    mega.classList.remove('open');
-    navLinks.forEach(a => a.setAttribute('aria-expanded', 'false'));
-    menuBtn && menuBtn.setAttribute('aria-expanded', 'false');
+    megaMenus.forEach(m => {
+      if (!m.mega) return;
+      m.mega.classList.remove('open');
+      setBackdrop(m, false);
+      m.navLinks.forEach(a => a.setAttribute('aria-expanded', 'false'));
+      m.menuBtn && m.menuBtn.setAttribute('aria-expanded', 'false');
+
+      // reset v4 mobile drilldown state
+      m.root && m.root.removeAttribute('data-mobile-view');
+
+      // reset positioning tweaks
+      m.mega.style.left = '';
+      m.mega.style.right = '';
+      m.mega.style.transform = '';
+
+      clearHoverTimer(m);
+    });
   }
-  function openMega(key, trigger) {
-    if (!mega) return;
+
+  function hasDrilldown(m) {
+    return !!(m && m.root && m.mobileRoot && m.root.getAttribute('data-mega-mobile') === 'drilldown');
+  }
+
+  function setMobileView(m, view, title) {
+    if (!m || !m.root) return;
+    if (!isMobileView() || !hasDrilldown(m)) return;
+    m.root.setAttribute('data-mobile-view', view);
+    if (m.mobileTitle && typeof title === 'string') {
+      m.mobileTitle.textContent = title;
+    }
+  }
+
+  function buildMobileRoot(m) {
+    if (!m || !m.mobileRoot || !m.root) return;
+    if (!hasDrilldown(m)) return;
+    if (m.mobileRoot.dataset.built === '1') return;
+
+    const links = $$('nav .navlink', m.root);
+    const frag = document.createDocumentFragment();
+
+    links.forEach((a) => {
+      const txt = (a.textContent || '').trim().replace(/\s+/g, ' ');
+      const key = a.dataset.mega;
+      if (key) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'mega-rootlink';
+        btn.setAttribute('data-mega-mobile-open', key);
+        btn.setAttribute('aria-label', `${txt}: открыть`);
+        btn.innerHTML = `
+          <span class="mega-rootic" aria-hidden="true">◈</span>
+          <span class="mega-roottext">${txt}</span>
+          <span class="mega-rootchev" aria-hidden="true">›</span>
+        `;
+        frag.appendChild(btn);
+      } else {
+        const link = document.createElement('a');
+        link.className = 'mega-rootlink';
+        link.href = a.getAttribute('href') || '#';
+        link.innerHTML = `
+          <span class="mega-rootic" aria-hidden="true">◈</span>
+          <span class="mega-roottext">${txt}</span>
+          <span class="mega-rootchev" aria-hidden="true">→</span>
+        `;
+        frag.appendChild(link);
+      }
+    });
+
+    m.mobileRoot.appendChild(frag);
+    m.mobileRoot.dataset.built = '1';
+
+    // bind drilldown open handlers
+    const openBtns = $$('[data-mega-mobile-open]', m.mobileRoot);
+    openBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (!isMobileView() || !hasDrilldown(m)) return;
+        const key = btn.getAttribute('data-mega-mobile-open');
+        const tNode = btn.querySelector && btn.querySelector('.mega-roottext');
+        const title = ((tNode && tNode.textContent) || (btn.textContent || '')).trim().replace(/\s+/g, ' ');
+        openMega(key, btn, m, { title });
+      });
+    });
+  }
+
+  function openMega(key, trigger, m, opts = {}) {
+    if (!m || !m.mega) return;
 
     const activeKey = key || 'about';
+    m.mega.classList.add('open');
 
-    mega.classList.add('open');
-
-    if (megaGroups && megaGroups.length) {
-      megaGroups.forEach(group => {
-        group.hidden = group.dataset.megaGroup !== activeKey;
-      });
+    // Mobile drilldown:
+    // - when key is null/undefined (burger open): show root categories
+    // - when key is present: show that group's subcategories + back button
+    const rootMode = isMobileView() && hasDrilldown(m) && !key;
+    if (isMobileView() && hasDrilldown(m)) {
+      if (rootMode) {
+        setMobileView(m, 'root', 'Разделы');
+      } else {
+        setMobileView(m, 'group', opts.title || 'Разделы');
+      }
     }
 
+    if (m.megaGroups && m.megaGroups.length) {
+      if (rootMode) {
+        m.megaGroups.forEach(g => { g.hidden = true; });
+      } else {
+        m.megaGroups.forEach(group => {
+          group.hidden = group.dataset.megaGroup !== activeKey;
+        });
+      }
+    }
+
+    // Backdrop only matters in mobile view
+    setBackdrop(m, isMobileView());
+
+    // Desktop: position mega relative to the hovered/focused nav item
     if (!isMobileView()) {
-      if (trigger && trigger.getBoundingClientRect && header) {
-        const headerRect = header.getBoundingClientRect();
+      if (trigger && trigger.getBoundingClientRect) {
+        const headerRect = m.root.getBoundingClientRect();
         const triggerRect = trigger.getBoundingClientRect();
 
-        mega.style.left = '0px';
-        mega.style.right = 'auto';
-        mega.style.transform = 'none';
+        m.mega.style.left = '0px';
+        m.mega.style.right = 'auto';
+        m.mega.style.transform = 'none';
 
-        const megaWidth = mega.offsetWidth || 0;
+        const megaWidth = m.mega.offsetWidth || 0;
         const triggerCenter = triggerRect.left + triggerRect.width / 2;
         let left = triggerCenter - headerRect.left - megaWidth / 2;
 
@@ -293,108 +370,138 @@
         if (left < padding) left = padding;
         if (left > maxLeft) left = maxLeft;
 
-        mega.style.left = `${left}px`;
+        m.mega.style.left = `${left}px`;
       } else {
-        mega.style.left = '';
-        mega.style.right = '';
-        mega.style.transform = '';
+        m.mega.style.left = '';
+        m.mega.style.right = '';
+        m.mega.style.transform = '';
       }
     } else {
-      mega.style.left = '';
-      mega.style.right = '';
-      mega.style.transform = '';
+      // Mobile: let CSS drive drawers/sheets; ensure we don't keep desktop positioning
+      m.mega.style.left = '';
+      m.mega.style.right = '';
+      m.mega.style.transform = '';
     }
   }
 
-  let hoverCloseTimer = null;
-  function scheduleCloseMega() {
+  function scheduleCloseMega(m) {
     if (isMobileView()) return;
-    if (hoverCloseTimer) clearTimeout(hoverCloseTimer);
-    hoverCloseTimer = setTimeout(() => {
-      hoverCloseTimer = null;
+    clearHoverTimer(m);
+    const t = setTimeout(() => {
+      hoverTimers.delete(m._id);
       closeMega();
     }, 120);
+    hoverTimers.set(m._id, t);
   }
 
-  navLinks.forEach(a => {
-    a.addEventListener('click', (e) => {
-      if (!isMobileView()) return;
-      e.preventDefault();
-      const key = a.dataset.mega;
-      const isOpen = a.getAttribute('aria-expanded') === 'true';
-      closeMega();
-      if (!isOpen) {
+  megaMenus.forEach(m => {
+    // If drilldown is enabled, build mobile root list once (from <nav>)
+    buildMobileRoot(m);
+    // Toggle per-top-item
+    m.navLinks.forEach(a => {
+      a.addEventListener('click', (e) => {
+        if (!isMobileView()) return;
+        e.preventDefault();
+        const key = a.dataset.mega;
+        const isOpen = a.getAttribute('aria-expanded') === 'true';
+        closeMega();
+        if (!isOpen) {
+          a.setAttribute('aria-expanded', 'true');
+          openMega(key, a, m);
+        }
+      });
+
+      a.addEventListener('mouseenter', () => {
+        if (isMobileView()) return;
+        const key = a.dataset.mega;
+        if (!key) return;
+        clearHoverTimer(m);
+        m.navLinks.forEach(link => link.setAttribute('aria-expanded', 'false'));
         a.setAttribute('aria-expanded', 'true');
-        openMega(key, a);
+        openMega(key, a, m);
+      });
+
+      a.addEventListener('mouseleave', () => {
+        if (isMobileView()) return;
+        scheduleCloseMega(m);
+      });
+
+      a.addEventListener('focus', () => {
+        if (isMobileView()) return;
+        const key = a.dataset.mega;
+        if (!key) return;
+        clearHoverTimer(m);
+        m.navLinks.forEach(link => link.setAttribute('aria-expanded', 'false'));
+        a.setAttribute('aria-expanded', 'true');
+        openMega(key, a, m);
+      });
+
+      a.addEventListener('blur', () => {
+        if (isMobileView()) return;
+        scheduleCloseMega(m);
+      });
+    });
+
+    // Hover safety
+    if (m.mega) {
+      m.mega.addEventListener('mouseenter', () => clearHoverTimer(m));
+      m.mega.addEventListener('mouseleave', () => {
+        if (isMobileView()) return;
+        scheduleCloseMega(m);
+      });
+
+      // Mobile convenience: tap any link closes the sheet
+      m.mega.addEventListener('click', (e) => {
+        const a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a) return;
+        if (isMobileView()) closeMega();
+      });
+    }
+
+    // Burger button opens first group (about)
+    if (m.menuBtn) {
+      m.menuBtn.addEventListener('click', () => {
+        const isOpen = m.menuBtn.getAttribute('aria-expanded') === 'true';
+        closeMega();
+        if (!isOpen) {
+          m.menuBtn.setAttribute('aria-expanded', 'true');
+          // Mobile drilldown: open as root list (all top-level)
+          if (isMobileView() && hasDrilldown(m)) {
+            buildMobileRoot(m);
+            openMega(null, null, m);
+          } else {
+            openMega('about', null, m);
+          }
+        }
+      });
+    }
+
+    // Mobile: back -> root list
+    m.mobileBack && m.mobileBack.addEventListener('click', () => {
+      if (!isMobileView() || !hasDrilldown(m)) return;
+      setMobileView(m, 'root', 'Разделы');
+      if (m.megaGroups && m.megaGroups.length) {
+        m.megaGroups.forEach(g => { g.hidden = true; });
       }
     });
 
-    a.addEventListener('mouseenter', () => {
-      if (isMobileView()) return;
-      const key = a.dataset.mega;
-      if (!key) return;
-      if (hoverCloseTimer) {
-        clearTimeout(hoverCloseTimer);
-        hoverCloseTimer = null;
-      }
-      navLinks.forEach(link => link.setAttribute('aria-expanded', 'false'));
-      a.setAttribute('aria-expanded', 'true');
-      openMega(key, a);
-    });
-
-    a.addEventListener('mouseleave', () => {
-      if (isMobileView()) return;
-      scheduleCloseMega();
-    });
-
-    a.addEventListener('focus', () => {
-      if (isMobileView()) return;
-      const key = a.dataset.mega;
-      if (!key) return;
-      if (hoverCloseTimer) {
-        clearTimeout(hoverCloseTimer);
-        hoverCloseTimer = null;
-      }
-      navLinks.forEach(link => link.setAttribute('aria-expanded', 'false'));
-      a.setAttribute('aria-expanded', 'true');
-      openMega(key, a);
-    });
-
-    a.addEventListener('blur', () => {
-      if (isMobileView()) return;
-      scheduleCloseMega();
-    });
+    // Close controls
+    m.closeBtn && m.closeBtn.addEventListener('click', closeMega);
+    m.backdrop && m.backdrop.addEventListener('click', closeMega);
   });
 
-  if (mega) {
-    mega.addEventListener('mouseenter', () => {
-      if (hoverCloseTimer) {
-        clearTimeout(hoverCloseTimer);
-        hoverCloseTimer = null;
-      }
-    });
-    mega.addEventListener('mouseleave', () => {
-      if (isMobileView()) return;
-      scheduleCloseMega();
-    });
-  }
-
-  if (menuBtn) {
-    menuBtn.addEventListener('click', () => {
-      const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
-      closeMega();
-      if (!isOpen) {
-        menuBtn.setAttribute('aria-expanded', 'true');
-        openMega('about', null);
-      }
-    });
-  }
-
+  // Click-away close (supports multiple menus)
   document.addEventListener('click', (e) => {
-    if (!mega) return;
-    const inside = mega.contains(e.target) || navLinks.some(a => a.contains(e.target)) || (menuBtn && menuBtn.contains(e.target));
-    if (!inside) closeMega();
+    if (!megaMenus.length) return;
+    const insideSomeMenu = megaMenus.some(m => {
+      const inside = (m.mega && m.mega.contains(e.target))
+        || m.navLinks.some(a => a.contains(e.target))
+        || (m.menuBtn && m.menuBtn.contains(e.target));
+      return inside;
+    });
+    if (!insideSomeMenu) closeMega();
   });
+
 
   const sc = $('#newsScroller');
   const prev = $('#newsPrev');
@@ -629,7 +736,6 @@
     if (!form.closest('[data-form-shell]')) return;
     e.preventDefault();
     showToast('Сообщение подготовлено');
-    // clear common inputs
     form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(el => el.value = '');
   });
 })();

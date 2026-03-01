@@ -46,6 +46,5 @@ urlpatterns = [
   path("vakansii.html/", TemplateView.as_view(template_name='vacancies.html'), name="vacancies"),
   # варианты
   path("footers/", TemplateView.as_view(template_name='footer-variants.html'), name="footers"),
-  path("menu1/", TemplateView.as_view(template_name='menu-variants.html'), name="menu1"),
 ]
 

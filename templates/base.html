@@ -455,7 +455,9 @@
     </div>
   </div>
 
+  {% block site_menu %}
   {% include './inc/menu.html' %}
+  {% endblock site_menu %}
 
   <div class="overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Поиск по сайту">
     <div class="modal card pad">

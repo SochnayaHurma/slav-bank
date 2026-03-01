@@ -1,7 +1,18 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'header.css' %}" />
 
-<header class="header reveal" data-reveal="scale">
+{% if menu_assets|default:1 %}
+<link rel="stylesheet" href="{% static 'header.css' %}" />
+<link rel="stylesheet" href="{% static 'menu_prod.css' %}" />
+{% endif %}
+
+<header
+  class="header reveal"
+  data-reveal="scale"
+  data-mega-root
+  data-menu-variant="prod"
+  data-mega-mobile="drilldown"
+  {% if menu_instance_id %}data-menu-id="{{ menu_instance_id }}"{% endif %}
+>
   <div class="container row">
     <div class="brand">
       <a href="/"><img src="{% static './logo2.png'%}" alt="СЛАВЯНБАНК" width="100%" /></a>
@@ -11,387 +22,253 @@
       <a class="navlink" href="/" data-mega="about" aria-expanded="false">О банке</a>
       <a class="navlink" href="{% url 'novosti' %}" aria-expanded="false">Новости</a>
       <a class="navlink" href="{% url 'tariffs' %}" data-mega="tarif" aria-expanded="false">Тарифы банка</a>
-      <a class="navlink" href="{% url 'legal-entities'%}" data-mega="buisnes" aria-expanded="false">Юридическим
-        лицам</a>
+      <a class="navlink" href="{% url 'legal-entities'%}" data-mega="buisnes" aria-expanded="false">Юридическим лицам</a>
       <a class="navlink" href="{% url 'private-persons'%}" aria-expanded="false">Частным лицам</a>
-      <a class="navlink" href="{% url 'client-bank-online'%}" data-mega="client-bank"
-        aria-expanded="false">Клиент-банк</a>
-      <a class="navlink" href="{% url 'support' %}" data-mega="support">Поддержка</a>
-      <a class="navlink" href="{% url 'contacts' %}" data-mega="contacts">Контакты</a>
+      <a class="navlink" href="{% url 'client-bank-online'%}" data-mega="client-bank" aria-expanded="false">Клиент-банк</a>
+      <a class="navlink" href="{% url 'support' %}" data-mega="support" aria-expanded="false">Поддержка</a>
+      <a class="navlink" href="{% url 'contacts' %}" data-mega="contacts" aria-expanded="false">Контакты</a>
     </nav>
 
     <div class="spacer"></div>
 
-    <button class="btn menu-btn" id="menuBtn" aria-label="Открыть меню" aria-expanded="false">
+    <button class="btn menu-btn" type="button" data-mega-btn aria-label="Открыть меню" aria-expanded="false">
       ☰ Меню
     </button>
-    <a class="btn primary" href="#" title="Переход в систему дистанционного обслуживания">Клиент‑Банк →</a>
+
+    <a class="btn primary clientbank-cta" href="#" title="Переход в систему дистанционного обслуживания">Клиент‑Банк →</a>
   </div>
 
-  <div class="mega card" id="megaPanel" role="dialog" aria-label="Разделы сайта">
+  {# backdrop for mobile sheets/drawers #}
+  <div class="mega-backdrop" data-mega-backdrop aria-hidden="true"></div>
+
+  <div class="mega card" data-mega-panel role="dialog" aria-label="Разделы сайта">
     <div class="header-grid">
-      <h3 style="text-align: center">Разделы</h3>
-      <div id="megaLinks" style="display: grid; gap: 4px">
-        <!-- Группа: О банке (about) -->
+      <div class="mega-mhead" data-mega-mobile-head>
+        <button class="btn ghost mega-back" type="button" data-mega-mobile-back aria-label="Назад">←</button>
+        <div class="mega-mobile-title" data-mega-mobile-title>Разделы</div>
+        <button class="btn ghost mega-close" type="button" data-mega-close aria-label="Закрыть меню">✕</button>
+      </div>
+
+      {# Mobile root list is built from <nav> by motion.js (always up-to-date) #}
+      <div class="mega-mobile-root" data-mega-mobile-root></div>
+
+      <div data-mega-links style="display: grid; gap: 6px">
+
+        <!-- =======================
+             Группа: О банке (about)
+             ======================= -->
         <div class="mega-group" data-mega-group="about">
-          <a class="mega-link" href="./o-banke-slavyanbank-html/info_bank-html.html"
-            data-hay="Информация банка О Банке https://slavbank.ru/o-banke-slavyanbank-html/info_bank-html.html">
+          <a class="mega-link" href="/o-banke-slavyanbank-html/info_bank-html.html/">
             <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Информация банка</strong>
-            </span>
+            <span class="mega-meta"><strong>Информация банка</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-link" href="{% url 'requisites_bank'%}"
-            data-hay="Реквизиты банка О Банке https://slavbank.ru/o-banke-slavyanbank-html/rekvizity-banka.html">
+
+          <a class="mega-link" href="{% url 'requisites_bank'%}">
             <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Реквизиты банка</strong>
-            </span>
+            <span class="mega-meta"><strong>Реквизиты банка</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-link" href="{% url 'governance'%}"
-            data-hay="Органы управления О Банке https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html">
+
+          <a class="mega-link" href="{% url 'governance'%}">
             <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Органы управления</strong>
-            </span>
+            <span class="mega-meta"><strong>Органы управления</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-link" href="{% url 'reporting' %}"
-            data-hay="Отчетность О Банке https://slavbank.ru/o-banke-html/otchetnost.html">
+
+          <a class="mega-link" href="{% url 'reporting' %}">
             <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Отчетность</strong>
-            </span>
+            <span class="mega-meta"><strong>Отчетность</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-link" href="{% url 'disclosur-regulatory'%}"
-            data-hay="Раскрытие информации для регулятивных целей О Банке https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html">
+
+          <a class="mega-link" href="{% url 'disclosur-regulatory'%}">
             <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Раскрытие информации для регулятивных целей</strong>
-            </span>
+            <span class="mega-meta"><strong>Раскрытие информации для регулятивных целей</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-link" href="{% url 'notaries'%}"
-            data-hay="Информация для нотариусов О Банке https://slavbank.ru/informacziya-dlya-notariusov.html">
+
+          <a class="mega-link" href="{% url 'notaries'%}">
             <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Информация для нотариусов</strong>
-            </span>
+            <span class="mega-meta"><strong>Информация для нотариусов</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
         </div>
 
-        <!-- Группа: Бизнесу (biz) -->
-        <div class="mega-group" data-mega-group="biz" hidden>
-          <a class="mega-link" href="https://slavbank.ru/yuridicheskim-liczam.html"
-            data-hay="Юридическим Лицам Раздел сайта https://slavbank.ru/yuridicheskim-liczam.html">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Юридическим лицам</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="https://slavbank.ru/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html"
-            data-hay="Депозиты для юридических лиц Юридическим лицам https://slavbank.ru/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html">
-            <span class="mega-ic" aria-hidden="true">⟡</span>
-            <span class="mega-meta">
-              <strong>Депозиты для юридических лиц</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html"
-            data-hay="Кредитование юридических лиц Юридическим лицам https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html">
-            <span class="mega-ic" aria-hidden="true">↗</span>
-            <span class="mega-meta">
-              <strong>Кредитование юридических лиц</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html"
-            data-hay="Обслуживание счетов в валюте РФ Юридическим лицам https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>РКО в рублях</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <!-- пример подпункта: обслуживание валютных счетов -->
-          <a class="mega-link" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html"
-            data-hay="Обслуживание счетов в иностранной валюте Юридическим лицам https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html">
-            <span class="mega-ic" aria-hidden="true">₿</span>
-            <span class="mega-meta">
-              <strong>Обслуживание валютных счетов</strong>
-              <small>Подпункт раздела «Бизнесу»</small>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="https://slavbank.ru/chastnym-liczam.html"
-            data-hay="Частным лицам Раздел сайта https://slavbank.ru/chastnym-liczam.html">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Частным лицам</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="https://slavbank.ru/klient-bank-online.html"
-            data-hay="Клиент-Банк Раздел сайта https://slavbank.ru/klient-bank-online.html">
-            <span class="mega-ic" aria-hidden="true">⌁</span>
-            <span class="mega-meta">
-              <strong>Клиент-Банк</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-        <!-- Группа: Тарифы (tarif) -->
+        <!-- =====================
+             Группа: Тарифы (tarif)
+             ===================== -->
         <div class="mega-group" data-mega-group="tarif" hidden>
-          <a class="mega-link" href="{% url 'tariffs_rub' %}" data-hay="ВЭД Юридическим лицам https://ved.slavbank.ru/">
+          <a class="mega-link" href="{% url 'tariffs_rub' %}">
             <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Тарифы по операциям в валюте РФ</strong>
-            </span>
+            <span class="mega-meta"><strong>Тарифы по операциям в валюте РФ</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-link" href="{% url 'tariffs_slavny' %}"
-            data-hay="ВЭД Юридическим лицам https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Тарифы по операциям в рублях и иностранной валюте «Славный»</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          </a>
-          <a class="mega-link" href="{% url 'tariff_privetstvenny' %}"
-            data-hay="ВЭД Юридическим лицам https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Тарифы банка в валюте РФ и иностранной валюте «Приветственный»</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          </a>
-          <a class="mega-link" href="{% url 'tariff-depositny' %}"
-            data-hay="ВЭД Юридическим лицам https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Тарифы по операциям в рублях и иностранной валюте «Депозитный»</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          </a>
-          <a class="mega-link" href="{% url 'tariffs-foreign-currency' %}"
-            data-hay="ВЭД Юридическим лицам https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Тарифы по операциям в иностранной валюте</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-        <!-- Группа: Юридическим лицам (buisnes) -->
-        <div class="mega-group" data-mega-group="buisnes" hidden>
-          <a class="mega-link" href="{% url 'business-deposits' %}"
-            data-hay="Депозиты для юридических лиц https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Депозиты для юридических лиц</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'business-lending' %}"
-            data-hay="Кредитование юридических лиц https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Кредитование юридических лиц</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'account-service' %}"
-            data-hay="Обслуживание счетов в валюте РФ https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Обслуживание счетов в валюте РФ</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'fx-account-service' %}"
-            data-hay="Обслуживание счетов в иностранной валюте https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Обслуживание счетов в иностранной валюте</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'currency-control' %}"
-            data-hay="Валютный контроль https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Валютный контроль</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'aml-fatca' %}" data-hay="ПОД/ФТ/ФРОМУ/FATCA https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>ПОД/ФТ/ФРОМУ/FATCA</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'crs' %}" data-hay="CRS — обмен с ФНС https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>CRS — обмен с ФНС</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="https://ved.slavbank.ru/" data-hay="ВЭД https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>ВЭД</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-        <!-- Группа: Клиент банк (client-bank) -->
-        <div class="mega-group" data-mega-group="client-bank" hidden>
-          <a class="mega-link" href="{% url 'instruction' %}"
-            data-hay="Инструкция по работе в системе Клиент-Банк https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Инструкция по работе в системе Клиент-Банк</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'faq' %}" data-hay="Часто задаваемые вопросы https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Часто задаваемые вопросы</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'ecp-regeneration' %}"
-            data-hay="Перегенерация ЭЦП https://ved.slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Перегенерация ЭЦП</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-        <!-- Группа: Поддержка (support)-->
-        <div class="mega-group" data-mega-group="support" hidden>
-          <a class="mega-link" href="https://www.ammyy.com/ru/"
-            data-hay="ВЭД Юридическим лицам https://www.ammyy.com/ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Удаленное управление</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'security' %}" data-hay="Рекомендации по безопасности https://slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Рекомендации по безопасности</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'appeal-123-fz' %}" data-hay="Обращение по 123-ФЗ https://slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>Обращение по 123-ФЗ</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="mega-link" href="{% url 'covid19' %}" data-hay="COVID19 https://slavbank.ru/">
-            <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>COVID19</strong>
-            </span>
-            <span class="mega-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-        <!-- Группа: Контакты (contacts)-->
 
+          <a class="mega-link" href="{% url 'tariffs_slavny' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Тарифы «Славный»</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'tariff_privetstvenny' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Тарифы «Приветственный»</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'tariff-depositny' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Тарифы «Депозитный»</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'tariffs-foreign-currency' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Тарифы по операциям в иностранной валюте</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- ==================================
+             Группа: Юридическим лицам (buisnes)
+             (вложенные меню: details + 2 уровня)
+             ================================== -->
+        <div class="mega-group" data-mega-group="buisnes" hidden>
+          <a class="mega-link" href="{% url 'business-deposits' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Депозиты для юридических лиц</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'business-lending' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Кредитование юридических лиц</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <details class="mega-item">
+            <summary class="mega-link">
+              <span class="mega-ic" aria-hidden="true">◈</span>
+              <span class="mega-meta"><strong>Обслуживание счетов в валюте РФ</strong><small>РКО в рублях</small></span>
+              <span class="mega-arrow" aria-hidden="true">▾</span>
+            </summary>
+            <div class="mega-sub">
+              <details>
+                <summary class="mega-sublink"><span aria-hidden="true">↳</span> Безналичные расчеты</summary>
+                <div class="mega-sub2">
+                  <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html"><span aria-hidden="true">•</span> Платежные поручения</a>
+                  <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html#swift"><span aria-hidden="true">•</span> SWIFT / международные переводы</a>
+                  <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html#docs"><span aria-hidden="true">•</span> Документы и формы</a>
+                </div>
+              </details>
+
+              <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html"><span aria-hidden="true">↳</span> Наличные расчеты</a>
+              <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html"><span aria-hidden="true">↳</span> Платежные требования с акцептом</a>
+            </div>
+          </details>
+
+          <a class="mega-link" href="{% url 'fx-account-service' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Обслуживание счетов в иностранной валюте</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'currency-control' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Валютный контроль</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'aml-fatca' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>ПОД/ФТ/ФРОМУ/FATCA</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'crs' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>CRS — обмен с ФНС</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="https://ved.slavbank.ru/">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>ВЭД</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- ===============================
+             Группа: Клиент-банк (client-bank)
+             =============================== -->
+        <div class="mega-group" data-mega-group="client-bank" hidden>
+          <a class="mega-link" href="{% url 'instruction' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Инструкция по работе в системе</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <details class="mega-item">
+            <summary class="mega-link">
+              <span class="mega-ic" aria-hidden="true">⌁</span>
+              <span class="mega-meta"><strong>Справка и ответы</strong><small>FAQ и типовые ситуации</small></span>
+              <span class="mega-arrow" aria-hidden="true">▾</span>
+            </summary>
+            <div class="mega-sub">
+              <a class="mega-sublink" href="{% url 'faq' %}"><span aria-hidden="true">↳</span> Часто задаваемые вопросы</a>
+              <a class="mega-sublink" href="{% url 'ecp-regeneration' %}"><span aria-hidden="true">↳</span> Перегенерация ЭЦП</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- =======================
+             Группа: Поддержка (support)
+             ======================= -->
+        <div class="mega-group" data-mega-group="support" hidden>
+          <a class="mega-link" href="https://www.ammyy.com/ru/">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Удаленное управление</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'security' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Рекомендации по безопасности</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'appeal-123-fz' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>Обращение по 123‑ФЗ</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="mega-link" href="{% url 'covid19' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong>COVID‑19</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- =======================
+             Группа: Контакты (contacts)
+             ======================= -->
         <div class="mega-group" data-mega-group="contacts" hidden>
-          <a class="mega-link" href="{% url 'write-to-bank' %}" data-hay="НАПИСАТЬ В БАНК https://ved.slavbank.ru/">
+          <a class="mega-link" href="{% url 'write-to-bank' %}">
             <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>НАПИСАТЬ В БАНК</strong>
-            </span>
+            <span class="mega-meta"><strong>Написать в банк</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="mega-link" href="{% url 'vacancies' %}" data-hay="ВАКАНСИИ https://ved.slavbank.ru/">
+
+          <a class="mega-link" href="{% url 'vacancies' %}">
             <span class="mega-ic" aria-hidden="true">◈</span>
-            <span class="mega-meta">
-              <strong>ВАКАНСИИ</strong>
-            </span>
+            <span class="mega-meta"><strong>Вакансии</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
         </div>
+
       </div>
-      {% comment %}
-      <div class="col">
-        <h3>Быстрые действия</h3>
-        <div style="display: grid; gap: 10px">
-          <a class="tile" href="#services" style="padding: 12px; border-radius: 16px">
-            <div class="badge">РКО</div>
-            <div style="font-weight: 600; margin-top: 6px">Открыть счёт</div>
-            <div class="muted" style="font-size: 12px; margin-top: 3px; font-weight: 300">
-              Подключение сервисов для бизнеса.
-            </div>
-          </a>
-          <a class="tile" href="#fx" style="padding: 12px; border-radius: 16px">
-            <div class="badge">ВЭД</div>
-            <div style="font-weight: 600; margin-top: 6px">
-              Экспертиза контракта
-            </div>
-            <div class="muted" style="font-size: 12px; margin-top: 3px; font-weight: 300">
-              Поможем до сделки и на расчётах.
-            </div>
-          </a>
-        </div>
-      </div>
-      {% endcomment %}
     </div>
   </div>
 </header>
-
-<div class="overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Поиск по сайту">
-  <div class="modal card pad">
-    <div class="row" style="align-items: center">
-      <div style="font-weight: 600">Поиск</div>
-      <div class="spacer"></div>
-      <button class="btn" id="searchClose">Закрыть</button>
-    </div>
-
-    <div class="searchbox" style="margin-top: 12px">
-      <span aria-hidden="true">🔎</span>
-      <input id="searchInput" placeholder="Например: валютный контроль, SWIFT, тарифы, реквизиты…" autocomplete="off" />
-      <span class="kbd">Enter</span>
-    </div>
-
-    <div class="muted" style="margin-top: 10px; font-size: 12px; font-weight: 300">
-      Демо-поиск. В проде: индексация документов и FAQ.
-    </div>
-
-    <div id="searchHints" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px">
-      <button class="btn soft" type="button" data-hint="Экспертиза контрактов">
-        Экспертиза контрактов
-      </button>
-      <button class="btn soft" type="button" data-hint="Международные расчёты (SWIFT)">
-        SWIFT
-      </button>
-      <button class="btn soft" type="button" data-hint="Валютный контроль">
-        Валютный контроль
-      </button>
-      <button class="btn soft" type="button" data-hint="Тарифы банка">
-        Тарифы
-      </button>
-      <button class="btn soft" type="button" data-hint="Реквизиты">
-        Реквизиты
-      </button>
-    </div>
-  </div>
-</div>

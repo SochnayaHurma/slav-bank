@@ -1,0 +1,1252 @@
+/*
+  MENU VARIANTS (v1..v10)
+  - Scoped to: .header[data-menu-variant]
+  - Keeps existing palette from tokens.css
+  - Adds nested submenu support via <details class="mega-item"> ... <div class="mega-sub">...
+*/
+
+/* ------------------------------
+   Common (applies to all variants)
+-------------------------------- */
+.header[data-menu-variant] {
+  --m-menu-w: 520px;
+  --m-bg: rgba(245, 250, 252, 0.68);
+  --m-border: rgba(2, 6, 23, 0.10);
+  --m-shadow: 0 18px 44px rgba(2, 6, 23, .10);
+  --m-link: rgba(2, 6, 23, .86);
+  --m-link-muted: rgba(71, 85, 105, .92);
+  --m-link-hover-bg: rgba(255, 255, 255, .82);
+  --m-link-hover-border: rgba(2, 6, 23, .16);
+  --m-accent: var(--c-primary);
+  --m-accent-soft: rgba(0, 103, 128, .10);
+  --m-radius: 18px;
+
+  background: var(--m-bg) !important;
+  border-bottom: 1px solid var(--m-border) !important;
+}
+
+.header[data-menu-variant] .navlink {
+  color: var(--m-link) !important;
+  border-radius: var(--m-radius) !important;
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+
+.header[data-menu-variant] .navlink:hover {
+  background: var(--m-link-hover-bg) !important;
+  border-color: var(--m-link-hover-border) !important;
+  transform: translateY(-1px);
+}
+
+.header[data-menu-variant] .navlink[aria-expanded="true"] {
+  background: #fff !important;
+  border-color: rgba(2, 6, 23, 0.22) !important;
+}
+
+.header[data-menu-variant] .mega {
+  width: min(var(--m-menu-w), calc(100vw - 40px)) !important;
+  border: 1px solid rgba(2, 6, 23, .12);
+  box-shadow: var(--m-shadow);
+}
+
+.header[data-menu-variant] .mega .header-grid {
+  gap: 12px;
+}
+
+.header[data-menu-variant] .mega-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 8px;
+  border-bottom: 1px solid rgba(2, 6, 23, .08);
+  margin-bottom: 6px;
+}
+
+/* Mobile drilldown blocks exist in the include; keep them hidden by default.
+   They are only enabled/styled for v4 on mobile via [data-mobile-view]. */
+.header[data-menu-variant] .mega-mobile-head,
+.header[data-menu-variant] .mega-mobile-root {
+  display: none;
+}
+
+.header[data-menu-variant] .mega-title {
+  font-size: 12px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--m-link-muted);
+  font-weight: 600;
+}
+
+.header[data-menu-variant] .mega-close {
+  margin-left: auto;
+}
+
+/* Backdrop for mobile drawers/sheets */
+.mega-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, .55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-med) var(--ease);
+  z-index: 49; /* header is 50 */
+}
+
+.mega-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Nested submenu (details) */
+.header[data-menu-variant] details.mega-item {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.header[data-menu-variant] details.mega-item > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.header[data-menu-variant] details.mega-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.header[data-menu-variant] details.mega-item[open] > summary {
+  background: var(--m-accent-soft);
+}
+
+.header[data-menu-variant] .mega-sub {
+  display: grid;
+  gap: 4px;
+  padding: 6px 10px 10px;
+}
+
+.header[data-menu-variant] .mega-sublink,
+.header[data-menu-variant] .mega-sub summary.mega-sublink {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 10px 9px 38px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: rgba(2, 6, 23, .86);
+  border: 1px solid transparent;
+  font-size: 12px;
+}
+
+.header[data-menu-variant] .mega-sublink:hover {
+  background: rgba(255, 255, 255, .78);
+  border-color: rgba(2, 6, 23, .12);
+}
+
+/* 3rd level (submenu inside submenu) */
+.header[data-menu-variant] .mega-sub details {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px dashed rgba(2, 6, 23, .10);
+  background: rgba(255, 255, 255, .35);
+}
+
+.header[data-menu-variant] .mega-sub details[open] {
+  background: rgba(255, 255, 255, .55);
+}
+
+.header[data-menu-variant] .mega-sub details > summary.mega-sublink {
+  border: none;
+  padding-left: 38px;
+}
+
+.header[data-menu-variant] .mega-sub .mega-sub2 {
+  display: grid;
+  gap: 4px;
+  padding: 6px 10px 10px;
+}
+
+.header[data-menu-variant] .mega-sub .mega-sub2 a {
+  padding-left: 54px;
+  font-size: 12px;
+}
+
+/* Mobile defaults: hide CTA button, give menu more room */
+@media (max-width: 980px) {
+  .header[data-menu-variant] {
+    --m-menu-w: 720px;
+  }
+  .header[data-menu-variant] .clientbank-cta {
+    display: none !important;
+  }
+}
+
+/* ------------------------------
+   Variant v1 — Refined Glass
+-------------------------------- */
+.header[data-menu-variant="v1"] {
+  --m-bg: rgba(245, 250, 252, 0.72);
+  --m-menu-w: 560px;
+  backdrop-filter: blur(16px);
+}
+
+.header[data-menu-variant="v1"] .navlink {
+  border: 1px solid transparent !important;
+}
+
+.header[data-menu-variant="v1"] .mega {
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .86);
+  backdrop-filter: blur(16px);
+}
+
+@media (max-width: 980px) {
+  .header[data-menu-variant="v1"] .mega {
+    position: fixed;
+    left: 12px !important;
+    right: 12px !important;
+    top: auto !important;
+    bottom: 12px;
+    transform: none !important;
+    width: auto !important;
+    max-height: calc(100vh - 24px);
+    overflow: auto;
+    border-radius: 22px;
+  }
+}
+
+/* ------------------------------
+   Variant v2 — Dark Slate
+-------------------------------- */
+.header[data-menu-variant="v2"] {
+  --m-bg: rgba(15, 23, 42, 0.92);
+  --m-border: rgba(148, 163, 184, 0.18);
+  --m-link: rgba(255, 255, 255, .92);
+  --m-link-muted: rgba(226, 232, 240, .78);
+  --m-link-hover-bg: rgba(255, 255, 255, .10);
+  --m-link-hover-border: rgba(226, 232, 240, .24);
+  --m-accent-soft: rgba(159, 213, 213, .10);
+  --m-shadow: 0 24px 70px rgba(2, 6, 23, .45);
+}
+
+.header[data-menu-variant="v2"] .btn {
+  border-color: rgba(226, 232, 240, .22);
+}
+
+.header[data-menu-variant="v2"] .mega {
+  background: rgba(2, 6, 23, .76);
+  border-color: rgba(226, 232, 240, .18);
+  color: rgba(255, 255, 255, .92);
+}
+
+.header[data-menu-variant="v2"] .mega a,
+.header[data-menu-variant="v2"] .mega summary {
+  color: rgba(255, 255, 255, .92);
+}
+
+.header[data-menu-variant="v2"] .mega a:hover {
+  background: rgba(159, 213, 213, .10);
+}
+
+/* ------------------------------
+   Variant v3 — Segmented Tabs
+-------------------------------- */
+.header[data-menu-variant="v3"] {
+  --m-bg: rgba(255, 255, 255, .72);
+  --m-menu-w: 620px;
+}
+
+.header[data-menu-variant="v3"] nav {
+  background: rgba(255, 255, 255, .70);
+  border: 1px solid rgba(2, 6, 23, .10);
+  border-radius: 999px;
+  padding: 4px;
+}
+
+.header[data-menu-variant="v3"] .navlink {
+  border-radius: 999px !important;
+  padding: 9px 12px !important;
+}
+
+.header[data-menu-variant="v3"] .navlink[aria-expanded="true"] {
+  background: rgba(0, 103, 128, .10) !important;
+  border-color: rgba(0, 103, 128, .18) !important;
+}
+
+/* ------------------------------
+   Variant v4 — Classic Corporate (underline)
+-------------------------------- */
+.header[data-menu-variant="v4"] {
+  --m-bg: rgba(255, 255, 255, .78);
+  --m-menu-w: 560px;
+}
+
+.header[data-menu-variant="v4"] .container.row {
+  position: relative;
+}
+
+.header[data-menu-variant="v4"] .container.row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(0, 103, 128, .0), rgba(0, 103, 128, .55), rgba(0, 103, 128, .0));
+  border-radius: 999px;
+}
+
+.header[data-menu-variant="v4"] .navlink {
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 12px !important;
+}
+
+.header[data-menu-variant="v4"] .navlink:hover {
+  background: transparent !important;
+  border-bottom-color: rgba(0, 103, 128, .30) !important;
+}
+
+.header[data-menu-variant="v4"] .navlink[aria-expanded="true"] {
+  background: transparent !important;
+  border-bottom-color: rgba(0, 103, 128, .85) !important;
+}
+
+/* ------------------------------
+   Variant v5 — Mobile Right Drawer
+-------------------------------- */
+.header[data-menu-variant="v5"] {
+  --m-bg: rgba(245, 250, 252, .58);
+  --m-menu-w: 520px;
+}
+
+@media (max-width: 980px) {
+  .header[data-menu-variant="v5"] .mega {
+    position: fixed;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    transform: none !important;
+    width: min(420px, 92vw) !important;
+    max-height: 100vh;
+    overflow: auto;
+    border-radius: 24px 0 0 24px;
+  }
+}
+
+/* ------------------------------
+   Variant v6 — Mobile Fullscreen
+-------------------------------- */
+.header[data-menu-variant="v6"] {
+  --m-bg: rgba(255, 255, 255, .66);
+  --m-menu-w: 560px;
+}
+
+@media (max-width: 980px) {
+  .header[data-menu-variant="v6"] .mega {
+    position: fixed;
+    inset: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-height: 100vh;
+    overflow: auto;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+  .header[data-menu-variant="v6"] .mega-top {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, .90);
+    backdrop-filter: blur(12px);
+    z-index: 1;
+  }
+}
+
+/* ------------------------------
+   Variant v7 — Compact Appbar
+-------------------------------- */
+.header[data-menu-variant="v7"] {
+  --m-bg: rgba(15, 23, 42, 0.88);
+  --m-border: rgba(148, 163, 184, .22);
+  --m-link: rgba(255, 255, 255, .92);
+  --m-link-muted: rgba(226, 232, 240, .76);
+  --m-link-hover-bg: rgba(255, 255, 255, .10);
+  --m-shadow: 0 28px 80px rgba(2, 6, 23, .55);
+  padding: 8px 0 !important;
+}
+
+.header[data-menu-variant="v7"] .brand {
+  width: auto;
+}
+
+.header[data-menu-variant="v7"] .brand img {
+  height: 34px;
+  width: auto;
+}
+
+.header[data-menu-variant="v7"] .mega {
+  background: rgba(2, 6, 23, .80);
+  border-color: rgba(226, 232, 240, .16);
+  color: rgba(255, 255, 255, .92);
+}
+
+.header[data-menu-variant="v7"] .mega a,
+.header[data-menu-variant="v7"] .mega summary {
+  color: rgba(255, 255, 255, .92);
+}
+
+/* ------------------------------
+   Variant v8 — Bordered Capsule
+-------------------------------- */
+.header[data-menu-variant="v8"] {
+  --m-bg: rgba(245, 250, 252, .0);
+  --m-menu-w: 560px;
+  border-bottom: none !important;
+  padding: 8px 0 !important;
+}
+
+.header[data-menu-variant="v8"] .container.row {
+  border: 1px solid rgba(2, 6, 23, .12);
+  border-radius: 999px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, .74);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 14px 40px rgba(2, 6, 23, .08);
+}
+
+.header[data-menu-variant="v8"] .mega {
+  border-radius: 26px;
+}
+
+@media (max-width: 980px) {
+  .header[data-menu-variant="v8"] .container.row {
+    border-radius: 22px;
+  }
+}
+
+/* ------------------------------
+   Variant v9 — High-Contrast Outline
+-------------------------------- */
+.header[data-menu-variant="v9"] {
+  --m-bg: rgba(245, 250, 252, .40);
+  --m-menu-w: 640px;
+  border-bottom: 1px solid rgba(0, 103, 128, .16) !important;
+}
+
+.header[data-menu-variant="v9"] .navlink {
+  border: 1px solid rgba(0, 103, 128, .14) !important;
+}
+
+.header[data-menu-variant="v9"] .navlink:hover {
+  border-color: rgba(0, 103, 128, .30) !important;
+}
+
+.header[data-menu-variant="v9"] .mega {
+  background: rgba(255, 255, 255, .90);
+  border-color: rgba(0, 103, 128, .18);
+}
+
+/* ------------------------------
+   Variant v10 — Gradient Accent + Glass
+-------------------------------- */
+.header[data-menu-variant="v10"] {
+  --m-bg: linear-gradient(135deg, rgba(159, 213, 213, .22), rgba(255, 255, 255, .62));
+  --m-menu-w: 620px;
+}
+
+.header[data-menu-variant="v10"] .mega {
+  background: rgba(255, 255, 255, .84);
+  border-radius: 24px;
+  backdrop-filter: blur(18px);
+}
+
+.header[data-menu-variant="v10"] .mega::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 103, 128, .35), rgba(208, 184, 163, .35));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+
+/* =====================================================================
+   DROPDOWN / MEGA MENU VISUALS (per-variant)
+   Goal: make the *dropdown itself* look meaningfully different in v1..v10
+   ===================================================================== */
+
+/* ---------
+   Common dropdown structure (all variants)
+--------- */
+.header[data-menu-variant] .mega {
+  position: relative;
+  overflow: hidden;
+}
+
+.header[data-menu-variant] [data-mega-links] {
+  gap: 8px !important;
+}
+
+.header[data-menu-variant] .mega-group {
+  display: grid;
+  gap: 6px;
+}
+
+/*
+  IMPORTANT:
+  Mega-menu groups are toggled via the HTML [hidden] attribute in motion.js.
+  Since author CSS can override the UA rule for [hidden], we must explicitly
+  enforce hiding, otherwise *all* groups become visible at once.
+*/
+.header[data-menu-variant] .mega-group[hidden] {
+  display: none !important;
+}
+
+.header[data-menu-variant] .mega-link,
+.header[data-menu-variant] details.mega-item > summary.mega-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  user-select: none;
+}
+
+.header[data-menu-variant] .mega-ic {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  background: rgba(0, 103, 128, .10);
+  color: var(--c-primary-700);
+  border: 1px solid rgba(0, 103, 128, .14);
+}
+
+.header[data-menu-variant] .mega-meta {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.header[data-menu-variant] .mega-meta strong {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.header[data-menu-variant] .mega-meta small {
+  font-size: 12px;
+  color: var(--m-link-muted);
+}
+
+.header[data-menu-variant] .mega-arrow {
+  margin-left: auto;
+  opacity: .65;
+  transform-origin: center;
+  transition: transform var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
+}
+
+.header[data-menu-variant] details[open] > summary .mega-arrow {
+  transform: rotate(180deg);
+  opacity: .9;
+}
+
+.header[data-menu-variant] .mega-link:hover,
+.header[data-menu-variant] details.mega-item > summary.mega-link:hover {
+  text-decoration: none;
+}
+
+.header[data-menu-variant] .mega-link:focus-visible,
+.header[data-menu-variant] details.mega-item > summary.mega-link:focus-visible {
+  outline: 3px solid rgba(0, 103, 128, .28);
+  outline-offset: 2px;
+}
+
+
+/* ---------------------------------------------------------------------
+   v1 — Glass Cards (soft, premium)
+--------------------------------------------------------------------- */
+.header[data-menu-variant="v1"] .mega {
+  background: rgba(255, 255, 255, .82);
+  border: 1px solid rgba(2, 6, 23, .10);
+}
+
+.header[data-menu-variant="v1"] .mega-link,
+.header[data-menu-variant="v1"] details.mega-item > summary.mega-link {
+  background: rgba(255, 255, 255, .54);
+  border-color: rgba(2, 6, 23, .08);
+  box-shadow: 0 10px 22px rgba(2, 6, 23, .06);
+  backdrop-filter: blur(14px);
+}
+
+.header[data-menu-variant="v1"] .mega-link:hover {
+  background: rgba(255, 255, 255, .76);
+  border-color: rgba(0, 103, 128, .18);
+  transform: translateY(-1px);
+}
+
+.header[data-menu-variant="v1"] .mega-ic {
+  background: linear-gradient(135deg, rgba(0, 103, 128, .18), rgba(159, 213, 213, .28));
+  border-color: rgba(0, 103, 128, .16);
+}
+
+.header[data-menu-variant="v1"] .mega-sub {
+  background: rgba(255, 255, 255, .44);
+  border-radius: 16px;
+  border: 1px dashed rgba(2, 6, 23, .10);
+}
+
+
+/* ---------------------------------------------------------------------
+   v2 — Dark Neon List (executive dashboard feel)
+--------------------------------------------------------------------- */
+.header[data-menu-variant="v2"] .mega {
+  background: radial-gradient(1200px 560px at 15% 0%, rgba(0, 103, 128, .22), transparent 55%),
+              rgba(2, 6, 23, .80);
+}
+
+.header[data-menu-variant="v2"] .mega-top {
+  border-bottom-color: rgba(226, 232, 240, .10);
+}
+
+.header[data-menu-variant="v2"] .mega-link,
+.header[data-menu-variant="v2"] details.mega-item > summary.mega-link {
+  background: rgba(15, 23, 42, .48);
+  border-color: rgba(226, 232, 240, .10);
+}
+
+.header[data-menu-variant="v2"] .mega-link:hover {
+  background: rgba(0, 103, 128, .18);
+  border-color: rgba(159, 213, 213, .22);
+}
+
+.header[data-menu-variant="v2"] .mega-ic {
+  background: rgba(159, 213, 213, .12);
+  border-color: rgba(159, 213, 213, .24);
+  color: rgba(255, 255, 255, .92);
+}
+
+.header[data-menu-variant="v2"] .mega-sub {
+  background: rgba(2, 6, 23, .35);
+  border: 1px solid rgba(226, 232, 240, .10);
+  border-radius: 16px;
+}
+
+
+/* ---------------------------------------------------------------------
+   v3 — Column Cards (structured, “product catalog”)
+--------------------------------------------------------------------- */
+@media (min-width: 980px) {
+  .header[data-menu-variant="v3"] .mega-group {
+    column-count: 2;
+    column-gap: 10px;
+  }
+  .header[data-menu-variant="v3"] .mega-group > a,
+  .header[data-menu-variant="v3"] .mega-group > details {
+    break-inside: avoid;
+    margin-bottom: 8px;
+  }
+}
+
+.header[data-menu-variant="v3"] .mega {
+  background: rgba(255, 255, 255, .92);
+}
+
+.header[data-menu-variant="v3"] .mega-link,
+.header[data-menu-variant="v3"] details.mega-item > summary.mega-link {
+  border-color: rgba(2, 6, 23, .10);
+  background: rgba(245, 250, 252, .76);
+}
+
+.header[data-menu-variant="v3"] .mega-link:hover {
+  background: rgba(0, 103, 128, .08);
+  border-color: rgba(0, 103, 128, .20);
+}
+
+.header[data-menu-variant="v3"] .mega-ic {
+  border-radius: 12px;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 103, 128, .08);
+}
+
+
+/* ---------------------------------------------------------------------
+   v4 — Classic Corporate (dividers, minimal hover)
+--------------------------------------------------------------------- */
+.header[data-menu-variant="v4"] .mega {
+  background: #fff;
+}
+
+.header[data-menu-variant="v4"] .mega-group {
+  gap: 0;
+}
+
+.header[data-menu-variant="v4"] .mega-link,
+.header[data-menu-variant="v4"] details.mega-item > summary.mega-link {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(2, 6, 23, .08);
+  padding: 12px 8px;
+  background: transparent;
+}
+
+.header[data-menu-variant="v4"] .mega-group > :first-child .mega-link {
+  border-top: 1px solid rgba(2, 6, 23, .08);
+}
+
+.header[data-menu-variant="v4"] .mega-link:hover {
+  background: rgba(0, 103, 128, .05);
+}
+
+.header[data-menu-variant="v4"] .mega-ic {
+  /* pale ring around diamond */
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .92);
+  border-color: rgba(2, 6, 23, .14);
+  box-shadow: 0 0 0 3px rgba(0, 103, 128, .05);
+}
+
+.header[data-menu-variant="v4"] details.mega-item[open] > summary {
+  background: rgba(0, 103, 128, .06);
+}
+
+/* Make nested submenu (rail/cards) feel more "bank-like" in v4 */
+.header[data-menu-variant="v4"] {
+  --sub-rail: rgba(2, 6, 23, .12);
+  --sub-panel: rgba(255, 255, 255, .82);
+  --sub-panel-border: rgba(2, 6, 23, .10);
+  --sub-item-bg: rgba(255, 255, 255, .70);
+  --sub-item-border: rgba(2, 6, 23, .10);
+  --sub-item-hover: rgba(0, 103, 128, .06);
+  --sub-text: rgba(2, 6, 23, .88);
+}
+
+.header[data-menu-variant="v4"][data-submenu-style] .mega-sublink > span[aria-hidden] {
+  background: rgba(2, 6, 23, .03);
+  border-color: rgba(2, 6, 23, .12);
+  box-shadow: 0 0 0 3px rgba(0, 103, 128, .04);
+}
+
+.header[data-menu-variant="v4"][data-submenu-style] .mega-sub details > summary.mega-sublink::after {
+  content: "›";
+}
+
+.header[data-menu-variant="v4"][data-submenu-style] .mega-sub details[open] > summary.mega-sublink::after {
+  transform: rotate(90deg);
+}
+
+/* v4 mobile drilldown: root -> group */
+.header[data-menu-variant="v4"] .mega-mobile-head,
+.header[data-menu-variant="v4"] .mega-mobile-root {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  /* 1) Hide Client‑Bank CTA button in mobile for v4 */
+  .header[data-menu-variant="v4"] .clientbank-cta {
+    display: none !important;
+  }
+
+  .header[data-menu-variant="v4"] .mega {
+    /* look like a mobile sheet */
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .header[data-menu-variant="v4"] .mega-mobile-head {
+    align-items: center;
+    gap: 8px;
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid rgba(2, 6, 23, .08);
+    background: rgba(255, 255, 255, .94);
+  }
+
+  .header[data-menu-variant="v4"] .mega-mobile-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(2, 6, 23, .86);
+  }
+
+  .header[data-menu-variant="v4"] .mega-back {
+    border-radius: 999px;
+  }
+
+  .header[data-menu-variant="v4"] .mega-mobile-root {
+    grid-auto-rows: minmax(44px, auto);
+    gap: 0;
+    padding: 4px 0 8px;
+  }
+
+  .header[data-menu-variant="v4"] .mega-rootlink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 12px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid rgba(2, 6, 23, .08);
+    text-decoration: none;
+    color: rgba(2, 6, 23, .88);
+    cursor: pointer;
+  }
+
+  .header[data-menu-variant="v4"] .mega-rootlink:first-child {
+    border-top: 1px solid rgba(2, 6, 23, .08);
+  }
+
+  .header[data-menu-variant="v4"] .mega-rootlink:hover {
+    background: rgba(0, 103, 128, .05);
+  }
+
+  .header[data-menu-variant="v4"] .mega-rootic {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(2, 6, 23, .12);
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 0 0 3px rgba(0, 103, 128, .05);
+    color: rgba(0, 103, 128, .95);
+    flex: 0 0 auto;
+  }
+
+  .header[data-menu-variant="v4"] .mega-roottext {
+    flex: 1;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .header[data-menu-variant="v4"] .mega-rootchev {
+    opacity: .7;
+  }
+
+  /* Root view */
+  .header[data-menu-variant="v4"][data-mobile-view="root"] .mega-mobile-root {
+    display: grid;
+  }
+  .header[data-menu-variant="v4"][data-mobile-view="root"] .mega-mobile-head {
+    display: none;
+  }
+  .header[data-menu-variant="v4"][data-mobile-view="root"] [data-mega-links] {
+    display: none !important;
+  }
+
+  /* Group (subcategories) view */
+  .header[data-menu-variant="v4"][data-mobile-view="group"] .mega-mobile-head {
+    display: flex;
+  }
+  .header[data-menu-variant="v4"][data-mobile-view="group"] .mega-mobile-root {
+    display: none;
+  }
+  .header[data-menu-variant="v4"][data-mobile-view="group"] [data-mega-links] {
+    display: grid !important;
+  }
+}
+
+
+/* ---------------------------------------------------------------------
+   v5 — App Drawer Tiles (bigger touch targets, shadow tiles)
+--------------------------------------------------------------------- */
+.header[data-menu-variant="v5"] .mega {
+  background: rgba(255, 255, 255, .92);
+}
+
+.header[data-menu-variant="v5"] .mega-link,
+.header[data-menu-variant="v5"] details.mega-item > summary.mega-link {
+  background: #fff;
+  border-color: rgba(2, 6, 23, .10);
+  box-shadow: 0 10px 22px rgba(2, 6, 23, .08);
+}
+
+.header[data-menu-variant="v5"] .mega-link:hover {
+  border-color: rgba(0, 103, 128, .22);
+  box-shadow: 0 16px 34px rgba(2, 6, 23, .10);
+}
+
+@media (max-width: 980px) {
+  .header[data-menu-variant="v5"] .mega-link,
+  .header[data-menu-variant="v5"] details.mega-item > summary.mega-link {
+    padding: 14px 14px;
+    border-radius: 18px;
+  }
+  .header[data-menu-variant="v5"] .mega-meta strong { font-size: 14px; }
+}
+
+
+/* ---------------------------------------------------------------------
+   v6 — Fullscreen List (mobile-first, separators, very readable)
+--------------------------------------------------------------------- */
+.header[data-menu-variant="v6"] .mega {
+  background: rgba(245, 250, 252, .92);
+}
+
+.header[data-menu-variant="v6"] .mega-link,
+.header[data-menu-variant="v6"] details.mega-item > summary.mega-link {
+  border-color: rgba(2, 6, 23, .08);
+  background: rgba(255, 255, 255, .86);
+}
+
+.header[data-menu-variant="v6"] .mega-link:hover {
+  background: rgba(159, 213, 213, .18);
+  border-color: rgba(0, 103, 128, .18);
+}
+
+@media (max-width: 980px) {
+  .header[data-menu-variant="v6"] .mega-title { font-size: 13px; }
+  .header[data-menu-variant="v6"] .mega-link,
+  .header[data-menu-variant="v6"] details.mega-item > summary.mega-link {
+    padding: 16px 14px;
+    border-radius: 20px;
+  }
+  .header[data-menu-variant="v6"] .mega-ic { width: 32px; height: 32px; }
+  .header[data-menu-variant="v6"] .mega-meta strong { font-size: 15px; }
+}
+
+
+/* ---------------------------------------------------------------------
+   v7 — Dark Compact (bank terminal vibes)
+--------------------------------------------------------------------- */
+.header[data-menu-variant="v7"] .mega {
+  background: linear-gradient(180deg, rgba(2, 6, 23, .86), rgba(15, 23, 42, .82));
+}
+
+.header[data-menu-variant="v7"] .mega-link,
+.header[data-menu-variant="v7"] details.mega-item > summary.mega-link {
+  background: rgba(255, 255, 255, .06);
+  border-color: rgba(226, 232, 240, .12);
+}
+
+.header[data-menu-variant="v7"] .mega-link:hover {
+  background: rgba(0, 103, 128, .22);
+  border-color: rgba(159, 213, 213, .24);
+}
+
+.header[data-menu-variant="v7"] .mega-ic {
+  width: 26px;
+  height: 26px;
+  border-radius: 10px;
+  background: rgba(159, 213, 213, .12);
+  border-color: rgba(159, 213, 213, .20);
+  color: rgba(255, 255, 255, .92);
+}
+
+.header[data-menu-variant="v7"] .mega-sub {
+  background: rgba(2, 6, 23, .35);
+  border: 1px dashed rgba(226, 232, 240, .14);
+}
+
+
+/* ---------------------------------------------------------------------
+   v8 — Capsule Popover (chips + clean spacing)
+--------------------------------------------------------------------- */
+.header[data-menu-variant="v8"] .mega {
+  background: rgba(255, 255, 255, .88);
+  border-radius: 26px;
+}
+
+.header[data-menu-variant="v8"] .mega-group {
+  gap: 8px;
+}
+
+.header[data-menu-variant="v8"] .mega-link,
+.header[data-menu-variant="v8"] details.mega-item > summary.mega-link {
+  border-radius: 999px;
+  border-color: rgba(2, 6, 23, .12);
+  background: rgba(255, 255, 255, .72);
+}
+
+.header[data-menu-variant="v8"] .mega-link:hover {
+  background: rgba(0, 103, 128, .07);
+  border-color: rgba(0, 103, 128, .22);
+}
+
+.header[data-menu-variant="v8"] .mega-ic {
+  border-radius: 999px;
+  width: 26px;
+  height: 26px;
+}
+
+.header[data-menu-variant="v8"] .mega-sub {
+  border-radius: 18px;
+}
+
+
+/* ---------------------------------------------------------------------
+   v9 — Outline Tiles (2-column tile grid on desktop)
+--------------------------------------------------------------------- */
+@media (min-width: 980px) {
+  .header[data-menu-variant="v9"] .mega-group {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+.header[data-menu-variant="v9"] .mega-link,
+.header[data-menu-variant="v9"] details.mega-item > summary.mega-link {
+  background: rgba(245, 250, 252, .62);
+  border-color: rgba(0, 103, 128, .16);
+}
+
+.header[data-menu-variant="v9"] .mega-link:hover {
+  background: rgba(255, 255, 255, .86);
+  border-color: rgba(0, 103, 128, .34);
+  box-shadow: 0 14px 34px rgba(2, 6, 23, .10);
+}
+
+.header[data-menu-variant="v9"] .mega-ic {
+  background: rgba(0, 103, 128, .08);
+  border-color: rgba(0, 103, 128, .18);
+}
+
+
+/* ---------------------------------------------------------------------
+   v10 — Gradient Stripe Cards (premium accent, soft motion)
+--------------------------------------------------------------------- */
+.header[data-menu-variant="v10"] .mega-link,
+.header[data-menu-variant="v10"] details.mega-item > summary.mega-link {
+  position: relative;
+  background: rgba(255, 255, 255, .78);
+  border-color: rgba(0, 103, 128, .14);
+  overflow: hidden;
+}
+
+.header[data-menu-variant="v10"] .mega-link::before,
+.header[data-menu-variant="v10"] details.mega-item > summary.mega-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, rgba(0, 103, 128, .70), rgba(208, 184, 163, .65));
+  opacity: .75;
+}
+
+.header[data-menu-variant="v10"] .mega-link:hover {
+  background: rgba(255, 255, 255, .92);
+  border-color: rgba(0, 103, 128, .28);
+  box-shadow: 0 16px 40px rgba(2, 6, 23, .10);
+  transform: translateY(-1px);
+}
+
+.header[data-menu-variant="v10"] .mega-ic {
+  background: linear-gradient(135deg, rgba(0, 103, 128, .10), rgba(208, 184, 163, .18));
+  border-color: rgba(0, 103, 128, .16);
+}
+
+
+/* =====================================================================
+   SUBMENU CLARITY PACK (rail / cards)
+   - Purpose: make nested submenus *visually obvious* and less “toporno”
+   - Toggle: add to URL ?sub=rail (default) or ?sub=cards
+   ===================================================================== */
+
+/* Visual tokens for nested menus */
+.header[data-menu-variant] {
+  --sub-rail: rgba(0, 103, 128, .24);
+  --sub-panel: rgba(255, 255, 255, .34);
+  --sub-panel-border: rgba(2, 6, 23, .10);
+  --sub-item-bg: rgba(255, 255, 255, .58);
+  --sub-item-border: rgba(2, 6, 23, .10);
+  --sub-item-hover: rgba(255, 255, 255, .80);
+  --sub-text: rgba(2, 6, 23, .88);
+}
+
+/* Dark variant needs its own nested palette */
+.header[data-menu-variant="v2"] {
+  --sub-rail: rgba(159, 213, 213, .36);
+  --sub-panel: rgba(2, 6, 23, .24);
+  --sub-panel-border: rgba(226, 232, 240, .14);
+  --sub-item-bg: rgba(15, 23, 42, .42);
+  --sub-item-border: rgba(226, 232, 240, .14);
+  --sub-item-hover: rgba(0, 103, 128, .18);
+  --sub-text: rgba(255, 255, 255, .92);
+}
+
+/* Common: make icon markers a consistent “node” */
+.header[data-menu-variant][data-submenu-style] .mega-sublink > span[aria-hidden] {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: rgba(0, 103, 128, .10);
+  border: 1px solid rgba(0, 103, 128, .14);
+  opacity: .85;
+}
+
+.header[data-menu-variant="v2"][data-submenu-style] .mega-sublink > span[aria-hidden] {
+  background: rgba(159, 213, 213, .10);
+  border-color: rgba(159, 213, 213, .22);
+  opacity: .95;
+}
+
+/* Improve click area + readability (both styles) */
+.header[data-menu-variant][data-submenu-style] .mega-sublink,
+.header[data-menu-variant][data-submenu-style] .mega-sub summary.mega-sublink {
+  padding: 10px 10px;
+  padding-left: 10px;
+  border-radius: 14px;
+  color: var(--sub-text);
+}
+
+/* Add chevron to nested <details> summaries (2nd level) */
+.header[data-menu-variant][data-submenu-style] .mega-sub details > summary.mega-sublink {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header[data-menu-variant][data-submenu-style] .mega-sub details > summary.mega-sublink::after {
+  content: "▸";
+  margin-left: auto;
+  opacity: .70;
+  transform-origin: center;
+  transition: transform var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
+}
+
+.header[data-menu-variant][data-submenu-style] .mega-sub details[open] > summary.mega-sublink::after {
+  transform: rotate(90deg);
+  opacity: .95;
+}
+
+/* =========================
+   Style: RAIL (default)
+   ========================= */
+.header[data-menu-variant][data-submenu-style="rail"] details.mega-item[open] > summary {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sub {
+  position: relative;
+  margin: 8px 0 0 12px;
+  padding: 10px 10px 12px 14px;
+  border-radius: 16px;
+  background: var(--sub-panel);
+  border: 1px solid var(--sub-panel-border);
+}
+
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sub::before {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--sub-rail) 12%, var(--sub-rail) 88%, transparent);
+  border-radius: 999px;
+  opacity: .85;
+}
+
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sublink,
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sub summary.mega-sublink {
+  position: relative;
+  gap: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  padding-left: 14px;
+}
+
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sublink:hover,
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sub summary.mega-sublink:hover {
+  background: var(--sub-item-hover);
+  border-color: var(--sub-item-border);
+}
+
+/* 3rd level container as a nested “rail pocket” */
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sub details {
+  border: 1px solid var(--sub-item-border);
+  background: rgba(255, 255, 255, .25);
+}
+
+.header[data-menu-variant="v2"][data-submenu-style="rail"] .mega-sub details {
+  background: rgba(2, 6, 23, .22);
+}
+
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sub .mega-sub2 {
+  position: relative;
+  margin-left: 12px;
+  padding-left: 12px;
+}
+
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sub .mega-sub2::before {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--sub-rail);
+  border-radius: 999px;
+  opacity: .7;
+}
+
+.header[data-menu-variant="v2"][data-submenu-style="rail"] .mega-sub .mega-sub2::before {
+  background: var(--sub-rail);
+}
+
+.header[data-menu-variant][data-submenu-style="rail"] .mega-sub .mega-sub2 a {
+  padding-left: 14px;
+}
+
+/* =========================
+   Style: CARDS (layered)
+   ========================= */
+.header[data-menu-variant][data-submenu-style="cards"] .mega-sub {
+  margin: 10px 0 0;
+  padding: 12px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .40), rgba(255, 255, 255, .18));
+  border: 1px solid var(--sub-panel-border);
+}
+
+.header[data-menu-variant="v2"][data-submenu-style="cards"] .mega-sub {
+  background: linear-gradient(135deg, rgba(2, 6, 23, .28), rgba(2, 6, 23, .12));
+}
+
+.header[data-menu-variant][data-submenu-style="cards"] .mega-sublink,
+.header[data-menu-variant][data-submenu-style="cards"] .mega-sub summary.mega-sublink {
+  background: var(--sub-item-bg);
+  border: 1px solid var(--sub-item-border);
+}
+
+.header[data-menu-variant][data-submenu-style="cards"] .mega-sublink:hover,
+.header[data-menu-variant][data-submenu-style="cards"] .mega-sub summary.mega-sublink:hover {
+  background: var(--sub-item-hover);
+}
+
+.header[data-menu-variant][data-submenu-style="cards"] .mega-sub details {
+  border-style: solid;
+  background: rgba(255, 255, 255, .20);
+}
+
+.header[data-menu-variant="v2"][data-submenu-style="cards"] .mega-sub details {
+  background: rgba(2, 6, 23, .20);
+}
+
+.header[data-menu-variant][data-submenu-style="cards"] .mega-sub .mega-sub2 a {
+  background: rgba(255, 255, 255, .48);
+  border: 1px solid rgba(2, 6, 23, .08);
+  padding-left: 14px;
+}
+
+.header[data-menu-variant="v2"][data-submenu-style="cards"] .mega-sub .mega-sub2 a {
+  background: rgba(15, 23, 42, .34);
+  border-color: rgba(226, 232, 240, .12);
+  padding-left: 14px;
+}
+

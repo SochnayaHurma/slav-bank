@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+
+{% block title %}10 вариантов меню · СЛАВЯНБАНК{% endblock %}
+
+{% block site_menu %}
+{#
+  Showcase page: 10 menu variants on one page.
+  NOTE: menu.html was refactored to support multiple instances via motion.js.
+#}
+<div class="menu-demo">
+  <!-- ===================== MENU VAR01 (v1) ===================== -->
+  <section class="menu-sample" id="menu-v1">
+    <div class="container menu-cap">
+      <div class="k">VAR01 · v1</div>
+      <div class="muted">Refined Glass · mobile bottom-sheet</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v1' menu_instance_id='v1' menu_assets=1 %}
+  </section>
+
+  <!-- ===================== MENU VAR02 (v2) ===================== -->
+  <section class="menu-sample" id="menu-v2">
+    <div class="container menu-cap">
+      <div class="k">VAR02 · v2</div>
+      <div class="muted">Dark Slate · premium dark header</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v2' menu_instance_id='v2' menu_assets=0 %}
+  </section>
+
+  <!-- ===================== MENU VAR03 (v3) ===================== -->
+  <section class="menu-sample" id="menu-v3">
+    <div class="container menu-cap">
+      <div class="k">VAR03 · v3</div>
+      <div class="muted">Segmented Tabs · «табовый» хедер</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v3' menu_instance_id='v3' menu_assets=0 %}
+  </section>
+
+  <!-- ===================== MENU VAR04 (v4) ===================== -->
+  <section class="menu-sample" id="menu-v4">
+    <div class="container menu-cap">
+      <div class="k">VAR04 · v4</div>
+      <div class="muted">Classic Corporate · подчёркивания и акцент-линия</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v4' menu_instance_id='v4' menu_assets=0 %}
+  </section>
+
+  <!-- ===================== MENU VAR05 (v5) ===================== -->
+  <section class="menu-sample" id="menu-v5">
+    <div class="container menu-cap">
+      <div class="k">VAR05 · v5</div>
+      <div class="muted">Mobile Right Drawer · выезжающее меню справа</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v5' menu_instance_id='v5' menu_assets=0 %}
+  </section>
+
+  <!-- ===================== MENU VAR06 (v6) ===================== -->
+  <section class="menu-sample" id="menu-v6">
+    <div class="container menu-cap">
+      <div class="k">VAR06 · v6</div>
+      <div class="muted">Mobile Fullscreen · полноэкранное меню</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v6' menu_instance_id='v6' menu_assets=0 %}
+  </section>
+
+  <!-- ===================== MENU VAR07 (v7) ===================== -->
+  <section class="menu-sample" id="menu-v7">
+    <div class="container menu-cap">
+      <div class="k">VAR07 · v7</div>
+      <div class="muted">Compact Appbar · максимально «аппово»</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v7' menu_instance_id='v7' menu_assets=0 %}
+  </section>
+
+  <!-- ===================== MENU VAR08 (v8) ===================== -->
+  <section class="menu-sample" id="menu-v8">
+    <div class="container menu-cap">
+      <div class="k">VAR08 · v8</div>
+      <div class="muted">Bordered Capsule · капсула внутри контейнера</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v8' menu_instance_id='v8' menu_assets=0 %}
+  </section>
+
+  <!-- ===================== MENU VAR09 (v9) ===================== -->
+  <section class="menu-sample" id="menu-v9">
+    <div class="container menu-cap">
+      <div class="k">VAR09 · v9</div>
+      <div class="muted">High‑Contrast Outline · обводки и «сухой» UI</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v9' menu_instance_id='v9' menu_assets=0 %}
+  </section>
+
+  <!-- ===================== MENU VAR10 (v10) ===================== -->
+  <section class="menu-sample" id="menu-v10">
+    <div class="container menu-cap">
+      <div class="k">VAR10 · v10</div>
+      <div class="muted">Gradient Accent + Glass · градиенты и стекло</div>
+    </div>
+    {% include './inc/menu.html' with menu_variant='v10' menu_instance_id='v10' menu_assets=0 %}
+  </section>
+</div>
+{% endblock site_menu %}
+
+{% block body_content %}
+<style>
+  .menu-demo {
+    padding: 18px 0 40px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .menu-sample {
+    border: 1px solid rgba(2, 6, 23, .10);
+    background: rgba(255, 255, 255, .62);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 18px 44px rgba(0, 103, 128, .08);
+  }
+
+  .menu-cap {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(2, 6, 23, .08);
+    background: linear-gradient(135deg, rgba(159, 213, 213, .18), rgba(255, 255, 255, .72));
+  }
+
+  .menu-cap .k {
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+
+  .menu-sample .header {
+    position: relative !important;
+    top: auto !important;
+    z-index: 1 !important;
+  }
+
+  /* В демо не нужен автоскролл/скрытие — оставляем, но фиксируем как обычный блок */
+  .menu-sample .header.is-in {
+    transform: none !important;
+  }
+
+  /* Облегчаем фон, чтобы варианты считывались */
+  body {
+    background: var(--c-bg);
+  }
+
+  main.demo-main {
+    padding: 0 0 40px;
+  }
+
+  .demo-head {
+    padding: 18px 0 6px;
+  }
+
+  .demo-head h1 {
+    margin: 0;
+    font-size: 22px;
+  }
+
+  .demo-head p {
+    margin: 8px 0 0;
+    color: var(--c-muted);
+    font-weight: 300;
+  }
+
+  .jump {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .jump a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 980px) {
+    .menu-demo {
+      gap: 12px;
+    }
+  }
+</style>
+
+<main class="demo-main">
+  <div class="container">
+    <div class="demo-head">
+      <h1>10 вариантов меню (mobile‑first)</h1>
+      <p>
+        Это один и тот же шаблон <code>templates/inc/menu.html</code>, но с разными стилями (<code>v1..v10</code>)
+        из <code>static/menu_variants.css</code>. Вложенные подменю делаются нативно через <code>&lt;details&gt;</code>
+        и могут быть любого уровня.
+      </p>
+      <div class="jump">
+        <a class="btn glass" href="#menu-v1">v1</a>
+        <a class="btn glass" href="#menu-v2">v2</a>
+        <a class="btn glass" href="#menu-v3">v3</a>
+        <a class="btn glass" href="#menu-v4">v4</a>
+        <a class="btn glass" href="#menu-v5">v5</a>
+        <a class="btn glass" href="#menu-v6">v6</a>
+        <a class="btn glass" href="#menu-v7">v7</a>
+        <a class="btn glass" href="#menu-v8">v8</a>
+        <a class="btn glass" href="#menu-v9">v9</a>
+        <a class="btn glass" href="#menu-v10">v10</a>
+      </div>
+
+      <div style="margin-top: 10px" class="muted">
+        Роут: <code>/menus/</code> (alias: <code>/menu1/</code>)
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
