@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Депозиты для юридических лиц -{% endblock title %}
+
 {% block body_content %}
 
 <main id="main">
@@ -8,25 +8,22 @@
       <div class="hero-wrap" style="padding: var(--s-5);">
         <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
           <div style="min-width: 280px; flex: 1 1 520px;">
-            <div class="kicker">Раздел</div>
-            <h1 style="margin:8px 0 10px;">Депозиты для юридических лиц</h1>
-            <p class="muted" style="max-width:78ch;">Ставка до 14,5%</p>
+            <div class="kicker">Поиск</div>
+            <h1 style="margin:8px 0 10px;">Результаты поиска</h1>
+            <p class="muted" style="max-width:78ch;">Поиск по страницам прототипа. Введите запрос — покажем совпадения
+              по разделам и названиям.</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="business-deposits.html" target="_blank" rel="noopener">Открыть оригинал →</a>
-              <a class="btn outline" href="#content">Содержание</a>
               <a class="btn glass" href="index.html">На главную</a>
-              <a class="btn outline" href="write-to-bank.html#form">Связаться</a>
+              <a class="btn outline" href="contacts.html">Контакты</a>
+              <a class="btn outline" href="support.html">Поддержка</a>
             </div>
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Бизнес</span>
-            <a href="legal-entities.html" class="mono">Юр. лицам</a>
-            <span class="muted">·</span>
-            <a href="business-deposits.html" class="mono">Депозиты</a>
-            <span class="muted">·</span>
-            <a href="business-lending.html" class="mono">Кредитование</a>
+            <span class="badge">Подсказка</span>
+            <span class="muted">Можно открыть по URL</span>
+            <span class="mono">search.html?q=валютный</span>
           </div>
         </div>
       </div>
@@ -37,132 +34,56 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Содержание</h2>
-          <p>Витринная подача + исходный текст из <span class="mono">div.entry-content</span>.</p>
+          <h2>Найдено</h2>
+          <p>Поиск работает локально по “индексу” страниц (из меню “Разделы”).</p>
         </div>
         <div class="pill">
-          <span class="badge">Источник</span>
-          <span class="muted">div.entry-content</span>
+          <span class="badge">Локально</span>
+          <span class="muted mono">без CDN</span>
         </div>
       </div>
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
 
+          <div class="search-shell">
+            <div class="search-bar">
+              <span class="mega-ic" aria-hidden="true">⌕</span>
+              <input id="q" type="search" placeholder="Например: валютный контроль, тарифы, реквизиты…"
+                autocomplete="off" />
+              <button class="btn primary pill" id="doSearch" type="button">Найти</button>
+            </div>
+            <div class="muted" style="margin-top:8px; font-weight:300;">
+              Поиск идет по названиям страниц и описаниям в меню. Поддерживаются русские запросы, регистр не важен.
+            </div>
+          </div>
 
-          <div class="alert">
-            <div class="alert-dot" aria-hidden="true"></div>
+          <div class="results-head">
+            <div class="kicker">Результаты</div>
+            <div class="pill"><span class="badge" id="countBadge">0</span><span class="muted">совпадений</span></div>
+          </div>
+
+          <div id="results" class="results-grid"></div>
+
+          <div class="empty" id="emptyState" hidden>
+            <div class="empty-ic">✦</div>
             <div>
-              <div style="font-weight:600;">Юридическим лицам</div>
-              <div class="muted" style="margin-top:4px;">Комплексное обслуживание бизнеса и сопровождение ВЭД: расчёты,
-                валютный контроль, поддержка.</div>
+              <div style="font-weight:600;">Ничего не нашли</div>
+              <div class="muted" style="margin-top:4px;">Попробуйте другой запрос или откройте разделы через меню.</div>
             </div>
           </div>
 
-          <div class="kicker">Ключевые продукты и сервисы</div>
-          <div class="services">
-            <a class="service-card" href="account-service.html">
-              <div class="service-title">Расчётно‑кассовое обслуживание</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
 
-            <a class="service-card" href="cashless-payments.html">
-              <div class="service-title">Безналичные платежи</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-
-            <a class="service-card" href="currency-control.html">
-              <div class="service-title">Валютный контроль / ВЭД</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-
-            <a class="service-card" href="fx-account-service.html">
-              <div class="service-title">Счета в иностранной валюте</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-
-            <a class="service-card" href="support.html">
-              <div class="service-title">Клиент‑Банк</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-
-            <a class="service-card" href="write-to-bank.html">
-              <div class="service-title">Написать в банк</div>
-              <div class="muted" style="margin-top:6px;">Открыть →</div>
-            </a>
-          </div>
-          <div class="summary-grid">
-            <div class="summary-card">
-              <div class="kicker">Фокус</div>
-              <div class="summary-text">🗹 Ежемесячная выплата %; 🗹 Плавающая или фиксированная процентная ставка; 🗹
-                Бонус – начисление процентов на остаток.</div>
-            </div>
-
-            <div class="summary-card">
-              <div class="kicker">Сервисы</div>
-              <div class="summary-text">Новым клиентам: специальное предложение по обслуживанию счета!</div>
-            </div>
-
-            <div class="summary-card">
-              <div class="kicker">Как начать</div>
-              <div class="summary-text">Более подробную информацию Вы можете получить по телефонам:</div>
-            </div>
-          </div>
-          <div class="chip-row"><a class="chip" href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf"
-              target="_blank" rel="noopener">специальное предложение по обслуживанию счета!</a></div>
-
-          <div class="kicker" style="margin-top:12px;">Документы</div>
-          <div class="doc-shelf">
-            <a class="doc-card" href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf" target="_blank"
-              rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <span class="doc-title">специальное предложение по обслуживанию счета!</span>
-              <span class="doc-arrow">→</span>
-            </a>
-          </div>
-
-
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
-          <div class="prose">
-            <div class="entry-content">
-
-              <p class="has-text-align-center has-large-font-size"> <strong>Ставка до 14,5%</strong></p>
-
-
-
-              <p><br>   🗹 <strong>Ежемесячная выплата %</strong>;<br>   🗹 <strong>Плавающая или фиксированная
-                  процентная ставка;</strong><br>   🗹 <strong>Бонус – начисление процентов на остаток</strong>.</p>
-
-
-
-              <p class="has-text-color has-link-color wp-elements-0033e2c2006d0637ec3d5398f0292088"><strong>Новым
-                  клиентам:&nbsp;<a
-                    href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf"><span>специальное предложение по
-                      обслуживанию счета!</span></a></strong></p>
-
-
-
-              <p><em><strong>Более подробную информацию Вы можете получить по телефонам:&nbsp;</strong></em></p>
-
-
-
-              <p><em><strong>(8162)&nbsp;66-52-47 или&nbsp;+7&nbsp;921-730-07-01</strong></em>.</p>
-
-
-
-              <p></p>
-            </div>
-          </div>
 
         </div>
+
         {% include './inc/stack.html' %}
       </div>
     </div>
   </section>
 
-
-  <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>Готово</div>
 </main>
+
 
 
 <template id="ill-rko-a"><svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"
@@ -437,5 +358,6 @@
         stroke="rgba(0,103,128,.20)" />
     </g>
   </svg></template>
+
 
 {% endblock body_content %}

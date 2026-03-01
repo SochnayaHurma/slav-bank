@@ -497,37 +497,7 @@
   </div>
 
   {% block body_content %} {% endblock body_content %}
-
-  <footer>
-    <div class="container footer-grid">
-      <!-- <div class="card foot reveal" data-reveal="left">
-      <h3>СЛАВЯНБАНК · </h3>
-      <div class="muted" style="font-size:13px; font-weight:300;">
-        тест текст текст
-      </div>
-      <div class="fine">фундамент фундамент фундамент фундамент.</div>
-    </div> -->
-
-      <div class="card foot reveal" data-reveal="scale">
-        <h3>Контакты</h3>
-        <div><a href="tel:8162665247" class="mono">(8162) 665‑247</a></div>
-        <div><a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a></div>
-        <div><a href="mailto:ved@slavbank.ru">ved@slavbank.ru</a></div>
-        <div class="fine">Адрес/график добавим из реальных страниц.</div>
-      </div>
-
-      <div class="card foot reveal" data-reveal="right">
-        <h3>Разделы</h3>
-        <div><a href="#services">Сервисы</a></div>
-        <div><a href="#fx">ВЭД</a></div>
-        <div><a href="#tariffs">Тарифы</a></div>
-        <div><a href="#docs">Документы</a></div>
-        <div><a href="#support">Поддержка</a></div>
-        <div class="fine">© СЛАВЯНБАНК</div>
-      </div>
-    </div>
-  </footer>
-
+  {% include './inc/footer.html' %}
   <script src="{% static 'motion.js' %}"></script>
 </body>
 
