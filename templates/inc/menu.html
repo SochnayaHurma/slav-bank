@@ -13,8 +13,8 @@
   data-mega-mobile="drilldown"
   {% if menu_instance_id %}data-menu-id="{{ menu_instance_id }}"{% endif %}
 >
-  <div class="container row">
-    <div class="brand">
+  <div class="container row" style="gap:0px;">
+    <div class="brand" style=" margin-right: 10px;">
       <a href="/"><img src="{% static './logo2.png'%}" alt="СЛАВЯНБАНК" width="100%" /></a>
     </div>
 
@@ -35,7 +35,7 @@
       ☰ Меню
     </button>
 
-    <a class="btn primary clientbank-cta" href="#" title="Переход в систему дистанционного обслуживания">Клиент‑Банк →</a>
+    <a style="width: 180px; margin-left: 10px;" class="btn primary clientbank-cta" href="#" title="Переход в систему дистанционного обслуживания">Клиент‑Банк →</a>
   </div>
 
   {# backdrop for mobile sheets/drawers #}
@@ -45,7 +45,7 @@
     <div class="header-grid">
       <div class="mega-mhead" data-mega-mobile-head>
         <button class="btn ghost mega-back" type="button" data-mega-mobile-back aria-label="Назад">←</button>
-        <div class="mega-mobile-title" data-mega-mobile-title>Разделы</div>
+        <div class="mega-mobile-title" data-mega-mobile-title></div>
         <button class="btn ghost mega-close" type="button" data-mega-close aria-label="Закрыть меню">✕</button>
       </div>
 
@@ -130,10 +130,6 @@
           </a>
         </div>
 
-        <!-- ==================================
-             Группа: Юридическим лицам (buisnes)
-             (вложенные меню: details + 2 уровня)
-             ================================== -->
         <div class="mega-group" data-mega-group="buisnes" hidden>
           <a class="mega-link" href="{% url 'business-deposits' %}">
             <span class="mega-ic" aria-hidden="true">◈</span>
@@ -163,7 +159,7 @@
                 </div>
               </details>
 
-              <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html"><span aria-hidden="true">↳</span> Наличные расчеты</a>
+              <a class="mega-sublink" href="{% url '' %}"><span aria-hidden="true">↳</span> Наличные расчеты</a>
               <a class="mega-sublink" href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html"><span aria-hidden="true">↳</span> Платежные требования с акцептом</a>
             </div>
           </details>
@@ -208,18 +204,17 @@
             <span class="mega-meta"><strong>Инструкция по работе в системе</strong></span>
             <span class="mega-arrow" aria-hidden="true">→</span>
           </a>
+          <a class="mega-link" href="{% url 'faq' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong> Часто задаваемые вопросы</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="mega-link" href="{% url 'ecp-regeneration' %}">
+            <span class="mega-ic" aria-hidden="true">◈</span>
+            <span class="mega-meta"><strong> Перегенерация ЭЦП</strong></span>
+            <span class="mega-arrow" aria-hidden="true">→</span>
+          </a>
 
-          <details class="mega-item">
-            <summary class="mega-link">
-              <span class="mega-ic" aria-hidden="true">⌁</span>
-              <span class="mega-meta"><strong>Справка и ответы</strong><small>FAQ и типовые ситуации</small></span>
-              <span class="mega-arrow" aria-hidden="true">▾</span>
-            </summary>
-            <div class="mega-sub">
-              <a class="mega-sublink" href="{% url 'faq' %}"><span aria-hidden="true">↳</span> Часто задаваемые вопросы</a>
-              <a class="mega-sublink" href="{% url 'ecp-regeneration' %}"><span aria-hidden="true">↳</span> Перегенерация ЭЦП</a>
-            </div>
-          </details>
         </div>
 
         <!-- =======================

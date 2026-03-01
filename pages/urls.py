@@ -28,6 +28,9 @@ urlpatterns = [
   path("yuridicheskim-liczam-html/valutny-kontrol.html/", TemplateView.as_view(template_name='currency-control.html'), name="currency-control"),
   path("pod-ft-fromu.html/", TemplateView.as_view(template_name='aml-fatca.html'), name="aml-fatca"),
   path("crs-obmen-s-fns.html/", TemplateView.as_view(template_name='crs.html'), name="crs"),
+  path("yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html/", TemplateView.as_view(template_name='cashless-payments.html'), name="cashless-payments"),
+  path("yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html/", TemplateView.as_view(template_name='cash-payments.html'), name="cash-payments"),
+  path("yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html/", TemplateView.as_view(template_name='payment-demands.html'), name="payment-demands"),
   # частным лицам
   path("chastnym-liczam.html/", TemplateView.as_view(template_name='private-persons.html'), name="private-persons"),
   # клиент-банк
