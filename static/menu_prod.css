@@ -26,22 +26,24 @@
   border-top: 0;
   border-right: 0;
   border-image-slice: 1;
-  border-image-source:  linear-gradient(90deg, rgb(255, 255, 255), var(--c-primary), rgba(255, 255, 255, 0.78));
+  /* border-image-source:  linear-gradient(90deg, rgb(255, 255, 255), var(--c-primary), rgba(255, 255, 255, 0.78)); */
+  border-image-source:  linear-gradient(90deg, rgb(255, 255, 255), #36758595, rgba(255, 255, 255, 0.78));
   height: 100%;
 }
 
 
-.header[data-menu-variant="prod"] nav .navlink:hover {
-  background: rgba(255, 255, 255, .86);
+.header[data-menu-variant="prod"] .navlink:hover {
+  background: linear-gradient(white, rgba(0, 103, 128, .10) );
+  /* background: linear-gradient(to top, rgba(0, 103, 128, .10), white 30% ); */
   border-color: var(--m-border-soft);
     border-bottom: 0;
 }
 
-.header[data-menu-variant="prod"] nav .navlink[aria-expanded="true"] {
-  background: rgba(255, 255, 255, .96);
+/* .header[data-menu-variant="prod"] nav .navlink[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.211);
   border-color: var(--m-border);
   box-shadow: 0 8px 24px rgba(2, 6, 23, .10);
-}
+} */
 
 .header[data-menu-variant="prod"] .mega {
   background: var(--m-panel);
