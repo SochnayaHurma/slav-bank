@@ -410,13 +410,52 @@ details.mega-item > summary.mega-link::-webkit-details-marker { display: none; }
 }
 @media (max-width: 560px) {
   .topbar .container.row { flex-wrap: wrap; }
-
-  .pill--topbar {
+  .mega-link {
+    font-size: 14px;
+  }
+  .pill {
     flex: 1 1 100%;
     max-width: 100%;
     min-width: 0;
     flex-wrap: wrap;
-    gap: 6px 10px;
+    gap: 4px 6px;
     justify-content: center;
+    border-radius: 13px;
+    font-weight: bold;
   }
+
+  .muted {
+    font-weight: 700 !important; 
+    font-size: 14px;
+  }
+  .hero-ill{
+    display: none;
+  }
+  .slide {
+    padding-bottom: 0;
+  }
+  .mob-v {
+    display: flex;
+    flex-direction: column;
+  }
+  .mob-hide {
+    display: none;
+  }
+  .mob-font-13 {
+    font-size: 13px;
+  }
+  .mob-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .mob-nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .mob-no-round {
+    border-radius: 13px;
+  }
+
+  
+
 }
