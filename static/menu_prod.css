@@ -21,11 +21,20 @@
   background: transparent;
   min-width: 100px;
   text-align: center;
+  border-bottom: 3px solid;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(90deg, rgb(255, 255, 255), var(--c-primary), rgba(255, 255, 255, 0.78));
+  height: 100%;
 }
+
 
 .header[data-menu-variant="prod"] nav .navlink:hover {
   background: rgba(255, 255, 255, .86);
   border-color: var(--m-border-soft);
+    border-bottom: 0;
 }
 
 .header[data-menu-variant="prod"] nav .navlink[aria-expanded="true"] {

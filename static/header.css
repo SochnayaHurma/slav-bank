@@ -87,7 +87,7 @@
   nav {
     display: flex;
     gap: 3px;
-    align-items: center;
+    align-items: end;
   }
 
   .navlink {
