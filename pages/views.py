@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http.request import HttpRequest
 
 def main_page(request):
   return render(request, "index.html", {})
@@ -39,3 +40,10 @@ def tariffs_rub(request):
 
 def tariffs_slavny(request):
   return render(request, "tariffs-slavny.html", {})
+
+
+
+## qweqwe
+
+def preview_home(request: HttpRequest, page: str):
+    return render(request, f"preview-home-v{page}.html", {})

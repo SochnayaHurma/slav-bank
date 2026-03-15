@@ -1,79 +1,3 @@
-<!-- <footer class="footD">
-    <div class="container">
-        <div class="row" style="justify-content:space-between;">
-            <div>
-                <div style="font-weight:600;">АО НКБ «СЛАВЯНБАНК»</div>
-                <div class="muted" style="font-weight:300; margin-top:6px;">г. Великий Новгород, ул. Черемнова‑Конюхова,
-                    дом 12</div>
-            </div>
-            <div class="row">
-                <a class="muted" href="news.html">Новости</a>
-                <a class="muted" href="reporting.html">Отчетность</a>
-                <a class="muted" href="disclosure-regulatory.html">Раскрытие</a>
-                <a class="muted" href="contacts.html">Контакты</a>
-            </div>
-        </div>
-        <div class="sep" style="margin:14px 0;"></div>
-        <div class="row" style="justify-content:space-between;">
-            <div class="fine">© АО НКБ «СЛАВЯНБАНК». Все права защищены.</div>
-        </div>
-    </div>
-</footer>
-<footer class="footB">
-    <div class="container">
-        <div class="row" style="justify-content:space-between; align-items:flex-start;">
-            <div style="max-width: 56ch;">
-                <div class="kicker">Новости банка</div>
-                <div style="font-size:18px; font-weight:600; margin-top:6px;">Подписка на обновления</div>
-                <div class="muted" style="margin-top:6px;">Только важные изменения по тарифам, сервисам и уведомлениям.
-                </div>
-            </div>
-            <form class="row" onsubmit="return false;" style="gap:8px;">
-                <input placeholder="Email" aria-label="Email"
-                    style="padding:12px 12px; border-radius:999px; border:1px solid rgba(2,6,23,.12); background:rgba(255,255,255,.86);" />
-                <button class="btn primary pill" type="button">Подписаться</button>
-            </form>
-        </div>
-        <div class="sep" style="margin:16px 0;"></div>
-        <div class="row" style="justify-content:space-between;">
-            <div class="muted" style="font-weight:300;">АО НКБ «СЛАВЯНБАНК» · г. Великий Новгород, ул.
-                Черемнова‑Конюхова, дом 12</div>
-            <div class="row">
-                <a class="muted" href="privacy.html">Политика</a>
-                <span class="muted">·</span>
-                <a class="muted" href="{% url 'requisites_bank' %}">Реквизиты</a>
-                <span class="muted">·</span>
-                <a class="muted" href="contacts.html">Контакты</a>
-            </div>
-        </div>
-    </div>
-</footer> -->
-
-<!-- <footer class="footA">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="foot">
-                <div style="font-weight:600;">АО НКБ «СЛАВЯНБАНК»</div>
-                <div class="muted" style="margin-top:6px; font-weight:300;">Комплексное обслуживание бизнеса и ВЭД.
-                </div>
-                <div class="fine" style="margin-top:10px;">г. Великий Новгород, ул. Черемнова‑Конюхова, дом 12</div>
-            </div>
-            <div class="foot">
-                <h3>Контакты</h3>
-                <a href="tel:78162665247">(8162) 66‑52‑47</a><br />
-                <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a><br />
-                <a href="{% url 'write-to-bank' %}#form">Написать в банк</a>
-            </div>
-            <div class="foot">
-                <h3>Разделы</h3>
-                <a href="{% url 'legal-entities'%}">Юридическим лицам</a><br />
-                <a href="{% url 'currency-control'%}">Валютный контроль</a><br />
-                <a href="tariffs.html">Тарифы</a><br />
-                <a href="news.html">Новости</a>
-            </div>
-        </div>
-    </div>
-</footer> -->
 <footer class="footI">
     <div class="container">
         <div class="sitemap">
@@ -82,7 +6,7 @@
                 <a href="{% url 'info_bank'%}">Информация банка</a>
                 <a href="{% url 'requisites_bank' %}">Реквизиты</a>
                 <a href="governance.html">Органы управления</a>
-                <a href="news.html">Новости</a>
+                <a href="{% url 'novosti' %}">Новости</a>
             </div>
             <div class="sitemapCol">
                 <div class="kicker">Бизнес</div>
@@ -93,17 +17,17 @@
             </div>
             <div class="sitemapCol">
                 <div class="kicker">Тарифы</div>
-                <a href="tariffs.html">Тарифы банка</a>
-                <a href="tariffs-rub.html">Операции в валюте РФ</a>
-                <a href="tariffs-foreign-currency.html">Иностранная валюта</a>
-                <a href="tariff-depositny.html">Тариф «Депозитный»</a>
+                <a href="{% url 'tariffs' %}">Тарифы банка</a>
+                <a href="{% url 'tariffs_rub' %}">Операции в валюте РФ</a>
+                <a href="{% url 'tariffs-foreign-currency' %}">Иностранная валюта</a>
+                <a href="{% url 'tariff-depositny' %}">Тариф «Депозитный»</a>
             </div>
             <div class="sitemapCol">
                 <div class="kicker">Поддержка</div>
                 <a href="{% url 'support'%}">Поддержка</a>
                 <a href="{% url 'security'%}">Безопасность</a>
-                <a href="faq.html">FAQ</a>
-                <a href="contacts.html">Контакты</a>
+                <a href="{% url 'faq' %}">FAQ</a>
+                <a href="{% url 'contacts' %}">Контакты</a>
             </div>
         </div>
         <!-- <div class="sep" style="margin:14px 0;"></div> -->

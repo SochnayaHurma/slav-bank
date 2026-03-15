@@ -1,0 +1,603 @@
+{% extends 'base.html' %}
+
+{% block title %}Версия 2 — главная | АО НКБ «СЛАВЯНБАНК»{% endblock %}
+{% block body_content %}
+<style>
+  .v2home {
+    padding-bottom: 48px;
+  }
+
+  .v2home section.block {
+    padding: 22px 0 34px;
+  }
+
+  .v2-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 34px;
+    border-radius: 32px;
+    border: 1px solid rgba(0, 103, 128, .18);
+    background:
+      radial-gradient(680px 320px at 0% 0%, rgba(159, 213, 213, .18), transparent 58%),
+      radial-gradient(680px 320px at 100% 100%, rgba(208, 184, 163, .18), transparent 58%),
+      linear-gradient(135deg, rgba(0, 90, 114, .98), rgba(0, 57, 73, .96));
+    color: #fff;
+    box-shadow: 0 28px 80px rgba(0, 90, 114, .22);
+  }
+
+  .v2-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .18;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, transparent 0 8%, rgba(255,255,255,.12) 8% 8.5%, transparent 8.5% 16%, rgba(208,184,163,.20) 16% 16.5%, transparent 16.5% 100%),
+      linear-gradient(transparent 0 12%, rgba(255,255,255,.08) 12% 12.5%, transparent 12.5% 24%, rgba(159,213,213,.14) 24% 24.5%, transparent 24.5% 100%);
+    background-size: 120px 120px;
+    mask-image: linear-gradient(135deg, rgba(0,0,0,.95), rgba(0,0,0,.20));
+  }
+
+  .v2-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.12fr .88fr;
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  .v2-kicker {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.16);
+    color: rgba(255,255,255,.86);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .v2-title {
+    margin: 16px 0 12px;
+    max-width: 11ch;
+    font-size: clamp(36px, 4vw, 66px);
+    line-height: 1.02;
+    letter-spacing: -.03em;
+  }
+
+  .v2-lead {
+    margin: 0;
+    max-width: 44ch;
+    color: rgba(255,255,255,.78);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .v2-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  .v2-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .v2-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.08);
+    transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+
+  .v2-chip:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    background: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.24);
+  }
+
+  .v2-panel {
+    padding: 20px;
+    border-radius: 26px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(8px);
+    display: grid;
+    gap: 12px;
+    align-content: start;
+  }
+
+  .v2-panel-head {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.72);
+  }
+
+  .v2-mini {
+    display: block;
+    padding: 16px 16px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.06);
+    color: #fff;
+    text-decoration: none;
+    transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+
+  .v2-mini:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    background: rgba(255,255,255,.10);
+    border-color: rgba(255,255,255,.20);
+  }
+
+  .v2-mini strong {
+    display: block;
+    font-size: 18px;
+    line-height: 1.15;
+  }
+
+  .v2-mini span {
+    display: block;
+    margin-top: 6px;
+    color: rgba(255,255,255,.72);
+    line-height: 1.5;
+    font-size: 14px;
+  }
+
+  .v2-note {
+    margin-top: 4px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.05);
+    border: 1px dashed rgba(255,255,255,.18);
+    color: rgba(255,255,255,.72);
+    line-height: 1.55;
+  }
+
+  .v2-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .v2-card,
+  .v2-news-card,
+  .v2-side-card,
+  .v2-profile-main {
+    border-radius: 26px;
+    border: 1px solid rgba(2, 6, 23, .08);
+    background: #fff;
+    box-shadow: 0 16px 44px rgba(2, 6, 23, .07);
+  }
+
+  .v2-card,
+  .v2-news-card,
+  .v2-side-card {
+    display: block;
+    padding: 22px;
+    text-decoration: none;
+    transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+
+  .v2-card:hover,
+  .v2-news-card:hover,
+  .v2-side-card:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 22px 50px rgba(2, 6, 23, .10);
+    border-color: rgba(0, 103, 128, .14);
+  }
+
+  .v2-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 11px;
+    border-radius: 999px;
+    background: rgba(0, 103, 128, .08);
+    color: var(--c-primary-700);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .v2-card h3,
+  .v2-side-card h3,
+  .v2-news-card h3 {
+    margin: 14px 0 8px;
+    font-size: 21px;
+    line-height: 1.14;
+  }
+
+  .v2-card p,
+  .v2-side-card p,
+  .v2-news-card p {
+    margin: 0;
+    color: var(--c-muted);
+    line-height: 1.58;
+  }
+
+  .v2-more {
+    display: inline-flex;
+    margin-top: 16px;
+    color: var(--c-primary-700);
+    font-weight: 600;
+  }
+
+  .v2-profile {
+    display: grid;
+    grid-template-columns: 1.06fr .94fr;
+    gap: 16px;
+  }
+
+  .v2-profile-main {
+    padding: 26px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .v2-profile-main::after {
+    content: "";
+    position: absolute;
+    right: -12px;
+    bottom: -12px;
+    width: 124px;
+    height: 124px;
+    border-right: 10px solid rgba(208,184,163,.80);
+    border-bottom: 10px solid rgba(208,184,163,.80);
+    border-radius: 0 0 26px 0;
+    opacity: .75;
+  }
+
+  .v2-profile-main h2 {
+    margin: 14px 0 12px;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.06;
+    max-width: 13ch;
+  }
+
+  .v2-profile-main p {
+    margin: 0;
+    color: var(--c-muted);
+    line-height: 1.68;
+  }
+
+  .v2-facts {
+    margin: 18px 0 0;
+    padding-left: 18px;
+    color: var(--c-text);
+  }
+
+  .v2-facts li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  .v2-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .v2-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(245,250,252,1);
+    border: 1px solid rgba(2, 6, 23, .08);
+    color: var(--c-text);
+  }
+
+  .v2-side {
+    display: grid;
+    gap: 14px;
+  }
+
+  .v2-news {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .v2-news-meta {
+    color: var(--c-muted);
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  .v2-cta {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 20px;
+    align-items: center;
+    padding: 28px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(247,250,252,1), rgba(255,255,255,.96));
+    border: 1px solid rgba(2, 6, 23, .08);
+    box-shadow: 0 22px 56px rgba(2, 6, 23, .07);
+  }
+
+  .v2-cta h2 {
+    margin: 12px 0 10px;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.08;
+    max-width: 13ch;
+  }
+
+  .v2-cta p {
+    margin: 0;
+    max-width: 58ch;
+    color: var(--c-muted);
+    line-height: 1.68;
+  }
+
+  .v2-cta-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 1120px) {
+    .v2-hero-grid,
+    .v2-profile,
+    .v2-cta {
+      grid-template-columns: 1fr;
+    }
+
+    .v2-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .v2-cta-actions {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .v2-hero {
+      padding: 22px;
+      border-radius: 24px;
+    }
+
+    .v2-title {
+      max-width: none;
+    }
+
+    .v2-grid,
+    .v2-news,
+    .v2-side {
+      grid-template-columns: 1fr;
+    }
+
+    .v2-card,
+    .v2-news-card,
+    .v2-side-card,
+    .v2-profile-main,
+    .v2-panel,
+    .v2-cta {
+      border-radius: 22px;
+    }
+  }
+</style>
+
+<main id="main" class="v2home">
+  <section class="block">
+    <div class="container">
+      <div class="v2-hero reveal" data-reveal="scale">
+        <div class="v2-hero-grid">
+          <div>
+            <div class="v2-kicker">АО НКБ «СЛАВЯНБАНК»</div>
+            <h1 class="v2-title">Банк для бизнеса и внешнеэкономической деятельности.</h1>
+            <p class="v2-lead">
+              Расчётно‑кассовое обслуживание, международные расчёты, валютный контроль и рабочие разделы сайта
+              собраны в более чёткий первый экран — без ощущения перегруженного промо‑лендинга.
+            </p>
+
+            <div class="v2-actions">
+              <a class="btn primary" href="{% url 'account-service' %}">Обслуживание счетов</a>
+              <a class="btn primary" href="{% url 'currency-control' %}">Валютный контроль</a>
+              <a class="btn primary" href="{% url 'write-to-bank' %}#form">Написать в банк</a>
+            </div>
+
+            <div class="v2-chip-row">
+              <a class="v2-chip" href="{% url 'client-bank-online' %}">Клиент‑Банк</a>
+              <a class="v2-chip" href="{% url 'tariffs' %}">Тарифы</a>
+              <a class="v2-chip" href="{% url 'novosti' %}">Новости</a>
+              <a class="v2-chip" href="{% url 'contacts' %}">Контакты</a>
+            </div>
+          </div>
+
+          <aside class="v2-panel reveal" data-reveal="right">
+            <div class="v2-panel-head">Операционный фокус</div>
+
+            <a class="v2-mini" href="{% url 'account-service' %}">
+              <strong>РКО и расчёты</strong>
+              <span>Счета в рублях, платежи, выписки, подключение ключевых сервисов для бизнеса.</span>
+            </a>
+
+            <a class="v2-mini" href="{% url 'currency-control' %}">
+              <strong>ВЭД и валютный контроль</strong>
+              <span>Экспертиза контрактов, международные расчёты и сопровождение операций в валюте.</span>
+            </a>
+
+            <a class="v2-mini" href="{% url 'disclosur-regulatory' %}">
+              <strong>Документы и раскрытие</strong>
+              <span>Тарифы, официальные сведения и профильные страницы без смешивания с промо‑блоками.</span>
+            </a>
+
+            <!-- <div class="v2-note">
+              Эта версия делает главную менее «рекламной» и более похожей на аккуратную банковскую витрину,
+              где пользователь сразу попадает в нужный рабочий маршрут.
+            </div> -->
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <!-- <div class="section-head reveal" data-reveal="left">
+        <div>
+          <h2>Главные маршруты</h2>
+          <p>Четыре основные точки входа без бегущей строки и без тяжёлого первого экрана.</p>
+        </div>
+      </div> -->
+
+      <div class="v2-grid">
+        <a class="v2-card reveal" data-reveal="scale" href="{% url 'account-service' %}">
+          <span class="v2-eyebrow">РКО</span>
+          <h3>Открыть и обслуживать счёт</h3>
+          <p>Расчётно‑кассовое обслуживание, платежные операции и базовый старт для бизнеса.</p>
+          <span class="v2-more">Перейти →</span>
+        </a>
+
+        <a class="v2-card reveal" data-reveal="scale" href="{% url 'currency-control' %}">
+          <span class="v2-eyebrow">ВЭД</span>
+          <h3>Работать по внешнеэкономическим операциям</h3>
+          <p>Контракты, международные расчёты и валютный контроль как отдельный сильный маршрут.</p>
+          <span class="v2-more">Перейти →</span>
+        </a>
+
+        <a class="v2-card reveal" data-reveal="scale" href="{% url 'client-bank-online' %}">
+          <span class="v2-eyebrow">ДБО</span>
+          <h3>Войти в Клиент‑Банк</h3>
+          <p>Система дистанционного банковского обслуживания для юридических лиц и предпринимателей.</p>
+          <span class="v2-more">Перейти →</span>
+        </a>
+
+        <a class="v2-card reveal" data-reveal="scale" href="{% url 'tariffs' %}">
+          <span class="v2-eyebrow">Тарифы</span>
+          <h3>Посмотреть тарифы и условия</h3>
+          <p>Переход в самостоятельный раздел вместо тяжёлого тарифного блока прямо на главной.</p>
+          <span class="v2-more">Перейти →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="v2-profile">
+        <div class="v2-profile-main reveal" data-reveal="left">
+          <span class="v2-eyebrow">Профиль банка</span>
+          <h2>Подача про доверие и специализацию — без лишнего шума.</h2>
+          <p>
+            В этой концепции главный акцент переносится на то, что банк уже умеет и где он реально силён:
+            обслуживание бизнеса, внешнеэкономическая деятельность и понятные операционные маршруты.
+          </p>
+
+          <ul class="v2-facts">
+            <li>Образован в 1989 году как первый самостоятельный региональный банк.</li>
+            <li>Основная задача банка — развитие экономики Новгородской области.</li>
+            <li>За годы деятельности у банка сложились устойчивые корреспондентские отношения со многими банками.</li>
+            <li>Перевод платежей в любой регион страны осуществляется в течение одного дня.</li>
+          </ul>
+
+          <div class="v2-pill-row">
+            <span class="v2-pill">Надежность, проверенная временем</span>
+            <span class="v2-pill">Выгодные условия сотрудничества</span>
+            <span class="v2-pill">Качественное обслуживание</span>
+            <span class="v2-pill">Индивидуальный подход</span>
+          </div>
+        </div>
+
+        <div class="v2-side">
+          <a class="v2-side-card reveal" data-reveal="scale" href="{% url 'legal-entities' %}">
+            <span class="v2-eyebrow">Юр. лицам</span>
+            <h3>Все бизнес‑разделы в одном контуре</h3>
+            <p>Юридическим лицам, расчёты, документы и ключевые маршруты без расползания по главной.</p>
+            <span class="v2-more">Перейти →</span>
+          </a>
+
+          <a class="v2-side-card reveal" data-reveal="scale" href="{% url 'business-deposits' %}">
+            <span class="v2-eyebrow">Депозиты</span>
+            <h3>Депозиты для юридических лиц</h3>
+            <p>Отдельная точка входа для бизнеса с понятным переходом в профильный раздел.</p>
+            <span class="v2-more">Перейти →</span>
+          </a>
+
+          <a class="v2-side-card reveal" data-reveal="scale" href="{% url 'business-lending' %}">
+            <span class="v2-eyebrow">Кредитование</span>
+            <h3>Кредиты для юридических лиц</h3>
+            <p>Краткосрочные и инвестиционные продукты уводятся в отдельный ясный сценарий.</p>
+            <span class="v2-more">Перейти →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="section-head reveal" data-reveal="right">
+        <div>
+          <h2>Актуальные разделы</h2>
+          <p>Не новостная лента ради ленты, а компактный блок направлений, которые реально полезны с главной.</p>
+        </div>
+      </div>
+
+      <div class="v2-news">
+        <a class="v2-news-card reveal" data-reveal="scale" href="{% url 'novosti' %}">
+          <div class="v2-news-meta">Новости</div>
+          <h3>Официальные новости и объявления банка</h3>
+          <p>Режим работы, изменения тарифов и важные уведомления — в отдельном полном разделе.</p>
+        </a>
+
+        <a class="v2-news-card reveal" data-reveal="scale" href="{% url 'support' %}">
+          <div class="v2-news-meta">Поддержка</div>
+          <h3>FAQ, инструкции и помощь по Клиент‑Банку</h3>
+          <p>Поддержка пользователей ДБО выносится в самостоятельный полезный маршрут.</p>
+        </a>
+
+        <a class="v2-news-card reveal" data-reveal="scale" href="{% url 'contacts' %}">
+          <div class="v2-news-meta">Контакты</div>
+          <h3>Контакты и каналы связи</h3>
+          <p>Контактная информация остаётся доступной, но не расползается однотипными блоками по всей странице.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="v2-cta reveal" data-reveal="scale">
+        <div>
+          <span class="v2-eyebrow">Нужен контакт</span>
+          <h2>Оставляем один аккуратный финальный сценарий связи.</h2>
+          <p>
+            В этой версии контакт не дублируется на каждом экране. Вместо этого — один финальный блок,
+            который завершает путь и не мешает восприятию основных разделов.
+          </p>
+        </div>
+
+        <div class="v2-cta-actions">
+          <a class="btn primary" href="{% url 'write-to-bank' %}#form">Оставить обращение</a>
+          <a class="btn outline" href="{% url 'contacts' %}">Контакты</a>
+          <a class="btn glass" href="{% url 'support' %}">Поддержка</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock body_content %}

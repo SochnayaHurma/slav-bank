@@ -64,5 +64,6 @@ urlpatterns = [
   path("vakansii.html/", TemplateView.as_view(template_name='vacancies.html'), name="vacancies"),
   # варианты
   path("footers/", TemplateView.as_view(template_name='footer-variants.html'), name="footers"),
+   path("preview/<int:page>/", views.preview_home, name="preview-home-v1"),
 ]
 

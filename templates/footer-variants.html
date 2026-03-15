@@ -173,8 +173,8 @@
                   <h3>Разделы</h3>
                   <a href="{% url 'legal-entities'%}">Юридическим лицам</a><br />
                   <a href="{% url 'currency-control'%}">Валютный контроль</a><br />
-                  <a href="tariffs.html">Тарифы</a><br />
-                  <a href="news.html">Новости</a>
+                  <a href="{% url 'tariffs' %}">Тарифы</a><br />
+                  <a href="{% url 'news' %}">Новости</a>
                 </div>
               </div>
             </div>
@@ -243,7 +243,7 @@
                   <span class="muted">·</span>
                   <a class="muted" href="{% url 'requisites_bank' %}">Реквизиты</a>
                   <span class="muted">·</span>
-                  <a class="muted" href="contacts.html">Контакты</a>
+                  <a class="muted" href="{% url 'contacts' %}">Контакты</a>
                 </div>
               </div>
             </div>
@@ -394,10 +394,10 @@
                     Черемнова‑Конюхова, дом 12</div>
                 </div>
                 <div class="row">
-                  <a class="muted" href="news.html">Новости</a>
+                  <a class="muted" href="{% url 'news' %}">Новости</a>
                   <a class="muted" href="reporting.html">Отчетность</a>
                   <a class="muted" href="disclosure-regulatory.html">Раскрытие</a>
-                  <a class="muted" href="contacts.html">Контакты</a>
+                  <a class="muted" href="{% url 'contacts' %}">Контакты</a>
                 </div>
               </div>
               <div class="sep" style="margin:14px 0;"></div>
@@ -476,7 +476,7 @@
                   <h3>Связь</h3>
                   <a href="tel:78162665247">(8162) 66‑52‑47</a><br />
                   <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a><br />
-                  <a href="contacts.html">г. Великий Новгород, ул. Черемнова‑Конюхова, дом 12</a>
+                  <a href="{% url 'contacts' %}">г. Великий Новгород, ул. Черемнова‑Конюхова, дом 12</a>
                 </div>
               </div>
             </div>
@@ -566,7 +566,7 @@
                   </div>
                   <div class="muted" style="margin-top:6px;">Офис банка · будни</div>
                   <div class="row" style="margin-top:12px;">
-                    <a class="btn primary pill" href="contacts.html">Как добраться</a>
+                    <a class="btn primary pill" href="{% url 'contacts' %}">Как добраться</a>
                     <a class="btn outline pill" href="{% url 'requisites_bank' %}">Реквизиты</a>
                   </div>
                 </div>
@@ -676,7 +676,7 @@
                 <div class="row">
                   <a class="muted" href="{% url 'security'%}">Безопасность</a>
                   <a class="muted" href="{% url 'support'%}">Поддержка</a>
-                  <a class="muted" href="contacts.html">Контакты</a>
+                  <a class="muted" href="{% url 'contacts' %}">Контакты</a>
                 </div>
               </div>
             </div>
@@ -744,7 +744,7 @@
                   <h3>Связь</h3>
                   <a href="tel:78162665247">(8162) 66‑52‑47</a><br />
                   <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a><br />
-                  <a href="contacts.html">Контакты</a>
+                  <a href="{% url 'contacts' %}">Контакты</a>
                 </div>
               </div>
             </div>
@@ -800,7 +800,7 @@
                   <a href="{% url 'info_bank'%}">Информация банка</a>
                   <a href="{% url 'requisites_bank' %}">Реквизиты</a>
                   <a href="governance.html">Органы управления</a>
-                  <a href="news.html">Новости</a>
+                  <a href="{% url 'news' %}">Новости</a>
                 </div>
                 <div class="sitemapCol">
                   <div class="kicker">Бизнес</div>
@@ -811,17 +811,17 @@
                 </div>
                 <div class="sitemapCol">
                   <div class="kicker">Тарифы</div>
-                  <a href="tariffs.html">Тарифы банка</a>
-                  <a href="tariffs-rub.html">Операции в валюте РФ</a>
-                  <a href="tariffs-foreign-currency.html">Иностранная валюта</a>
-                  <a href="tariff-depositny.html">Тариф «Депозитный»</a>
+                  <a href="{% url 'tariffs' %}">Тарифы банка</a>
+                  <a href="{% url 'tariffs_rub' %}">Операции в валюте РФ</a>
+                  <a href="{% url 'tariffs-foreign-currency' %}">Иностранная валюта</a>
+                  <a href="{% url 'tariff-depositny' %}">Тариф «Депозитный»</a>
                 </div>
                 <div class="sitemapCol">
                   <div class="kicker">Поддержка</div>
                   <a href="{% url 'support'%}">Поддержка</a>
                   <a href="{% url 'security'%}">Безопасность</a>
-                  <a href="faq.html">FAQ</a>
-                  <a href="contacts.html">Контакты</a>
+                  <a href="{% url 'faq' %}">FAQ</a>
+                  <a href="{% url 'contacts' %}">Контакты</a>
                 </div>
               </div>
               <div class="sep" style="margin:14px 0;"></div>

@@ -165,9 +165,9 @@
               </div>
               <nav class="row" aria-label="Меню" style="gap:10px;">
                 <a class="navlink" href="{% url 'legal-entities'%}">Юр. лицам</a>
-                <a class="navlink" href="tariffs.html">Тарифы</a>
+                <a class="navlink" href="{% url 'tariffs' %}">Тарифы</a>
                 <a class="navlink" href="{% url 'support'%}">Поддержка</a>
-                <a class="navlink" href="contacts.html">Контакты</a>
+                <a class="navlink" href="{% url 'contacts' %}">Контакты</a>
               </nav>
               <div class="row"><a class="btn outline pill" href="{% url 'client-bank-online'%}">Клиент‑банк</a></div>
             </div>
@@ -220,9 +220,9 @@
                   <span class="muted" style="font-weight:300;">ВЭД · расчёты · контроль</span>
                 </div>
                 <div class="row">
-                  <a class="muted" href="news.html">Новости</a><span class="muted">·</span>
+                  <a class="muted" href="{% url 'news' %}">Новости</a><span class="muted">·</span>
                   <a class="muted" href="{% url 'requisites_bank' %}">Реквизиты</a><span class="muted">·</span>
-                  <a class="muted" href="contacts.html">Контакты</a>
+                  <a class="muted" href="{% url 'contacts' %}">Контакты</a>
                 </div>
               </div>
               <div class="row" style="justify-content:space-between; margin-top:10px;">
@@ -230,7 +230,7 @@
                   <a class="navlink" href="{% url 'legal-entities'%}">Юридическим</a>
                   <a class="navlink" href="{% url 'currency-control'%}">Валютный контроль</a>
                   <a class="navlink" href="{% url 'cashless-payments' %}">Платежи</a>
-                  <a class="navlink" href="tariffs.html">Тарифы</a>
+                  <a class="navlink" href="{% url 'tariffs' %}">Тарифы</a>
                   <a class="navlink" href="search.html">Поиск</a>
                 </nav>
                 <a class="btn primary pill" href="{% url 'write-to-bank' %}#form">Оставить заявку</a>
@@ -353,7 +353,7 @@
               </div>
               <div class="row" style="gap:8px;">
                 <a class="navlink" href="{% url 'info_bank'%}">О банке</a>
-                <a class="navlink" href="tariffs.html">Тарифы</a>
+                <a class="navlink" href="{% url 'tariffs' %}">Тарифы</a>
                 <a class="navlink" href="{% url 'legal-entities'%}">Бизнес</a>
                 <a class="navlink" href="{% url 'support'%}">Поддержка</a>
                 <div class="miniDrop">
@@ -362,7 +362,7 @@
                     <a href="{% url 'currency-control'%}">Валютный контроль</a>
                     <a href="{% url 'cashless-payments' %}">Безналичные расчёты</a>
                     <a href="reporting.html">Отчётность</a>
-                    <a href="contacts.html">Контакты</a>
+                    <a href="{% url 'contacts' %}">Контакты</a>
                     <a href="search.html">Поиск</a>
                   </div>
                 </div>
@@ -469,8 +469,8 @@
               </div>
               <nav class="row" style="gap:8px;">
                 <a class="navlink" href="{% url 'legal-entities'%}">Юр. лицам</a>
-                <a class="navlink" href="tariffs.html">Тарифы</a>
-                <a class="navlink" href="contacts.html">Контакты</a>
+                <a class="navlink" href="{% url 'tariffs' %}">Тарифы</a>
+                <a class="navlink" href="{% url 'contacts' %}">Контакты</a>
               </nav>
               <a class="btn outline pill" href="{% url 'client-bank-online'%}">Клиент‑банк</a>
             </div>
@@ -552,7 +552,7 @@
               <nav class="pillNav" aria-label="Навигация">
                 <a href="{% url 'legal-entities'%}">Бизнес</a>
                 <a href="{% url 'currency-control'%}">ВЭД</a>
-                <a href="tariffs.html">Тарифы</a>
+                <a href="{% url 'tariffs' %}">Тарифы</a>
                 <a href="{% url 'support'%}">Поддержка</a>
               </nav>
               <a class="btn primary pill" href="{% url 'client-bank-online'%}">Войти</a>
@@ -630,11 +630,11 @@
                 <a class="navlink" href="{% url 'legal-entities'%}">Юр. лицам</a>
                 <a class="navlink" href="{% url 'cashless-payments' %}">Платежи</a>
                 <a class="navlink" href="{% url 'currency-control'%}">Контроль</a>
-                <a class="navlink" href="tariffs.html">Тарифы</a>
+                <a class="navlink" href="{% url 'tariffs' %}">Тарифы</a>
               </nav>
               <div class="row">
                 <a class="iconBtn" href="search.html" title="Поиск" aria-label="Поиск">⌕</a>
-                <a class="iconBtn" href="contacts.html" title="Контакты" aria-label="Контакты">☎</a>
+                <a class="iconBtn" href="{% url 'contacts' %}" title="Контакты" aria-label="Контакты">☎</a>
                 <a class="btn outline pill" href="{% url 'client-bank-online'%}">Вход</a>
               </div>
             </div>
@@ -710,7 +710,7 @@
               <nav class="tabsNav">
                 <a href="{% url 'info_bank'%}" class="is-active">О банке</a>
                 <a href="{% url 'legal-entities'%}">Бизнес</a>
-                <a href="tariffs.html">Тарифы</a>
+                <a href="{% url 'tariffs' %}">Тарифы</a>
                 <a href="{% url 'support'%}">Поддержка</a>
               </nav>
               <a class="btn outline pill" href="{% url 'write-to-bank' %}#form">Обращение</a>
@@ -791,7 +791,7 @@
                 <a class="navlink" href="{% url 'business-deposits'%}">Депозиты</a>
                 <a class="navlink"href="{% url 'business-lending'%}">Кредиты</a>
                 <a class="navlink" href="{% url 'currency-control'%}">ВЭД</a>
-                <a class="navlink" href="tariffs.html">Тарифы</a>
+                <a class="navlink" href="{% url 'tariffs' %}">Тарифы</a>
                 <a class="navlink" href="search.html">Поиск</a>
               </nav>
               <a class="btn primary pill" href="{% url 'client-bank-online'%}">Клиент‑банк</a>
