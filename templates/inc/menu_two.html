@@ -5,31 +5,13 @@
 <link rel="stylesheet" href="{% static 'menu_prod.css' %}" />
 {% endif %}
 
-  <div class="topbar reveal" data-reveal="scale">
-    <div class="container row" style="flex-wrap: wrap">
-      <div class="pill pill--topbar">
-        <span class="badge">Контакты</span>
-        <a href="tel:8162665247" class="mono">(8162) 665‑247</a>
-        <span class="muted">·</span>
-        <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a>
-        <span class="muted">·</span>
-        <a href="mailto:ved@slavbank.ru">ved@slavbank.ru</a>
-      </div>
+<style>
 
-      <div class="spacer"></div>
-
-      <div class="row" style="flex-wrap: wrap">
-        <button class="btn ghost" id="a11yBtn" aria-pressed="false"
-          title="Режим доступности: крупнее шрифт и выше контраст">
-          Aa · Доступность
-        </button>
-        <button class="btn glass" id="searchOpen" aria-haspopup="dialog" aria-controls="searchOverlay">
-          Поиск
-          <!-- <span class="kbd">Ctrl</span><span class="kbd">K</span> -->
-        </button>
-      </div>
-    </div>
-  </div>
+  nav {
+    display: flex;
+    gap: 0;
+  }
+</style>
 <header
   class="header reveal"
   data-reveal="scale"
@@ -38,10 +20,8 @@
   data-mega-mobile="drilldown"
   {% if menu_instance_id %}data-menu-id="{{ menu_instance_id }}"{% endif %}
 >
-  <div class="container row" style="gap:0px;">
-    <div class="brand" style=" margin-right: 10px;">
-      <a href="/"><img src="{% static './logo2.png'%}" alt="СЛАВЯНБАНК" width="100%" /></a>
-    </div>
+  <div class="container row" style="gap:0px;padding:0;">
+
 
     <nav aria-label="Основное меню">
       <a class="navlink" href="/" data-mega="about" aria-expanded="false">О банке</a>
@@ -60,7 +40,6 @@
       ☰ Меню
     </button>
 
-    <a style="width: 180px; margin-left: 10px;" class="btn primary clientbank-cta" href="#" title="Переход в систему дистанционного обслуживания">Клиент‑Банк →</a>
   </div>
 
   <div class="mega-backdrop" data-mega-backdrop aria-hidden="true"></div>
@@ -269,3 +248,27 @@
     </div>
   </div>
 </header>
+
+    
+    <div class="container row reveal" style="justify-content: space-between;width: 100%;">
+      <div class="pill--topbar">
+        <div class="brand" style=" margin-right: 10px;">
+          <a href="/"><img src="{% static './logo2.png'%}" alt="СЛАВЯНБАНК" width="100%" /></a>
+        </div>
+      </div>
+      <div>
+      {% comment %} <button class="btn ghost" id="a11yBtn" aria-pressed="false"
+          title="Режим доступности: крупнее шрифт и выше контраст">
+          Aa · Доступность
+        </button> {% endcomment %}
+        <button class="btn ghost" id="searchOpen" aria-haspopup="dialog" aria-controls="searchOverlay">
+          Поиск
+        </button>
+    <a style="margin-left: 10px;" class="btn primary clientbank-cta" href="#" title="Переход в систему дистанционного обслуживания">Клиент‑Банк →</a>
+      </div>
+      </div>
+
+
+      </div>
+    </div>
+  </div>
