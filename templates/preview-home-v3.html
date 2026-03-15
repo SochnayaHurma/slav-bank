@@ -110,7 +110,7 @@
     background:
       linear-gradient(115deg, rgba(0, 50, 63, .78) 0%, rgba(0, 70, 89, .62) 34%, rgba(0, 0, 0, .18) 100%),
       radial-gradient(720px 320px at 82% 18%, rgba(159, 213, 213, .18), transparent 58%),
-      url("{% static 'assets/main_about.png' %}") center / cover no-repeat;
+      url("{% static 'assets/05e00c50-ede1-47ee-aaab-75ad056b498a.png' %}") center / cover no-repeat;
     box-shadow: 0 30px 90px rgba(2, 6, 23, .14);
   }
 
@@ -398,7 +398,7 @@
     min-height: 100%;
     background:
       linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.30)),
-      url("{% static 'assets/main_about.png' %}") center / cover no-repeat;
+      url("{% static 'assets/05e00c50-ede1-47ee-aaab-75ad056b498a.png' %}") center / cover no-repeat;
     min-height: 520px;
   }
 
@@ -549,7 +549,7 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    .v3-links::-webkit-scrollbar {
+    .v3-links::-webkit-scrollbar, .v3-side {
       display: none;
     }
 
@@ -602,8 +602,7 @@
             <div class="v3-kicker">АО НКБ «СЛАВЯНБАНК»</div>
             <h1 class="v3-title">Расчёты, ВЭД и рабочие сервисы банка.</h1>
             <p class="v3-lead">
-              В этой версии главная становится более витринной: один крупный визуальный акцент, стеклянные карточки,
-              прямые маршруты к обслуживанию счетов, валютному контролю, Клиент‑Банку и тарифам.
+              Обслуживание счетов, валютный контроль, Клиент‑Банк и тарифы.
             </p>
 
             <div class="v3-actions">
@@ -622,11 +621,11 @@
 
           <div class="v3-side">
             <div class="v3-hero-ill glass reveal" data-reveal="right">
-              <img src="{% static 'assets/svg2.svg' %}" alt="Иллюстрация: ВЭД и международные расчёты" />
-              <div class="v3-hero-meta glass">
-                <div class="v3-kicker">Изображения как эксперимент</div>
-                <div style="font-weight:600; font-size:18px; margin-top:10px;">Стеклянная витрина поверх реальных и фирменных визуалов.</div>
-              </div>
+              <img src="{% static 'assets/svg_success_panel.svg' %}" alt="Иллюстрация: ВЭД и международные расчёты" />
+              {% comment %} <div class="v3-hero-meta glass">
+                <div class="v3-kicker">Заголовок под изображение</div>
+                <div style="font-weight:600; font-size:18px; margin-top:10px;">Описание.</div>
+              </div> {% endcomment %}
             </div>
 
             <div class="v3-side-grid">
@@ -651,13 +650,13 @@
 
   <section class="block">
     <div class="container">
-      <div class="v3-section-head reveal" data-reveal="left">
+      {% comment %} <div class="v3-section-head reveal" data-reveal="left">
         <div>
-          <h2>Ключевые маршруты</h2>
-          <p>Здесь изображения работают не как баннеры ради красоты, а как отдельные экраны сервисов.</p>
+          <h2>Роуты</h2>
+          <p>Описание</p>
         </div>
-        <span class="v3-badge">Glass + image</span>
-      </div>
+        <span class="v3-badge">Бадж</span>
+      </div> {% endcomment %}
 
       <div class="v3-routes">
         <a class="v3-route reveal" data-reveal="scale" href="{% url 'account-service' %}">
@@ -713,12 +712,12 @@
         </div>
 
         <div class="v3-text-card reveal" data-reveal="right">
-          <span class="v3-badge">О банке</span>
-          <h2>Фото здесь работает как опора, а не как случайный декор.</h2>
-          <p>
+          <span style="font-size: 14px;" class="v3-badge">О банке</span>
+          {% comment %} <h2>Жирный заголовок.</h2> {% endcomment %}
+          {% comment %} <p>
             Текстовый блок остаётся деловым и фактическим. Изображение лишь добавляет эмоциональный слой,
             но не перетягивает сайт в сторону рекламного лендинга.
-          </p>
+          </p> {% endcomment %}
 
           <ul class="v3-facts">
             <li>Образован в 1989 году как первый самостоятельный региональный банк.</li>
@@ -742,53 +741,34 @@
     <div class="container">
       <div class="v3-section-head reveal" data-reveal="right">
         <div>
-          <h2>Актуальное и переходы</h2>
-          <p>Нижний блок оставляем более спокойным — без визуального перебора, чтобы вся страница не распалась на галерею.</p>
+          {% comment %} <h2>Актуальное и переходы</h2> {% endcomment %}
+          {% comment %} <p>Нижний блок </p> {% endcomment %}
         </div>
         <a class="btn outline" href="{% url 'novosti' %}">Все новости</a>
       </div>
 
       <div class="v3-news">
         <a class="v3-news-card reveal" data-reveal="scale" href="{% url 'novosti' %}">
-          <div class="meta">Новости</div>
+          <div class="badge">Новости</div>
           <h3>Официальные новости и объявления банка</h3>
-          <p>Режим работы, публикации и важные изменения остаются в отдельном разделе без перегруза на первом экране.</p>
+          {% comment %} <p>Режим работы, публикации и важные изменения остаются в отдельном разделе без перегруза на первом экране.</p> {% endcomment %}
         </a>
 
         <a class="v3-news-card reveal" data-reveal="scale" href="{% url 'support' %}">
-          <div class="meta">Поддержка</div>
+          <div class="badge">Поддержка</div>
           <h3>FAQ, инструкции и помощь по Клиент‑Банку</h3>
-          <p>Практичный маршрут для пользователей ДБО вместо рассыпанных по странице подсказок.</p>
+          {% comment %} <p>Практичный маршрут для пользователей ДБО вместо рассыпанных по странице подсказок.</p> {% endcomment %}
         </a>
 
         <a class="v3-news-card reveal" data-reveal="scale" href="{% url 'contacts' %}">
-          <div class="meta">Контакты</div>
+          <div class="badge">Контакты</div>
           <h3>Контакты и каналы связи</h3>
-          <p>Контактная точка остаётся доступной, но теперь не дублируется однотипными блоками по всей главной.</p>
+          {% comment %} <p>Контактная точка остаётся доступной, но теперь не дублируется однотипными блоками по всей главной.</p> {% endcomment %}
         </a>
       </div>
     </div>
   </section>
 
-  <section class="block">
-    <div class="container">
-      <div class="v3-final reveal" data-reveal="scale">
-        <div>
-          <span class="v3-badge">Финальный сценарий</span>
-          <h2>Спокойный CTA вместо повторяющейся россыпи контактов.</h2>
-          <p>
-            В этой версии акцент идёт на визуальную подачу и стеклянные слои. Если сама логика понравится,
-            дальше можно либо дожимать image‑формат, либо оставить только стекло и вернуть страницу в более строгий режим.
-          </p>
-        </div>
 
-        <div class="v3-final-actions">
-          <a class="btn primary" href="{% url 'write-to-bank' %}#form">Оставить обращение</a>
-          <a class="btn outline" href="{% url 'contacts' %}">Контакты</a>
-          <a class="btn glass" href="https://ved.slavbank.ru/" target="_blank" rel="noopener">ВЭД</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 {% endblock body_content %}

@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Версия 2 — главная | АО НКБ «СЛАВЯНБАНК»{% endblock %}
 {% block body_content %}
 <style>
+  body {
+    background: url("{% static './assets/background/bg_mixed_grid_light.png'%}");
+  }
+  nav {
+    align-items: center;
+  }
+
   .v2home {
     padding-bottom: 48px;
   }
@@ -176,6 +184,8 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
+
+  
 
   .v2-card,
   .v2-news-card,
@@ -357,6 +367,17 @@
     justify-content: flex-end;
   }
 
+  .v2-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .v2-card > p {
+    flex-grow: 1;
+  }
+  
+
   @media (max-width: 1120px) {
     .v2-hero-grid,
     .v2-profile,
@@ -379,7 +400,7 @@
       border-radius: 24px;
     }
 
-    .v2-title {
+    .v2-title{
       max-width: none;
     }
 
@@ -409,8 +430,7 @@
             <div class="v2-kicker">АО НКБ «СЛАВЯНБАНК»</div>
             <h1 class="v2-title">Банк для бизнеса и внешнеэкономической деятельности.</h1>
             <p class="v2-lead">
-              Расчётно‑кассовое обслуживание, международные расчёты, валютный контроль и рабочие разделы сайта
-              собраны в более чёткий первый экран — без ощущения перегруженного промо‑лендинга.
+              Расчётно‑кассовое обслуживание, международные расчёты, валютный контроль.
             </p>
 
             <div class="v2-actions">
@@ -442,7 +462,7 @@
 
             <a class="v2-mini" href="{% url 'disclosur-regulatory' %}">
               <strong>Документы и раскрытие</strong>
-              <span>Тарифы, официальные сведения и профильные страницы без смешивания с промо‑блоками.</span>
+              <span>Тарифы, официальные сведения.</span>
             </a>
 
             <!-- <div class="v2-note">
@@ -500,12 +520,11 @@
     <div class="container">
       <div class="v2-profile">
         <div class="v2-profile-main reveal" data-reveal="left">
-          <span class="v2-eyebrow">Профиль банка</span>
-          <h2>Подача про доверие и специализацию — без лишнего шума.</h2>
+          <h2>О банке</h2>
+          {% comment %} <h2>Доп заголовок.</h2>
           <p>
-            В этой концепции главный акцент переносится на то, что банк уже умеет и где он реально силён:
-            обслуживание бизнеса, внешнеэкономическая деятельность и понятные операционные маршруты.
-          </p>
+            Доп текст
+          </p> {% endcomment %}
 
           <ul class="v2-facts">
             <li>Образован в 1989 году как первый самостоятельный региональный банк.</li>
@@ -526,21 +545,21 @@
           <a class="v2-side-card reveal" data-reveal="scale" href="{% url 'legal-entities' %}">
             <span class="v2-eyebrow">Юр. лицам</span>
             <h3>Все бизнес‑разделы в одном контуре</h3>
-            <p>Юридическим лицам, расчёты, документы и ключевые маршруты без расползания по главной.</p>
+            <p>Юридическим лицам, расчёты, документы.</p>
             <span class="v2-more">Перейти →</span>
           </a>
 
           <a class="v2-side-card reveal" data-reveal="scale" href="{% url 'business-deposits' %}">
             <span class="v2-eyebrow">Депозиты</span>
             <h3>Депозиты для юридических лиц</h3>
-            <p>Отдельная точка входа для бизнеса с понятным переходом в профильный раздел.</p>
+            <p>Отдельная точка входа для бизнеса.</p>
             <span class="v2-more">Перейти →</span>
           </a>
 
           <a class="v2-side-card reveal" data-reveal="scale" href="{% url 'business-lending' %}">
             <span class="v2-eyebrow">Кредитование</span>
             <h3>Кредиты для юридических лиц</h3>
-            <p>Краткосрочные и инвестиционные продукты уводятся в отдельный ясный сценарий.</p>
+            <p>Краткосрочные и инвестиционные.</p>
             <span class="v2-more">Перейти →</span>
           </a>
         </div>
@@ -550,54 +569,28 @@
 
   <section class="block">
     <div class="container">
-      <div class="section-head reveal" data-reveal="right">
-        <div>
-          <h2>Актуальные разделы</h2>
-          <p>Не новостная лента ради ленты, а компактный блок направлений, которые реально полезны с главной.</p>
-        </div>
-      </div>
-
       <div class="v2-news">
         <a class="v2-news-card reveal" data-reveal="scale" href="{% url 'novosti' %}">
           <div class="v2-news-meta">Новости</div>
           <h3>Официальные новости и объявления банка</h3>
-          <p>Режим работы, изменения тарифов и важные уведомления — в отдельном полном разделе.</p>
+          <p>Режим работы, изменения тарифов и важные уведомления.</p>
         </a>
 
         <a class="v2-news-card reveal" data-reveal="scale" href="{% url 'support' %}">
           <div class="v2-news-meta">Поддержка</div>
           <h3>FAQ, инструкции и помощь по Клиент‑Банку</h3>
-          <p>Поддержка пользователей ДБО выносится в самостоятельный полезный маршрут.</p>
+          <p>Поддержка пользователей ДБО.</p>
         </a>
 
         <a class="v2-news-card reveal" data-reveal="scale" href="{% url 'contacts' %}">
           <div class="v2-news-meta">Контакты</div>
           <h3>Контакты и каналы связи</h3>
-          <p>Контактная информация остаётся доступной, но не расползается однотипными блоками по всей странице.</p>
+          <p>Контактная информация.</p>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="block">
-    <div class="container">
-      <div class="v2-cta reveal" data-reveal="scale">
-        <div>
-          <span class="v2-eyebrow">Нужен контакт</span>
-          <h2>Оставляем один аккуратный финальный сценарий связи.</h2>
-          <p>
-            В этой версии контакт не дублируется на каждом экране. Вместо этого — один финальный блок,
-            который завершает путь и не мешает восприятию основных разделов.
-          </p>
-        </div>
 
-        <div class="v2-cta-actions">
-          <a class="btn primary" href="{% url 'write-to-bank' %}#form">Оставить обращение</a>
-          <a class="btn outline" href="{% url 'contacts' %}">Контакты</a>
-          <a class="btn glass" href="{% url 'support' %}">Поддержка</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 {% endblock body_content %}

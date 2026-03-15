@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Preview v1 — главная | СЛАВЯНБАНК{% endblock %}
+{% block title %}Вариант 1  СЛАВЯНБАНК{% endblock %}
 
 {% block site_menu %}
 <header class="header reveal preview-header" data-reveal="scale">
@@ -25,6 +25,10 @@
 
 {% block body_content %}
 <style>
+  body {
+    background: url("{% static './assets/background/bg_mixed_grid_light.png' %}");
+  }
+
   .topbar {
     display: none;
   }
@@ -186,7 +190,7 @@
 
   .preview-title {
     margin: 18px 0 14px;
-    font-size: clamp(36px, 5.3vw, 68px);
+    font-size: clamp(36px, 4vw, 68px);
     line-height: 1.02;
     letter-spacing: -.03em;
     max-width: 10ch;
@@ -333,7 +337,9 @@
   }
 
   .preview-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     padding: 22px;
     border-radius: 24px;
     border: 1px solid rgba(2, 6, 23, .08);
@@ -341,6 +347,9 @@
     box-shadow: 0 12px 30px rgba(2, 6, 23, .06);
     text-decoration: none;
     transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+  .preview-card > p {
+    flex-grow: 1;
   }
 
   .preview-card:hover {
@@ -611,9 +620,9 @@
         <div class="preview-hero-grid">
           <div>
             <div class="preview-kicker">АО НКБ «СЛАВЯНБАНК» · бизнес · расчёты · ВЭД</div>
-            <h1 class="preview-title">Заголовок Заголовок Заголовок Заголовок Заголовок.</h1>
+            <h1 class="preview-title">Банк для бизнеса и внешнеэкономической деятельности.</h1>
             <p class="preview-lead">
-              Расчётно‑кассовое обслуживание, международные расчёты, валютный контроль и понятные маршруты к документам — без перегруженного первого экрана.
+              Расчётно‑кассовое обслуживание, международные расчёты, валютный контроль.
             </p>
 
             <div class="preview-actions">
@@ -634,7 +643,7 @@
             <article class="preview-quick-card reveal" data-reveal="right">
               <div class="eyebrow">Быстрый маршрут</div>
               <h3>Клиент‑Банк без лишнего поиска.</h3>
-              <p>Вход в систему, инструкции и ключевые точки поддержки — отдельным коротким сценарием.</p>
+              <p>Вход в систему, инструкции и ключевые точки поддержки.</p>
               <a class="preview-inline-link" href="{% url 'client-bank-online' %}">Перейти в раздел <span aria-hidden="true">→</span></a>
             </article>
 
@@ -647,8 +656,7 @@
 
             <article class="preview-quick-card reveal" data-reveal="right">
               <div class="eyebrow">Документы</div>
-              <h3>Тарифы, реквизиты и раскрытие — по прямым ссылкам.</h3>
-              <p>Главная перестаёт быть складом ссылок и становится входом в нужные разделы.</p>
+              <h3>Тарифы, реквизиты.</h3>
               <a class="preview-inline-link" href="{% url 'disclosur-regulatory' %}">Открыть документы <span aria-hidden="true">→</span></a>
             </article>
           </div>
@@ -659,13 +667,7 @@
 
   <section class="block reveal" data-reveal="left">
     <div class="container">
-      <div class="preview-section-head">
-        <div>
-          <h2>Ключевые маршруты</h2>
-          <p>На первом экране остаются только те сценарии, с которых действительно начинают работу чаще всего.</p>
-        </div>
-        <span class="preview-badge">Preview v1</span>
-      </div>
+
 
       <div class="preview-grid">
         <a class="preview-card reveal" data-reveal="scale" href="{% url 'account-service' %}">
@@ -685,14 +687,14 @@
         <a class="preview-card reveal" data-reveal="scale" href="{% url 'tariffs' %}">
           <span class="preview-badge">Тарифы</span>
           <h3>Актуальные тарифы банка</h3>
-          <p>Вместо тяжёлого блока на главной — короткий и прямой переход в тарифный раздел.</p>
+          <p>Переход в тарифный раздел.</p>
           <span class="preview-more">Открыть раздел →</span>
         </a>
 
         <a class="preview-card reveal" data-reveal="scale" href="{% url 'disclosur-regulatory' %}">
           <span class="preview-badge">Документы</span>
           <h3>Раскрытие информации и формы</h3>
-          <p>Отчётность, публикации и регуляторные документы без смешивания с маркетинговыми блоками.</p>
+          <p>Отчётность, публикации и регуляторные документы.</p>
           <span class="preview-more">Открыть раздел →</span>
         </a>
       </div>
@@ -701,20 +703,13 @@
 
   <section class="block reveal" data-reveal="scale">
     <div class="container">
-      <div class="preview-section-head">
-        <div>
-          <h2>Почему так проще воспринимать</h2>
-          <p>Новая подача не спорит с действующими смыслами банка, а делает их заметнее и чище.</p>
-        </div>
-      </div>
 
       <div class="preview-trust">
         <div class="preview-panel reveal" data-reveal="left">
           <div class="preview-kicker">Фокус</div>
           <h3>Банк для ИП, юридических лиц и внешнеэкономической деятельности.</h3>
           <p>
-            На главной акцентируются три направления: обслуживание бизнеса, международные расчёты и сопровождение валютного контроля.
-            Пользователь быстрее понимает, куда нажимать, а второстепенная информация уходит в профильные подразделы.
+            Обслуживание бизнеса, международные расчёты и сопровождение валютного контроля.
           </p>
 
           <div class="preview-quote">
@@ -726,25 +721,26 @@
           <article class="preview-fact reveal" data-reveal="scale">
             <span class="preview-badge">Маршрут</span>
             <strong>ИП и юридическим лицам</strong>
-            <p>Главный пользовательский сценарий переносится в крупные понятные карточки без визуального шума.</p>
+            <p>Счета, платежи, выписки, справки.</p>
           </article>
 
           <article class="preview-fact reveal" data-reveal="scale">
             <span class="preview-badge">ВЭД</span>
             <strong>Экспертиза контрактов и расчётов</strong>
-            <p>Сильный профиль банка становится виден уже на первом экране, а не теряется среди вторичных блоков.</p>
+            <p>Помогаем снизить риски сделки: условия, документы, расчёты,
+                  сопровождение операций в валюте.</p>
           </article>
 
           <article class="preview-fact reveal" data-reveal="scale">
             <span class="preview-badge">Контроль</span>
             <strong>Постановка на учёт контрактов</strong>
-            <p>Внешнеэкономические контракты и кредитные договоры — отдельная полезная точка входа для бизнеса.</p>
+            <p>Внешнеэкономические контракты и кредитные договоры.</p>
           </article>
 
           <article class="preview-fact reveal" data-reveal="scale">
             <span class="preview-badge">Документы</span>
             <strong>Электронный обмен и формы</strong>
-            <p>Документы валютного контроля, формы и раскрытие информации уводятся в структурированные разделы.</p>
+            <p>Документы валютного контроля, формы.</p>
           </article>
         </div>
       </div>
@@ -756,7 +752,6 @@
       <div class="preview-section-head">
         <div>
           <h2>Актуальное</h2>
-          <p>Компактный блок вместо тяжёлой новостной ленты на первом экране.</p>
         </div>
         <a class="btn outline" href="{% url 'novosti' %}">Все новости</a>
       </div>
@@ -765,44 +760,24 @@
         <a class="preview-news-card reveal" data-reveal="scale"
            href="https://slavbank.ru/news/izmenenie-tarifov-banka-po-operacziyam-v-valyute-rf.html"
            target="_blank" rel="noopener">
-          <div class="meta">Полезная информация · 19.12.2025</div>
+          <div class="badge">Полезная информация · 19.12.2025</div>
           <h3>Изменение тарифов банка по операциям в валюте РФ!</h3>
-          <p>Короткая карточка с переходом на официальный материал вместо перегруженной ленты на старте.</p>
         </a>
 
         <a class="preview-news-card reveal" data-reveal="scale"
            href="https://slavbank.ru/news/o-rezhime-raboty-banka-v-prazdnichnie-dni.html"
            target="_blank" rel="noopener">
-          <div class="meta">Полезная информация · 12.12.2025</div>
+          <div class="badge">Полезная информация · 12.12.2025</div>
           <h3>О режиме работы банка в праздничные дни</h3>
-          <p>Важные объявления остаются доступны, но не давят на пользователя уже на первом скролле.</p>
         </a>
 
         <a class="preview-news-card reveal" data-reveal="scale" href="{% url 'novosti' %}">
-          <div class="meta">Раздел сайта</div>
+          <div class="badge">Раздел сайта</div>
           <h3>Все новости и объявления банка</h3>
-          <p>Отдельная страница для полного списка публикаций вместо попытки уместить всё сразу на главной.</p>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="block reveal" data-reveal="scale">
-    <div class="container">
-      <div class="preview-bottom-cta">
-        <div>
-          <div class="preview-kicker preview-kicker--light">Нужна консультация</div>
-          <h2>Подскажем по ВЭД, расчётам и обслуживанию бизнеса.</h2>
-          <p>Для первого контакта оставляем один главный сценарий и аккуратную связь, без россыпи одинаковых контактов по всей странице.</p>
-        </div>
-
-        <div class="preview-bottom-actions">
-          <a class="btn glass" href="{% url 'write-to-bank' %}#form">Оставить обращение</a>
-          <a class="btn glass" href="tel:8162665247">📞 (8162) 665‑247</a>
-          <a class="btn glass" href="mailto:ved@slavbank.ru">✉ ved@slavbank.ru</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 {% endblock body_content %}

@@ -1,0 +1,40 @@
+<svg width="900" height="560" xmlns="http://www.w3.org/2000/svg" class="hero-ill">
+ <defs>
+  <filter height="140%" width="140%" y="-20%" x="-20%" id="vedA_blur">
+   <feGaussianBlur stdDeviation="12"/>
+  </filter>
+  <linearGradient y2="1" x2="1" y1="0" x1="0" id="vedA_g1">
+   <stop stop-opacity="0.95" stop-color="#006780" offset="0"/>
+   <stop stop-opacity="0.85" stop-color="#0ea5b7" offset="1"/>
+  </linearGradient>
+  <linearGradient y2="1" x2="0" y1="0" x1="1" id="vedA_g2">
+   <stop stop-opacity="0.85" stop-color="#9fd5d5" offset="0"/>
+   <stop stop-opacity="0.55" stop-color="#d0b8a3" offset="1"/>
+  </linearGradient>
+ </defs>
+ <!-- animated silk routes -->
+ <!-- globe -->
+ <!-- confirmation card -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_1" filter="url(#vedA_blur)" opacity="0.15" fill="url(#vedA_g2)" r="160" cy="420" cx="220"/>
+  <circle id="svg_2" filter="url(#vedA_blur)" opacity="0.14" fill="url(#vedA_g1)" r="140" cy="150" cx="720"/>
+  <path id="svg_3" opacity="0.52" stroke-linecap="round" stroke-width="6" stroke="#006780" fill="none" d="m120,360c140,-100 240,-100 380,0s200,100 360,-40" class="silk s1"/>
+  <path id="svg_4" opacity="0.74" stroke-linecap="round" stroke-width="5" stroke="#9fd5d5" fill="none" d="m140,290c160,-90 290,-80 420,20s160,110 320,-50" class="silk s2"/>
+  <path id="svg_5" opacity="0.66" stroke-linecap="round" stroke-width="4" stroke="#d0b8a3" fill="none" d="m170,230c150,-80 300,-70 440,25s160,105 280,-35" class="silk s3"/>
+  <g id="svg_14">
+   <rect id="svg_15" stroke-width="2" stroke="rgba(2,6,23,.12)" opacity="0.86" fill="#fff" height="180" width="290" ry="22" rx="22" y="191" x="533"/>
+   <g id="svg_16">
+    <rect id="svg_17" stroke="rgba(0,103,128,.20)" opacity="0.16" fill="url(#vedA_g1)" height="86" width="86" ry="16" rx="16" y="217" x="559"/>
+    <path id="svg_18" opacity="0.78" stroke-linejoin="round" stroke-linecap="round" stroke-width="7" stroke="#006780" fill="none" d="m577,263l18,18l34,-36"/>
+   </g>
+   <path id="svg_19" stroke-linecap="round" stroke-width="5" stroke="rgba(0,103,128,.32)" d="m673,247l108,0"/>
+   <path id="svg_20" stroke-linecap="round" stroke-width="5" stroke="rgba(0,103,128,.24)" d="m673,283l122,0"/>
+   <path id="svg_21" stroke-linecap="round" stroke-width="5" stroke="rgba(0,103,128,.18)" d="m673,319l96,0"/>
+  </g>
+ </g>
+</svg>
