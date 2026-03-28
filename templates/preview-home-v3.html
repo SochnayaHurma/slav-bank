@@ -4,23 +4,67 @@
 {% block title %}Preview v3 — главная | АО НКБ «СЛАВЯНБАНК»{% endblock %}
 
 {% block site_menu %}
-<header class="header reveal v3-header" data-reveal="scale">
-  <div class="container v3-nav">
-    <a class="v3-brand" href="/" aria-label="СЛАВЯНБАНК">
-      <img src="{% static './logo2.png' %}" alt="СЛАВЯНБАНК" />
-    </a>
+<div class="v3-mobile-nav" data-v3-mobile-nav>
+  <header class="header reveal v3-header" data-reveal="scale">
+    <div class="container v3-nav">
+      <a class="v3-brand" href="/" aria-label="СЛАВЯНБАНК">
+        <img src="{% static './logo2.png' %}" alt="СЛАВЯНБАНК" />
+      </a>
 
-    <nav class="v3-links" aria-label="Навигация preview v3">
+      <nav class="v3-links" aria-label="Навигация preview v3">
+        <a href="{% url 'legal-entities' %}">Юридическим лицам</a>
+        <a href="{% url 'currency-control' %}">Валютный контроль</a>
+        <a href="{% url 'client-bank-online' %}">Клиент-Банк</a>
+        <a href="{% url 'tariffs' %}">Тарифы</a>
+        <a href="{% url 'contacts' %}">Контакты</a>
+      </nav>
+
+      <a class="btn primary v3-head-cta" href="{% url 'write-to-bank' %}#form">Оставить обращение</a>
+
+      <button
+        class="v3-menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="v3MobileMenu"
+        aria-label="Открыть меню"
+      >
+        <span class="v3-menu-ic" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>Меню</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="v3-mobile-backdrop" aria-hidden="true"></div>
+
+  <aside
+    class="v3-mobile-menu glass"
+    id="v3MobileMenu"
+    aria-hidden="true"
+    aria-label="Мобильное меню"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="v3-mobile-head">
+      <a class="v3-brand v3-mobile-brand" href="/" aria-label="СЛАВЯНБАНК">
+        <img src="{% static './assets/cleaned_logo2.png' %}" alt="СЛАВЯНБАНК" />
+      </a>
+
+      <button class="btn v3-mobile-close" type="button" aria-label="Закрыть меню">✕</button>
+    </div>
+
+    <nav class="v3-mobile-links" aria-label="Навигация preview v3 mobile">
       <a href="{% url 'legal-entities' %}">Юридическим лицам</a>
       <a href="{% url 'currency-control' %}">Валютный контроль</a>
-      <a href="{% url 'client-bank-online' %}">Клиент‑Банк</a>
+      <a href="{% url 'client-bank-online' %}">Клиент-Банк</a>
       <a href="{% url 'tariffs' %}">Тарифы</a>
       <a href="{% url 'contacts' %}">Контакты</a>
     </nav>
 
-    <a class="btn primary v3-head-cta" href="{% url 'write-to-bank' %}#form">Оставить обращение</a>
-  </div>
-</header>
+    <a class="btn primary v3-mobile-cta" href="{% url 'write-to-bank' %}#form">Оставить обращение</a>
+  </aside>
+</div>
 {% endblock site_menu %}
 
 {% block body_content %}
@@ -85,7 +129,131 @@
   .v3-head-cta {
     white-space: nowrap;
   }
+  .v3-mobile-backdrop,
+  .v3-mobile-menu,
+  .v3-menu-btn {
+    display: none;
+  }
 
+  .v3-menu-btn {
+    margin-left: auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.42);
+    background: rgba(255,255,255,.46);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 24px rgba(2, 6, 23, .04);
+    color: var(--c-text);
+    cursor: pointer;
+    transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+
+  .v3-menu-btn:hover {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,.66);
+    border-color: rgba(0, 103, 128, .18);
+  }
+
+  .v3-menu-ic {
+    display: inline-grid;
+    gap: 4px;
+  }
+
+  .v3-menu-ic span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  .v3-mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, .56);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-med) var(--ease);
+    z-index: 59;
+  }
+
+  .v3-mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(380px, 92vw);
+    padding: max(18px, env(safe-area-inset-top)) 18px max(18px, env(safe-area-inset-bottom)) 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform: translateX(100%);
+    transition: transform var(--t-med) var(--ease);
+    z-index: 60;
+    border-radius: 28px 0 0 28px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .v3-mobile-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .v3-mobile-brand {
+    width: 150px;
+  }
+
+  .v3-mobile-close {
+    margin-left: auto;
+    border-radius: 999px;
+  }
+
+  .v3-mobile-links {
+    display: grid;
+    gap: 10px;
+  }
+
+  .v3-mobile-links a {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 14px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.10);
+    color: #fff;
+    backdrop-filter: blur(12px);
+    transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  }
+
+  .v3-mobile-links a:hover {
+    text-decoration: none;
+    background: rgba(255,255,255,.16);
+    border-color: rgba(255,255,255,.30);
+    transform: translateY(-1px);
+  }
+
+  .v3-mobile-cta {
+    margin-top: auto;
+  }
+
+  .v3-mobile-nav.v3-menu-open .v3-mobile-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .v3-mobile-nav.v3-menu-open .v3-mobile-menu {
+    transform: translateX(0);
+  }
+
+  body.v3-lock {
+    overflow: hidden;
+  }
   .v3home {
     padding-bottom: 50px;
   }
@@ -540,21 +708,35 @@
   }
 
   @media (max-width: 760px) {
-    .v3-links {
-      order: 3;
-      width: 100%;
+    .v3-nav {
       flex-wrap: nowrap;
-      overflow: auto;
-      padding-bottom: 4px;
-      -webkit-overflow-scrolling: touch;
+      min-height: 72px;
     }
 
-    .v3-links::-webkit-scrollbar, .v3-side {
+    .v3-brand {
+      width: 160px;
+      flex: 0 0 auto;
+    }
+
+    .v3-links,
+    .v3-head-cta {
       display: none;
     }
 
-    .v3-head-cta {
-      margin-left: auto;
+    .v3-menu-btn {
+      display: inline-flex;
+    }
+
+    .v3-mobile-backdrop {
+      display: block;
+    }
+
+    .v3-mobile-menu {
+      display: flex;
+    }
+
+    .v3-side {
+      display: none;
     }
 
     .v3-hero {
@@ -771,4 +953,61 @@
 
 
 </main>
+<script>
+(() => {
+  const root = document.querySelector('[data-v3-mobile-nav]');
+  if (!root) return;
+
+  const btn = root.querySelector('.v3-menu-btn');
+  const panel = root.querySelector('.v3-mobile-menu');
+  const backdrop = root.querySelector('.v3-mobile-backdrop');
+  const closeBtn = root.querySelector('.v3-mobile-close');
+
+  if (!btn || !panel || !backdrop || !closeBtn) return;
+
+  const isMobile = () => window.matchMedia('(max-width: 760px)').matches;
+
+  const closeMenu = () => {
+    root.classList.remove('v3-menu-open');
+    document.body.classList.remove('v3-lock');
+    btn.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+  };
+
+  const openMenu = () => {
+    if (!isMobile()) return;
+    root.classList.add('v3-menu-open');
+    document.body.classList.add('v3-lock');
+    btn.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+
+    window.requestAnimationFrame(() => {
+      closeBtn.focus();
+    });
+  };
+
+  btn.addEventListener('click', () => {
+    if (root.classList.contains('v3-menu-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+
+  panel.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (!isMobile()) closeMenu();
+  });
+})();
+</script>
 {% endblock body_content %}
