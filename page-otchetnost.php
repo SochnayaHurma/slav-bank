@@ -36,91 +36,32 @@
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position: relative">
-                        <h1
-                class="kicker">
-                <strong>ОТЧЕТНОСТЬ АО НКБ «СЛАВЯНБАНК»</strong>
-              </h1>
-                            <p
-                class="has-text-align-center has-gray-color has-text-color has-link-color wp-elements-40198fbd7911d996bea1992cd987118b">
+          <div class="section-flow">
+            <div>
+              <div class="kicker">Отчетность банка</div>
+              <h2 style="margin: 8px 0 10px"><strong>ОТЧЕТНОСТЬ АО НКБ «СЛАВЯНБАНК»</strong></h2>
+              <p class="has-text-align-center has-gray-color has-text-color">
                 <strong>ГОДОВАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ</strong>
               </p>
-          <div class="doc-shelf">
-            <?php
-            $annual_reports = [
-                [
-                    'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2024 год.',
-                    'footer' => '(Опубликовано 11.04.2025г. Утверждена на годовом ОСА 10.04.2025г.)',
-                    'url' => 'https://slavbank.ru/wp-content/uploads/azo_-2024_nmm_slavyanbank.pdf',
-                ],
-                [
-                    'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2023 год.',
-                    'footer' => '(Опубликовано 12.03.2024г. Утверждена на годовом ОСА 02.04.2024г.)',
-                    'url' => 'https://slavbank.ru/wp-content/uploads/otchet_2023_publ.pdf',
-                ],
-                [
-                    'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2022 год.',
-                    'footer' => '(Опубликовано 29.03.2023г. Утверждена на годовом ОСА 20.04.2023г.)',
-                    'url' => 'https://slavbank.ru/wp-content/uploads/otchet2022.pdf',
-                ],
-                [
-                    'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2020 год.',
-                    'footer' => '(Опубликовано 29.03.2021г. Утверждена на годовом ОСА 22.04.2021г.)',
-                    'url' => 'https://slavbank.ru/wp-content/uploads/otchet2020.pdf',
-                ],
-                [
-                    'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2019 год.',
-                    'footer' => '(Опубликовано 26.03.2020г. Утверждена на годовом ОСА 16.04.2020г.)',
-                    'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/report2019.pdf',
-                ],
-                [
-                    'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2018 год.',
-                    'footer' => '(Утверждена на годовом ОСА 18.04.2019г) (Опубликовано 28.03.2019г.)',
-                    'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/report2018.pdf',
-                ],
-                [
-                    'title' => 'Финансовая отчетность по МСФО за 2017 год.',
-                    'footer' => '(Опубликовано 12.04.2018г.)',
-                    'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/msfo2017.pdf',
-                ],
-                [
-                    'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2017 год.',
-                    'footer' => '(Опубликовано 12.04.2018г.)',
-                    'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/report2017.pdf',
-                ],
-            ];
-            foreach ($annual_reports as $item) :
-            ?>
-            <a class="doc-card" href="<?php echo esc_url($item['url']); ?>" target="_blank" rel="noopener">
-              <span class="doc-ext">PDF</span>
-              <div class="doc-body">
-                <div class="doc-title"><?php echo esc_html($item['title']); ?></div>
-                <div style="font-size: 10px" class="muted">
-                  <?php echo esc_html($item['footer']); ?>
-                </div>
-              </div>
+            </div>
 
-              <span class="doc-arrow">→</span>
-            </a>
-            <?php endforeach; ?>
-          </div>
+            <div class="doc-shelf">
+              <?php foreach (sb_alpha_get_reporting_annual_reports() as $item) : ?>
+                <a class="doc-card" href="<?php echo esc_url($item['url']); ?>" target="_blank" rel="noopener">
+                  <span class="doc-ext">PDF</span>
+                  <div class="doc-body">
+                    <div class="doc-title"><?php echo esc_html($item['title']); ?></div>
+                    <div class="muted" style="font-size: 10px"><?php echo esc_html($item['footer']); ?></div>
+                  </div>
+                  <span class="doc-arrow">→</span>
+                </a>
+              <?php endforeach; ?>
+            </div>
 
-          <div class="prose">
-            <div class="entry-content">
-              
-
-              <p class="has-text-align-right"></p>
-
-              <p></p>
-
-              <h3
-                class="kicker">
-                <strong>ПРОМЕЖУТОЧНАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ,</strong>
-                </h3>
-                <h4 class="kicker">
-                  <strong>ПОКАЗАТЕЛИ
-                  ДЕЯТЕЛЬНОСТИ БАНКА</strong>
-                </h2>
-
+            <div class="prose">
+              <div class="entry-content">
+                <h3 class="kicker"><strong>ПРОМЕЖУТОЧНАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ</strong></h3>
+                <h4 class="kicker"><strong>ПОКАЗАТЕЛИ ДЕЯТЕЛЬНОСТИ БАНКА</strong></h4>
               <details
                 class="wp-block-details has-gray-color has-text-color has-link-color wp-elements-6094be1a884f101d248f9383e4fde2d5 is-layout-flow wp-block-details-is-layout-flow">
                 <summary>
@@ -165,7 +106,7 @@
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2024
                     год</strong>
                 </summary>
-                <p></p>
+                
 
                 <figure class="wp-block-table is-style-stripes">
                   <table class="has-fixed-layout">
@@ -195,10 +136,6 @@
                     </tbody>
                   </table>
                 </figure>
-
-                <p></p>
-
-                <p></p>
               </details>
 
               <details
@@ -208,7 +145,7 @@
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2023
                     год</strong>
                 </summary>
-                <p></p>
+                
 
                 <figure class="wp-block-table is-style-stripes">
                   <table class="has-fixed-layout">
@@ -239,10 +176,6 @@
                     </tbody>
                   </table>
                 </figure>
-
-                <p></p>
-
-                <p></p>
               </details>
 
               <details
@@ -252,7 +185,7 @@
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2022
                     год</strong>
                 </summary>
-                <p></p>
+                
 
                 <figure class="wp-block-table is-style-stripes">
                   <table class="has-fixed-layout">
@@ -277,10 +210,6 @@
                     </tbody>
                   </table>
                 </figure>
-
-                <p></p>
-
-                <p></p>
               </details>
 
               <details
@@ -290,7 +219,7 @@
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2021
                     год</strong>
                 </summary>
-                <p></p>
+                
 
                 <figure class="wp-block-table is-style-stripes">
                   <table class="has-navy-blue-color has-text-color">
@@ -445,10 +374,6 @@
                     </tbody>
                   </table>
                 </figure>
-
-                <p></p>
-
-                <p></p>
               </details>
 
               <details
@@ -458,7 +383,7 @@
                   <strong>Промежуточная бухгалтерская (финансовая) отчетность за 2020
                     год</strong>
                 </summary>
-                <p></p>
+                
 
                 <figure class="wp-block-table is-style-stripes">
                   <table class="has-navy-blue-color has-text-color">
@@ -610,11 +535,7 @@
                     </tbody>
                   </table>
                 </figure>
-
-                <p></p>
               </details>
-
-              <p></p>
             </div>
           </div>
         </div>

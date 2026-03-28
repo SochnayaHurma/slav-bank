@@ -1,0 +1,17 @@
+slavyanbank-alpha/
+  style.css                                   [changed]
+  functions.php                               [changed]
+  front-page.php                              [changed]
+  page-otchetnost.php                         [changed]
+  assets/
+    css/
+      beta-pages.css                          [new]
+  inc/
+    page-data.php                             [new]
+  page-rekvizity-banka.php                    [new]
+  page-napisat-v-bank.php                     [new]
+  page-podderzhka.php                         [new]
+  page-tarify-banka.php                       [new]
+
+Removed from deploy root:
+  wave1-full-code.md                          [removed]

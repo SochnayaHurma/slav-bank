@@ -702,13 +702,13 @@
             <a
               class="btn glass pill"
               style="color: var(--c-primary-700)"
-              href="tel:8162665247"
+              href="tel:+74951989951"
               >Позвонить</a
             >
             <a
               class="btn glass pill"
               style="color: var(--c-primary-700)"
-              href="mailto:nkb@slavbank.ru"
+              href="<?php echo esc_url(sb_alpha_url('write-to-bank')); ?>#form"
               >Написать</a
             >
           </div>
@@ -716,7 +716,7 @@
             <a href="mailto:ved@slavbank.ru">ved@slavbank.ru</a>
           </div>
           <div class="muted" style="margin-top: 10px">
-            <a href="mailto:ved@slavbank.ru">+7(495)198-99-51</a>
+            <a href="tel:+74951989951">+7(495)198-99-51</a>
           </div>
         </div>
       </div>

@@ -1,0 +1,41 @@
+Django URL,Django view/template,Target WP template/file,Status,Comment
+/,views.main_page -> templates/index.html,front-page.php (canonical /),ported local,Главная рендерится локально без redirect.
+/search/,TemplateView(search.html),not in Beta scope,blocked,Отдельный search template не переносился; legacy strategy не добавлялась.
+/o-banke-slavyanbank-html/info_bank-html.html/,views.info_bank -> templates/info_bank.html,301 -> / (front-page.php),alias/redirect,Коллизия info_bank vs / решена через legacy redirect на локальную главную.
+/rekvizity-banka.html/,views.requisites_bank -> templates/requisites-bank.html,301 -> /rekvizity-banka/ (page-rekvizity-banka.php),alias/redirect,Legacy URL ведет на локальный canonical slug.
+/o-banke-slavyanbank-html/organy_upravlenya.html/,views.governance -> templates/governance.html,external fallback via functions.php,fallback external,Исправляет broken relative governance.html из footer. Остается внешним fallback.
+/otchetnost.html/,views.reporting -> templates/reporting.html,301 -> /otchetnost/ (page-otchetnost.php),alias/redirect,Legacy URL ведет на локальный canonical slug.
+/o-banke-html/info_bank-html/raskritie-informacii.html/,views.disclosur_regulatory -> templates/disclosure-regulatory.html,external fallback via functions.php,fallback external,Не входит в wave 1.
+/informacziya-dlya-notariusov.html/,views.notaries -> templates/notaries.html,external fallback via functions.php,fallback external,Не входит в wave 1.
+/novosti.html/,views.novosti -> templates/news.html,external fallback via functions.php,fallback external,В home stack оставлены внешние публикации.
+/tarify-banka.html/,TemplateView(tariffs.html + extra_context),301 -> /tarify-banka/ (page-tarify-banka.php),alias/redirect,Legacy URL ведет на локальный canonical slug.
+/tarify-banka-html/tarify_rf.html/,views.tariffs_rub -> templates/tariffs-rub.html,external fallback via functions.php,fallback external,Не входит в wave 1.
+/tarify-banka-html/tarif_slavny.html/,views.tariffs_slavny -> templates/tariffs-slavny.html,external fallback via functions.php,fallback external,Не входит в wave 1.
+/tarify-banka-html/tarif_privetstvenny.html/,TemplateView(tariff-privetstvenny.html),external fallback via functions.php,fallback external,Не входит в wave 1.
+/tarify-banka-html/tarif_depositny.html/,TemplateView(tariff-depositny.html),external fallback via functions.php,fallback external,Не входит в wave 1.
+/tarify-banka-html/tarify_valuta.html/,TemplateView(tariffs-foreign-currency.html),external fallback via functions.php,fallback external,Не входит в wave 1.
+/yuridicheskim-liczam.html/,TemplateView(legal-entities.html),external fallback via functions.php,fallback external,Локально не переносилась. Остается внешним fallback.
+/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html/,TemplateView(business-deposits.html),external fallback via functions.php,fallback external,Локально не переносилась. Остается внешним fallback.
+/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html/,TemplateView(business-lending.html),external fallback via functions.php,fallback external,Home CTA ведёт сюда как внешний fallback.
+/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html/,TemplateView(account-service.html),external fallback via functions.php,fallback external,Home service tile ведёт сюда как внешний fallback.
+/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html/,TemplateView(fx-account-service.html),external fallback via functions.php,fallback external,Home service tile ведёт сюда как внешний fallback.
+/yuridicheskim-liczam-html/valutny-kontrol.html/,TemplateView(currency-control.html),external fallback via functions.php,fallback external,Используется в hero/home links. Остается внешним fallback.
+/pod-ft-fromu.html/,TemplateView(aml-fatca.html),external fallback via functions.php,fallback external,Используется в hero/home links. Остается внешним fallback.
+/crs-obmen-s-fns.html/,TemplateView(crs.html),external fallback via functions.php,fallback external,Только в mega menu. Остается внешним fallback.
+/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html/,TemplateView(cashless-payments.html),external fallback via functions.php,fallback external,Только в mega menu. Остается внешним fallback.
+/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html/,TemplateView(cash-payments.html),external fallback via functions.php,fallback external,Только в mega menu. Остается внешним fallback.
+/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html/,TemplateView(payment-demands.html),external fallback via functions.php,fallback external,Только в mega menu. Остается внешним fallback.
+/chastnym-liczam.html/,TemplateView(private-persons.html),external fallback via functions.php,fallback external,Локально не переносилась. Остается внешним fallback.
+/klient-bank-online.html/,TemplateView(client-bank-online.html),external fallback via functions.php,fallback external,Кнопка в footer ведёт сюда; вход в систему вынесен на ved.slavbank.ru. Остается внешним fallback.
+/podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html/,TemplateView(instruction.html),external fallback via functions.php,fallback external,Только в mega menu. Остается внешним fallback.
+/podderzhka-html/chasto-zadavaemye-voprosy.html/,TemplateView(faq.html),external fallback via functions.php,fallback external,Только в menu/footer. Остается внешним fallback.
+/podderzhka-html/regen.html/,TemplateView(ecp-regeneration.html),external fallback via functions.php,fallback external,Только в mega menu. Остается внешним fallback.
+/podderzhka.html/,TemplateView(support.html),301 -> /podderzhka/ (page-podderzhka.php),alias/redirect,Legacy URL ведет на локальный canonical slug.
+/podderzhka-html/recom_bezopasnost.html/,TemplateView(security.html),external fallback via functions.php,fallback external,Используется в menu/footer. Остается внешним fallback.
+/obrashhenie-po-123-fz.html/,TemplateView(appeal-123-fz.html),external fallback via functions.php,fallback external,Только в mega menu. Остается внешним fallback.
+/covid19.html/,TemplateView(covid19.html),external fallback via functions.php,fallback external,Только в mega menu. Остается внешним fallback.
+/kontakty.html/,TemplateView(contacts.html),301 -> /kontakty/ (page-kontakty.php),alias/redirect,Legacy URL ведет на локальный canonical slug.
+/forma-obratnoj-svyazi.html/,TemplateView(write-to-bank.html),301 -> /napisat-v-bank/ (page-napisat-v-bank.php),alias/redirect,Legacy URL ведет на локальный canonical slug.
+/vakansii.html/,TemplateView(vacancies.html),external fallback via functions.php,fallback external,Только в menu/home stack. Остается внешним fallback.
+/footers/,TemplateView(footer-variants.html),service template only,blocked,Служебный демонстрационный экран исходника.
+/preview/<int:page>/,views.preview_home -> preview-home-v{page}.html,preview service only,blocked,"Служебный preview-маршрут, не часть WordPress theme runtime."
