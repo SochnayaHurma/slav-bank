@@ -1,0 +1,41 @@
+Django URL,Django view/template,Target WP template/file,Status,Comment
+/,views.main_page -> templates/index.html,front-page.php,ported,Главная страница Alpha.
+/search/,TemplateView(search.html),pending (no template in wave 1),pending,Поиск-результаты не переносились; глобальный overlay сохранён.
+/o-banke-slavyanbank-html/info_bank-html.html/,views.info_bank -> templates/info_bank.html,external fallback via functions.php,pending,В меню/футере ведёт на канонический внешний URL.
+/rekvizity-banka.html/,views.requisites_bank -> templates/requisites-bank.html,external fallback via functions.php,pending,Не входит в wave 1.
+/o-banke-slavyanbank-html/organy_upravlenya.html/,views.governance -> templates/governance.html,external fallback via functions.php,pending,Исправляет broken relative governance.html из footer.
+/otchetnost.html/,views.reporting -> templates/reporting.html,page-otchetnost.php,ported,Перенесена как страница со списками/документами.
+/o-banke-html/info_bank-html/raskritie-informacii.html/,views.disclosur_regulatory -> templates/disclosure-regulatory.html,external fallback via functions.php,pending,Не входит в wave 1.
+/informacziya-dlya-notariusov.html/,views.notaries -> templates/notaries.html,external fallback via functions.php,pending,Не входит в wave 1.
+/novosti.html/,views.novosti -> templates/news.html,external fallback via functions.php,pending,В home stack оставлены внешние публикации.
+/tarify-banka.html/,TemplateView(tariffs.html + extra_context),external fallback via functions.php,pending,Страница тарифов и контекст не переносились в Alpha.
+/tarify-banka-html/tarify_rf.html/,views.tariffs_rub -> templates/tariffs-rub.html,external fallback via functions.php,pending,Не входит в wave 1.
+/tarify-banka-html/tarif_slavny.html/,views.tariffs_slavny -> templates/tariffs-slavny.html,external fallback via functions.php,pending,Не входит в wave 1.
+/tarify-banka-html/tarif_privetstvenny.html/,TemplateView(tariff-privetstvenny.html),external fallback via functions.php,pending,Не входит в wave 1.
+/tarify-banka-html/tarif_depositny.html/,TemplateView(tariff-depositny.html),external fallback via functions.php,pending,Не входит в wave 1.
+/tarify-banka-html/tarify_valuta.html/,TemplateView(tariffs-foreign-currency.html),external fallback via functions.php,pending,Не входит в wave 1.
+/yuridicheskim-liczam.html/,TemplateView(legal-entities.html),external fallback via functions.php,pending,Локально не переносилась.
+/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html/,TemplateView(business-deposits.html),external fallback via functions.php,pending,Локально не переносилась.
+/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html/,TemplateView(business-lending.html),external fallback via functions.php,pending,Home CTA ведёт сюда как внешний fallback.
+/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html/,TemplateView(account-service.html),external fallback via functions.php,pending,Home service tile ведёт сюда как внешний fallback.
+/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html/,TemplateView(fx-account-service.html),external fallback via functions.php,pending,Home service tile ведёт сюда как внешний fallback.
+/yuridicheskim-liczam-html/valutny-kontrol.html/,TemplateView(currency-control.html),external fallback via functions.php,pending,Используется в hero/home links.
+/pod-ft-fromu.html/,TemplateView(aml-fatca.html),external fallback via functions.php,pending,Используется в hero/home links.
+/crs-obmen-s-fns.html/,TemplateView(crs.html),external fallback via functions.php,pending,Только в mega menu.
+/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html/,TemplateView(cashless-payments.html),external fallback via functions.php,pending,Только в mega menu.
+/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html/,TemplateView(cash-payments.html),external fallback via functions.php,pending,Только в mega menu.
+/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html/,TemplateView(payment-demands.html),external fallback via functions.php,pending,Только в mega menu.
+/chastnym-liczam.html/,TemplateView(private-persons.html),external fallback via functions.php,pending,Локально не переносилась.
+/klient-bank-online.html/,TemplateView(client-bank-online.html),external fallback via functions.php,pending,Кнопка в footer ведёт сюда; вход в систему вынесен на ved.slavbank.ru.
+/podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html/,TemplateView(instruction.html),external fallback via functions.php,pending,Только в mega menu.
+/podderzhka-html/chasto-zadavaemye-voprosy.html/,TemplateView(faq.html),external fallback via functions.php,pending,Только в menu/footer.
+/podderzhka-html/regen.html/,TemplateView(ecp-regeneration.html),external fallback via functions.php,pending,Только в mega menu.
+/podderzhka.html/,TemplateView(support.html),external fallback via functions.php,pending,Используется в home/contacts/menu.
+/podderzhka-html/recom_bezopasnost.html/,TemplateView(security.html),external fallback via functions.php,pending,Используется в menu/footer.
+/obrashhenie-po-123-fz.html/,TemplateView(appeal-123-fz.html),external fallback via functions.php,pending,Только в mega menu.
+/covid19.html/,TemplateView(covid19.html),external fallback via functions.php,pending,Только в mega menu.
+/kontakty.html/,TemplateView(contacts.html),page-kontakty.php,ported,Локальная WP-страница со slug kontakty.
+/forma-obratnoj-svyazi.html/,TemplateView(write-to-bank.html),external fallback via functions.php,pending,Форма не переносилась в wave 1.
+/vakansii.html/,TemplateView(vacancies.html),external fallback via functions.php,pending,Только в menu/home stack.
+/footers/,TemplateView(footer-variants.html),not migrated,blocked,"Служебный исходный экран, не часть боевого scope."
+/preview/<int:page>/,views.preview_home -> preview-home-v{page}.html,not migrated,blocked,"Служебный preview-маршрут, не часть wave 1."
