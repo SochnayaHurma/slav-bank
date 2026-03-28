@@ -10,7 +10,7 @@
           <div style="min-width: 280px; flex: 1 1 520px;">
             <div class="kicker">Раздел</div>
             <h1 style="margin:8px 0 10px;">ПОДДЕРЖКА</h1>
-            <p class="muted" style="max-width:78ch;">&gt;&gt; Часто задаваемые вопросы — ответы на вопросы, возникающие
+            <p class="muted" style="max-width:78ch;">Часто задаваемые вопросы — ответы на вопросы, возникающие
               при работе в системе Клиент-Банк (данный раздел сайта постоянно обновляется и редактируется).</p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
@@ -20,13 +20,12 @@
           </div>
 
           <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Переход</span>
             <span class="muted">·</span>
-            <a href="{% url 'security'%}" class="mono">Безопасность</a>
+            <a href="{% url 'security'%}" class="mono badge">Безопасность</a>
             <span class="muted">·</span>
-            <a href="{% url 'client-bank-online' %}" class="mono">Клиент‑Банк</a>
+            <a href="{% url 'client-bank-online' %}" class="mono badge">Клиент‑Банк</a>
             <span class="muted">·</span>
-            <a href="{% url 'appeal-123-fz' %}" class="mono">123‑ФЗ</a>
+            <a href="{% url 'appeal-123-fz' %}" class="mono badge">123‑ФЗ</a>
           </div>
         </div>
       </div>
@@ -39,7 +38,8 @@
 
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
-
+              <h2><strong>Данный раздел создан для поддержки клиентов АО НКБ
+                    «СЛАВЯНБАНК».</strong></h2>
 
           <div class="kicker">Частые темы</div>
           <div class="tiles">
@@ -73,23 +73,21 @@
           </div>
 
 
-          <div class="kicker" style="margin-top:12px;">Текст страницы</div>
           <div class="prose">
             <div class="entry-content">
-              <h2><em><strong>Данный ра</strong></em><em><strong>здел создан для поддержки клиентов АО НКБ
-                    «СЛАВЯНБАНК».</strong></em></h2>
-              <hr>
-              <h3><em><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;В случае возникновения вопросов вы можете связаться с
-                    нами по телефонам, <br>указанным ниже:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Телефоны технической
-                    поддержки:<br><span>(8162) </span></strong></em><em><strong><span>66-51-95,
-                    </span></strong></em><em><strong><span>66-52-47, +7921-690-17-00</span></strong></em></h3>
-              <h3 id="block-3b5b737e-7d1d-4d24-95ed-ed56392d677e"
-                class="block-editor-rich-text__editable block-editor-block-list__block wp-block is-selected has-text-align-center rich-text"
-                tabindex="0" role="group" contenteditable="true" aria-multiline="true" aria-label="Блок: Заголовок"
-                data-block="3b5b737e-7d1d-4d24-95ed-ed56392d677e" data-type="core/heading" data-title="Заголовок">
-                <strong><em data-rich-text-format-boundary="true">Режим работы:</em></strong>&nbsp;<strong>с 8.30 до
-                  17.30 (пт. – до 16.30), обед с 13.00 до 14.00</strong>, (<strong>выходной суб., вск.</strong>)</h3>
-              <h3><em>Электронная почта</em>:&nbsp;<a href="mailto:nkb@slavbank.ru"><strong>nkb@slavbank.ru</strong></a>
+              <h3>В случае возникновения вопросов вы можете связаться с
+                    нами по телефонам, указанным ниже:<br>
+              </h3>
+              <h4 class="kicker doc-card" style="display: flex; flex-direction: column; align-items: start;">Телефоны технической
+                    поддержки:
+                    <strong style="font-style:italic;"><span class="fine" style="font-size: 14px;">(8162) 66-51-95,<br> 66-52-47,<br> +7921-690-17-00</span></strong>
+              </h4>
+              <h4 class="kicker doc-card " data-title="Заголовок">
+                <strong >Режим работы:
+                  <span class="fine" style="font-size: 14px;">с 8.30 до 17.30 (пт. – до 16.30), обед с 13.00 до 14.00, (выходной суб., вск.)</span>
+                </strong>
+              </h4>
+              <h3>Электронная почта:&nbsp;<a href="mailto:nkb@slavbank.ru"><em data-rich-text-format-boundary="true"><strong>nkb@slavbank.ru</strong></em></a>
               </h3>
               <hr>
               <h2><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Здесь вы найдете полезную информацию, инструкции, ссылки для

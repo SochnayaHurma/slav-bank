@@ -1,36 +1,14 @@
 {% extends 'base.html' %}
 {% block body_content %}
-
+<style>
+  .form-shell {
+    background: radial-gradient(520px 300px at 20% 15%, rgba(182, 228, 228, 0.506), transparent 60%),
+    radial-gradient(520px 320px at 85% 60%, rgba(208, 184, 163, .40), transparent 60%),
+    radial-gradient(720px 420px at 55% 0%, rgba(0, 103, 128, .18), transparent 55%);
+  }
+</style>
 <main id="main">
-  <section class="block">
-    <div class="container">
-      <div class="hero-wrap" style="padding: var(--s-5);">
-        <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
-          <div style="min-width: 280px; flex: 1 1 520px;">
-            <div class="kicker">Раздел</div>
-            <h1 style="margin:8px 0 10px;">НАПИСАТЬ В БАНК</h1>
-            <p class="muted" style="max-width:78ch;">АО НКБ «СЛАВЯНБАНК» информирует, что в соответствии с Федеральным
-              законом «О банках и банковской деятельности» с 01 июля 2024 года Банк обеспечивает прием обращений
-              заявителей, направленных:</p>
 
-            <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
-              <a class="btn primary" href="#content">Содержание</a>
-              <a class="btn outline" href="/">На главную</a>
-            </div>
-          </div>
-
-          <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Переход</span>
-            <a href="{% url 'vacancies'%}" class="mono">Вакансии</a>
-            <span class="muted">·</span>
-            <a href="{% url 'write-to-bank'%}" class="mono">Написать</a>
-            <span class="muted">·</span>
-            <a href="{% url 'covid19' %}" class="mono">COVID19</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="block dashv2" id="content">
     <div class="container">
@@ -39,43 +17,28 @@
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
                     <div class="prose" id="form">
             <div class="entry-content">
-
-              <p><b style="font-weight: 700;">АО НКБ «СЛАВЯНБАНК»</b> информирует, что в соответствии с Федеральным законом «О банках и банковской
+                      <div class="v3-photo-card reveal" data-reveal="left">
+          <div class="v3-photo-caption glass">
+            <div class="v3-kicker">НАПИСАТЬ В БАНК</div>
+            <div style="font-weight:600; font-size:20px; line-height:1.2; margin-top:10px; color:#fff;">
+              АО НКБ «СЛАВЯНБАНК»</b> информирует, что в соответствии с Федеральным законом «О банках и банковской
                 деятельности» с 01 июля 2024 года Банк обеспечивает <strong>прием обращений заявителей</strong>,
-                направленных:</p>
+                направленных:
+                
+            </div>
+  
+              <p style="color: #fff;">— посредством почтовой связи;</p>
+              <p style="color: #fff;">— нарочным на бумажном носителе;</p>
+              <p style="color: #fff;">— в местах обслуживания клиентов по адресу Великий Новгород, ул.Черемнова-Конюхова, 12;</p>
+              <p style="color: #fff;">— на адрес электронной почты Банка: <a style="color: #fff; text-decoration: underline;" href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a>;</p>
+              <p style="color: #fff;">— &nbsp;через официальный сайт Банка в сети <a style="color: #fff;text-decoration: underline;" href="write-to-bank.html">Интернет </a></p>
+              <p style="color: #fff;">При этом заявителем может являться как клиент Банка; так и любое лицо, не являющееся клиентом Банка.</p>
 
-
-
-              <p>— посредством почтовой связи;</p>
-
-
-
-              <p>— нарочным на бумажном носителе;</p>
-
-
-
-              <p>— в местах обслуживания клиентов по адресу Великий Новгород, ул.Черемнова-Конюхова, 12;</p>
-
-
-
-              <p>— на адрес электронной почты Банка: <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a>;</p>
-
-
-
-              <p>— &nbsp;через официальный сайт Банка в сети <a href="write-to-bank.html">Интернет </a></p>
-
-
-
-              <p>При этом заявителем может являться как клиент Банка; так и любое лицо, не являющееся клиентом Банка.
-              </p>
-
-
+          </div>
+        </div>
 
               <h3><strong>Отправьте нам обращение прямо сейчас!</strong><br></h3>
 
-
-
-              <p class="has-dark-blue-color has-text-color"><strong>Форма обратной связи</strong>:</p>
 
 
 
@@ -93,8 +56,7 @@
 
 
           <div class="form-shell" data-form-shell>
-            <div class="kicker">Форма</div>
-            <h3 style="margin:8px 0 10px;">Обратная связь</h3>
+            <h3 style="margin:8px 0 10px;">Форма обратной связи</h3>
 
             <div class="form-wrap">
               <form action="#" class="wpcf7-form init" aria-label="Контактная форма" novalidate="novalidate"

@@ -1,32 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}КЛИЕНТ-БАНК ВХОД ОНЛАЙН - Вход в Клиент-Банк{% endblock %}
+{% load static %}
 {% block body_content %}
 
 <main id="main">
   <section class="block">
     <div class="container">
       <div class="hero-wrap" style="padding: var(--s-5);">
-        <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
-          <div style="min-width: 280px; flex: 1 1 520px;">
-            <div class="kicker">Раздел</div>
-            <h1 style="margin:8px 0 10px;">КЛИЕНТ-БАНК ВХОД ОНЛАЙН</h1>
-            <p class="muted" style="max-width:78ch;">Система Банк-Клиент — система дистанционного банковского
+
+        <div class="v4-strips">
+          <div class="v4-strip reveal" data-reveal="scale" href="{% url 'account-service' %}">
+            <img style="left:407px;" src="{% static 'b/3.jpg' %}" alt="Иллюстрация: РКО — банк, платежи и документы" />
+            <div class="v4-strip-copy v4-glass">
+              <h3>КЛИЕНТ-БАНК ВХОД ОНЛАЙН</h3>
+              <p>Система Банк-Клиент — система дистанционного банковского
               обслуживания (ДБО), которая дает возможность клиентам банка: юридическим лицам и предпринимателям,
               управлять своим расчётным счётом в банке удаленным образом (без визита в банк), используя Интернет.</p>
-
-            <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
+              <div class="v4-strip-actions">
               <a class="btn primary" href="#content">Содержание</a>
               <a class="btn outline" href="/">На главную</a>
-            </div>
+              </div>
           </div>
-
-          <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Переход</span>
-            <a href="{% url 'support'%}" class="mono">Поддержка</a>
-            <span class="muted">·</span>
-            <a href="{% url 'security'%}" class="mono">Безопасность</a>
-            <span class="muted">·</span>
-            <a href="{% url 'appeal-123-fz' %}" class="mono">123‑ФЗ</a>
           </div>
         </div>
       </div>
@@ -41,22 +35,19 @@
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
 
 
-          <div class="kicker">Клиент‑Банк</div>
-          <div class="access-grid">
 
-            <div class="access-card">
+            <div class="access-card" style="margin-top: 10px;">
               <div class="kicker">Вход</div>
               <div class="access-title">КЛИЕНТ-БАНК ВХОД</div>
               <div class="muted" style="margin-top:6px;">Откроется в новой вкладке. Рекомендуем использовать защищённое
                 соединение и актуальный браузер.</div>
               <div class="row" style="margin-top:12px; flex-wrap:wrap;">
-                <a class="btn primary pill" href="https://dbo.slavbank.ru:20101/" target="_blank" rel="noopener">Войти
+                <a class="btn primary " href="https://dbo.slavbank.ru:20101/" target="_blank" rel="noopener">Войти
                   →</a>
-                <a class="btn outline pill" href="{% url 'security'%}">Правила безопасности</a>
+                <a class="btn outline " href="{% url 'security'%}">Правила безопасности</a>
               </div>
             </div>
 
-          </div>
 
           <div class="prose">
             <div class="entry-content">

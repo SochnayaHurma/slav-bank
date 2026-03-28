@@ -1,32 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}КОНТАКТЫ - АО НКБ "СЛАВЯНБАНК" в Великом Новгороде{%endblock%}
+{% load static %}
 {% block body_content %}
 
 <main id="main">
   <section class="block">
     <div class="container">
       <div class="hero-wrap" style="padding: var(--s-5);">
-        <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
-          <div style="min-width: 280px; flex: 1 1 520px;">
-            <div class="kicker">Раздел</div>
-            <h1 style="margin:8px 0 10px;">Контакты</h1>
-            <p class="muted" style="max-width:78ch;">Как связаться с банком: телефон, электронная почта, адрес и режим
-              работы.</p>
 
-            <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
+                <div class="v4-strips">
+          <div class="v4-strip reveal" data-reveal="scale" href="{% url 'account-service' %}">
+            <img style="left: 440px;" src="{% static 'b/11.png' %}" alt="Иллюстрация: РКО — банк, платежи и документы" />
+            <div class="v4-strip-copy v4-glass">
+              <h3>Контакты</h3>
+              <p>Как связаться с банком: телефон, электронная почта, адрес и режим
+              работы.</p>
+              <div class="v4-strip-actions">
               <a class="btn primary" href="#content">К содержимому</a>
               <a class="btn outline" href="{% url 'write-to-bank' %}#form">Написать в банк</a>
               <a class="btn glass" href="/">На главную</a>
-            </div>
+              </div>
           </div>
-
-          <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Переход</span>
-            <a href="{% url 'support'%}" class="mono">Поддержка</a>
-            <span class="muted">·</span>
-            <a href="{% url 'client-bank-online'%}" class="mono">Клиент‑банк</a>
-            <span class="muted">·</span>
-            <a href="{% url 'requisites_bank' %}" class="mono">Реквизиты</a>
           </div>
         </div>
       </div>

@@ -1,32 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}Валютный контроль - АО НКБ "СЛАВЯНБАНК" Великий Новгород{% endblock %}
+{% load static %}
 {% block body_content %}
 
 <main id="main">
   <section class="block">
     <div class="container">
       <div class="hero-wrap" style="padding: var(--s-5);">
-        <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
-          <div style="min-width: 280px; flex: 1 1 520px;">
-            <div class="kicker">Раздел</div>
-            <h1 style="margin:8px 0 10px;">Валютный контроль</h1>
-            <p class="muted" style="max-width:78ch;">АО НКБ «СЛАВЯНБАНК» предоставляет широкий спектр услуг, связанных с
-              выполнением Банком функций агента валютного контроля:</p>
 
-            <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
+
+        <div class="v4-strips">
+          <div class="v4-strip reveal" data-reveal="scale" href="{% url 'account-service' %}">
+            <img style="left:146px;" src="{% static 'b/9.jpg' %}" alt="Иллюстрация: РКО — банк, платежи и документы" />
+            <div class="v4-strip-copy v4-glass">
+              <h3>Валютный контроль</h3>
+              <p>АО НКБ «СЛАВЯНБАНК» предоставляет широкий спектр услуг, связанных с
+              выполнением Банком функций агента валютного контроля</p>
+              <div class="v4-strip-actions">
               <a class="btn primary" href="#content">Содержание</a>
               <a class="btn outline" href="/">На главную</a>
-            </div>
+              </div>
           </div>
-
-          <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Переход</span>
-            <span class="muted">·</span>
-            <a href="{% url 'fx-account-service' %}" class="mono">Счета в валюте</a>
-            <span class="muted">·</span>
-            <a href="{% url 'aml-fatca' %}" class="mono">ПОД/ФТ/FATCA</a>
-            <span class="muted">·</span>
-            <a href="{% url 'crs'%}" class="mono">CRS</a>
           </div>
         </div>
       </div>

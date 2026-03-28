@@ -1,1102 +1,958 @@
-{% extends "base.html" %} {% load static %} {% block title %}О БАНКЕ -
-СЛАВЯНБАНК - Новгородский коммерческий банк{% endblock %} 
-{% block body_content %}
-<main id="main" class="container">
-  <!-- TICKER -->
-  {% comment %} <section class="block reveal" data-reveal="right">
-    <div class="ticker">
-      <strong>Объявления</strong>
-      <div style="flex: 1; overflow: hidden">
-        <div class="lane" aria-label="Объявления">
-          <span
-            >ВЭД: экспертиза контрактов и сопровождение международных
-            расчётов.</span
-          >
-          <span>Валютный контроль: документы, статусы, консультации.</span>
-          <span>Клиент‑Банк: вход, инструкции и поддержка пользователей.</span>
-          <span aria-hidden="true">·</span>
-          <span aria-hidden="true"
-            >ВЭД: экспертиза контрактов и сопровождение международных
-            расчётов.</span
-          >
-          <span aria-hidden="true"
-            >Валютный контроль: документы, статусы, консультации.</span
-          >
-          <span aria-hidden="true"
-            >Клиент‑Банк: вход, инструкции и поддержка пользователей.</span
-          >
-        </div>
-      </div>
-    </div>
-  </section> {% endcomment %}
+{% extends "base.html" %}
+{% load static %}
 
-  <section
-    class="block reveal"
-    data-reveal="scale"
-    style="padding-top: var(--s-4)"
-  >
-    <div class="hero-wrap card" style="padding: 0">
-      <div
-        class="slider"
-        data-slider
-        tabindex="0"
-        aria-label="Слайдер сценариев банка ()"
+{% block title %}Preview v3 — главная | АО НКБ «СЛАВЯНБАНК»{% endblock %}
+
+{% block site_menu %}
+<div class="v3-mobile-nav" data-v3-mobile-nav>
+  <header class="header reveal v3-header" data-reveal="scale">
+    <div class="container v3-nav">
+      <a class="v3-brand" href="/" aria-label="СЛАВЯНБАНК">
+        <img src="{% static './logo2.png' %}" alt="СЛАВЯНБАНК" />
+      </a>
+
+      <nav class="v3-links" aria-label="Навигация preview v3">
+        <a href="{% url 'legal-entities' %}">Юридическим лицам</a>
+        <a href="{% url 'currency-control' %}">Валютный контроль</a>
+        <a href="{% url 'client-bank-online' %}">Клиент-Банк</a>
+        <a href="{% url 'tariffs' %}">Тарифы</a>
+        <a href="{% url 'contacts' %}">Контакты</a>
+      </nav>
+
+      <a class="btn primary v3-head-cta" href="{% url 'write-to-bank' %}#form">Оставить обращение</a>
+
+      <button
+        class="v3-menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="v3MobileMenu"
+        aria-label="Открыть меню"
       >
-        <div class="slider-track" data-slider-track>
-          <article class="slide" data-slide aria-hidden="true">
-            <div class="slide-grid">
-              <div>
-                <div class="kicker">Валютный контроль</div>
-                <h2>Сопровождение валютного контроля без лишней бюрократии.</h2>
-                <p>
-                  Разъяснения по пакету документов, статусам, срокам и
-                  требованиям. Поддержка на каждом этапе.
-                </p>
-                <div
-                  class="row"
-                  style="margin-top: var(--s-4); flex-wrap: wrap"
-                >
-                  <a class="btn primary" href="{% url 'currency-control' %}">Как это работает</a>
-                  <a class="btn outline" href="{% url 'support' %}">Поддержка</a>
-                  <a class="btn glass" href="{% url 'novosti' %}">Объявления</a>
-                </div>
-                <!-- <div class="muted" style="margin-top:12px; font-size:12px; font-weight:300;">Тест текст текст текст</div> -->
-              </div>
-              <div data-ill>
-                <svg
-                  class="hero-ill"
-                  width="900"
-                  height="560"
-                  viewBox="0 0 900 560"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  aria-label="Абстрактная иллюстрация: валютный контроль и безопасность"
-                >
-                  <defs>
-                    <linearGradient id="ctl_g1" x1="0" y1="0" x2="1" y2="1">
-                      <stop
-                        offset="0"
-                        stop-color="#006780"
-                        stop-opacity=".95"
-                      />
-                      <stop
-                        offset="1"
-                        stop-color="#9fd5d5"
-                        stop-opacity=".85"
-                      />
-                    </linearGradient>
-                    <linearGradient id="ctl_g2" x1="1" y1="0" x2="0" y2="1">
-                      <stop
-                        offset="0"
-                        stop-color="#d0b8a3"
-                        stop-opacity=".80"
-                      />
-                      <stop
-                        offset="1"
-                        stop-color="#918078"
-                        stop-opacity=".55"
-                      />
-                    </linearGradient>
-                    <filter
-                      id="ctl_blur"
-                      x="-20%"
-                      y="-20%"
-                      width="140%"
-                      height="140%"
-                    >
-                      <feGaussianBlur stdDeviation="12" />
-                    </filter>
-                  </defs>
+        <span class="v3-menu-ic" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>Меню</span>
+      </button>
+    </div>
+  </header>
 
-                  <circle
-                    cx="220"
-                    cy="140"
-                    r="120"
-                    fill="url(#ctl_g2)"
-                    opacity=".16"
-                    filter="url(#ctl_blur)"
-                  />
-                  <circle
-                    cx="740"
-                    cy="420"
-                    r="150"
-                    fill="url(#ctl_g1)"
-                    opacity=".14"
-                    filter="url(#ctl_blur)"
-                  />
+  <div class="v3-mobile-backdrop" aria-hidden="true"></div>
 
-                  <path
-                    class="silk s1"
-                    d="M50 420 C160 340, 230 520, 360 430 S 560 240, 690 320 S 820 490, 870 420"
-                    fill="none"
-                    stroke="#006780"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    opacity=".52"
-                  />
-                  <path
-                    class="silk s2"
-                    d="M70 300 C200 230, 280 390, 420 320 S 620 160, 760 260 S 860 360, 890 300"
-                    fill="none"
-                    stroke="#9fd5d5"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                    opacity=".76"
-                  />
-                  <path
-                    class="silk s3"
-                    d="M100 210 C220 150, 300 260, 420 220 S 610 80, 760 160 S 860 240, 890 210"
-                    fill="none"
-                    stroke="#d0b8a3"
-                    stroke-width="4"
-                    stroke-linecap="round"
-                    opacity=".66"
-                  />
+  <aside
+    class="v3-mobile-menu glass"
+    id="v3MobileMenu"
+    aria-hidden="true"
+    aria-label="Мобильное меню"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="v3-mobile-head">
+      <a class="v3-brand v3-mobile-brand" href="/" aria-label="СЛАВЯНБАНК">
+        <img src="{% static './assets/cleaned_logo2.png' %}" alt="СЛАВЯНБАНК" />
+      </a>
 
-                  <g transform="translate(300 110)">
-                    <path
-                      d="M150 0 C240 40, 300 50, 300 120 C300 230, 210 320, 150 350 C90 320, 0 230, 0 120 C0 50, 60 40, 150 0 Z"
-                      fill="#fff"
-                      opacity=".86"
-                      stroke="rgba(2,6,23,.12)"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M86 170 L132 216 L216 128"
-                      fill="none"
-                      stroke="#006780"
-                      stroke-width="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      opacity=".72"
-                    />
-                    <path
-                      d="M52 78 C96 100, 204 100, 248 78"
-                      fill="none"
-                      stroke="rgba(0,103,128,.18)"
-                      stroke-width="4"
-                      stroke-linecap="round"
-                    />
-                  </g>
+      <button class="btn v3-mobile-close" type="button" aria-label="Закрыть меню">✕</button>
+    </div>
 
-                  <g transform="translate(610 90)">
-                    <rect
-                      x="0"
-                      y="0"
-                      rx="22"
-                      ry="22"
-                      width="250"
-                      height="320"
-                      fill="#fff"
-                      opacity=".84"
-                      stroke="rgba(2,6,23,.12)"
-                      stroke-width="2"
-                    />
-                    <rect
-                      x="30"
-                      y="54"
-                      rx="10"
-                      ry="10"
-                      width="190"
-                      height="16"
-                      fill="#006780"
-                      opacity=".18"
-                    />
-                    <rect
-                      x="30"
-                      y="90"
-                      rx="10"
-                      ry="10"
-                      width="160"
-                      height="14"
-                      fill="#006780"
-                      opacity=".14"
-                    />
-                    <rect
-                      x="30"
-                      y="136"
-                      rx="10"
-                      ry="10"
-                      width="190"
-                      height="14"
-                      fill="#006780"
-                      opacity=".12"
-                    />
-                    <rect
-                      x="30"
-                      y="168"
-                      rx="10"
-                      ry="10"
-                      width="168"
-                      height="14"
-                      fill="#006780"
-                      opacity=".10"
-                    />
-                    <rect
-                      x="30"
-                      y="214"
-                      rx="14"
-                      ry="14"
-                      width="190"
-                      height="54"
-                      fill="url(#ctl_g1)"
-                      opacity=".18"
-                      stroke="rgba(0,103,128,.20)"
-                    />
-                  </g>
-                </svg>
-              </div>
+    <nav class="v3-mobile-links" aria-label="Навигация preview v3 mobile">
+      <a href="{% url 'legal-entities' %}">Юридическим лицам</a>
+      <a href="{% url 'currency-control' %}">Валютный контроль</a>
+      <a href="{% url 'client-bank-online' %}">Клиент-Банк</a>
+      <a href="{% url 'tariffs' %}">Тарифы</a>
+      <a href="{% url 'contacts' %}">Контакты</a>
+    </nav>
+
+    <a class="btn primary v3-mobile-cta" href="{% url 'write-to-bank' %}#form">Оставить обращение</a>
+  </aside>
+</div>
+{% endblock site_menu %}
+
+{% block body_content %}
+<style>
+  .topbar {
+    display: none;
+  }
+
+  .v3-header {
+    background: rgba(245, 250, 252, .56);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(2, 6, 23, .06);
+  }
+
+  .v3-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .v3-brand {
+    display: flex;
+    align-items: center;
+    width: 188px;
+    max-width: 100%;
+    text-decoration: none;
+  }
+
+  .v3-brand img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .v3-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 420px;
+    flex-wrap: wrap;
+  }
+
+  .v3-links a {
+    padding: 10px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.42);
+    background: rgba(255,255,255,.46);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 24px rgba(2, 6, 23, .04);
+    transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+
+  .v3-links a:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    background: rgba(255,255,255,.66);
+    border-color: rgba(0, 103, 128, .18);
+  }
+
+  .v3-head-cta {
+    white-space: nowrap;
+  }
+  .v3-mobile-backdrop,
+  .v3-mobile-menu,
+  .v3-menu-btn {
+    display: none;
+  }
+
+  .v3-menu-btn {
+    margin-left: auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.42);
+    background: rgba(255,255,255,.46);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 24px rgba(2, 6, 23, .04);
+    color: var(--c-text);
+    cursor: pointer;
+    transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+
+  .v3-menu-btn:hover {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,.66);
+    border-color: rgba(0, 103, 128, .18);
+  }
+
+  .v3-menu-ic {
+    display: inline-grid;
+    gap: 4px;
+  }
+
+  .v3-menu-ic span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  .v3-mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, .56);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-med) var(--ease);
+    z-index: 59;
+  }
+
+  .v3-mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(380px, 92vw);
+    padding: max(18px, env(safe-area-inset-top)) 18px max(18px, env(safe-area-inset-bottom)) 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform: translateX(100%);
+    transition: transform var(--t-med) var(--ease);
+    z-index: 60;
+    border-radius: 28px 0 0 28px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .v3-mobile-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .v3-mobile-brand {
+    width: 150px;
+  }
+
+  .v3-mobile-close {
+    margin-left: auto;
+    border-radius: 999px;
+  }
+
+  .v3-mobile-links {
+    display: grid;
+    gap: 10px;
+  }
+
+  .v3-mobile-links a {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 14px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.10);
+    color: #fff;
+    backdrop-filter: blur(12px);
+    transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  }
+
+  .v3-mobile-links a:hover {
+    text-decoration: none;
+    background: rgba(255,255,255,.16);
+    border-color: rgba(255,255,255,.30);
+    transform: translateY(-1px);
+  }
+
+  .v3-mobile-cta {
+    margin-top: auto;
+  }
+
+  .v3-mobile-nav.v3-menu-open .v3-mobile-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .v3-mobile-nav.v3-menu-open .v3-mobile-menu {
+    transform: translateX(0);
+  }
+
+  body.v3-lock {
+    overflow: hidden;
+  }
+  .v3home {
+    padding-bottom: 50px;
+  }
+
+  .v3home section.block {
+    padding: 20px 0 34px;
+  }
+
+  .glass {
+    border: 1px solid rgba(255,255,255,.24);
+    background: rgba(255,255,255,.14);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 24px 60px rgba(2, 6, 23, .10);
+  }
+
+  .v3-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 34px;
+    min-height: 650px;
+    padding: 28px;
+    background:
+      linear-gradient(115deg, rgba(0, 50, 63, .78) 0%, rgba(0, 70, 89, .62) 34%, rgba(0, 0, 0, .18) 100%),
+      radial-gradient(720px 320px at 82% 18%, rgba(159, 213, 213, .18), transparent 58%),
+      url("{% static 'assets/05e00c50-ede1-47ee-aaab-75ad056b498a.png' %}") center / cover no-repeat;
+    box-shadow: 0 30px 90px rgba(2, 6, 23, .14);
+  }
+
+  .v3-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, transparent 0 8%, rgba(255,255,255,.06) 8% 8.4%, transparent 8.4% 17%, rgba(208,184,163,.10) 17% 17.4%, transparent 17.4% 100%),
+      linear-gradient(transparent 0 12%, rgba(255,255,255,.04) 12% 12.4%, transparent 12.4% 24%, rgba(159,213,213,.08) 24% 24.4%, transparent 24.4% 100%);
+    background-size: 138px 138px;
+    opacity: .55;
+  }
+
+  .v3-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.02fr .98fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .v3-copy {
+    padding: 28px;
+    border-radius: 28px;
+    color: #fff;
+    align-self: start;
+    max-width: 640px;
+  }
+
+  .v3-kicker {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.20);
+    color: rgba(255,255,255,.88);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  .v3-title {
+    margin: 16px 0 12px;
+    max-width: 11ch;
+    font-size: clamp(38px, 5vw, 70px);
+    line-height: 1.02;
+    letter-spacing: -.03em;
+  }
+
+  .v3-lead {
+    margin: 0;
+    max-width: 42ch;
+    color: rgba(255,255,255,.82);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .v3-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  .v3-actions .btn.outline,
+  .v3-actions .btn.glass {
+    color: #fff;
+    border-color: rgba(255,255,255,.24);
+    background: rgba(255,255,255,.10);
+  }
+
+  .v3-actions .btn.outline:hover,
+  .v3-actions .btn.glass:hover {
+    background: rgba(255,255,255,.16);
+  }
+
+  .v3-chip-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  .v3-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.18);
+    color: #fff;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+  }
+
+  .v3-chip:hover {
+    text-decoration: none;
+    background: rgba(255,255,255,.16);
+  }
+
+  .v3-side {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 16px;
+    min-height: 100%;
+  }
+
+  .v3-hero-ill {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    min-height: 360px;
+  }
+
+  .v3-hero-ill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.00) 34%, rgba(0,0,0,.14));
+    pointer-events: none;
+  }
+
+  .v3-hero-ill img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+  }
+
+  .v3-hero-meta {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    padding: 16px 18px;
+    border-radius: 22px;
+    color: #fff;
+  }
+
+  .v3-side-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .v3-mini {
+    padding: 18px;
+    border-radius: 22px;
+    color: #fff;
+    min-height: 132px;
+  }
+
+  .v3-mini strong {
+    display: block;
+    font-size: 18px;
+    line-height: 1.15;
+  }
+
+  .v3-mini span {
+    display: block;
+    margin-top: 8px;
+    color: rgba(255,255,255,.78);
+    line-height: 1.5;
+    font-size: 14px;
+  }
+
+  .v3-section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .v3-section-head h2 {
+    margin: 0;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.1;
+  }
+
+  .v3-section-head p {
+    margin: 6px 0 0;
+    max-width: 62ch;
+    color: var(--c-muted);
+  }
+
+  .v3-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 11px;
+    border-radius: 999px;
+    background: rgba(0,103,128,.08);
+    color: var(--c-primary-700);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  .v3-routes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .v3-route {
+    overflow: hidden;
+    border-radius: 28px;
+    border: 1px solid rgba(2, 6, 23, .08);
+    background: rgba(255,255,255,.66);
+    box-shadow: 0 20px 52px rgba(2, 6, 23, .08);
+    text-decoration: none;
+    transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+
+  .v3-route:hover {
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 28px 60px rgba(2, 6, 23, .11);
+    border-color: rgba(0,103,128,.14);
+  }
+
+  .v3-route-media {
+    height: 220px;
+    background: linear-gradient(180deg, rgba(247,250,252,1), rgba(255,255,255,.84));
+    border-bottom: 1px solid rgba(2, 6, 23, .06);
+  }
+
+  .v3-route-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .v3-route-copy {
+    padding: 22px;
+  }
+
+  .v3-route-copy h3 {
+    margin: 14px 0 8px;
+    font-size: 22px;
+    line-height: 1.14;
+  }
+
+  .v3-route-copy p {
+    margin: 0;
+    color: var(--c-muted);
+    line-height: 1.58;
+  }
+
+  .v3-more {
+    display: inline-flex;
+    margin-top: 16px;
+    font-weight: 600;
+    color: var(--c-primary-700);
+  }
+
+  .v3-profile {
+    display: grid;
+    grid-template-columns: .96fr 1.04fr;
+    gap: 16px;
+  }
+
+  .v3-photo-card,
+  .v3-text-card,
+  .v3-news-card,
+  .v3-final {
+    border-radius: 28px;
+    border: 1px solid rgba(2, 6, 23, .08);
+    background: rgba(255,255,255,.72);
+    box-shadow: 0 20px 52px rgba(2, 6, 23, .08);
+    overflow: hidden;
+  }
+
+  .v3-photo-card {
+    position: relative;
+    min-height: 100%;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.30)),
+      url("{% static 'assets/05e00c50-ede1-47ee-aaab-75ad056b498a.png' %}") center / cover no-repeat;
+    min-height: 520px;
+  }
+
+  .v3-photo-caption {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    padding: 18px 20px;
+    border-radius: 24px;
+    color: #fff;
+  }
+
+  .v3-text-card {
+    padding: 26px;
+  }
+
+  .v3-text-card h2 {
+    margin: 14px 0 12px;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.08;
+    max-width: 13ch;
+  }
+
+  .v3-text-card p {
+    margin: 0;
+    color: var(--c-muted);
+    line-height: 1.68;
+  }
+
+  .v3-facts {
+    margin: 18px 0 0;
+    padding-left: 18px;
+  }
+
+  .v3-facts li {
+    margin-bottom: 10px;
+    line-height: 1.62;
+  }
+
+  .v3-pill-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  .v3-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(247,250,252,1);
+    border: 1px solid rgba(2, 6, 23, .08);
+  }
+
+  .v3-news {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .v3-news-card {
+    display: block;
+    padding: 22px;
+    text-decoration: none;
+    transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+  }
+
+  .v3-news-card:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 26px 56px rgba(2, 6, 23, .10);
+  }
+
+  .v3-news-card .meta {
+    color: var(--c-muted);
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  .v3-news-card h3 {
+    margin: 12px 0 8px;
+    font-size: 20px;
+    line-height: 1.18;
+  }
+
+  .v3-news-card p {
+    margin: 0;
+    color: var(--c-muted);
+    line-height: 1.56;
+  }
+
+  .v3-final {
+    display: grid;
+    grid-template-columns: 1.06fr .94fr;
+    gap: 20px;
+    align-items: center;
+    padding: 28px;
+    background: linear-gradient(135deg, rgba(255,255,255,.78), rgba(245,250,252,.92));
+  }
+
+  .v3-final h2 {
+    margin: 12px 0 10px;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.08;
+    max-width: 14ch;
+  }
+
+  .v3-final p {
+    margin: 0;
+    max-width: 54ch;
+    color: var(--c-muted);
+    line-height: 1.66;
+  }
+
+  .v3-final-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 1180px) {
+    .v3-hero-grid,
+    .v3-profile,
+    .v3-final {
+      grid-template-columns: 1fr;
+    }
+
+    .v3-routes,
+    .v3-news {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .v3-final-actions {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .v3-nav {
+      flex-wrap: nowrap;
+      min-height: 72px;
+    }
+
+    .v3-brand {
+      width: 160px;
+      flex: 0 0 auto;
+    }
+
+    .v3-links,
+    .v3-head-cta {
+      display: none;
+    }
+
+    .v3-menu-btn {
+      display: inline-flex;
+    }
+
+    .v3-mobile-backdrop {
+      display: block;
+    }
+
+    .v3-mobile-menu {
+      display: flex;
+    }
+
+    .v3-side {
+      display: none;
+    }
+
+    .v3-hero {
+      min-height: auto;
+      padding: 18px;
+      border-radius: 24px;
+    }
+
+    .v3-copy,
+    .v3-hero-meta,
+    .v3-mini,
+    .v3-text-card,
+    .v3-final {
+      border-radius: 22px;
+    }
+
+    .v3-title {
+      max-width: none;
+    }
+
+    .v3-side-grid,
+    .v3-routes,
+    .v3-news {
+      grid-template-columns: 1fr;
+    }
+
+    .v3-route,
+    .v3-photo-card,
+    .v3-news-card {
+      border-radius: 22px;
+    }
+
+    .v3-photo-card {
+      min-height: 380px;
+    }
+  }
+</style>
+
+<main id="main" class="v3home">
+  <section class="block">
+    <div class="container">
+      <div class="v3-hero reveal" data-reveal="scale">
+        <div class="v3-hero-grid">
+          <div class="v3-copy glass">
+            <div class="v3-kicker">АО НКБ «СЛАВЯНБАНК»</div>
+            <h1 class="v3-title">Расчёты, ВЭД и рабочие сервисы банка.</h1>
+            <p class="v3-lead">
+              Обслуживание счетов, валютный контроль, Клиент‑Банк и тарифы.
+            </p>
+
+            <div class="v3-actions">
+              <a class="btn primary" href="{% url 'account-service' %}">Обслуживание счетов</a>
+              <a class="btn outline" href="{% url 'currency-control' %}">Валютный контроль</a>
+              <a class="btn glass" href="{% url 'client-bank-online' %}">Клиент‑Банк</a>
             </div>
-          </article>
-          <article class="slide" data-slide aria-hidden="false">
-            <div class="slide-grid">
-              <div>
-                <div class="kicker">ИП и юридическим лицам</div>
-                <h2>
-                  РКО и обслуживание бизнеса — быстро, понятно, с поддержкой.
-                </h2>
-                <p>
-                  Счета, платежи, выписки, справки. Сценарная навигация и
-                  быстрый доступ в Клиент‑Банк.
-                </p>
-                <div
-                  class="row"
-                  style="margin-top: var(--s-4); flex-wrap: wrap"
-                >
-                  <a class="btn primary" href="{% url 'account-service' %}">Открыть счёт</a>
-                  <a class="btn outline" href="{% url 'tariffs' %}">Тарифы</a>
-                  <a class="btn glass" href="{% url 'write-to-bank' %}#form">Консультация</a>
-                </div>
-                <!-- <div class="muted" style="margin-top:12px; font-size:12px; font-weight:300;">Доп текст/примечание</div> -->
-              </div>
-              <div data-ill>
-                <svg
-                  class="hero-ill"
-                  width="900"
-                  height="560"
-                  viewBox="0 0 900 560"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  aria-label="Абстрактная иллюстрация: платежи и документы"
-                >
-                  <defs>
-                    <linearGradient id="rko_g1" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#006780" stop-opacity=".9" />
-                      <stop
-                        offset="1"
-                        stop-color="#9fd5d5"
-                        stop-opacity=".85"
-                      />
-                    </linearGradient>
-                    <linearGradient id="rko_g2" x1="1" y1="0" x2="0" y2="1">
-                      <stop
-                        offset="0"
-                        stop-color="#d0b8a3"
-                        stop-opacity=".85"
-                      />
-                      <stop
-                        offset="1"
-                        stop-color="#918078"
-                        stop-opacity=".55"
-                      />
-                    </linearGradient>
-                    <filter
-                      id="rko_blur"
-                      x="-20%"
-                      y="-20%"
-                      width="140%"
-                      height="140%"
-                    >
-                      <feGaussianBlur stdDeviation="12" />
-                    </filter>
-                  </defs>
 
-                  <circle
-                    cx="180"
-                    cy="130"
-                    r="110"
-                    fill="url(#rko_g1)"
-                    opacity=".18"
-                    filter="url(#rko_blur)"
-                  />
-                  <circle
-                    cx="740"
-                    cy="420"
-                    r="140"
-                    fill="url(#rko_g2)"
-                    opacity=".16"
-                    filter="url(#rko_blur)"
-                  />
-
-                  <path
-                    class="silk s1"
-                    d="M40 330 C160 250, 250 420, 360 340 S 560 180, 690 240 S 820 380, 860 320"
-                    fill="none"
-                    stroke="#006780"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    opacity=".55"
-                  />
-                  <path
-                    class="silk s2"
-                    d="M70 380 C200 300, 260 500, 420 420 S 620 220, 760 310 S 840 420, 880 360"
-                    fill="none"
-                    stroke="#9fd5d5"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                    opacity=".75"
-                  />
-                  <path
-                    class="silk s3"
-                    d="M90 260 C210 200, 300 340, 420 280 S 610 120, 760 200 S 860 310, 880 260"
-                    fill="none"
-                    stroke="#d0b8a3"
-                    stroke-width="4"
-                    stroke-linecap="round"
-                    opacity=".65"
-                  />
-
-                  <g transform="translate(565 120)">
-                    <rect
-                      x="0"
-                      y="0"
-                      rx="22"
-                      ry="22"
-                      width="260"
-                      height="320"
-                      fill="#fff"
-                      opacity=".85"
-                      stroke="rgba(2,6,23,.12)"
-                      stroke-width="2"
-                    />
-                    <rect
-                      x="36"
-                      y="62"
-                      rx="10"
-                      ry="10"
-                      width="188"
-                      height="16"
-                      fill="#006780"
-                      opacity=".22"
-                    />
-                    <rect
-                      x="36"
-                      y="98"
-                      rx="10"
-                      ry="10"
-                      width="146"
-                      height="14"
-                      fill="#006780"
-                      opacity=".16"
-                    />
-                    <rect
-                      x="36"
-                      y="146"
-                      rx="10"
-                      ry="10"
-                      width="188"
-                      height="14"
-                      fill="#006780"
-                      opacity=".14"
-                    />
-                    <rect
-                      x="36"
-                      y="176"
-                      rx="10"
-                      ry="10"
-                      width="166"
-                      height="14"
-                      fill="#006780"
-                      opacity=".12"
-                    />
-                    <g transform="translate(36 230)" opacity=".92">
-                      <rect
-                        x="0"
-                        y="0"
-                        rx="14"
-                        ry="14"
-                        width="188"
-                        height="54"
-                        fill="url(#rko_g1)"
-                        opacity=".22"
-                        stroke="rgba(0,103,128,.25)"
-                      />
-                      <path
-                        d="M24 27 H124"
-                        stroke="#006780"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        opacity=".7"
-                      />
-                      <path
-                        d="M124 18 L144 27 L124 36"
-                        fill="none"
-                        stroke="#006780"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        opacity=".7"
-                      />
-                    </g>
-                  </g>
-                </svg>
-              </div>
+            <div class="v3-chip-row">
+              <a class="v3-chip" href="{% url 'tariffs' %}">Тарифы</a>
+              <a class="v3-chip" href="{% url 'contacts' %}">Контакты</a>
+              <a class="v3-chip" href="{% url 'novosti' %}">Новости</a>
+              <a class="v3-chip" href="https://ved.slavbank.ru/" target="_blank" rel="noopener">ВЭД</a>
             </div>
-          </article>
-
-          <article class="slide" data-slide aria-hidden="true">
-            <div class="slide-grid">
-              <div>
-                <div class="kicker">Внешнеэкономическая деятельность</div>
-                <h2>Экспертиза контрактов и международные расчёты.</h2>
-                <p>
-                  Помогаем снизить риски сделки: условия, документы, расчёты,
-                  сопровождение операций в валюте.
-                </p>
-                <div
-                  class="row"
-                  style="margin-top: var(--s-4); flex-wrap: wrap"
-                >
-                  <a class="btn primary" href="{% url 'currency-control' %}">ВЭД‑сервисы</a>
-                  <a class="btn outline" href="{% url 'aml-fatca' %}">Документы</a>
-                  <a class="btn glass" href="{% url 'contacts' %}">Связаться</a>
-                </div>
-                <!-- <div class="muted" style="margin-top:12px; font-size:12px; font-weight:300;">Можно добавить “мастер‑шаги” и статусы документов — сделаем в следующем варианте.</div> -->
-              </div>
-              <div data-ill>
-                <svg
-                  class="hero-ill"
-                  width="900"
-                  height="560"
-                  viewBox="0 0 900 560"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  aria-label="Абстрактная иллюстрация: ВЭД и международные расчёты"
-                >
-                  <defs>
-                    <linearGradient id="ved_g1" x1="0" y1="0" x2="1" y2="1">
-                      <stop
-                        offset="0"
-                        stop-color="#006780"
-                        stop-opacity=".95"
-                      />
-                      <stop
-                        offset="1"
-                        stop-color="#0ea5b7"
-                        stop-opacity=".85"
-                      />
-                    </linearGradient>
-                    <linearGradient id="ved_g2" x1="1" y1="0" x2="0" y2="1">
-                      <stop
-                        offset="0"
-                        stop-color="#9fd5d5"
-                        stop-opacity=".85"
-                      />
-                      <stop
-                        offset="1"
-                        stop-color="#d0b8a3"
-                        stop-opacity=".55"
-                      />
-                    </linearGradient>
-                    <filter
-                      id="ved_blur"
-                      x="-20%"
-                      y="-20%"
-                      width="140%"
-                      height="140%"
-                    >
-                      <feGaussianBlur stdDeviation="12" />
-                    </filter>
-                  </defs>
-
-                  <circle
-                    cx="210"
-                    cy="420"
-                    r="150"
-                    fill="url(#ved_g2)"
-                    opacity=".16"
-                    filter="url(#ved_blur)"
-                  />
-                  <circle
-                    cx="720"
-                    cy="160"
-                    r="130"
-                    fill="url(#ved_g1)"
-                    opacity=".16"
-                    filter="url(#ved_blur)"
-                  />
-
-                  <g transform="translate(150 120)">
-                    <circle
-                      cx="210"
-                      cy="160"
-                      r="150"
-                      fill="#fff"
-                      opacity=".82"
-                      stroke="rgba(2,6,23,.10)"
-                      stroke-width="2"
-                    />
-                    <circle
-                      cx="210"
-                      cy="160"
-                      r="110"
-                      fill="none"
-                      stroke="rgba(0,103,128,.18)"
-                      stroke-width="2"
-                    />
-                    <circle
-                      cx="210"
-                      cy="160"
-                      r="70"
-                      fill="none"
-                      stroke="rgba(0,103,128,.14)"
-                      stroke-width="2"
-                    />
-                    <path
-                      class="silk s1"
-                      d="M60 160 C120 80, 300 80, 360 160 C300 240, 120 240, 60 160 Z"
-                      fill="none"
-                      stroke="#006780"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      opacity=".55"
-                    />
-                    <path
-                      class="silk s2"
-                      d="M90 110 C150 150, 270 150, 330 110"
-                      fill="none"
-                      stroke="#9fd5d5"
-                      stroke-width="5"
-                      stroke-linecap="round"
-                      opacity=".8"
-                    />
-                    <path
-                      class="silk s3"
-                      d="M90 210 C150 170, 270 170, 330 210"
-                      fill="none"
-                      stroke="#d0b8a3"
-                      stroke-width="4"
-                      stroke-linecap="round"
-                      opacity=".7"
-                    />
-                  </g>
-
-                  <path
-                    class="silk s1"
-                    d="M430 160 C520 120, 620 120, 710 160"
-                    fill="none"
-                    stroke="#006780"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    opacity=".50"
-                  />
-                  <path
-                    class="silk s2"
-                    d="M430 220 C520 180, 640 180, 760 240"
-                    fill="none"
-                    stroke="#9fd5d5"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                    opacity=".70"
-                  />
-                  <path
-                    class="silk s3"
-                    d="M430 290 C540 260, 650 260, 820 320"
-                    fill="none"
-                    stroke="#d0b8a3"
-                    stroke-width="4"
-                    stroke-linecap="round"
-                    opacity=".62"
-                  />
-
-                  <g transform="translate(585 320)">
-                    <rect
-                      x="0"
-                      y="0"
-                      rx="22"
-                      ry="22"
-                      width="280"
-                      height="170"
-                      fill="#fff"
-                      opacity=".86"
-                      stroke="rgba(2,6,23,.12)"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M44 88 L76 118 L132 58"
-                      fill="none"
-                      stroke="#006780"
-                      stroke-width="7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      opacity=".75"
-                    />
-                    <path
-                      d="M170 60 H236"
-                      stroke="rgba(0,103,128,.35)"
-                      stroke-width="5"
-                      stroke-linecap="round"
-                    />
-                    <path
-                      d="M170 96 H250"
-                      stroke="rgba(0,103,128,.28)"
-                      stroke-width="5"
-                      stroke-linecap="round"
-                    />
-                    <path
-                      d="M170 132 H232"
-                      stroke="rgba(0,103,128,.22)"
-                      stroke-width="5"
-                      stroke-linecap="round"
-                    />
-                  </g>
-                </svg>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="slider-ui">
-          <div class="dots" aria-label="Навигация по слайдам">
-            <button
-              class="dot"
-              data-dot
-              aria-current="true"
-              aria-label="Слайд 1"
-            ></button>
-            <button
-              class="dot"
-              data-dot
-              aria-current="false"
-              aria-label="Слайд 2"
-            ></button>
-            <button
-              class="dot"
-              data-dot
-              aria-current="false"
-              aria-label="Слайд 3"
-            ></button>
           </div>
 
-          <div class="progress" data-progress aria-hidden="true"><i></i></div>
+          <div class="v3-side">
+            <div class="v3-hero-ill glass reveal" data-reveal="right">
+              <!-- <img src="{% static 'assets/svg_success_panel.svg' %}" alt="Иллюстрация: ВЭД и международные расчёты" /> -->
+              <img src="{% static 'b/8_.png' %}" alt="Иллюстрация: ВЭД и международные расчёты" />
+              {% comment %} <div class="v3-hero-meta glass">
+                <div class="v3-kicker">Заголовок под изображение</div>
+                <div style="font-weight:600; font-size:18px; margin-top:10px;">Описание.</div>
+              </div> {% endcomment %}
+            </div>
 
-          <div class="row" style="gap: 8px">
-            <button
-              class="btn icon outline"
-              type="button"
-              data-prev
-              aria-label="Предыдущий слайд"
-            >
-              ←
-            </button>
-            <button
-              class="btn icon outline"
-              type="button"
-              data-next
-              aria-label="Следующий слайд"
-            >
-              →
-            </button>
+            <div class="v3-side-grid">
+              <div class="v3-mini glass reveal" data-reveal="scale">
+                <strong>РКО</strong>
+                <span>Открытие и обслуживание счетов для бизнеса.</span>
+              </div>
+              <div class="v3-mini glass reveal" data-reveal="scale">
+                <strong>ВЭД</strong>
+                <span>Экспертиза контрактов и международные расчёты.</span>
+              </div>
+              <div class="v3-mini glass reveal" data-reveal="scale">
+                <strong>ДБО</strong>
+                <span>Переход в Клиент‑Банк и рабочие инструкции.</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="grid3">
-    <a class="tile reveal" data-reveal="scale" href="#">
-      <div class="badge">Кредитование</div>
-      <h3>
-        Отправить заявку (МСП)
-        <span class="arrow">→</span>
-      </h3>
-      <p>Быстрый переход на форму заявки.</p>
-    </a>
-
-    <a class="tile reveal" data-reveal="scale" href="#">
-      <div class="badge">Клиент‑Банк</div>
-      <h3>Вход в систему <span class="arrow">→</span></h3>
-      <p>Переход на страницу дистанционного обслуживания.</p>
-    </a>
-    <!-- <div class="bento-card reveal tile" data-reveal="right">
-      <div class="badge">Контакты ВЭД</div>
-      <h3 style="padding-left: 10px">Быстрая связь</h3>
-      <div class="row" style="gap: 10px; flex-wrap: wrap; align-items: center">
-        <a class="btn glass" href="tel:+7(495)198-99-51"
-          style="border-color: rgba(0, 0, 0, 0.08); text-decoration: none">📞 <span
-            class="mono">+7(495)198-99-51</span></a>
-        <a class="btn glass" href="mailto:ved@slavbank.ru"
-          style="border-color: rgba(0, 0, 0, 0.08); text-decoration: none">✉️ ved@slavbank.ru</a>
-      </div>
-    </div> -->
-    <div class="bento-card" id="support" style="padding: 0; position: relative">
-      <div class="support-card">
-        <div class="support-ico" aria-hidden="true">☎</div>
+  <section class="block">
+    <div class="container">
+      {% comment %} <div class="v3-section-head reveal" data-reveal="left">
         <div>
-          <div style="font-weight: 600">Свяжитесь с банком</div>
-          <div class="row" style="gap: 10px; flex-wrap: wrap; margin-top: 10px">
-            <a
-              class="btn glass pill"
-              style="color: var(--c-primary-700)"
-              href="tel:8162665247"
-              >Позвонить</a
-            >
-            <a
-              class="btn glass pill"
-              style="color: var(--c-primary-700)"
-              href="mailto:nkb@slavbank.ru"
-              >Написать</a
-            >
-          </div>
-          <div class="muted" style="margin-top: 10px">
-            <a href="mailto:ved@slavbank.ru">ved@slavbank.ru</a>
-          </div>
-          <div class="muted" style="margin-top: 10px">
-            <a href="mailto:ved@slavbank.ru">+7(495)198-99-51</a>
-          </div>
+          <h2>Роуты</h2>
+          <p>Описание</p>
         </div>
+        <span class="v3-badge">Бадж</span>
+      </div> {% endcomment %}
+
+      <div class="v3-routes">
+        <a class="v3-route reveal" data-reveal="scale" href="{% url 'account-service' %}">
+          <div class="v3-route-media">
+            <img src="{% static 'assets/svg4.svg' %}" alt="Иллюстрация: РКО" />
+          </div>
+          <div class="v3-route-copy">
+            <span class="v3-badge">РКО</span>
+            <h3>Обслуживание счетов в валюте РФ</h3>
+            <p>Более прикладной сценарий: счёт, расчёты, базовые операции и вход в рабочие разделы бизнеса.</p>
+            <span class="v3-more">Открыть раздел →</span>
+          </div>
+        </a>
+
+        <a class="v3-route reveal" data-reveal="scale" href="{% url 'currency-control' %}">
+          <div class="v3-route-media">
+            <img src="{% static 'assets/svg2.svg' %}" alt="Иллюстрация: ВЭД" />
+          </div>
+          <div class="v3-route-copy">
+            <span class="v3-badge">ВЭД</span>
+            <h3>Экспертиза контрактов и международные расчёты</h3>
+            <p>Сильное направление банка выводится в отдельный большой маршрут, а не теряется внутри общей главной.</p>
+            <span class="v3-more">Открыть раздел →</span>
+          </div>
+        </a>
+
+        <a class="v3-route reveal" data-reveal="scale" href="{% url 'currency-control' %}">
+          <div class="v3-route-media">
+            <img src="{% static 'assets/svg6.svg' %}" alt="Иллюстрация: валютный контроль" />
+          </div>
+          <div class="v3-route-copy">
+            <span class="v3-badge">Контроль</span>
+            <h3>Валютный контроль и документы</h3>
+            <p>Подчёркиваем не абстрактную рекламу, а понятный рабочий сценарий с документами и сопровождением операций.</p>
+            <span class="v3-more">Открыть раздел →</span>
+          </div>
+        </a>
       </div>
-    </div>
-  </div>
-
-  <section class="block dashv2" id="services">
-    <div class="bento">
-      <div class="bento-card bento-hero reveal" data-reveal="scale">
-        <div class="about-grid">
-          <div>
-            <div class="kicker">Основная специализация</div>
-            <h3 style="margin: 6px 0 10px">
-              Основная специализация АО НКБ «СЛАВЯНБАНК» – комплексное
-              банковское обслуживание индивидуальных предпринимателей и
-              юридических лиц, в том числе внешнеэкономическая деятельность:
-              экспертиза контрактов, международные расчёты и валютный контроль .
-            </h3>
-
-            <details class="reveal" data-reveal="left" style="margin-top: 14px">
-              <summary style="cursor: pointer; font-weight: 600">
-                АО НКБ «СЛАВЯНБАНК» И РЕЛИГИОЗНЫЕ УЧРЕЖДЕНИЯ
-              </summary>
-              <div style="margin-top: 6px">
-                <p class="muted" style="margin: 10px 0 0; font-weight: 300">
-                  Банк вот уже несколько лет реализует проект по приему
-                  безналичных пожертвований религиозными учреждениями с помощью
-                  специальных банковских терминалов и персонализированных
-                  QR-кодов.
-                </p>
-                <p class="muted" style="margin: 10px 0 0; font-weight: 300">
-                  На данный момент Банк сотрудничает с отдельными епархиями и
-                  приходами Русской Православной Церкви, предоставляя комплекс
-                  банковских услуг по приему пожертвований прихожан в
-                  безналичной форме и расчетно-кассовому обслуживанию приходов.
-                </p>
-                <p class="muted" style="margin: 10px 0 0; font-weight: 300">
-                  При этом, целью проекта является не только упрощение
-                  взаимодействия с прихожанами в условиях все большей
-                  цифровизации финансовых отношений, но и создание финансовых
-                  решений, максимально учитывающих конфессиональные особенности.
-                </p>
-                <p class="muted" style="margin: 10px 0 0; font-weight: 300">
-                  АО НКБ «СЛАВЯНБАНК» предлагает бесплатную установку
-                  терминалов, стабильно высокие ставки на остаток денежных
-                  средств на расчетном счете, а также на срочных депозитах.
-                </p>
-              </div>
-            </details>
-          </div>
-
-          <div class="about-media">
-            <div class="media-card">
-              <img
-                src="{% static 'assets/main_about.png' %}"
-                alt="Иллюстрация: международные расчёты и ВЭД"
-                loading="lazy"
-              />
-              <div class="media-overlay">
-                <!-- <div class="kicker" style="color:rgba(255,255,255,.8);">ВЭД · международные расчёты</div> -->
-                <div
-                  style="
-                    font-weight: 600;
-                    color: white;
-                    font-size: 16px;
-                    text-shadow: black 1px 1px 1px;
-                  "
-                >
-                  Экспертиза контрактов · валютный контроль
-                </div>
-              </div>
-            </div>
-
-            <!-- <div class="mini-kpi">
-              <div class="k mob-font-13">
-                <div class="l mob-font-13">Электронная почта</div>
-                <div class="v mob-font-13">ved@slavbank.ru</div>
-              </div>
-              <div class="k">
-                <div class="l mob-font-13">Связь по ВЭД</div>
-                <div class="v mob-font-13">+7(495)198-99-51</div>
-              </div>
-            </div> -->
-          </div>
-        </div>
-        <div class="after-grid">
-          <div class="" style="line-height: 1.7">
-            <strong style="font-weight: 640"
-              >АКЦИОНЕРНОЕ ОБЩЕСТВО НОВГОРОДСКИЙ КОММЕРЧЕСКИЙ БАНК
-              «СЛАВЯНБАНК»</strong
-            >
-            <ul class="facts">
-              <li>
-                Образован в 1989 году как первый самостоятельный региональный
-                банк.
-              </li>
-              <li>
-                Основная задача банка —  развитие экономики Новгородской
-                области. В настоящее время — это стабильно работающий
-                региональный коммерческий банк. Основными акционерами банка
-                являются физические лица.
-              </li>
-              <li>
-                За годы деятельности у банка сложились устойчивые
-                корреспондентские отношения со многими банками.
-              </li>
-              <li>
-                Перевод платежей в любой регион страны осуществляется в течение
-                одного дня.
-              </li>
-            </ul>
-          </div>
-
-          <div
-            class="row"
-            style="
-              gap: 10px;
-              flex-wrap: wrap;
-              margin-top: 12px;
-              flex-direction: column;
-              align-items: start;
-            "
-          >
-            <span class="pill mob-nowrap"
-              ><span class="badge">✓</span
-              ><span class="muted">Надежность, проверенная временем</span></span
-            ><span class="pill mob-nowrap"
-              ><span class="badge">✓</span
-              ><span class="muted">Выгодные условия сотрудничества</span></span
-            ><span class="pill mob-nowrap"
-              ><span class="badge">✓</span
-              ><span class="muted">Качественное обслуживание</span></span
-            ><span class="pill mob-nowrap"
-              ><span class="badge">✓</span
-              ><span class="muted"
-                >Индивидуальный подход к каждому клиенту</span
-              ></span
-            >
-          </div>
-
-          <div style="margin-top: 14px">
-            <div class="kicker">Банк оказывает услуги</div>
-            <div class="svc-grid">
-              <a
-                class="svc-chip"
-                href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html"
-                target="_blank"
-                rel="noopener"
-                >Расчётно-кассовое обслуживание клиентов
-                <span aria-hidden="true">→</span></a
-              >
-              <a
-                class="svc-chip"
-                href="https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html"
-                target="_blank"
-                rel="noopener"
-                >Предоставление краткосрочных и инвестиционных кредитов
-                <span aria-hidden="true">→</span></a
-              >
-              <a
-                class="svc-chip"
-                href="https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html"
-                target="_blank"
-                rel="noopener"
-                >Операции на внутреннем и международном валютном рынке,
-                международные расчёты <span aria-hidden="true">→</span></a
-              >
-              <span class="svc-chip ghost"
-                >Ведение паспортов сделок, конверсионные безналичные
-                операции,</span
-              >
-              <span class="svc-chip ghost"
-                >Финансовые и банковские гарантии,</span
-              >
-              <span class="svc-chip ghost"
-                >Подтверждение о принятии средств в депозит, простые векселя,
-                гарантии по контрактам, аккредитивы,</span
-              >
-              <span class="svc-chip ghost">Открытие кредитных линий,</span>
-              <span class="svc-chip ghost"
-                >Принятие  активов на ответственное банковское  хранение,
-                размещение активов и др.</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-      {% include './inc/stack.html' %}
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <!-- <section class="block" id="services">
-      <div class="section-head reveal" data-reveal="left">
-        <div>
-          <h2>Ключевые сервисы</h2>
-          <p>Быстрые маршруты к задачам бизнеса.</p>
+  <section class="block">
+    <div class="container">
+      <div class="v3-profile">
+        <div class="v3-photo-card reveal" data-reveal="left">
+          <div class="v3-photo-caption glass">
+            <div class="v3-kicker">Основная специализация</div>
+            <div style="font-weight:600; font-size:20px; line-height:1.2; margin-top:10px; color:#fff;">
+              Комплексное банковское обслуживание индивидуальных предпринимателей и юридических лиц,
+              в том числе внешнеэкономическая деятельность.
+            </div>
+          </div>
         </div>
-        <span class="pill"><span class="badge"></span><span class="muted" style="font-weight:300;"> ЙЙЙ</span></span>
-      </div>
-  
-      <div class="grid3">
-        <a class="tile reveal" data-reveal="scale" href="#"><div class="badge">Клиент‑Банк</div><h3>Вход в ДБО</h3><p>Платежи, выписки, подписи, статусы.</p></a>
-        <a class="tile reveal" data-reveal="scale" href="#fx"><div class="badge">ВЭД</div><h3>Экспертиза контракта</h3><p>Проверка условий и рисков до сделки.</p></a>
-        <a class="tile reveal" data-reveal="scale" href="#fx"><div class="badge">Расчёты</div><h3>Международные переводы</h3><p>Валюта, реквизиты, сопровождение.</p></a>
-        <a class="tile reveal" data-reveal="scale" href="#fx"><div class="badge">Контроль</div><h3>Валютный контроль</h3><p>Чек‑листы, сроки, консультации.</p></a>
-        <a class="tile reveal" data-reveal="scale" href="#tariffs"><div class="badge" style="background: rgba(208,184,163,.25); color: var(--c-brown-500);">Тарифы</div><h3>Комиссии</h3><p>РКО и валютные операции.</p></a>
-        <a class="tile reveal" data-reveal="scale" href="#docs"><div class="badge">Документы</div><h3>Раскрытие информации</h3><p>Отчётность, формы, публикации.</p></a>
-      </div>
-    </section> -->
 
-  <!-- FX / VED -->
-  <!-- <section class="block" id="fx">
-      <div class="section-head reveal" data-reveal="left">
-        <div>
-          <h2>ВЭД и валютный контроль</h2>
-          <p>Мини‑каркас: далее подтянем реальные тексты/файлы из сайта.</p>
-        </div>
-        <span class="pill"><span class="badge">UX</span><span class="muted" style="font-weight:300;">по шагам</span></span>
-      </div>
-  
-      <div class="grid3">
-        <div class="card pad reveal" data-reveal="scale">
-          <div class="badge">1</div>
-          <h3 style="margin:10px 0 6px; font-size:14px; font-weight:600;">Экспертиза контракта</h3>
-          <p class="muted" style="margin:0; font-size:12px; font-weight:300;">Проверка условий, подсветка рисков, рекомендации по документам.</p>
-        </div>
-        <div class="card pad reveal" data-reveal="scale">
-          <div class="badge">2</div>
-          <h3 style="margin:10px 0 6px; font-size:14px; font-weight:600;">Международные расчёты</h3>
-          <p class="muted" style="margin:0; font-size:12px; font-weight:300;">Сопровождение валютных платежей и зачисления экспортной выручки.</p>
-        </div>
-        <div class="card pad reveal" data-reveal="scale">
-          <div class="badge">3</div>
-          <h3 style="margin:10px 0 6px; font-size:14px; font-weight:600;">Валютный контроль</h3>
-          <p class="muted" style="margin:0; font-size:12px; font-weight:300;">Чек‑листы, сроки, требования, статусы (в проде).</p>
-        </div>
-      </div>
-    </section> -->
+        <div class="v3-text-card reveal" data-reveal="right">
+          <span style="font-size: 14px;" class="v3-badge">О банке</span>
+          {% comment %} <h2>Жирный заголовок.</h2> {% endcomment %}
+          {% comment %} <p>
+            Текстовый блок остаётся деловым и фактическим. Изображение лишь добавляет эмоциональный слой,
+            но не перетягивает сайт в сторону рекламного лендинга.
+          </p> {% endcomment %}
 
-  <!-- TARIFFS -->
-  <!-- <section class="block" id="tariffs">
-      <div class="section-head reveal" data-reveal="left">
-        <div>
-          <h2>Тарифы</h2>
-          <p>Пока карточки‑категории. Следующий шаг: подключить реальные документы/таблицы.</p>
-        </div>
-      </div>
-  
-      <div class="grid3">
-        <a class="tile reveal" data-reveal="scale" href="#"><div class="badge">Тарифы</div><h3>РКО</h3><p>Обслуживание, платежи, выписки.</p></a>
-        <a class="tile reveal" data-reveal="scale" href="#"><div class="badge">Тарифы</div><h3>Валютные счета</h3><p>Условия и комиссии.</p></a>
-        <a class="tile reveal" data-reveal="scale" href="#"><div class="badge">ВЭД</div><h3>Валютный контроль</h3><p>Комиссии и порядок обслуживания.</p></a>
-      </div>
-    </section> -->
+          <ul class="v3-facts">
+            <li>Образован в 1989 году как первый самостоятельный региональный банк.</li>
+            <li>Основная задача банка — развитие экономики Новгородской области.</li>
+            <li>За годы деятельности у банка сложились устойчивые корреспондентские отношения со многими банками.</li>
+            <li>Перевод платежей в любой регион страны осуществляется в течение одного дня.</li>
+          </ul>
 
-  <!-- NEWS -->
-  <!-- <section class="block" id="news">
-      <div class="section-head reveal" data-reveal="left">
-        <div>
-          <h2>Новости и объявления</h2>
-          <p>Лента карточек — быстро и наглядно.</p>
+          <div class="v3-pill-row">
+            <span class="v3-pill">Надежность, проверенная временем</span>
+            <span class="v3-pill">Выгодные условия сотрудничества</span>
+            <span class="v3-pill">Качественное обслуживание</span>
+            <span class="v3-pill">Индивидуальный подход</span>
+          </div>
         </div>
-        <div class="row" style="gap:8px;">
-          <button class="btn outline icon" id="newsPrev" aria-label="Предыдущие новости">←</button>
-          <button class="btn outline icon" id="newsNext" aria-label="Следующие новости">→</button>
-        </div>
-      </div>
-  
-      <div class="card pad reveal" data-reveal="scale">
-        <div class="scroller" id="newsScroller">
-          <a class="news" href="#">
-            <div class="meta">Объявление</div>
-            <h3>ВЭД: консультации и сопровождение</h3>
-            <p>Короткая карточка вместо длинных новостей.</p>
-          </a>
-          <a class="news" href="#">
-            <div class="meta">Клиент‑Банк</div>
-            <h3>Инструкции и FAQ</h3>
-            <p>Единый центр поддержки пользователей.</p>
-          </a>
-          <a class="news" href="#">
-            <div class="meta">Документы</div>
-            <h3>Обновление раскрытия информации</h3>
-            <p>Прозрачность и удобная навигация.</p>
-          </a>
-          <a class="news" href="#">
-            <div class="meta">Валютный контроль</div>
-            <h3>Памятки по документам</h3>
-            <p>Шаблоны и чек‑листы (в следующем шаге).</p>
-          </a>
-        </div>
-      </div>
-    </section> -->
-
-  <!-- SUPPORT CTA -->
-  <!-- <section class="block" id="support">
-    <div class="cta reveal" data-reveal="scale">
-      <div>
-        <h3>Нужна консультация по ВЭД или обслуживанию бизнеса?</h3>
-        <p>
-          Позвони или напиши — подскажем по документам, срокам и порядку
-          действий.
-        </p>
-      </div>
-      <div class="row" style="gap: 10px; flex-wrap: wrap">
-        <a class="btn glass" href="tel:8162665247" style="
-            border-color: rgba(255, 255, 255, 0.35);
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-          ">📞 (8162) 665‑247</a>
-        <a class="btn glass" href="mailto:ved@slavbank.ru" style="
-            border-color: rgba(255, 255, 255, 0.35);
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-          ">✉️ ved@slavbank.ru</a>
-        <a class="btn primary" href="#" style="box-shadow: none">Оставить обращение</a>
       </div>
     </div>
-  </section> -->
+  </section>
 
-  <!-- ABOUT -->
-  <!-- <section class="block" id="about">
-      <div class="section-head reveal" data-reveal="left">
+  <section class="block">
+    <div class="container">
+      <div class="v3-section-head reveal" data-reveal="right">
         <div>
-          <h2>О банке</h2>
-          <p>Коротко: специализация на ИП/юрлицах и ВЭД.</p>
+          {% comment %} <h2>Актуальное и переходы</h2> {% endcomment %}
+          {% comment %} <p>Нижний блок </p> {% endcomment %}
         </div>
+        <a class="btn outline" href="{% url 'novosti' %}">Все новости</a>
       </div>
-      <div class="card pad reveal" data-reveal="scale">
-        <div class="row" style="flex-wrap:wrap; align-items:flex-start;">
-          <div style="min-width: 260px;">
-            <div class="badge">Специализация</div>
-            <div style="margin-top:10px; font-weight:600;">Комплексное банковское обслуживание ИП и юридических лиц, включая ВЭД.</div>
-            <div class="muted" style="margin-top:6px; font-weight:300;">Экспертиза контрактов · международные расчёты · валютный контроль.</div>
-          </div>
-          <div class="spacer"></div>
-          <div style="min-width: 260px;">
-            <div class="badge" style="background: rgba(208,184,163,.25); color: var(--c-brown-500);">Подход</div>
-            <div class="muted" style="margin-top:10px; font-weight:300;">а:текст текст текст.</div>
-          </div>
-        </div>
+
+      <div class="v3-news">
+        <a class="v3-news-card reveal" data-reveal="scale" href="{% url 'novosti' %}">
+          <div class="badge">Новости</div>
+          <h3>Официальные новости и объявления банка</h3>
+          {% comment %} <p>Режим работы, публикации и важные изменения остаются в отдельном разделе без перегруза на первом экране.</p> {% endcomment %}
+        </a>
+
+        <a class="v3-news-card reveal" data-reveal="scale" href="{% url 'support' %}">
+          <div class="badge">Поддержка</div>
+          <h3>FAQ, инструкции и помощь по Клиент‑Банку</h3>
+          {% comment %} <p>Практичный маршрут для пользователей ДБО вместо рассыпанных по странице подсказок.</p> {% endcomment %}
+        </a>
+
+        <a class="v3-news-card reveal" data-reveal="scale" href="{% url 'contacts' %}">
+          <div class="badge">Контакты</div>
+          <h3>Контакты и каналы связи</h3>
+          {% comment %} <p>Контактная точка остаётся доступной, но теперь не дублируется однотипными блоками по всей главной.</p> {% endcomment %}
+        </a>
       </div>
-    </section> -->
+    </div>
+  </section>
+
+
 </main>
 
 {% endblock body_content %}
