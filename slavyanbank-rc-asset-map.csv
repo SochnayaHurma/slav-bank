@@ -1,0 +1,24 @@
+source_asset_or_dependency,target_or_runtime,category,connection,locality,comment
+static/tokens.css,assets/css/tokens.css,theme-css,wp_enqueue_style,local,Локальный theme CSS. Шрифтовые фолбэки уже нормализованы в theme.
+static/motion.css,assets/css/motion.css,theme-css,wp_enqueue_style,local,Основная фронтенд-стилизация и layout-компоненты.
+static/figure.css,assets/css/figure.css,theme-css,wp_enqueue_style,local,Локальный theme CSS.
+static/footer.css,assets/css/footer.css,theme-css,wp_enqueue_style,local,Локальный theme CSS.
+static/form.css,assets/css/form.css,theme-css,wp_enqueue_style,local,Базовые стили формы.
+theme runtime layout styles,assets/css/layout.css,theme-css,wp_enqueue_style,local,Общий layout и правки интеграции.
+beta theme page styles,assets/css/beta-pages.css,theme-css,wp_enqueue_style,local,Section cards + финальная стилизация Contact Form 7.
+static/header.css,assets/css/header.css,theme-css,wp_enqueue_style,local,Header/menu styles.
+static/menu-prod.css,assets/css/menu-prod.css,theme-css,wp_enqueue_style,local,Mega-menu styles.
+static/motion.js,assets/js/motion.js,theme-js,wp_enqueue_script,local,Локальный theme JS; dead code старой кастомной формы удален.
+static/logo2.png,assets/img/logo2.png,image,sb_alpha_asset(),local,Локальный логотип.
+static/assets/icon192.png,assets/img/icon192.png,image,sb_alpha_asset(),local,Локальная иконка/favicons.
+static/assets/main_about.png,assets/img/main_about.png,image,sb_alpha_asset(),local,Локальная иллюстрация главной.
+WordPress page content of /napisat-v-bank/ with CF7 block or shortcode,Rendered inside page-napisat-v-bank.php via sb_alpha_feedback_form_markup(),plugin-shortcode,the_content() primary,runtime/content,Источник истины №1 для Contact Form 7 shortcode; тема не привязана к одному form id.
+Filter sb_alpha_feedback_form_shortcode,Fallback shortcode string resolved in functions.php,plugin-shortcode-fallback,apply_filters(),runtime/theme-fallback,Источник истины №2 только если контент страницы пустой; не обязателен для deploy.
+Contact Form 7 plugin,Rendered form on /napisat-v-bank/,plugin,shortcode/block render,plugin dependency,"Основной сценарий формы. Если shortcode неверный, CF7 обычно выводит [contact-form-7 404 ""Not Found""]."
+Reporting PDF/XLS documents,External links in page-otchetnost.php / inc/page-data.php,documents,inline links,external,Осознанная внешняя зависимость: документы отчетности.
+Info-bank XLS/PDF documents,External links in page-informaciya-banka.php / inc/page-data.php,documents,inline links,external,"Осознанная внешняя зависимость: аффилированные лица, контроль, сообщения."
+Tariffs PDF documents,External links in page-tarify-banka.php / inc/page-data.php,documents,inline links,external,Осознанная внешняя зависимость: PDF тарифов.
+Tariffs HTML subpages,External fallback routes/links from tariffs page and menu,html-pages,route fallback,external,Подстраницы тарифов еще не перенесены локально.
+Service domains ved.slavbank.ru / dbo.slavbank.ru / dbo1.slavbank.ru / ammyy.com,Route helpers client-bank-login / client-bank-primary-login / client-bank-backup-login / remote-support,service-links,route helper,external,Сервисные внешние ссылки сохранены осознанно.
+Yandex/Google Maps and CBR internet reception,External links from contacts/requisites pages,service-links,inline links,external,Осознанные внешние ссылки на карты и приемную Банка России.
+Flamingo plugin (optional),Optional submission log for Contact Form 7,plugin-optional,CF7 ecosystem,optional,"Не требуется теме, но может использоваться как дополнительный канал проверки заявок."

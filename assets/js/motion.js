@@ -717,25 +717,3 @@
     copyText(txt);
   });
 })();
-
-
-
-(() => {
-  function showToast(msg) {
-    const toast = document.querySelector('.toast');
-    if (!toast) return;
-    toast.textContent = msg || 'Готово';
-    toast.hidden = false;
-    clearTimeout(showToast._t);
-    showToast._t = setTimeout(() => { toast.hidden = true; }, 1400);
-  }
-
-  document.addEventListener('submit', (e) => {
-    const form = e.target;
-    if (!form || !form.closest) return;
-    if (!form.closest('[data-form-shell]')) return;
-    e.preventDefault();
-    showToast('Сообщение подготовлено');
-    form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(el => el.value = '');
-  });
-})();

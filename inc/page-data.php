@@ -190,3 +190,104 @@ function sb_alpha_get_bank_requisites_rows(): array
         ],
     ];
 }
+
+function sb_alpha_get_info_bank_affiliate_documents(): array
+{
+    return [
+        [
+            'date' => '29.09.2021',
+            'title' => 'Список аффилированных лиц',
+            'url' => 'https://slavbank.ru/wp-content/uploads/afl29092021.xls',
+            'kind' => 'XLS',
+        ],
+        [
+            'date' => '30.06.2021',
+            'title' => 'Список аффилированных лиц',
+            'url' => 'https://slavbank.ru/wp-content/uploads/afl30062021.xls',
+            'kind' => 'XLS',
+        ],
+        [
+            'date' => '28.04.2021',
+            'title' => 'Список аффилированных лиц',
+            'url' => 'https://slavbank.ru/wp-content/uploads/afl28042021.xls',
+            'kind' => 'XLS',
+        ],
+        [
+            'date' => '25.02.2020',
+            'title' => 'Список аффилированных лиц',
+            'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/afl25022020.xls',
+            'kind' => 'XLS',
+        ],
+        [
+            'date' => '20.11.2018',
+            'title' => 'Список аффилированных лиц',
+            'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/afl20112018.xls',
+            'kind' => 'XLS',
+        ],
+        [
+            'date' => '13.09.2018',
+            'title' => 'Список аффилированных лиц',
+            'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/afl_130918.xls',
+            'kind' => 'XLS',
+        ],
+        [
+            'date' => '18.07.2018',
+            'title' => 'Список аффилированных лиц',
+            'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/afl18072018.xls',
+            'kind' => 'XLS',
+        ],
+        [
+            'date' => '13.04.2018',
+            'title' => 'Список аффилированных лиц',
+            'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/afl13042018.xls',
+            'kind' => 'XLS',
+        ],
+        [
+            'date' => '20.03.2018',
+            'title' => 'Список аффилированных лиц',
+            'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/afl20032018.xls',
+            'kind' => 'XLS',
+        ],
+    ];
+}
+
+function sb_alpha_get_info_bank_control_document(): array
+{
+    return [
+        'published' => '20.07.2018',
+        'updated' => '25.03.2020',
+        'title' => 'Список лиц, под контролем или значительным влиянием которых находится банк',
+        'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/spisok250320.pdf',
+        'kind' => 'PDF',
+    ];
+}
+
+function sb_alpha_get_info_bank_message_documents(): array
+{
+    return [
+        [
+            'date' => '2017',
+            'title' => 'Сообщение об утверждении годовой бухгалтерской (финансовой) отчетности за 2017 год',
+            'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/message_rep2017.pdf',
+            'kind' => 'PDF',
+        ],
+        [
+            'date' => '2018',
+            'title' => 'Сообщение об утверждении годовой бухгалтерской (финансовой) отчетности за 2018 год',
+            'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/message_rep2018.pdf',
+            'kind' => 'PDF',
+        ],
+        [
+            'date' => '2019',
+            'title' => 'Сообщение об утверждении годовой бухгалтерской (финансовой) отчетности за 2019 год · 17 апреля 2020',
+            'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/message_rep2019.pdf',
+            'kind' => 'PDF',
+        ],
+        [
+            'date' => '2020',
+            'title' => 'Сообщение об утверждении годовой бухгалтерской (финансовой) отчетности за 2020 год · 23 апреля 2021',
+            'url' => 'https://slavbank.ru/wp-content/uploads/message_rep2020.pdf',
+            'kind' => 'PDF',
+        ],
+    ];
+}

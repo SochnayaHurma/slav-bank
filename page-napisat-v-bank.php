@@ -1,5 +1,5 @@
 <?php
-$feedback_notice = sb_alpha_feedback_notice();
+$form_markup = sb_alpha_feedback_form_markup();
 get_header();
 ?>
 
@@ -13,7 +13,7 @@ get_header();
             <h1 style="margin:8px 0 10px;">Написать в банк</h1>
             <p class="muted" style="max-width:78ch;">
               АО НКБ «СЛАВЯНБАНК» принимает обращения заявителей почтой, нарочно, по электронной почте,
-              в офисе банка и через форму обратной связи на сайте.
+              в местах обслуживания клиентов и через форму обратной связи на сайте.
             </p>
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
@@ -29,7 +29,7 @@ get_header();
             <span class="muted">·</span>
             <a href="<?php echo esc_url(sb_alpha_url('write-to-bank')); ?>" class="mono">Написать</a>
             <span class="muted">·</span>
-            <a href="<?php echo esc_url(sb_alpha_url('covid19')); ?>" class="mono">COVID19</a>
+            <a href="<?php echo esc_url(sb_alpha_url('covid19')); ?>" class="mono">COVID‑19</a>
           </div>
         </div>
       </div>
@@ -46,8 +46,8 @@ get_header();
               <div>
                 <div style="font-weight:600;">Как можно направить обращение</div>
                 <div class="muted" style="margin-top:4px;">
-                  Источник на master-ветке перечисляет пять каналов: почтовая связь, личная подача на бумаге,
-                  прием в офисе, электронная почта и официальный сайт банка.
+                  Выберите удобный канал связи: почтовое отправление, личная подача обращения,
+                  электронная почта или онлайн-форма на сайте.
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ get_header();
 
               <article class="contact-way-card">
                 <div class="kicker">Лично в офисе</div>
-                <h3>Прием обращений</h3>
+                <h3>Приём обращений</h3>
                 <p>В местах обслуживания клиентов по адресу Великий Новгород, ул. Черемнова-Конюхова, 12.</p>
                 <div class="row" style="margin-top:12px; flex-wrap:wrap;">
                   <a class="btn outline" href="<?php echo esc_url(sb_alpha_url('contacts')); ?>">Контакты и режим работы</a>
@@ -76,7 +76,7 @@ get_header();
                 <h3>E-mail и сайт</h3>
                 <ul class="contact-way-list">
                   <li><a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a></li>
-                  <li><a href="<?php echo esc_url(home_url('/')); ?>" target="_blank" rel="noopener"><?php echo esc_html(home_url('/')); ?></a></li>
+                  <li><a href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html(home_url('/')); ?></a></li>
                 </ul>
               </article>
             </div>
@@ -86,67 +86,27 @@ get_header();
                 <div>
                   <div class="kicker">Форма обратной связи</div>
                   <h2 style="margin:8px 0 0;">Отправьте нам обращение прямо сейчас</h2>
+                  <p class="muted" style="margin-top:10px; max-width:72ch;">
+                    Укажите телефон или e-mail для обратной связи, опишите вопрос в свободной форме
+                    и подтвердите согласие на обработку персональных данных.
+                  </p>
                 </div>
                 <a class="btn glass" href="mailto:nkb@slavbank.ru">Написать по e-mail</a>
               </div>
 
-              <?php if (!empty($feedback_notice)) : ?>
-                <div class="status-note status-note--<?php echo esc_attr((string) $feedback_notice['tone']); ?>" style="margin-top: var(--s-4);">
-                  <strong><?php echo esc_html((string) $feedback_notice['title']); ?></strong>
-                  <span><?php echo esc_html((string) $feedback_notice['text']); ?></span>
-                </div>
-              <?php endif; ?>
-
-              <form class="form-shell" style="margin-top: var(--s-4);" action="<?php echo esc_url(sb_alpha_feedback_form_action_url()); ?>" method="post">
-                <input type="hidden" name="action" value="sb_alpha_feedback" />
-                <?php wp_nonce_field('sb_alpha_feedback_submit', 'sb_alpha_feedback_nonce'); ?>
-
-                <div class="honeypot" aria-hidden="true">
-                  <label for="sb-alpha-website">Website</label>
-                  <input id="sb-alpha-website" type="text" name="website" tabindex="-1" autocomplete="off" />
-                </div>
-
-                <div class="field-grid">
-                  <div class="field">
-                    <label for="sb-alpha-name">ФИО</label>
-                    <input id="sb-alpha-name" type="text" name="name" autocomplete="name" />
+              <div class="cf7-theme" style="margin-top: var(--s-4);">
+                <?php if ($form_markup !== '') : ?>
+                  <?php echo $form_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                <?php else : ?>
+                  <div class="cf7-empty-state">
+                    <strong>Онлайн-форма временно недоступна.</strong>
+                    <p>
+                      Направьте обращение по адресу <a href="mailto:nkb@slavbank.ru">nkb@slavbank.ru</a>
+                      или свяжитесь с банком по телефону <a href="tel:+78162665247">(8162) 66‑52‑47</a>.
+                    </p>
                   </div>
-                  <div class="field">
-                    <label for="sb-alpha-phone">Телефон</label>
-                    <input id="sb-alpha-phone" type="text" name="phone" autocomplete="tel" placeholder="Например, +7 (8162) 66-52-47" />
-                  </div>
-                  <div class="field">
-                    <label for="sb-alpha-email">E-mail</label>
-                    <input id="sb-alpha-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" />
-                  </div>
-                  <div class="field">
-                    <label>Канал ответа</label>
-                    <div class="muted-card">Ответ будет направлен по указанному телефону или e-mail — обязательный выбор темы на этом этапе не требуется.</div>
-                  </div>
-                  <div class="field field--full">
-                    <label for="sb-alpha-message">Сообщение</label>
-                    <textarea id="sb-alpha-message" name="message" required placeholder="Опишите вопрос или обращение в свободной форме"></textarea>
-                  </div>
-                </div>
-
-                <div class="consent-box">
-                  <label for="sb-alpha-consent">
-                    <input id="sb-alpha-consent" type="checkbox" name="consent" value="1" required />
-                    <span>
-                      Нажимая кнопку «Отправить», вы даёте согласие на обработку персональных данных в объеме,
-                      необходимом для рассмотрения обращения и направления ответа.
-                    </span>
-                  </label>
-                  <div class="muted" style="font-size:14px;">
-                    Для ответа укажите хотя бы один контакт: телефон или e-mail.
-                  </div>
-                </div>
-
-                <div class="row" style="gap:12px; flex-wrap:wrap;">
-                  <button class="btn primary" type="submit">Отправить</button>
-                  <a class="btn outline" href="mailto:nkb@slavbank.ru">Альтернатива: e-mail</a>
-                </div>
-              </form>
+                <?php endif; ?>
+              </div>
             </div>
 
             <div class="legal-copy">

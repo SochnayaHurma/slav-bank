@@ -34,6 +34,7 @@ function sb_alpha_document_title_parts(array $parts): array
     }
 
     $page_titles = [
+        'informaciya-banka' => 'Информация банка - АО НКБ "СЛАВЯНБАНК" в Великом Новгороде',
         'kontakty' => 'КОНТАКТЫ - АО НКБ "СЛАВЯНБАНК" в Великом Новгороде',
         'otchetnost' => 'Отчетность - АО НКБ "СЛАВЯНБАНК"',
         'rekvizity-banka' => 'Реквизиты банка - АО НКБ "СЛАВЯНБАНК" в Великом Новгороде',
@@ -55,7 +56,7 @@ add_filter('document_title_parts', 'sb_alpha_document_title_parts');
 
 function sb_alpha_enqueue_assets(): void
 {
-    $version = wp_get_theme()->get('Version') ?: '0.2.0';
+    $version = wp_get_theme()->get('Version') ?: '0.3.0';
     $base = get_template_directory_uri();
 
     wp_enqueue_style('sb-alpha-theme', get_stylesheet_uri(), [], $version);
@@ -80,7 +81,7 @@ function sb_alpha_enqueue_assets(): void
 }
 add_action('wp_enqueue_scripts', 'sb_alpha_enqueue_assets');
 
-function sb_alpha_local_page_url(string $slug, string $fallback): string
+function sb_alpha_local_page_url(string $slug, ?string $fallback = null): string
 {
     $slug = trim($slug, '/');
     $page = get_page_by_path($slug);
@@ -92,21 +93,25 @@ function sb_alpha_local_page_url(string $slug, string $fallback): string
         }
     }
 
-    return $fallback;
+    if (is_string($fallback) && $fallback !== '') {
+        return $fallback;
+    }
+
+    return home_url('/' . $slug . '/');
 }
 
 function sb_alpha_routes(): array
 {
     return [
         'home' => home_url('/'),
-        'info-bank-page' => home_url('/'),
-        'requisites_bank' => sb_alpha_local_page_url('rekvizity-banka', 'https://slavbank.ru/rekvizity-banka.html/'),
+        'info-bank-page' => sb_alpha_local_page_url('informaciya-banka'),
+        'requisites_bank' => sb_alpha_local_page_url('rekvizity-banka'),
         'governance' => 'https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html/',
-        'reporting' => sb_alpha_local_page_url('otchetnost', 'https://slavbank.ru/otchetnost.html/'),
+        'reporting' => sb_alpha_local_page_url('otchetnost'),
         'disclosur-regulatory' => 'https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html/',
         'notaries' => 'https://slavbank.ru/informacziya-dlya-notariusov.html/',
         'novosti' => 'https://slavbank.ru/novosti.html/',
-        'tariffs' => sb_alpha_local_page_url('tarify-banka', 'https://slavbank.ru/tarify-banka.html/'),
+        'tariffs' => sb_alpha_local_page_url('tarify-banka'),
         'tariffs_rub' => 'https://slavbank.ru/tarify-banka-html/tarify_rf.html/',
         'tariffs_slavny' => 'https://slavbank.ru/tarify-banka-html/tarif_slavny.html/',
         'tariff_privetstvenny' => 'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html/',
@@ -130,12 +135,12 @@ function sb_alpha_routes(): array
         'instruction' => 'https://slavbank.ru/podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html/',
         'faq' => 'https://slavbank.ru/podderzhka-html/chasto-zadavaemye-voprosy.html/',
         'ecp-regeneration' => 'https://slavbank.ru/podderzhka-html/regen.html/',
-        'support' => sb_alpha_local_page_url('podderzhka', 'https://slavbank.ru/podderzhka.html/'),
+        'support' => sb_alpha_local_page_url('podderzhka'),
         'security' => 'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html/',
         'appeal-123-fz' => 'https://slavbank.ru/obrashhenie-po-123-fz.html/',
         'covid19' => 'https://slavbank.ru/covid19.html/',
-        'contacts' => sb_alpha_local_page_url('kontakty', 'https://slavbank.ru/kontakty.html/'),
-        'write-to-bank' => sb_alpha_local_page_url('napisat-v-bank', 'https://slavbank.ru/forma-obratnoj-svyazi.html/'),
+        'contacts' => sb_alpha_local_page_url('kontakty'),
+        'write-to-bank' => sb_alpha_local_page_url('napisat-v-bank'),
         'vacancies' => 'https://slavbank.ru/vakansii.html/',
         'client-bank-login' => 'https://ved.slavbank.ru/',
         'remote-support' => 'https://www.ammyy.com/ru/',
@@ -154,7 +159,7 @@ function sb_alpha_legacy_routes(): array
     return [
         'info-bank-page' => [
             'pattern' => '^o-banke-slavyanbank-html/info_bank-html\.html/?$',
-            'url' => home_url('/'),
+            'route' => 'info-bank-page',
         ],
         'contacts' => [
             'pattern' => '^kontakty\.html/?$',
@@ -201,12 +206,12 @@ add_filter('query_vars', 'sb_alpha_add_query_vars');
 
 function sb_alpha_store_rewrite_version(): void
 {
-    update_option(SB_ALPHA_REWRITE_VERSION_OPTION, (string) (wp_get_theme()->get('Version') ?: '0.2.0'), false);
+    update_option(SB_ALPHA_REWRITE_VERSION_OPTION, (string) (wp_get_theme()->get('Version') ?: '0.3.0'), false);
 }
 
 function sb_alpha_maybe_flush_legacy_rewrites(): void
 {
-    $version = (string) (wp_get_theme()->get('Version') ?: '0.2.0');
+    $version = (string) (wp_get_theme()->get('Version') ?: '0.3.0');
     $stored_version = (string) get_option(SB_ALPHA_REWRITE_VERSION_OPTION, '');
 
     if ($stored_version === $version) {
@@ -254,135 +259,51 @@ function sb_alpha_handle_legacy_redirect(): void
         $target = home_url('/');
     }
 
-    wp_safe_redirect($target, 301, 'Slavyanbank Alpha Legacy');
+    wp_safe_redirect($target, 301, 'Slavyanbank RC Legacy');
     exit;
 }
 add_action('template_redirect', 'sb_alpha_handle_legacy_redirect');
 
-function sb_alpha_feedback_form_action_url(): string
+function sb_alpha_apply_shortcode_markup(string $shortcode): string
 {
-    return admin_url('admin-post.php');
+    $shortcode = trim($shortcode);
+    if ($shortcode === '') {
+        return '';
+    }
+
+    if (function_exists('apply_shortcodes')) {
+        $markup = (string) apply_shortcodes($shortcode);
+    } else {
+        $markup = (string) do_shortcode($shortcode);
+    }
+
+    if (strpos($markup, '[contact-form-7') !== false) {
+        return '';
+    }
+
+    return trim($markup);
 }
 
-function sb_alpha_feedback_return_url(array $args = []): string
+function sb_alpha_feedback_form_shortcode_fallback(): string
 {
-    $url = sb_alpha_url('write-to-bank');
+    $shortcode = apply_filters('sb_alpha_feedback_form_shortcode', '');
 
-    if (!empty($args)) {
-        $url = add_query_arg($args, $url);
-    }
-
-    return $url . '#form';
+    return is_string($shortcode) ? trim($shortcode) : '';
 }
 
-function sb_alpha_feedback_notice(): array
+function sb_alpha_feedback_form_markup(): string
 {
-    $status = isset($_GET['feedback']) ? sanitize_key((string) wp_unslash($_GET['feedback'])) : '';
+    $page = get_post();
 
-    $messages = [
-        'sent' => [
-            'tone' => 'success',
-            'title' => 'Сообщение отправлено',
-            'text' => 'Спасибо. Мы получили обращение и вернемся с ответом по указанным контактам.',
-        ],
-        'invalid' => [
-            'tone' => 'error',
-            'title' => 'Проверьте форму',
-            'text' => 'Укажите сообщение, минимум один контакт для ответа и подтвердите согласие на обработку персональных данных.',
-        ],
-        'nonce' => [
-            'tone' => 'error',
-            'title' => 'Не удалось подтвердить запрос',
-            'text' => 'Обновите страницу и отправьте форму повторно.',
-        ],
-        'mail-failed' => [
-            'tone' => 'error',
-            'title' => 'Форма не отправлена',
-            'text' => 'На текущем стенде WordPress не смог отправить письмо. Проверьте mail transport и системный email WordPress.',
-        ],
-    ];
+    if ($page instanceof WP_Post) {
+        $content = trim((string) $page->post_content);
+        if ($content !== '') {
+            $markup = (string) apply_filters('the_content', $page->post_content);
+            if (strpos($markup, '[contact-form-7') === false) {
+                return trim($markup);
+            }
+        }
+    }
 
-    return $messages[$status] ?? [];
+    return sb_alpha_apply_shortcode_markup(sb_alpha_feedback_form_shortcode_fallback());
 }
-
-function sb_alpha_feedback_recipient(): string
-{
-    $recipient = (string) apply_filters('sb_alpha_feedback_recipient', get_option('admin_email'));
-
-    if (!is_email($recipient)) {
-        $recipient = (string) get_option('admin_email');
-    }
-
-    return $recipient;
-}
-
-function sb_alpha_handle_feedback_submission(): void
-{
-    $nonce = isset($_POST['sb_alpha_feedback_nonce']) ? (string) wp_unslash($_POST['sb_alpha_feedback_nonce']) : '';
-    if ($nonce === '' || !wp_verify_nonce($nonce, 'sb_alpha_feedback_submit')) {
-        wp_safe_redirect(sb_alpha_feedback_return_url(['feedback' => 'nonce']));
-        exit;
-    }
-
-    $honeypot = isset($_POST['website']) ? trim((string) wp_unslash($_POST['website'])) : '';
-    if ($honeypot !== '') {
-        wp_safe_redirect(sb_alpha_feedback_return_url(['feedback' => 'sent']));
-        exit;
-    }
-
-    $name = isset($_POST['name']) ? sanitize_text_field((string) wp_unslash($_POST['name'])) : '';
-    $email = isset($_POST['email']) ? sanitize_email((string) wp_unslash($_POST['email'])) : '';
-    $phone_source = isset($_POST['phone']) ? (string) wp_unslash($_POST['phone']) : '';
-    $phone = preg_replace('/[^0-9\+\(\)\-\s]/', '', $phone_source);
-    $phone = is_string($phone) ? trim($phone) : '';
-    $message = isset($_POST['message']) ? trim(sanitize_textarea_field((string) wp_unslash($_POST['message']))) : '';
-    $consent = !empty($_POST['consent']);
-
-    if ($message === '' || (!$consent) || ($email === '' && $phone === '')) {
-        wp_safe_redirect(sb_alpha_feedback_return_url(['feedback' => 'invalid']));
-        exit;
-    }
-
-    if ($email !== '' && !is_email($email)) {
-        wp_safe_redirect(sb_alpha_feedback_return_url(['feedback' => 'invalid']));
-        exit;
-    }
-
-    $body_lines = [
-        'Новое обращение с сайта АО НКБ «СЛАВЯНБАНК».',
-        '',
-        'Имя: ' . ($name !== '' ? $name : 'Не указано'),
-        'Email: ' . ($email !== '' ? $email : 'Не указан'),
-        'Телефон: ' . ($phone !== '' ? $phone : 'Не указан'),
-        '',
-        'Сообщение:',
-        $message,
-        '',
-        'Источник: ' . home_url('/'),
-    ];
-
-    $headers = ['Content-Type: text/plain; charset=UTF-8'];
-    if ($email !== '') {
-        $reply_name = $name !== '' ? $name : 'Пользователь сайта';
-        $headers[] = sprintf('Reply-To: %s <%s>', $reply_name, $email);
-    }
-
-    $subject = 'Обращение с сайта АО НКБ «СЛАВЯНБАНК»';
-    if ($name !== '') {
-        $subject .= ' — ' . $name;
-    }
-
-    $sent = wp_mail(
-        sb_alpha_feedback_recipient(),
-        $subject,
-        implode(PHP_EOL, $body_lines),
-        $headers
-    );
-
-    wp_safe_redirect(
-        sb_alpha_feedback_return_url(['feedback' => $sent ? 'sent' : 'mail-failed'])
-    );
-    exit;
-}
-add_action('admin_post_nopriv_sb_alpha_feedback', 'sb_alpha_handle_feedback_submission');
-add_action('admin_post_sb_alpha_feedback', 'sb_alpha_handle_feedback_submission');

@@ -23,7 +23,7 @@ $publications = [
 ];
 
 $sections = [
-    ['label' => 'О БАНКЕ', 'url' => sb_alpha_url('home')],
+    ['label' => 'ИНФОРМАЦИЯ БАНКА', 'url' => sb_alpha_url('info-bank-page')],
     ['label' => 'ТАРИФЫ БАНКА', 'url' => sb_alpha_url('tariffs')],
     ['label' => 'ЮРИДИЧЕСКИМ ЛИЦАМ', 'url' => sb_alpha_url('legal-entities')],
     ['label' => 'ЧАСТНЫМ ЛИЦАМ', 'url' => sb_alpha_url('private-persons')],
