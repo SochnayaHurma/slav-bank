@@ -4,6 +4,7 @@ if (!defined('ABSPATH')) {
 }
 
 require_once get_template_directory() . '/inc/page-data.php';
+require_once get_template_directory() . '/inc/python-routes.php';
 
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
 
@@ -71,7 +72,7 @@ function sb_alpha_is_runtime_news_page(): bool
 function sb_alpha_document_title_parts(array $parts): array
 {
     if (is_front_page()) {
-        $parts['title'] = 'О БАНКЕ - СЛАВЯНБАНК - Новгородский коммерческий банк';
+        $parts['title'] = 'СЛАВЯНБАНК';
 
         return $parts;
     }
@@ -89,13 +90,13 @@ function sb_alpha_document_title_parts(array $parts): array
     }
 
     $page_titles = [
-        'informaciya-banka' => 'Информация банка - АО НКБ "СЛАВЯНБАНК" в Великом Новгороде',
-        'kontakty' => 'КОНТАКТЫ - АО НКБ "СЛАВЯНБАНК" в Великом Новгороде',
+        'informaciya-banka' => 'Информация банка - АО НКБ "СЛАВЯНБАНК"',
+        'kontakty' => 'Контакты - АО НКБ "СЛАВЯНБАНК"',
         'otchetnost' => 'Отчетность - АО НКБ "СЛАВЯНБАНК"',
-        'rekvizity-banka' => 'Реквизиты банка - АО НКБ "СЛАВЯНБАНК" в Великом Новгороде',
+        'rekvizity-banka' => 'Реквизиты банка - АО НКБ "СЛАВЯНБАНК"',
         'napisat-v-bank' => 'Написать в банк - АО НКБ "СЛАВЯНБАНК"',
-        'podderzhka' => 'ПОДДЕРЖКА в Великом Новгороде - АО НКБ "СЛАВЯНБАНК"',
-        'tarify-banka' => 'ТАРИФЫ БАНКА - АО НКБ "СЛАВЯНБАНК"',
+        'podderzhka' => 'Поддержка - АО НКБ "СЛАВЯНБАНК"',
+        'tarify-banka' => 'Тарифы банка - АО НКБ "СЛАВЯНБАНК"',
     ];
 
     foreach ($page_titles as $slug => $title) {
@@ -107,11 +108,11 @@ function sb_alpha_document_title_parts(array $parts): array
 
     return $parts;
 }
-add_filter('document_title_parts', 'sb_alpha_document_title_parts');
+add_filter('document_title_parts', 'sb_alpha_document_title_parts', 20);
 
 function sb_alpha_enqueue_assets(): void
 {
-    $version = wp_get_theme()->get('Version') ?: '0.4.0';
+    $version = wp_get_theme()->get('Version') ?: '0.5.0';
     $base = get_template_directory_uri();
 
     wp_enqueue_style('sb-alpha-theme', get_stylesheet_uri(), [], $version);
@@ -141,44 +142,46 @@ function sb_alpha_routes(): array
     return [
         'home' => home_url('/'),
         'search' => sb_alpha_search_page_url(),
-        'info-bank-page' => sb_alpha_local_page_url('informaciya-banka'),
-        'requisites_bank' => sb_alpha_local_page_url('rekvizity-banka'),
-        'governance' => 'https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html/',
-        'reporting' => sb_alpha_local_page_url('otchetnost'),
-        'disclosur-regulatory' => 'https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html/',
-        'notaries' => 'https://slavbank.ru/informacziya-dlya-notariusov.html/',
-        'novosti' => sb_alpha_news_page_url(),
-        'tariffs' => sb_alpha_local_page_url('tarify-banka'),
-        'tariffs_rub' => 'https://slavbank.ru/tarify-banka-html/tarify_rf.html/',
-        'tariffs_slavny' => 'https://slavbank.ru/tarify-banka-html/tarif_slavny.html/',
-        'tariff_privetstvenny' => 'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html/',
-        'tariff-depositny' => 'https://slavbank.ru/tarify-banka-html/tarif_depositny.html/',
-        'tariffs-foreign-currency' => 'https://slavbank.ru/tarify-banka-html/tarify_valuta.html/',
-        'legal-entities' => 'https://slavbank.ru/yuridicheskim-liczam.html/',
-        'business-deposits' => 'https://slavbank.ru/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html/',
-        'business-lending' => 'https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html/',
-        'account-service' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html/',
-        'fx-account-service' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html/',
-        'currency-control' => 'https://slavbank.ru/yuridicheskim-liczam-html/valutny-kontrol.html/',
-        'aml-fatca' => 'https://slavbank.ru/pod-ft-fromu.html/',
-        'crs' => 'https://slavbank.ru/crs-obmen-s-fns.html/',
-        'cashless-payments' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html/',
-        'cash-payments' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html/',
-        'payment-demands' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html/',
-        'private-persons' => 'https://slavbank.ru/chastnym-liczam.html/',
-        'client-bank-online' => 'https://slavbank.ru/klient-bank-online.html/',
+        'info-bank-page' => sb_python_route_url('info-bank-page'),
+        'requisites_bank' => sb_python_route_url('requisites_bank'),
+        'governance' => sb_python_route_url('governance'),
+        'reporting' => sb_python_route_url('reporting'),
+        'disclosur-regulatory' => sb_python_route_url('disclosur-regulatory'),
+        'notaries' => sb_python_route_url('notaries'),
+        'novosti' => sb_python_route_url('novosti'),
+        'tariffs' => sb_python_route_url('tariffs'),
+        'tariffs_rub' => sb_python_route_url('tariffs_rub'),
+        'tariffs_slavny' => sb_python_route_url('tariffs_slavny'),
+        'tariff_privetstvenny' => sb_python_route_url('tariff_privetstvenny'),
+        'tariff-depositny' => sb_python_route_url('tariff-depositny'),
+        'tariffs-foreign-currency' => sb_python_route_url('tariffs-foreign-currency'),
+        'legal-entities' => sb_python_route_url('legal-entities'),
+        'business-deposits' => sb_python_route_url('business-deposits'),
+        'business-lending' => sb_python_route_url('business-lending'),
+        'account-service' => sb_python_route_url('account-service'),
+        'fx-account-service' => sb_python_route_url('fx-account-service'),
+        'currency-control' => sb_python_route_url('currency-control'),
+        'aml-fatca' => sb_python_route_url('aml-fatca'),
+        'crs' => sb_python_route_url('crs'),
+        'cashless-payments' => sb_python_route_url('cashless-payments'),
+        'cash-payments' => sb_python_route_url('cash-payments'),
+        'payment-demands' => sb_python_route_url('payment-demands'),
+        'private-persons' => sb_python_route_url('private-persons'),
+        'client-bank-online' => sb_python_route_url('client-bank-online'),
+        'instruction' => sb_python_route_url('instruction'),
+        'faq' => sb_python_route_url('faq'),
+        'ecp-regeneration' => sb_python_route_url('ecp-regeneration'),
+        'support' => sb_python_route_url('support'),
+        'security' => sb_python_route_url('security'),
+        'appeal-123-fz' => sb_python_route_url('appeal-123-fz'),
+        'covid19' => sb_python_route_url('covid19'),
+        'contacts' => sb_python_route_url('contacts'),
+        'write-to-bank' => sb_python_route_url('write-to-bank'),
+        'vacancies' => sb_python_route_url('vacancies'),
+        'zapros-na-otkrytie-raschetnogo-scheta' => sb_python_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
+        'zapros-na-kreditovanie-msp' => sb_python_route_url('zapros-na-kreditovanie-msp'),
         'client-bank-primary-login' => 'https://dbo.slavbank.ru:20101/',
         'client-bank-backup-login' => 'https://dbo1.slavbank.ru:20101/',
-        'instruction' => 'https://slavbank.ru/podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html/',
-        'faq' => 'https://slavbank.ru/podderzhka-html/chasto-zadavaemye-voprosy.html/',
-        'ecp-regeneration' => 'https://slavbank.ru/podderzhka-html/regen.html/',
-        'support' => sb_alpha_local_page_url('podderzhka'),
-        'security' => 'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html/',
-        'appeal-123-fz' => 'https://slavbank.ru/obrashhenie-po-123-fz.html/',
-        'covid19' => 'https://slavbank.ru/covid19.html/',
-        'contacts' => sb_alpha_local_page_url('kontakty'),
-        'write-to-bank' => sb_alpha_local_page_url('napisat-v-bank'),
-        'vacancies' => 'https://slavbank.ru/vakansii.html/',
         'client-bank-login' => 'https://ved.slavbank.ru/',
         'remote-support' => 'https://www.ammyy.com/ru/',
     ];
@@ -191,50 +194,8 @@ function sb_alpha_url(string $key): string
     return $routes[$key] ?? home_url('/');
 }
 
-function sb_alpha_legacy_routes(): array
-{
-    return [
-        'info-bank-page' => [
-            'pattern' => '^o-banke-slavyanbank-html/info_bank-html\.html/?$',
-            'route' => 'info-bank-page',
-        ],
-        'contacts' => [
-            'pattern' => '^kontakty\.html/?$',
-            'route' => 'contacts',
-        ],
-        'reporting' => [
-            'pattern' => '^otchetnost\.html/?$',
-            'route' => 'reporting',
-        ],
-        'requisites_bank' => [
-            'pattern' => '^rekvizity-banka\.html/?$',
-            'route' => 'requisites_bank',
-        ],
-        'write-to-bank' => [
-            'pattern' => '^forma-obratnoj-svyazi\.html/?$',
-            'route' => 'write-to-bank',
-        ],
-        'support' => [
-            'pattern' => '^podderzhka\.html/?$',
-            'route' => 'support',
-        ],
-        'tariffs' => [
-            'pattern' => '^tarify-banka\.html/?$',
-            'route' => 'tariffs',
-        ],
-        'novosti' => [
-            'pattern' => '^novosti\.html/?$',
-            'route' => 'novosti',
-        ],
-    ];
-}
-
 function sb_alpha_register_legacy_rewrites(): void
 {
-    foreach (sb_alpha_legacy_routes() as $token => $config) {
-        add_rewrite_rule($config['pattern'], 'index.php?sb_alpha_legacy_route=' . $token, 'top');
-    }
-
     add_rewrite_rule('^search/?$', 'index.php?sb_alpha_search_page=1', 'top');
     add_rewrite_rule('^novosti/?$', 'index.php?sb_alpha_news_page=1', 'top');
 }
@@ -242,7 +203,6 @@ add_action('init', 'sb_alpha_register_legacy_rewrites');
 
 function sb_alpha_add_query_vars(array $vars): array
 {
-    $vars[] = 'sb_alpha_legacy_route';
     $vars[] = 'sb_alpha_search_page';
     $vars[] = 'sb_alpha_news_page';
 
@@ -252,12 +212,12 @@ add_filter('query_vars', 'sb_alpha_add_query_vars');
 
 function sb_alpha_store_rewrite_version(): void
 {
-    update_option(SB_ALPHA_REWRITE_VERSION_OPTION, (string) (wp_get_theme()->get('Version') ?: '0.4.0'), false);
+    update_option(SB_ALPHA_REWRITE_VERSION_OPTION, (string) (wp_get_theme()->get('Version') ?: '0.5.0'), false);
 }
 
 function sb_alpha_maybe_flush_legacy_rewrites(): void
 {
-    $version = (string) (wp_get_theme()->get('Version') ?: '0.4.0');
+    $version = (string) (wp_get_theme()->get('Version') ?: '0.5.0');
     $stored_version = (string) get_option(SB_ALPHA_REWRITE_VERSION_OPTION, '');
 
     if ($stored_version === $version) {
@@ -277,38 +237,6 @@ function sb_alpha_flush_legacy_rewrites_on_switch(): void
     sb_alpha_store_rewrite_version();
 }
 add_action('after_switch_theme', 'sb_alpha_flush_legacy_rewrites_on_switch');
-
-function sb_alpha_handle_legacy_redirect(): void
-{
-    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
-        return;
-    }
-
-    $token = get_query_var('sb_alpha_legacy_route');
-    if (!is_string($token) || $token === '') {
-        return;
-    }
-
-    $routes = sb_alpha_legacy_routes();
-    if (!isset($routes[$token])) {
-        return;
-    }
-
-    $target = '';
-    if (!empty($routes[$token]['route'])) {
-        $target = sb_alpha_url((string) $routes[$token]['route']);
-    } elseif (!empty($routes[$token]['url'])) {
-        $target = (string) $routes[$token]['url'];
-    }
-
-    if ($target === '') {
-        $target = home_url('/');
-    }
-
-    wp_safe_redirect($target, 301, 'Slavyanbank Delta Legacy');
-    exit;
-}
-add_action('template_redirect', 'sb_alpha_handle_legacy_redirect');
 
 function sb_alpha_template_include(string $template): string
 {
