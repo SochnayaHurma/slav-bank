@@ -2,11 +2,11 @@
 
 ```css
 /*
-Theme Name: Slavyanbank Alpha
+Theme Name: Slavyanbank Custome theme
 Theme URI: https://example.invalid/slavyanbank-alpha
-Author: OpenAI
-Description: Delta-synced classic theme for safe frontend integration of the Slavyanbank website.
-Version: 0.4.0
+Author: Alexey Fedorov
+Description: Frontend integration of the Slavyanbank website.
+Version: 0.5.0
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
