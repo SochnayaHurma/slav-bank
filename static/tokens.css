@@ -271,3 +271,7 @@ body {
 .muted {
   font-weight: var(--w-muted);
 }
+
+form  label {
+  font-size: 17px;
+}

@@ -18,7 +18,7 @@ tariffs_view = [
 ]
 
 urlpatterns = [
-  path("", views.main_page, name="info_bank"),
+  path("", views.main_page, name="home"),
     path("search/", TemplateView.as_view(template_name='search.html'), name="search"),
   path("o-banke-slavyanbank-html/info_bank-html.html/", views.info_bank, name="info_bank"),
   path("rekvizity-banka.html/", views.requisites_bank, name="requisites_bank"),
@@ -62,8 +62,7 @@ urlpatterns = [
   path("kontakty.html/", TemplateView.as_view(template_name='contacts.html'), name="contacts"),
   path("forma-obratnoj-svyazi.html/", TemplateView.as_view(template_name='write-to-bank.html'), name="write-to-bank"),
   path("vakansii.html/", TemplateView.as_view(template_name='vacancies.html'), name="vacancies"),
-  # варианты
-  path("footers/", TemplateView.as_view(template_name='footer-variants.html'), name="footers"),
-   path("preview/<int:page>/", views.preview_home, name="preview-home-v1"),
+  path("zapros-na-otkrytie-raschetnogo-scheta.html/", TemplateView.as_view(template_name='zapros-na-otkrytie-raschetnogo-scheta.html'), name="zapros-na-otkrytie-raschetnogo-scheta"),
+  path("zapros-na-kreditovanie-msp.html/", TemplateView.as_view(template_name='zapros-na-kreditovanie-msp.html'), name="zapros-na-kreditovanie-msp"),
 ]
 
