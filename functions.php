@@ -5,6 +5,7 @@ if (!defined('ABSPATH')) {
 
 require_once get_template_directory() . '/inc/page-data.php';
 require_once get_template_directory() . '/inc/python-routes.php';
+require_once get_template_directory() . '/inc/python-routes-wave2.php';
 
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
 
