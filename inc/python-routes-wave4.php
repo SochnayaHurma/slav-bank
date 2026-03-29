@@ -89,3 +89,5 @@ function sb_python_wave4_template_include(string $template): string
 
     return sb_python_template_include($template);
 }
+
+require_once get_template_directory() . '/inc/python-routes-wave5.php';
