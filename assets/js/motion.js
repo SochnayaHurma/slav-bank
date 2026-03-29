@@ -151,8 +151,16 @@
   }
 
   const overlay = $('#searchOverlay');
-  const openSearch = () => { overlay.classList.add('open'); $('#searchInput').focus(); };
-  const closeSearch = () => overlay.classList.remove('open');
+  const searchInput = $('#searchInput');
+  const openSearch = () => {
+    if (!overlay) return;
+    overlay.classList.add('open');
+    searchInput && searchInput.focus();
+  };
+  const closeSearch = () => {
+    if (!overlay) return;
+    overlay.classList.remove('open');
+  };
 
   const openBtn = $('#searchOpen');
   const closeBtn = $('#searchClose');
@@ -163,9 +171,9 @@
   const hints = $('#searchHints');
   hints && hints.addEventListener('click', (e) => {
     const b = e.target.closest('[data-hint]');
-    if (!b) return;
-    $('#searchInput').value = b.dataset.hint;
-    $('#searchInput').focus();
+    if (!b || !searchInput) return;
+    searchInput.value = b.dataset.hint;
+    searchInput.focus();
   });
 
   document.addEventListener('keydown', (e) => {
@@ -716,4 +724,46 @@
     if (!txt) return;
     copyText(txt);
   });
+
+
+  const newsFilterInput = $('#newsQ');
+  const newsResetBtn = $('#newsReset');
+  const newsItems = $$('[data-news-item]');
+  const newsEmpty = $('[data-news-empty]');
+  const newsCount = $('[data-news-count]');
+
+  const applyNewsFilter = () => {
+    if (!newsItems.length) return;
+    const query = ((newsFilterInput && newsFilterInput.value) || '').trim().toLowerCase();
+    let visible = 0;
+
+    newsItems.forEach((item) => {
+      const text = (item.dataset.newsText || item.textContent || '').toLowerCase();
+      const matched = !query || text.includes(query);
+      item.hidden = !matched;
+      if (matched) visible += 1;
+    });
+
+    if (newsCount) {
+      newsCount.textContent = String(visible);
+    }
+
+    if (newsEmpty) {
+      newsEmpty.hidden = visible !== 0;
+    }
+  };
+
+  if (newsFilterInput) {
+    newsFilterInput.addEventListener('input', applyNewsFilter);
+    applyNewsFilter();
+  }
+
+  newsResetBtn && newsResetBtn.addEventListener('click', () => {
+    if (newsFilterInput) {
+      newsFilterInput.value = '';
+      newsFilterInput.focus();
+    }
+    applyNewsFilter();
+  });
+
 })();

@@ -20,18 +20,21 @@
     <div class="row" style="align-items: center">
       <div style="font-weight: 600">Поиск</div>
       <div class="spacer"></div>
-      <button class="btn" id="searchClose">Закрыть</button>
+      <button class="btn" id="searchClose" type="button">Закрыть</button>
     </div>
 
-    <div class="searchbox" style="margin-top: 12px">
+    <form class="searchbox" style="margin-top: 12px" role="search" method="get" action="<?php echo esc_url(sb_alpha_url('search')); ?>">
       <span aria-hidden="true">🔎</span>
       <input
         id="searchInput"
+        name="s"
+        type="search"
         placeholder="Например: валютный контроль, SWIFT, тарифы, реквизиты…"
         autocomplete="off"
+        value="<?php echo esc_attr(sb_alpha_get_search_term()); ?>"
       />
-      <span class="kbd">Enter</span>
-    </div>
+      <button class="btn primary" type="submit">Найти</button>
+    </form>
 
     <div id="searchHints" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px">
       <button class="btn soft" type="button" data-hint="Экспертиза контрактов">Экспертиза контрактов</button>

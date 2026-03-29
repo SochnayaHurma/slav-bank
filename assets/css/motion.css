@@ -862,8 +862,8 @@
 .dashv2 .product .sub {
   margin-top: 10px;
   color: var(--c-muted);
-  font-size: 12px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 600;
   line-height: 1.55;
 }
 
@@ -1215,8 +1215,8 @@
 .dashv2 .svc-card small {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .dashv2 .svc-card .arrow {
@@ -1407,8 +1407,8 @@
 .doc-hero small {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .doc-hero .arrow {
@@ -1476,8 +1476,8 @@
 }
 
 .news-mini .meta {
-  font-size: 12px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--c-muted);
 }
 
@@ -1721,7 +1721,7 @@
 .prose p {
   margin: 10px 0;
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 500;
   color: rgba(2, 6, 23, .78);
 }
 
@@ -1729,7 +1729,8 @@
 .prose ol {
   margin: 10px 0 10px 18px;
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
+  font-style: italic;
   color: rgba(2, 6, 23, .78);
 }
 
@@ -1936,8 +1937,8 @@
 .form-wrap label {
   display: block;
   margin: 10px 0 6px;
-  font-size: 12px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--c-muted);
 }
 

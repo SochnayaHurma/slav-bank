@@ -1,0 +1,13 @@
+slavyanbank-alpha/
+  style.css
+  functions.php
+  header.php
+  search.php
+  page-novosti.php
+  single.php
+  archive.php
+  assets/css/beta-pages.css
+  assets/css/motion.css
+  assets/js/motion.js
+  template-parts/site-menu.php
+  template-parts/home-stack.php

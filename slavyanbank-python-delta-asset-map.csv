@@ -1,0 +1,20 @@
+source,target,type,status,comment
+python/templates/base.html,header.php + footer.php + template-parts/*,layout,keep/update,"Общая оболочка остается в php baseline; локально обновлены header, menu и stack."
+python/templates/inc/menu.html,template-parts/site-menu.php,component,update,Синхронизирован упрощенный top-nav из python; старая mega-структура сокращена.
+python/templates/inc/footer.html,template-parts/site-footer.php,component,keep,Футер уже совпадал по структуре; локальный route news теперь решается через functions.php.
+python/templates/inc/stack.html,template-parts/home-stack.php,component,update,Последние публикации теперь берутся из локальных WP posts; dated rates snapshot не переносится дословно.
+python/templates/search.html,search.php,template,new,Создан локальный WordPress search runtime вместо статического прототипа.
+python/templates/news.html,page-novosti.php + archive.php + single.php,template-family,new,"Создано семейство news templates: archive page, category archive, single post."
+python/templates/write-to-bank.html,page-napisat-v-bank.php,form-page,keep,Python-форма осталась прототипной; php сохраняет CF7-first сценарий как рабочий runtime.
+python/templates/support.html,page-podderzhka.php,page,keep,Текущая локальная версия уже покрывает основной смысл страницы.
+python/templates/requisites-bank.html,page-rekvizity-banka.php,page,keep,"Текущая локальная страница богаче по структуре, но семантически соответствует python source."
+python/templates/tariffs.html,page-tarify-banka.php,page,keep,Тарифные данные уже синхронизированы под 2025/2026 набор документов.
+python/static/motion.css,assets/css/motion.css,css,update,Подтянуты безопасные типографические правки prose/form label.
+python/static/motion.js,assets/js/motion.js,js,update,Добавлен runtime для локального news filter; prototype fake form handler из python не переносится.
+python/static/tokens.css,assets/css/tokens.css,css,keep,Сохранен php-вариант с системным стеком; python font-face не тянется без гарантии наличия шрифтов.
+python/static/header.css,assets/css/header.css,css,keep,Базовый header CSS уже был синхронен.
+python/static/menu_prod.css,assets/css/menu-prod.css,css,keep,"Старый CSS сохранен, но работает уже с упрощенной локальной разметкой menu."
+python/static/footer.css,assets/css/footer.css,css,keep,Изменений для runtime не требовалось.
+"python/static/assets/cleaned_logo.png, cleaned_logo2.png, brand-mark.svg, search.png, svg*.svg, b/*",not imported to theme runtime,python-only assets,remove/postpone,"Новый python asset-pack не импортируется, пока не делается отдельный рефактор home/v3 header."
+slavbank.ru/wp-content/uploads/*.pdf|*.xls,external dependency,documents,keep external,"Отчетность, info-bank docs и tariff PDFs остаются внешними документами."
+https://ved.slavbank.ru/ / https://dbo*.slavbank.ru / https://www.ammyy.com/ru/,external dependency,service endpoints,keep external,Сервисные входы и удаленная поддержка остаются внешними по бизнес-смыслу.
