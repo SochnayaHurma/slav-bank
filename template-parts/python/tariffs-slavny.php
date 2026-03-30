@@ -1,0 +1,85 @@
+
+<main id="main">
+  <section class="block">
+    <div class="container">
+      <div class="hero-wrap" style="padding: var(--s-5);">
+        <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
+          <div style="min-width: 280px; flex: 1 1 520px;">
+            <div class="kicker">Тарифы</div>
+            <h1 style="margin:8px 0 10px;">Тарифы по операциям в рублях и иностранной валюте «Славный»</h1>
+
+            <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
+              <a class="btn primary" href="#pdf">К содержимому</a>
+              <a class="btn outline" href="/">На главную</a>
+            </div>
+          </div>
+
+          <div class="pill" style="align-self:flex-start;">
+            <a href="{% url 'tariffs' %}" class="mono badge">Тарифы банка</a>
+            <span class="muted">·</span>
+            <a href="<?php echo esc_url(sb_alpha_url('tariff_privetstvenny')); ?>" class="mono badge">«Приветственный»</a>
+            <span class="muted">·</span>
+            <a href="<?php echo esc_url(sb_alpha_url('tariff-depositny')); ?>" class="mono badge">«Депозитный»</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dashv2" id="pdf">
+    <div class="container">
+      <div class="bento">
+        <div class="bento-card" style="padding: var(--s-4); position:relative;">
+
+          <div class="pdf-shell">
+            <div class="pdf-head">
+              <div>
+                <div class="kicker">PDF-документ</div>
+                <div class="pdf-title">Тарифы по операциям в рублях и иностранной валюте «Славный»</div>
+                <div class="muted" style="margin-top:6px;">Откройте внутри страницы или скачайте файл.</div>
+              </div>
+              <div class="pdf-actions">
+                <a class="btn outline pill"
+                  href="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте «Славный» -_files/tp-slavny.pdf' %}"
+                  target="_blank" rel="noopener">Открыть</a>
+                <a class="btn glass pill"
+                  href="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте «Славный» -_files/tp-slavny.pdf' %}"
+                  download>Скачать</a>
+              </div>
+            </div>
+            <div class="pdf-frame">
+              <iframe title="Тарифы по операциям в рублях и иностранной валюте «Славный»"
+                src="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте «Славный» -_files/tp-slavny.pdf' %}#view=FitH"
+                loading="lazy"></iframe>
+            </div>
+
+          </div>
+
+
+
+          <div class="prose">
+            <div class="entry-content">
+
+
+              <div data-wp-interactive="core/file" class="wp-block-file"><object
+                  data-wp-bind--hidden="!state.hasPdfPreview" class="wp-block-file__embed"
+                  data="./Тарифы по операциям в рублях и иностранной валюте «Славный» -_files/tp-slavny.pdf"
+                  type="application/pdf" aria-label="Вставка tp-slavny"></object><span>tp-slavny</span><a
+                  href="https://slavbank.ru/wp-content/uploads/tp-slavny.pdf"
+                  class="wp-block-file__button wp-element-button" download=""
+                  aria-describedby="wp-block-file--media-1ae82aa7-690f-40f2-a9b2-304e8fb8ae60">  Скачать</a></div>
+
+
+
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+<?php get_template_part('template-parts/home', 'stack'); ?>
+      </div>
+    </div>
+  </section>
+
+</main>
+

@@ -1,0 +1,151 @@
+    <main id="main">
+      <section class="block">
+        <div class="container">
+          <div class="hero-wrap" style="padding: var(--s-5)">
+            <div
+              class="row"
+              style="align-items: flex-start; gap: var(--s-4); flex-wrap: wrap"
+            >
+              <div style="min-width: 280px; flex: 1 1 520px">
+                <h1 style="margin: 8px 0 10px">
+                  Платежные требования с акцептом
+                </h1>
+                <p  style="max-width: 78ch">
+                  При предоставлении Клиентом права Банк оплачивает платежные
+                  требования с акцептом.
+                </p>
+
+                <div
+                  class="row"
+                  style="margin-top: var(--s-4); flex-wrap: wrap"
+                >
+                  <a class="btn primary" href="#content">Содержание</a>
+                  <a class="btn outline" href="/">На главную</a>
+                  <a class="btn outline" href="<?php echo esc_url(sb_alpha_url('write-to-bank')); ?>#form"
+                    >Задать вопрос</a
+                  >
+                </div>
+              </div>
+
+              <div class="pill" style="align-self: flex-start">
+                <a href="<?php echo esc_url(sb_alpha_url('cashless-payments')); ?>" class="mono badge">Безналичные платежи</a>
+                <span class="muted">·</span>
+                <a href="<?php echo esc_url(sb_alpha_url('cash-payments')); ?>" class="mono badge">Наличные платежи</a>
+                <span class="muted">·</span>
+                <a href="<?php echo esc_url(sb_alpha_url('account-service')); ?>" class="mono badge">Счета</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block dashv2" id="content">
+        <div class="container">
+          <div class="bento">
+            <div
+              class="bento-card"
+              style="padding: var(--s-4); position: relative"
+            >
+              <div class="alert">
+                <div class="alert-dot" aria-hidden="true"></div>
+                <div>
+                  <div style="font-weight: 600">Платежные требования</div>
+                  <div class="muted" style="margin-top: 4px">
+                    Инструмент для расчётов по договору — оформляйте корректно.
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="summary-grid">
+                <div class="summary-card">
+                  <div class="kicker">Суть</div>
+                  <div class="summary-text">
+                    При предоставлении Клиентом права Банк оплачивает платежные
+                    требования с акцептом.
+                  </div>
+                </div>
+
+                <div class="summary-card">
+                  <div class="kicker">Когда использовать</div>
+                  <div class="summary-text">
+                    Прием и отправка платежных документов на инкассо
+                  </div>
+                </div>
+
+                <div class="summary-card">
+                  <div class="kicker">Что важно</div>
+                  <div class="summary-text">
+                    Банк принимает на инкассо платежные документы и отгрузочные
+                    документы к ним. Клиенту выдается экземпляр платежных
+                    документов с отметкой Банка о приеме к исполнению.
+                  </div>
+                </div>
+              </div>
+
+              <div class="prose">
+                <div class="entry-content">
+                  <p>
+                      <strong
+                      >При предоставлении Клиентом права Банк оплачивает
+                      платежные требования с акцептом</strong
+                    >.
+                  </p>
+
+                  <p class="has-navy-blue-color has-text-color">
+                    &nbsp;  <strong
+                      >Прием и отправка платежных документов на инкассо</strong
+                    >
+                  </p>
+
+                  <p>
+                      Банк принимает на инкассо платежные документы и
+                    отгрузочные документы к ним. Клиенту выдается экземпляр
+                    платежных документов с отметкой Банка о приеме к исполнению.
+                  </p>
+
+                  <p class="has-navy-blue-color has-text-color">
+                    &nbsp;  <strong
+                      >Установление маршрута прохождения перечисленных
+                      сумм</strong
+                    >
+                  </p>
+
+                  <p class="has-text-align-justify">
+                      Установление маршрута прохождения перечисленных сумм
+                    осуществляется на основании письменного заявления Клиента,
+                    содержащего просьбу о содействии в поиске денежных средств,
+                    отправленных контрагентам. Банк направляет запросы в
+                    расчетно-кассовые центры и банки-корреспонденты и
+                    предоставляет Клиенту полученную информацию по мере ее
+                    поступления.
+                  </p>
+
+                  <p>
+                      <strong
+                      ><em
+                        >Более подробную информацию по обслуживанию счетов в
+                        валюте РФ Вы можете получить по тел.&nbsp; (8162)
+                        66-52-05, <strong>+7-921-201-47-00</strong></em
+                      ></strong
+                    >.
+                  </p>
+
+                  <p></p>
+                </div>
+              </div>
+            </div>
+<?php get_template_part('template-parts/home', 'stack'); ?>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        hidden
+      >
+        Готово
+      </div>
+    </main>
