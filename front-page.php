@@ -6,9 +6,7 @@ $route_ved_image = esc_url(sb_alpha_asset('img/home/route-ved.svg'));
 $route_control_image = esc_url(sb_alpha_asset('img/home/route-control.svg'));
 get_header();
 ?>
-<style>
-  
-</style>
+
 
 <main id="main" class="v3home">
   <section class="block">
@@ -83,7 +81,7 @@ get_header();
   <section class="block">
     <div class="container">
       <div class="v3-profile">
-        <div class="v3-photo-card reveal" data-reveal="left">
+        <div class="v3-photo-card reveal" >
           <div class="v3-photo-caption glass">
             <div class="v3-kicker">Основная специализация</div>
             <div style="font-weight:600; font-size:20px; line-height:1.2; margin-top:10px; color:#fff;">
@@ -92,7 +90,7 @@ get_header();
             </div>
           </div>
         </div>
-        <div class="v3-text-card reveal" data-reveal="right">
+        <div class="v3-text-card reveal">
           <span class="v3-badge">О банке</span>
           <ul class="v3-facts">
             <li>Образован в 1989 году как первый самостоятельный региональный банк.</li>
@@ -113,7 +111,7 @@ get_header();
 
   <section class="block">
     <div class="container">
-      <div class="v3-section-head reveal" data-reveal="right">
+      <div class="v3-section-head reveal" >
         <a class="btn outline" href="<?php echo esc_url(sb_alpha_url('novosti')); ?>">Все новости</a>
       </div>
       <div class="v3-news">

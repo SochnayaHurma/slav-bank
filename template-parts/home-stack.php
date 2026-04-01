@@ -29,31 +29,43 @@ $categories = array_merge(
 <div class="stack">
 
 
-      <div class="bento-card reveal is-in" data-reveal="right">
-        <h3 style="margin:6px 0 10px;">Курсы обмена валют
-в кассе банка</h3>
-        <div class="kicker">на 25.02.2026 г. <?php echo esc_html($currency_widget['kicker']); ?></div>
-        <div class="fine" style="margin-top:8px;"><b>Валюта:</b> Покупка / Продажа</div>
+<div class="bento-card reveal is-in" data-reveal="right">
+  <h3 style="margin:6px 0 10px;">
+    <?php echo esc_html($currency_widget['title']); ?>
+  </h3>
 
-        <div class="rates">
-          <?php if (!empty($visible_rates)) : ?>
-            <?php foreach ($visible_rates as $rate) : ?>
-              <div class="rate-row">
-                <span class="mono"><?php echo esc_html((string) ($rate['code'] ?? '')); ?></span>
-                <span class="muted">покупка</span>
-                <span class="mono"><?php echo esc_html((string) ($rate['buy'] ?? '')); ?></span>
-                <span class="muted">продажа</span>
-                <span class="mono"><?php echo esc_html((string) ($rate['sell'] ?? '')); ?></span>
-              </div>
-            <?php endforeach; ?>
-          <?php else : ?>
-            <div class="fine muted">Нет валют, отмеченных для показа.</div>
-          <?php endif; ?>
+  <div class="kicker">
+    <?php echo esc_html($currency_widget['date_line']); ?>
+  </div>
+
+  <div class="fine" style="margin-top:8px;">
+    <b><?php echo esc_html($currency_widget['legend_title']); ?></b>
+    <?php echo esc_html($currency_widget['buy_label']); ?> /
+    <?php echo esc_html($currency_widget['sell_label']); ?>
+  </div>
+
+  <div class="rates">
+    <?php if (!empty($visible_rates)) : ?>
+      <?php foreach ($visible_rates as $rate) : ?>
+        <div class="rate-row">
+          <span class="mono"><?php echo esc_html((string) ($rate['code'] ?? '')); ?></span>
+          <span class="muted"><?php echo esc_html($currency_widget['buy_label']); ?></span>
+          <span class="mono"><?php echo esc_html((string) ($rate['buy'] ?? '')); ?></span>
+          <span class="muted"><?php echo esc_html($currency_widget['sell_label']); ?></span>
+          <span class="mono"><?php echo esc_html((string) ($rate['sell'] ?? '')); ?></span>
         </div>
-        <div class="fine" style="margin-top:8px;">АО НКБ "СЛАВЯНБАНК"</div>
-      </div>
+      <?php endforeach; ?>
+    <?php else : ?>
+      <div class="fine muted"><?php echo esc_html($currency_widget['empty_text']); ?></div>
+    <?php endif; ?>
+  </div>
 
-  <div class="bento-card reveal is-in" data-reveal="right">
+  <div class="fine" style="margin-top:8px;">
+    <?php echo esc_html($currency_widget['footer_text']); ?>
+  </div>
+</div>
+
+  <div class="bento-card reveal is-in" >
     <div class="kicker">Полезная информация</div>
     <h3 style="margin:6px 0 10px;">Последние публикации</h3>
 
@@ -75,7 +87,7 @@ $categories = array_merge(
     <?php endif; ?>
   </div>
 
-  <details class="reveal" data-reveal="right" open>
+  <details class="reveal"  open>
     <summary style="cursor:pointer; font-weight:600;">Разделы сайта</summary>
     <div class="drawer-links" style="margin-top:10px;">
       <?php foreach ($sections as $section) : ?>
@@ -84,7 +96,7 @@ $categories = array_merge(
     </div>
   </details>
 
-  <details class="reveal" data-reveal="right" open>
+  <details class="reveal"  open>
     <summary style="cursor:pointer; font-weight:600;">Рубрики</summary>
     <div class="drawer-links" style="margin-top:10px;">
       <?php foreach ($categories as $category) : ?>

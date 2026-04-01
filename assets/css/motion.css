@@ -370,7 +370,7 @@
   inset: -2px;
   background: radial-gradient(240px 120px at 15% 20%, rgba(255, 255, 255, .35), transparent 60%);
   opacity: .75;
-  transform: translate3d(-18px, -12px, 0);
+  /* transform: translate3d(-18px, -12px, 0); */
   transition: transform var(--t-med) var(--ease), opacity var(--t-med) var(--ease);
   pointer-events: none;
 }

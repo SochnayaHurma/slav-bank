@@ -16,7 +16,6 @@ get_header();
       <div class="hero-wrap" style="padding: var(--s-5);">
         <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
           <div style="min-width: 280px; flex: 1 1 520px;">
-            <div class="kicker">Раздел</div>
             <h1 style="margin:8px 0 10px;">Новости</h1>
             <p class="muted" style="max-width:78ch;">
               Официальные новости банка: режим работы, изменения тарифов и важные объявления.
@@ -29,12 +28,10 @@ get_header();
             </div>
           </div>
 
-          <div class="pill" style="align-self:flex-start;">
+          <div  style="align-self:flex-start;">
             <a href="<?php echo esc_url(sb_alpha_url('tariffs')); ?>" class="mono badge">Тарифы</a>
             <span class="muted">·</span>
             <a href="<?php echo esc_url(sb_alpha_url('legal-entities')); ?>" class="mono badge">Юр. лицам</a>
-            <span class="muted">·</span>
-            <a href="<?php echo esc_url(sb_alpha_url('support')); ?>" class="mono badge">Поддержка</a>
             <span class="muted">·</span>
             <a href="<?php echo esc_url(sb_alpha_url('contacts')); ?>" class="mono badge">Контакты</a>
           </div>
@@ -49,10 +46,13 @@ get_header();
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
           <div class="news-shell">
             <div class="news-controls">
+              <h3 class="kicker" style="text-align: center;">Архив публикаций</h3>
+
               <div class="news-search">
-                <span class="mega-ic" aria-hidden="true">⌕</span>
-                <input id="newsQ" type="search" placeholder="Поиск по заголовкам и тексту…" autocomplete="off" />
+                <span class="mega-ic search-symbol" aria-hidden="true">⌕</span>
+                <input class="grid-search-input" id="newsQ" type="search" placeholder="Поиск по заголовкам и тексту…" autocomplete="off" />
                 <button class="btn outline pill" id="newsReset" type="button">Сброс</button>
+
               </div>
 
               <div class="tag-row">
@@ -62,10 +62,6 @@ get_header();
               </div>
             </div>
 
-            <div class="results-head">
-              <div class="kicker">Архив публикаций</div>
-              <div class="pill"><span class="badge" data-news-count><?php echo esc_html((string) (int) $news_query->post_count); ?></span><span class="muted">публикаций на странице</span></div>
-            </div>
 
             <?php if ($news_query->have_posts()) : ?>
               <div class="news-results">
@@ -130,5 +126,17 @@ get_header();
     </div>
   </section>
 </main>
-
+<style>
+  .tag-row {
+    padding: 10px;
+  }
+  .search-symbol {
+      font-size: 23px;
+    }
+@media (max-width: 980px) {
+    .search-symbol {
+      display: none;
+    }
+}
+</style>
 <?php get_footer(); ?>

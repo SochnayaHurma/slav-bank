@@ -3,17 +3,27 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+function sb_alpha_get_home_currency_widget_default_date(): string
+{
+    return wp_date('d.m.Y');
+}
+
+function sb_alpha_get_home_currency_widget_default_date_line(): string
+{
+    return 'на ' . sb_alpha_get_home_currency_widget_default_date() . ' г.';
+}
+
 function sb_alpha_get_home_currency_widget_defaults(): array
 {
     return [
-        'kicker'        => 'Курсы валют',
-        'title'         => 'Актуальные курсы',
-        'note'          => 'Информация носит справочный характер.',
-        'updated_label' => 'Обновлено',
-        'updated_value' => 'сегодня в 10:00',
-        'button_text'   => 'Все курсы',
-        'button_url'    => '/kursy-valyut/',
-        'rates'         => [
+        'title'        => 'Курсы обмена валют в кассе банка',
+        'date_line'    => sb_alpha_get_home_currency_widget_default_date_line(),
+        'legend_title' => 'Валюта:',
+        'buy_label'    => 'покупка',
+        'sell_label'   => 'продажа',
+        'empty_text'   => 'Нет валют, отмеченных для показа.',
+        'footer_text'  => 'АО НКБ "СЛАВЯНБАНК"',
+        'rates'        => [
             [
                 'code'    => 'USD',
                 'buy'     => '77.00',
@@ -45,14 +55,14 @@ function sb_alpha_sanitize_home_currency_widget($input): array
     }
 
     $output = [
-        'kicker'        => sanitize_text_field($input['kicker'] ?? $defaults['kicker']),
-        'title'         => sanitize_text_field($input['title'] ?? $defaults['title']),
-        'note'          => sanitize_text_field($input['note'] ?? $defaults['note']),
-        'updated_label' => sanitize_text_field($input['updated_label'] ?? $defaults['updated_label']),
-        'updated_value' => sanitize_text_field($input['updated_value'] ?? $defaults['updated_value']),
-        'button_text'   => sanitize_text_field($input['button_text'] ?? $defaults['button_text']),
-        'button_url'    => esc_url_raw($input['button_url'] ?? $defaults['button_url']),
-        'rates'         => [],
+        'title'        => sanitize_text_field($input['title'] ?? $defaults['title']),
+        'date_line'    => sanitize_text_field($input['date_line'] ?? ''),
+        'legend_title' => sanitize_text_field($input['legend_title'] ?? $defaults['legend_title']),
+        'buy_label'    => sanitize_text_field($input['buy_label'] ?? $defaults['buy_label']),
+        'sell_label'   => sanitize_text_field($input['sell_label'] ?? $defaults['sell_label']),
+        'empty_text'   => sanitize_text_field($input['empty_text'] ?? $defaults['empty_text']),
+        'footer_text'  => sanitize_text_field($input['footer_text'] ?? $defaults['footer_text']),
+        'rates'        => [],
     ];
 
     $rates = $input['rates'] ?? [];
@@ -120,6 +130,10 @@ function sb_alpha_get_home_currency_widget_data(): array
     }
 
     $data['rates'] = $normalized_rates;
+
+    if (trim((string) ($data['date_line'] ?? '')) === '') {
+        $data['date_line'] = sb_alpha_get_home_currency_widget_default_date_line();
+    }
 
     return $data;
 }

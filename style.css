@@ -9,3 +9,10 @@ Tested up to: 6.8
 Requires PHP: 7.4
 Text Domain: Slavyanbank Custom Theme
 */
+
+
+  @media (max-width: 980px) {
+    .v3-route-media {
+      display: none;
+    }
+  }
