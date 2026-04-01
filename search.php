@@ -29,10 +29,6 @@ get_header();
             </div>
           </div>
 
-          <div class="pill" style="align-self:flex-start;">
-            <span class="badge">Маршрут</span>
-            <span class="muted mono"><?php echo esc_html(parse_url(sb_alpha_url('search'), PHP_URL_PATH) ?: '/search/'); ?></span>
-          </div>
         </div>
       </div>
     </div>
@@ -48,7 +44,7 @@ get_header();
                 <div class="pill"><span class="badge"><?php echo esc_html((string) ($search_query ? (int) $search_query->found_posts : 0)); ?></span><span class="muted" >совпадений</span></div>
               </div>
             <form class="news-search" role="search" method="get" action="<?php echo esc_url(sb_alpha_url('search')); ?>">
-              <span class="mega-ic" aria-hidden="true">⌕</span>
+              <span class="mega-ic search-symbol" aria-hidden="true">⌕</span>
               <input
                 id="q"
                 name="s"
@@ -116,11 +112,6 @@ get_header();
                 </div>
               <?php endif; ?>
             <?php else : ?>
-              <div class="results-head">
-                <div class="kicker">Поиск</div>
-                <div class="pill"><span class="muted">найдено</span><span class="badge">0</span> записей</div>
-              </div>
-
               <div class="section-empty">
                 <div class="empty-ic">⌕</div>
                 <div>
@@ -146,5 +137,19 @@ get_header();
     </div>
   </section>
 </main>
+<style>
+  .tag-row {
+    padding: 10px;
+  }
 
+  .search-symbol {
+    font-size: 23px;
+  }
+
+  @media (max-width: 980px) {
+    .search-symbol {
+      display: none;
+    }
+  }
+</style>
 <?php get_footer(); ?>

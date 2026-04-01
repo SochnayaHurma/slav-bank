@@ -29,7 +29,7 @@ $categories = array_merge(
 <div class="stack">
 
 
-<div class="bento-card reveal is-in" data-reveal="right">
+<div class="bento-card reveal is-in">
   <h3 style="margin:6px 0 10px;">
     <?php echo esc_html($currency_widget['title']); ?>
   </h3>

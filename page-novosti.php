@@ -107,15 +107,17 @@ get_header();
  
 
               <?php
-              $pagination = paginate_links([
-                  'base' => add_query_arg('paged', '%#%', sb_alpha_url('novosti')),
-                  'format' => '',
-                  'current' => $paged,
-                  'total' => max(1, (int) $news_query->max_num_pages),
-                  'type' => 'array',
-                  'prev_text' => '←',
-                  'next_text' => '→',
-              ]);
+$news_page_base = trailingslashit(sb_alpha_news_page_url()) . '%_%';
+
+$pagination = paginate_links([
+    'base' => $news_page_base,
+    'format' => 'page/%#%/',
+    'current' => $paged,
+    'total' => max(1, (int) $news_query->max_num_pages),
+    'type' => 'array',
+    'prev_text' => '←',
+    'next_text' => '→',
+]);
               ?>
               <?php if (is_array($pagination) && !empty($pagination)) : ?>
                 <nav class="pagination-wrap" aria-label="Навигация по архиву новостей">

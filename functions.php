@@ -254,6 +254,7 @@ function sb_alpha_register_legacy_rewrites(): void
 {
     add_rewrite_rule('^search/?$', 'index.php?sb_alpha_search_page=1', 'top');
     add_rewrite_rule('^novosti/?$', 'index.php?sb_alpha_news_page=1', 'top');
+    add_rewrite_rule('^novosti/page/([0-9]+)/?$', 'index.php?sb_alpha_news_page=1&paged=$matches[1]', 'top');
 }
 add_action('init', 'sb_alpha_register_legacy_rewrites');
 add_action('init', 'sb_alpha_register_page_mode_meta'); // todo
