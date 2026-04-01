@@ -63,9 +63,11 @@ get_header();
 
           <div class="form-shell" data-form-shell>
             <h3 style="margin:8px 0 10px;">Форма обратной связи</h3>
-
             <div class="form-wrap">
-              <form action="#" class="wpcf7-form init" aria-label="Контактная форма" novalidate="novalidate"
+          <?php echo $form_markup; ?>
+
+              <!-- Для тестоев без contact form 7
+               <form action="#" class="wpcf7-form init" aria-label="Контактная форма" novalidate="novalidate"
                 data-status="init">
 
                 <p><label> Данные для обратной связи (телефон, email)<br>
@@ -90,7 +92,7 @@ get_header();
                 <p class="akismet-fields-container" data-prefix="_wpcf7_ak_"><label></label><input
                     type="hidden" id="ak_js_1" name="_wpcf7_ak_js" value="1771863886709"></p>
                 <div class="wpcf7-response-output" aria-hidden="true"></div>
-              </form>
+              </form> -->
             </div>
           </div>
 

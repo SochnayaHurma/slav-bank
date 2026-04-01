@@ -42,16 +42,16 @@
               </div>
               <div class="pdf-actions">
                 <a class="btn outline pill"
-                  href="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте Депозитный -_files/tarif-depositny-1.pdf' %}"
+                  href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf"
                   target="_blank" rel="noopener">Открыть</a>
                 <a class="btn glass pill"
-                  href="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте Депозитный -_files/tarif-depositny-1.pdf' %}"
+                  href="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf"
                   download>Скачать</a>
               </div>
             </div>
             <div class="pdf-frame">
               <iframe title="Тарифы по операциям в рублях и иностранной валюте «Депозитный»"
-                src="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте Депозитный -_files/tarif-depositny-1.pdf' %}#view=FitH"
+                src="https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf#view=FitH"
                 loading="lazy"></iframe>
             </div>
             <div class="muted" style="margin-top:10px; font-weight:300;">

@@ -1,4 +1,11 @@
-<?php get_template_part('template-parts/python/top-level-v4', 'styles'); $hero_img = esc_url(sb_alpha_asset('png/3.jpg')); ?>
+<?php 
+$page = get_queried_object();
+
+if (sb_alpha_page_is_template_only($page)) {
+    echo $fallback;
+    return;
+}
+get_template_part('template-parts/python/top-level-v4', 'styles'); $hero_img = esc_url(sb_alpha_asset('png/3.jpg')); ?>
 <main id="main">
 
   <section class="block">

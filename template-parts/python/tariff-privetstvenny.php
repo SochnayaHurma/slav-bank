@@ -43,16 +43,16 @@
               </div>
               <div class="pdf-actions">
                 <a class="btn outline pill"
-                  href="{% static 'assets/tariffs/Тарифы банка в валюте РФ и иностранной валюте «Приветственный» -_files/tarif-privetstvenny-1.pdf' %}"
+                  href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf"
                   target="_blank" rel="noopener">Открыть</a>
                 <a class="btn glass pill"
-                  href="{% static 'assets/tariffs/Тарифы банка в валюте РФ и иностранной валюте «Приветственный» -_files/tarif-privetstvenny-1.pdf' %}"
+                  href="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf"
                   download>Скачать</a>
               </div>
             </div>
             <div class="pdf-frame">
               <iframe title="Тарифы банка в валюте РФ и иностранной валюте «Приветственный»"
-                src="{% static 'assets/tariffs/Тарифы банка в валюте РФ и иностранной валюте «Приветственный» -_files/tarif-privetstvenny-1.pdf' %}#view=FitH"
+                src="https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf#view=FitH"
                 loading="lazy"></iframe>
             </div>
             <div class="muted" style="margin-top:10px; font-weight:300;">

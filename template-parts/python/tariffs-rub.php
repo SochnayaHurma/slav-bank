@@ -50,7 +50,7 @@
             </div>
             <div class="pdf-frame">
               <iframe title="Тарифы по операциям в валюте РФ"
-                src="{% static 'assets/tariffs/Тарифы по операциям в валюте РФ - АО НКБ _СЛАВЯНБАНК__files/standard-osobiy-s-01012026.pdf' %}#view=FitH"
+                src="https://slavbank.ru/wp-content/uploads/tarify-v-valyute-rf-s-01072024-i-v-in.valyute-s-09.04.2025.pdf#view=FitH"
                 loading="lazy"></iframe>
             </div>
      

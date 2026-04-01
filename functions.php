@@ -1,4 +1,104 @@
 <?php
+
+add_action('widgets_init', 'sb_register_home_stack_sidebars');
+function sb_register_home_stack_sidebars(): void
+{
+    register_sidebar([
+        'name'          => 'Валютный блок22',
+        'id'            => 'stack-currency',
+        'description'   => 'Редактируемый валютный блок',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+        'show_in_rest'  => true,
+    ]);
+}
+
+add_action('init', 'sb_register_home_stack_patterns');
+function sb_register_home_stack_patterns(): void
+{
+    if (function_exists('register_block_pattern_category')) {
+        register_block_pattern_category(
+            'slavbank-home-stack',
+            [
+                'label' => 'Славянбанк: Home Stack',
+            ]
+        );
+    }
+
+    if (!function_exists('register_block_pattern')) {
+        return;
+    }
+
+    register_block_pattern(
+        'slavbank/home-stack-currency-card',
+        [
+            'title'       => 'Валютный блок для home-stack',
+            'categories'  => ['slavbank-home-stack'],
+            'description' => 'Готовая карточка курсов валют для вставки в home-stack.',
+            'content'     => <<<HTML
+<!-- wp:group {"className":"bento-card reveal is-in home-stack-card--currency","templateLock":"contentOnly"} -->
+<div class="wp-block-group bento-card reveal is-in home-stack-card--currency">
+
+  <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"6px","bottom":"10px"}}}} -->
+  <h3 style="margin-top:6px;margin-bottom:10px;">Курсы обмена валют в кассе банка</h3>
+  <!-- /wp:heading -->
+
+  <!-- wp:paragraph {"className":"kicker"} -->
+  <p class="kicker">на 25.02.2026 г.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:paragraph {"className":"fine","style":{"spacing":{"margin":{"top":"8px"}}}} -->
+  <p class="fine" style="margin-top:8px;"><strong>Валюта:</strong> Покупка / Продажа</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:group {"className":"rates"} -->
+  <div class="wp-block-group rates">
+
+    <!-- wp:group {"className":"rate-row"} -->
+    <div class="wp-block-group rate-row">
+      <!-- wp:paragraph {"className":"mono"} --><p class="mono">USD</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"muted"} --><p class="muted">покупка</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"mono"} --><p class="mono">77.00</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"muted"} --><p class="muted">продажа</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"mono"} --><p class="mono">80.00</p><!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"rate-row"} -->
+    <div class="wp-block-group rate-row">
+      <!-- wp:paragraph {"className":"mono"} --><p class="mono">EUR</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"muted"} --><p class="muted">покупка</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"mono"} --><p class="mono">88.00</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"muted"} --><p class="muted">продажа</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"mono"} --><p class="mono">92.50</p><!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"rate-row"} -->
+    <div class="wp-block-group rate-row">
+      <!-- wp:paragraph {"className":"mono"} --><p class="mono">CNY</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"muted"} --><p class="muted">покупка</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"mono"} --><p class="mono">11.00</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"muted"} --><p class="muted">продажа</p><!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"mono"} --><p class="mono">11.90</p><!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:paragraph {"className":"fine","style":{"spacing":{"margin":{"top":"8px"}}}} -->
+  <p class="fine" style="margin-top:8px;">АО НКБ "СЛАВЯНБАНК"</p>
+  <!-- /wp:paragraph -->
+
+</div>
+<!-- /wp:group -->
+HTML
+        ]
+    );
+}
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -7,8 +107,36 @@ require_once get_template_directory() . '/inc/page-data.php';
 require_once get_template_directory() . '/inc/python-routes.php';
 require_once get_template_directory() . '/inc/python-routes-wave2.php';
 require_once get_template_directory() . '/inc/python-routes-wave4.php';
-
+require_once get_template_directory() . '/inc/content-slots.php';
+require_once get_template_directory() . '/inc/page-mode.php';
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
+
+
+if (!function_exists('sb_alpha_force_404')) {
+    function sb_alpha_force_404(): void
+    {
+        status_header(404);
+        nocache_headers();
+
+        global $wp_query;
+        if ($wp_query instanceof WP_Query) {
+            $wp_query->set_404();
+        }
+
+        $template = get_404_template();
+
+        if (is_string($template) && $template !== '' && file_exists($template)) {
+            require $template;
+        } else {
+            echo '<h1>404</h1><p>Страница не найдена.</p><p><a href="' . esc_url(home_url('/')) . '">Вернуться на главную</a></p>';
+        }
+
+        exit;
+    }
+}
+
+
+
 
 function sb_alpha_setup(): void
 {
@@ -138,7 +266,18 @@ function sb_alpha_enqueue_assets(): void
     wp_enqueue_script('sb-alpha-motion', $base . '/assets/js/motion.js', [], $version, true);
 }
 add_action('wp_enqueue_scripts', 'sb_alpha_enqueue_assets');
+function sb_alpha_wp_page_url(string $slug, string $fallback = ''): string
+{
+    $page = get_page_by_path($slug, OBJECT, ['page']);
 
+    if (!$page instanceof WP_Post || $page->post_status !== 'publish') {
+        return $fallback;
+    }
+
+    $url = get_permalink($page);
+
+    return is_string($url) && $url !== '' ? $url : $fallback;
+}
 function sb_alpha_routes(): array
 {
     return [
@@ -180,8 +319,19 @@ function sb_alpha_routes(): array
         'contacts' => sb_python_route_url('contacts'),
         'write-to-bank' => sb_python_route_url('write-to-bank'),
         'vacancies' => sb_python_route_url('vacancies'),
-        'zapros-na-otkrytie-raschetnogo-scheta' => sb_python_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
-        'zapros-na-kreditovanie-msp' => sb_python_route_url('zapros-na-kreditovanie-msp'),
+        // 'zapros-na-otkrytie-raschetnogo-scheta' => sb_python_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
+        // 'zapros-na-kreditovanie-msp' => sb_python_route_url('zapros-na-kreditovanie-msp'),
+        'zapros-na-otkrytie-raschetnogo-scheta' =>
+    sb_alpha_wp_page_url(
+        'zapros-na-otkrytie-raschetnogo-scheta',
+        sb_python_route_url('zapros-na-otkrytie-raschetnogo-scheta')
+    ),
+
+'zapros-na-kreditovanie-msp' =>
+    sb_alpha_wp_page_url(
+        'zapros-na-kreditovanie-msp',
+        sb_python_route_url('zapros-na-kreditovanie-msp')
+    ),
         'client-bank-primary-login' => 'https://dbo.slavbank.ru:20101/',
         'client-bank-backup-login' => 'https://dbo1.slavbank.ru:20101/',
         'client-bank-login' => 'https://ved.slavbank.ru/',
@@ -202,7 +352,9 @@ function sb_alpha_register_legacy_rewrites(): void
     add_rewrite_rule('^novosti/?$', 'index.php?sb_alpha_news_page=1', 'top');
 }
 add_action('init', 'sb_alpha_register_legacy_rewrites');
-
+add_action('init', 'sb_alpha_register_page_mode_meta'); // todo
+add_action('add_meta_boxes_page', 'sb_alpha_add_page_mode_meta_box'); // todo
+add_action('save_post_page', 'sb_alpha_save_page_mode_meta', 10, 3); // todo
 function sb_alpha_add_query_vars(array $vars): array
 {
     $vars[] = 'sb_alpha_search_page';

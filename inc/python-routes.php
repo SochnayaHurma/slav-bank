@@ -256,6 +256,12 @@ function sb_python_route_definitions(): array
     return $routes;
 }
 
+
+function sb_wp_page_url(string $slug, string $fallback = '#'): string
+{
+    $page = get_page_by_path($slug, OBJECT, 'page');
+    return $page ? get_permalink($page) : $fallback;
+}
 function sb_python_route_definition(string $route_key): ?array
 {
     $routes = sb_python_route_definitions();

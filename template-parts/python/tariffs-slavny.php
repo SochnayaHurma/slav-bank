@@ -40,16 +40,16 @@
               </div>
               <div class="pdf-actions">
                 <a class="btn outline pill"
-                  href="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте «Славный» -_files/tp-slavny.pdf' %}"
+                  href="https://slavbank.ru/wp-content/uploads/tp-slavny-s-13102025-po-28022026.pdf"
                   target="_blank" rel="noopener">Открыть</a>
                 <a class="btn glass pill"
-                  href="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте «Славный» -_files/tp-slavny.pdf' %}"
+                  href="https://slavbank.ru/wp-content/uploads/tp-slavny-s-13102025-po-28022026.pdf"
                   download>Скачать</a>
               </div>
             </div>
             <div class="pdf-frame">
               <iframe title="Тарифы по операциям в рублях и иностранной валюте «Славный»"
-                src="{% static 'assets/tariffs/Тарифы по операциям в рублях и иностранной валюте «Славный» -_files/tp-slavny.pdf' %}#view=FitH"
+                src="https://slavbank.ru/wp-content/uploads/tp-slavny-s-13102025-po-28022026.pdf#view=FitH"
                 loading="lazy"></iframe>
             </div>
 

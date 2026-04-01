@@ -5,8 +5,6 @@
         <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
           <div style="min-width: 280px; flex: 1 1 520px;">
             <h1 style="margin:8px 0 10px;">Депозиты для юридических лиц</h1>
-            <p class="muted" style="max-width:78ch;">Ставка до 14,5%</p>
-
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
               <a class="btn primary" href="#content">Содержание</a>
               <a class="btn outline" href="/">На главную</a>

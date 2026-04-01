@@ -114,27 +114,20 @@ get_header();
   <section class="block">
     <div class="container">
       <div class="v3-section-head reveal" data-reveal="right">
-        <div>
-          <h2>Актуальное и переходы</h2>
-          <p>Нижний блок коротких маршрутов на новости, поддержку и контакты.</p>
-        </div>
         <a class="btn outline" href="<?php echo esc_url(sb_alpha_url('novosti')); ?>">Все новости</a>
       </div>
       <div class="v3-news">
         <a class="v3-news-card reveal" data-reveal="scale" href="<?php echo esc_url(sb_alpha_url('novosti')); ?>">
           <div class="badge">Новости</div>
           <h3>Официальные новости и объявления банка</h3>
-          <p>Режим работы, публикации и важные изменения остаются в отдельном разделе без перегруза на первом экране.</p>
         </a>
         <a class="v3-news-card reveal" data-reveal="scale" href="<?php echo esc_url(sb_alpha_url('support')); ?>">
           <div class="badge">Поддержка</div>
           <h3>FAQ, инструкции и помощь по Клиент‑Банку</h3>
-          <p>Практичный маршрут для пользователей ДБО вместо рассыпанных по странице подсказок.</p>
         </a>
         <a class="v3-news-card reveal" data-reveal="scale" href="<?php echo esc_url(sb_alpha_url('contacts')); ?>">
           <div class="badge">Контакты</div>
           <h3>Контакты и каналы связи</h3>
-          <p>Контактная точка остаётся доступной, но теперь не дублируется однотипными блоками по всей главной.</p>
         </a>
       </div>
     </div>
