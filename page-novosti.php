@@ -7,6 +7,7 @@ $news_query = new WP_Query(
     ])
 );
 $category_links = sb_alpha_get_news_category_links();
+$initial_count = max(0, (int) $news_query->post_count);
 get_header();
 ?>
 
@@ -28,7 +29,7 @@ get_header();
             </div>
           </div>
 
-          <div  style="align-self:flex-start;">
+          <div style="align-self:flex-start;">
             <a href="<?php echo esc_url(sb_alpha_url('tariffs')); ?>" class="mono badge">Тарифы</a>
             <span class="muted">·</span>
             <a href="<?php echo esc_url(sb_alpha_url('legal-entities')); ?>" class="mono badge">Юр. лицам</a>
@@ -46,14 +47,29 @@ get_header();
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
           <div class="news-shell">
             <div class="news-controls">
-              <h3 class="kicker" style="text-align: center;">Архив публикаций</h3>
-
-              <div class="news-search">
-                <span class="mega-ic search-symbol" aria-hidden="true">⌕</span>
-                <input class="grid-search-input" id="newsQ" type="search" placeholder="Поиск по заголовкам и тексту…" autocomplete="off" />
-                <button class="btn outline pill" id="newsReset" type="button">Сброс</button>
-
+                            <div class="results-head" style="margin-top:14px;">
+              <h3 class="kicker" style="text-align:center;">Архив публикаций</h3>
+                <div>
+                  <span class="badge" data-news-count><?php echo esc_html((string) $initial_count); ?></span>
+                  <span class="muted">шт.</span>
+                </div>
               </div>
+
+              <form class="news-search" role="search" method="get" action="<?php echo esc_url(sb_alpha_url('search')); ?>">
+                <span class="mega-ic search-symbol" aria-hidden="true">⌕</span>
+                <input
+                  class="grid-search-input"
+                  id="newsQ"
+                  name="s"
+                  type="search"
+                  placeholder="Фильтр по текущей странице… Enter — поиск по всему сайту"
+                  autocomplete="off"
+                />
+                <button class="btn primary pill" type="submit">Поиск </button>
+                <button class="btn outline pill" id="newsReset" type="button">Сброс</button>
+              </form>
+
+
 
               <div class="tag-row">
                 <?php foreach ($category_links as $category) : ?>
@@ -61,7 +77,6 @@ get_header();
                 <?php endforeach; ?>
               </div>
             </div>
-
 
             <?php if ($news_query->have_posts()) : ?>
               <div class="news-results">
@@ -88,6 +103,9 @@ get_header();
                   </article>
                 <?php endwhile; ?>
               </div>
+
+ 
+
               <?php
               $pagination = paginate_links([
                   'base' => add_query_arg('paged', '%#%', sb_alpha_url('novosti')),
@@ -109,12 +127,11 @@ get_header();
 
               <?php wp_reset_postdata(); ?>
             <?php else : ?>
-
-              <div class="section-empty" data-news-empty hidden>
+             <div class="section-empty" data-news-empty hidden>
                 <div class="empty-ic">✦</div>
                 <div>
                   <div style="font-weight:600;">На этой странице ничего не найдено</div>
-                  <div class="muted" style="margin-top:4px;">Сбросьте локальный фильтр и просмотрите все публикации на странице.</div>
+                  <div class="muted" style="margin-top:4px;">Очистите локальный фильтр или выполните общий поиск по сайту.</div>
                 </div>
               </div>
             <?php endif; ?>
@@ -126,17 +143,74 @@ get_header();
     </div>
   </section>
 </main>
+
 <style>
   .tag-row {
     padding: 10px;
   }
+
   .search-symbol {
-      font-size: 23px;
-    }
-@media (max-width: 980px) {
+    font-size: 23px;
+  }
+
+  @media (max-width: 980px) {
     .search-symbol {
       display: none;
     }
-}
+  }
 </style>
+
+<script>
+(() => {
+  const shell = document.querySelector('.news-shell');
+  if (!shell) return;
+
+  const input = shell.querySelector('#newsQ');
+  const reset = shell.querySelector('#newsReset');
+  const items = Array.from(shell.querySelectorAll('[data-news-item]'));
+  const empty = shell.querySelector('[data-news-empty]');
+  const count = shell.querySelector('[data-news-count]');
+
+  if (!input || !reset || !items.length) {
+    return;
+  }
+
+  const normalize = (value) => String(value || '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const applyFilter = () => {
+    const query = normalize(input.value);
+    let visible = 0;
+
+    items.forEach((item) => {
+      const haystack = normalize(item.getAttribute('data-news-text') || item.textContent);
+      const show = query === '' || haystack.includes(query);
+
+      item.hidden = !show;
+      if (show) visible += 1;
+    });
+
+    if (empty) {
+      empty.hidden = visible !== 0;
+    }
+
+    if (count) {
+      count.textContent = String(visible);
+    }
+  };
+
+  input.addEventListener('input', applyFilter);
+
+  reset.addEventListener('click', () => {
+    input.value = '';
+    applyFilter();
+    input.focus();
+  });
+
+  applyFilter();
+})();
+</script>
+
 <?php get_footer(); ?>

@@ -20,10 +20,7 @@ get_header();
           <div style="min-width: 280px; flex: 1 1 520px;">
             <div class="kicker">Поиск</div>
             <h1 style="margin:8px 0 10px;">Результаты поиска</h1>
-            <p class="muted" style="max-width:78ch;">
-              Поиск по локально перенесенным страницам и новостям WordPress.
-              Введите запрос — покажем совпадения по заголовкам и содержимому.
-            </p>
+
 
             <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
               <a class="btn glass" href="<?php echo esc_url(sb_alpha_url('home')); ?>">На главную</a>
@@ -46,6 +43,10 @@ get_header();
       <div class="bento">
         <div class="bento-card" style="padding: var(--s-4); position:relative;">
           <div class="search-shell">
+                          <div class="results-head">
+                <div class="kicker">Результаты</div>
+                <div class="pill"><span class="badge"><?php echo esc_html((string) ($search_query ? (int) $search_query->found_posts : 0)); ?></span><span class="muted" >совпадений</span></div>
+              </div>
             <form class="news-search" role="search" method="get" action="<?php echo esc_url(sb_alpha_url('search')); ?>">
               <span class="mega-ic" aria-hidden="true">⌕</span>
               <input
@@ -60,10 +61,7 @@ get_header();
             </form>
 
             <?php if ($search_term !== '') : ?>
-              <div class="results-head">
-                <div class="kicker">Результаты</div>
-                <div class="pill"><span class="badge"><?php echo esc_html((string) ($search_query ? (int) $search_query->found_posts : 0)); ?></span><span class="muted">совпадений</span></div>
-              </div>
+
 
               <?php if ($search_query && $search_query->have_posts()) : ?>
                 <div class="search-results">
@@ -120,7 +118,7 @@ get_header();
             <?php else : ?>
               <div class="results-head">
                 <div class="kicker">Поиск</div>
-                <div class="pill"><span class="badge">0</span><span class="muted">совпадений</span></div>
+                <div class="pill"><span class="muted">найдено</span><span class="badge">0</span> записей</div>
               </div>
 
               <div class="section-empty">
