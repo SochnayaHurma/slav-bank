@@ -1,4 +1,5 @@
 <?php
+$currency_widget = sb_alpha_get_home_currency_widget_data();
 $publications = sb_alpha_get_recent_publications(4);
 
 $sections = [
@@ -25,7 +26,7 @@ $categories = array_merge(
       <div class="bento-card reveal is-in" data-reveal="right">
         <h3 style="margin:6px 0 10px;">Курсы обмена валют
 в кассе банка</h3>
-        <div class="kicker">на 25.02.2026г.</div>
+        <div class="kicker">на 25.02.2026 г. <?php echo esc_html($currency_widget['kicker']); ?></div>
         <div class="fine" style="margin-top:8px;"><b>Валюта:</b> Покупка / Продажа</div>
 
         <div class="rates">

@@ -1,104 +1,6 @@
 <?php
 
-add_action('widgets_init', 'sb_register_home_stack_sidebars');
-function sb_register_home_stack_sidebars(): void
-{
-    register_sidebar([
-        'name'          => 'Валютный блок22',
-        'id'            => 'stack-currency',
-        'description'   => 'Редактируемый валютный блок',
-        'before_widget' => '',
-        'after_widget'  => '',
-        'before_title'  => '',
-        'after_title'   => '',
-        'show_in_rest'  => true,
-    ]);
-}
 
-add_action('init', 'sb_register_home_stack_patterns');
-function sb_register_home_stack_patterns(): void
-{
-    if (function_exists('register_block_pattern_category')) {
-        register_block_pattern_category(
-            'slavbank-home-stack',
-            [
-                'label' => 'Славянбанк: Home Stack',
-            ]
-        );
-    }
-
-    if (!function_exists('register_block_pattern')) {
-        return;
-    }
-
-    register_block_pattern(
-        'slavbank/home-stack-currency-card',
-        [
-            'title'       => 'Валютный блок для home-stack',
-            'categories'  => ['slavbank-home-stack'],
-            'description' => 'Готовая карточка курсов валют для вставки в home-stack.',
-            'content'     => <<<HTML
-<!-- wp:group {"className":"bento-card reveal is-in home-stack-card--currency","templateLock":"contentOnly"} -->
-<div class="wp-block-group bento-card reveal is-in home-stack-card--currency">
-
-  <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"6px","bottom":"10px"}}}} -->
-  <h3 style="margin-top:6px;margin-bottom:10px;">Курсы обмена валют в кассе банка</h3>
-  <!-- /wp:heading -->
-
-  <!-- wp:paragraph {"className":"kicker"} -->
-  <p class="kicker">на 25.02.2026 г.</p>
-  <!-- /wp:paragraph -->
-
-  <!-- wp:paragraph {"className":"fine","style":{"spacing":{"margin":{"top":"8px"}}}} -->
-  <p class="fine" style="margin-top:8px;"><strong>Валюта:</strong> Покупка / Продажа</p>
-  <!-- /wp:paragraph -->
-
-  <!-- wp:group {"className":"rates"} -->
-  <div class="wp-block-group rates">
-
-    <!-- wp:group {"className":"rate-row"} -->
-    <div class="wp-block-group rate-row">
-      <!-- wp:paragraph {"className":"mono"} --><p class="mono">USD</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"muted"} --><p class="muted">покупка</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"mono"} --><p class="mono">77.00</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"muted"} --><p class="muted">продажа</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"mono"} --><p class="mono">80.00</p><!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:group -->
-
-    <!-- wp:group {"className":"rate-row"} -->
-    <div class="wp-block-group rate-row">
-      <!-- wp:paragraph {"className":"mono"} --><p class="mono">EUR</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"muted"} --><p class="muted">покупка</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"mono"} --><p class="mono">88.00</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"muted"} --><p class="muted">продажа</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"mono"} --><p class="mono">92.50</p><!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:group -->
-
-    <!-- wp:group {"className":"rate-row"} -->
-    <div class="wp-block-group rate-row">
-      <!-- wp:paragraph {"className":"mono"} --><p class="mono">CNY</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"muted"} --><p class="muted">покупка</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"mono"} --><p class="mono">11.00</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"muted"} --><p class="muted">продажа</p><!-- /wp:paragraph -->
-      <!-- wp:paragraph {"className":"mono"} --><p class="mono">11.90</p><!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:group -->
-
-  </div>
-  <!-- /wp:group -->
-
-  <!-- wp:paragraph {"className":"fine","style":{"spacing":{"margin":{"top":"8px"}}}} -->
-  <p class="fine" style="margin-top:8px;">АО НКБ "СЛАВЯНБАНК"</p>
-  <!-- /wp:paragraph -->
-
-</div>
-<!-- /wp:group -->
-HTML
-        ]
-    );
-}
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -109,6 +11,8 @@ require_once get_template_directory() . '/inc/python-routes-wave2.php';
 require_once get_template_directory() . '/inc/python-routes-wave4.php';
 require_once get_template_directory() . '/inc/content-slots.php';
 require_once get_template_directory() . '/inc/page-mode.php';
+require_once get_template_directory() . '/inc/home-stack-data.php';
+require_once get_template_directory() . '/inc/admin-home-stack.php';
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
 
 
@@ -134,8 +38,8 @@ if (!function_exists('sb_alpha_force_404')) {
         exit;
     }
 }
-
-
+// actions 
+add_action('after_setup_theme', 'sb_alpha_maybe_seed_home_currency_widget');
 
 
 function sb_alpha_setup(): void

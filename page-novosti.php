@@ -92,15 +92,6 @@ get_header();
                   </article>
                 <?php endwhile; ?>
               </div>
-
-              <div class="section-empty" data-news-empty hidden>
-                <div class="empty-ic">✦</div>
-                <div>
-                  <div style="font-weight:600;">На этой странице ничего не найдено</div>
-                  <div class="muted" style="margin-top:4px;">Сбросьте локальный фильтр и просмотрите все публикации на странице.</div>
-                </div>
-              </div>
-
               <?php
               $pagination = paginate_links([
                   'base' => add_query_arg('paged', '%#%', sb_alpha_url('novosti')),
@@ -122,11 +113,12 @@ get_header();
 
               <?php wp_reset_postdata(); ?>
             <?php else : ?>
-              <div class="section-empty">
+
+              <div class="section-empty" data-news-empty hidden>
                 <div class="empty-ic">✦</div>
                 <div>
-                  <div style="font-weight:600;">Публикации пока не добавлены</div>
-                  <div class="muted" style="margin-top:4px;">После публикации записей WordPress этот архив начнет наполняться автоматически.</div>
+                  <div style="font-weight:600;">На этой странице ничего не найдено</div>
+                  <div class="muted" style="margin-top:4px;">Сбросьте локальный фильтр и просмотрите все публикации на странице.</div>
                 </div>
               </div>
             <?php endif; ?>
