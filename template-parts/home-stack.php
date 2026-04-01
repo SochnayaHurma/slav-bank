@@ -1,5 +1,11 @@
 <?php
 $currency_widget = sb_alpha_get_home_currency_widget_data();
+$visible_rates = array_values(array_filter(
+    (array) ($currency_widget['rates'] ?? []),
+    static function ($rate): bool {
+        return is_array($rate) && (!array_key_exists('visible', $rate) || !empty($rate['visible']));
+    }
+));
 $publications = sb_alpha_get_recent_publications(4);
 
 $sections = [
@@ -30,7 +36,19 @@ $categories = array_merge(
         <div class="fine" style="margin-top:8px;"><b>Валюта:</b> Покупка / Продажа</div>
 
         <div class="rates">
-          <div class="rate-row"><span class="mono">USD</span><span class="muted">покупка</span><span class="mono">77.00</span><span class="muted">продажа</span><span class="mono">80.00</span></div><div class="rate-row"><span class="mono">EUR</span><span class="muted">покупка</span><span class="mono">88.00</span><span class="muted">продажа</span><span class="mono">92.50</span></div><div class="rate-row"><span class="mono">CNY</span><span class="muted">покупка</span><span class="mono">11.00</span><span class="muted">продажа</span><span class="mono">11.90</span></div>
+          <?php if (!empty($visible_rates)) : ?>
+            <?php foreach ($visible_rates as $rate) : ?>
+              <div class="rate-row">
+                <span class="mono"><?php echo esc_html((string) ($rate['code'] ?? '')); ?></span>
+                <span class="muted">покупка</span>
+                <span class="mono"><?php echo esc_html((string) ($rate['buy'] ?? '')); ?></span>
+                <span class="muted">продажа</span>
+                <span class="mono"><?php echo esc_html((string) ($rate['sell'] ?? '')); ?></span>
+              </div>
+            <?php endforeach; ?>
+          <?php else : ?>
+            <div class="fine muted">Нет валют, отмеченных для показа.</div>
+          <?php endif; ?>
         </div>
         <div class="fine" style="margin-top:8px;">АО НКБ "СЛАВЯНБАНК"</div>
       </div>

@@ -15,14 +15,22 @@ function sb_alpha_get_home_currency_widget_defaults(): array
         'button_url'    => '/kursy-valyut/',
         'rates'         => [
             [
-                'code' => 'USD',
-                'buy'  => '89.50',
-                'sell' => '91.20',
+                'code'    => 'USD',
+                'buy'     => '77.00',
+                'sell'    => '80.00',
+                'visible' => 1,
             ],
             [
-                'code' => 'EUR',
-                'buy'  => '96.10',
-                'sell' => '98.40',
+                'code'    => 'EUR',
+                'buy'     => '88.00',
+                'sell'    => '92.50',
+                'visible' => 1,
+            ],
+            [
+                'code'    => 'CNY',
+                'buy'     => '11.00',
+                'sell'    => '11.90',
+                'visible' => 1,
             ],
         ],
     ];
@@ -66,9 +74,10 @@ function sb_alpha_sanitize_home_currency_widget($input): array
         }
 
         $output['rates'][] = [
-            'code' => $code,
-            'buy'  => $buy,
-            'sell' => $sell,
+            'code'    => $code,
+            'buy'     => $buy,
+            'sell'    => $sell,
+            'visible' => !empty($rate['visible']) ? 1 : 0,
         ];
     }
 
@@ -90,9 +99,27 @@ function sb_alpha_get_home_currency_widget_data(): array
 
     $data = wp_parse_args($saved, $defaults);
 
-    if (empty($data['rates']) || !is_array($data['rates'])) {
-        $data['rates'] = $defaults['rates'];
+    $normalized_rates = [];
+    if (!empty($data['rates']) && is_array($data['rates'])) {
+        foreach ($data['rates'] as $rate) {
+            if (!is_array($rate)) {
+                continue;
+            }
+
+            $normalized_rates[] = [
+                'code'    => (string) ($rate['code'] ?? ''),
+                'buy'     => (string) ($rate['buy'] ?? ''),
+                'sell'    => (string) ($rate['sell'] ?? ''),
+                'visible' => array_key_exists('visible', $rate) ? (int) !empty($rate['visible']) : 1,
+            ];
+        }
     }
+
+    if (empty($normalized_rates)) {
+        $normalized_rates = $defaults['rates'];
+    }
+
+    $data['rates'] = $normalized_rates;
 
     return $data;
 }
