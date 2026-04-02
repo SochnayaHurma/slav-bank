@@ -575,44 +575,63 @@ function sb_alpha_get_search_results_query(int $paged = 1): ?WP_Query
  */
 function sb_alpha_kill_global_styles(): void
 {
-    // Удаляем отрисовку стилей в head и footer
+    if (sb_alpha_should_preserve_wp_post_styles()) {
+        return;
+    }
+
     remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
     remove_action('wp_footer', 'wp_enqueue_global_styles', 1);
 
-    // Удаляем поддержку дуотонов (тоже генерируют много лишнего CSS)
     remove_action('wp_head', 'wp_render_duotone_support', 10);
     remove_action('wp_footer', 'wp_render_duotone_support', 10);
 
-    // Если используется классическая тема, WP иногда вешает их сюда
     remove_action('wp_enqueue_scripts', 'wp_enqueue_classic_theme_styles');
 }
-add_action('init', 'sb_alpha_kill_global_styles');
+add_action('template_redirect', 'sb_alpha_kill_global_styles', 1);
 
-/**
- * Дополнительная очистка через фильтры (на случай, если плагины пытаются их вернуть)
- */
-add_filter('styles_inline_size_limit', '__return_zero'); // Запрещает инлайнить стили
-add_filter('print_late_styles', '__return_false');       // Запрещает позднюю печать стилей
+
+function sb_alpha_styles_inline_size_limit($limit)
+{
+    if (sb_alpha_should_preserve_wp_post_styles()) {
+        return $limit;
+    }
+
+    return 0;
+}
+add_filter('styles_inline_size_limit', 'sb_alpha_styles_inline_size_limit');
+
+function sb_alpha_print_late_styles($print)
+{
+    if (sb_alpha_should_preserve_wp_post_styles()) {
+        return $print;
+    }
+
+    return false;
+}
+add_filter('print_late_styles', 'sb_alpha_print_late_styles');     // Запрещает позднюю печать стилей
 /**
  * Агрессивная очистка заголовка и дефолтных стилей
  */
 function sb_alpha_nuclear_cleanup(): void
 {
-    // 1. Убираем те самые inline-стили из вашего скриншота
-    wp_dequeue_style('global-styles');                // Переменные theme.json
-    wp_dequeue_style('classic-theme-styles');         // Стили старых тем
-    wp_dequeue_style('wp-block-library');             // Базовые блоки
-    wp_dequeue_style('wp-block-library-theme');       // Тема блоков
-    wp_dequeue_style('wp-img-auto-sizes-contain');    // Стили картинок (WP 6.7+)
-    
-    // 2. Убираем мусорные мета-теги
-    remove_action('wp_head', 'rsd_link');                // Ссылка для внешних редакторов
-    remove_action('wp_head', 'wlwmanifest_link');        // Ссылка для Windows Live Writer
-    remove_action('wp_head', 'wp_generator');            // Версия WordPress
-    remove_action('wp_head', 'wp_shortlink_wp_head');    // Короткая ссылка страницы
-    remove_action('wp_head', 'rest_output_link_wp_head');// Ссылка на WP REST API
-    remove_action('wp_head', 'wp_resource_hints', 2);    // dns-prefetch (localhost и прочее)
+    if (sb_alpha_should_preserve_wp_post_styles()) {
+        return;
+    }
+
+    wp_dequeue_style('global-styles');
+    wp_dequeue_style('classic-theme-styles');
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('wp-img-auto-sizes-contain');
+
+    remove_action('wp_head', 'rsd_link');
+    remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'wp_generator');
+    remove_action('wp_head', 'wp_shortlink_wp_head');
+    remove_action('wp_head', 'rest_output_link_wp_head');
+    remove_action('wp_head', 'wp_resource_hints', 2);
 }
+add_action('wp_enqueue_scripts', 'sb_alpha_nuclear_cleanup', 1000);
 
 // Запускаем на очень позднем этапе (приоритет 1000)
 add_action('wp_enqueue_scripts', 'sb_alpha_nuclear_cleanup', 1000);
@@ -630,3 +649,9 @@ add_action('init', function() {
     // SVG фильтры, которые WP вставляет в начало <body>
     remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
 });
+
+//helpers
+function sb_alpha_should_preserve_wp_post_styles(): bool
+{
+    return !is_admin() && is_singular('post');
+}
