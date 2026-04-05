@@ -262,7 +262,7 @@ if (!function_exists('sb_alpha_reporting_migration_render_annual_shelf')) {
             $kind = esc_html(sb_alpha_reporting_migration_kind($url));
 
             $cards[] = <<<HTML
-<!-- wp:group {"className":"sbp-doc-card","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"sbp-doc-card"} -->
 <div class="wp-block-group sbp-doc-card"><!-- wp:paragraph {"className":"sbp-doc-kind"} -->
 <p class="sbp-doc-kind">{$kind}</p>
 <!-- /wp:paragraph -->
@@ -275,11 +275,9 @@ if (!function_exists('sb_alpha_reporting_migration_render_annual_shelf')) {
 <p class="sbp-doc-meta">{$meta}</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="{$url}">Открыть документ</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
+<!-- wp:paragraph {"className":"sbp-doc-action"} -->
+<p class="sbp-doc-action"><a class="btn primary" href="{$url}">Открыть документ</a></p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 HTML;
         }
@@ -287,9 +285,8 @@ HTML;
         $cards_markup = implode("\n\n", $cards);
 
         return <<<HTML
-<!-- wp:group {"className":"block sbp-block sbp-block--annual","layout":{"type":"default"}} -->
-<div class="wp-block-group block sbp-block sbp-block--annual"><div class="container"><!-- wp:group {"className":"section-card sbp-section-card","layout":{"type":"default"}} -->
-<div class="wp-block-group section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
+<!-- wp:group {"className":"sbp-block sbp-block--annual section-card sbp-section-card"} -->
+<div class="wp-block-group sbp-block sbp-block--annual section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
 <p class="kicker">Годовая отчетность</p>
 <!-- /wp:paragraph -->
 
@@ -297,10 +294,9 @@ HTML;
 <h2>Документы</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"className":"sbp-doc-shelf","layout":{"type":"grid","columnCount":2,"minimumColumnWidth":"18rem"}} -->
+<!-- wp:group {"className":"sbp-doc-shelf"} -->
 <div class="wp-block-group sbp-doc-shelf">{$cards_markup}</div>
 <!-- /wp:group --></div>
-<!-- /wp:group --></div></div>
 <!-- /wp:group -->
 HTML;
     }
@@ -315,17 +311,20 @@ if (!function_exists('sb_alpha_reporting_migration_render_link_row')) {
         $kind = esc_html(sb_alpha_reporting_migration_kind($url));
 
         return <<<HTML
-<!-- wp:group {"className":"sbp-link-row","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"top"}} -->
-<div class="wp-block-group sbp-link-row"><div class="wp-block-group"><!-- wp:paragraph -->
+<!-- wp:group {"className":"sbp-link-row"} -->
+<div class="wp-block-group sbp-link-row"><!-- wp:group {"className":"sbp-link-text"} -->
+<div class="wp-block-group sbp-link-text"><!-- wp:paragraph -->
 <p><strong><a href="{$url}">{$title}</a></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"sbp-doc-meta"} -->
 <p class="sbp-doc-meta">{$meta}</p>
 <!-- /wp:paragraph --></div>
-<div class="wp-block-group"><!-- wp:paragraph {"className":"sbp-link-kind"} -->
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"sbp-link-kind"} -->
 <p class="sbp-link-kind">{$kind} →</p>
-<!-- /wp:paragraph --></div></div>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 HTML;
     }
@@ -344,9 +343,8 @@ if (!function_exists('sb_alpha_reporting_migration_render_year_pattern')) {
         $rows_markup = implode("\n\n", $rows);
 
         return <<<HTML
-<!-- wp:group {"className":"block sbp-block sbp-block--year","layout":{"type":"default"}} -->
-<div class="wp-block-group block sbp-block sbp-block--year"><div class="container"><!-- wp:group {"className":"section-card sbp-section-card","layout":{"type":"default"}} -->
-<div class="wp-block-group section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
+<!-- wp:group {"className":"sbp-block sbp-block--year section-card sbp-section-card"} -->
+<div class="wp-block-group sbp-block sbp-block--year section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
 <p class="kicker">Промежуточная отчетность</p>
 <!-- /wp:paragraph -->
 
@@ -355,11 +353,10 @@ if (!function_exists('sb_alpha_reporting_migration_render_year_pattern')) {
 <!-- /wp:heading -->
 
 <!-- wp:details {"summary":"{$title}","className":"sbp-accordion"} -->
-<details class="wp-block-details sbp-accordion"><summary>{$title}</summary><!-- wp:group {"className":"sbp-link-list","layout":{"type":"default"}} -->
+<details class="wp-block-details sbp-accordion"><summary>{$title}</summary><!-- wp:group {"className":"sbp-link-list"} -->
 <div class="wp-block-group sbp-link-list">{$rows_markup}</div>
 <!-- /wp:group --></details>
 <!-- /wp:details --></div>
-<!-- /wp:group --></div></div>
 <!-- /wp:group -->
 HTML;
     }

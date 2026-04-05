@@ -12,16 +12,18 @@ get_header();
 ?>
 
 <main id="main" class="sb-builder-page sb-builder-page--reporting">
-  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <div class="sb-builder-page__content">
-      <?php the_content(); ?>
-    </div>
-  <?php endwhile; endif; ?>
-
   <section class="block dashv2">
     <div class="container">
-      <div class="bento">
-        <?php get_template_part('template-parts/home', 'stack'); ?>
+      <div class="sb-builder-layout">
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+          <div class="sb-builder-page__content">
+            <?php the_content(); ?>
+          </div>
+        <?php endwhile; endif; ?>
+
+        <aside class="sb-builder-page__sidebar">
+          <?php get_template_part('template-parts/home', 'stack'); ?>
+        </aside>
       </div>
     </div>
   </section>

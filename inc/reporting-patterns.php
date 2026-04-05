@@ -31,11 +31,9 @@ if (!function_exists('sb_alpha_reporting_pattern_hero')) {
     function sb_alpha_reporting_pattern_hero(): string
     {
         return sb_alpha_reporting_pattern_render(<<<'HTML'
-<!-- wp:group {"className":"block sbp-block sbp-block--hero","layout":{"type":"default"}} -->
-<div class="wp-block-group block sbp-block sbp-block--hero"><div class="container"><!-- wp:group {"className":"hero-wrap sbp-reporting-hero","layout":{"type":"default"}} -->
-<div class="wp-block-group hero-wrap sbp-reporting-hero"><!-- wp:columns {"verticalAlignment":"top","className":"sbp-hero-columns"} -->
-<div class="wp-block-columns are-vertically-aligned-top sbp-hero-columns"><!-- wp:column {"verticalAlignment":"top","width":"72%"} -->
-<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:72%"><!-- wp:paragraph {"className":"kicker"} -->
+<!-- wp:group {"className":"sbp-block sbp-block--hero hero-wrap sbp-reporting-hero"} -->
+<div class="wp-block-group sbp-block sbp-block--hero hero-wrap sbp-reporting-hero"><!-- wp:group {"className":"sbp-hero-main"} -->
+<div class="wp-block-group sbp-hero-main"><!-- wp:paragraph {"className":"kicker"} -->
 <p class="kicker">Информация банка</p>
 <!-- /wp:paragraph -->
 
@@ -47,20 +45,13 @@ if (!function_exists('sb_alpha_reporting_pattern_hero')) {
 <p>Бухгалтерская (финансовая) отчетность раскрывается в ограниченном объёме в соответствии с Решением Совета директоров Банка России от 24 декабря 2024 года.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons {"className":"sbp-hero-actions"} -->
-<div class="wp-block-buttons sbp-hero-actions"><!-- wp:button {"className":"is-style-fill"} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="__REPORTING_HASH__">Содержание</a></div>
-<!-- /wp:button -->
+<!-- wp:paragraph {"className":"sbp-hero-actions"} -->
+<p class="sbp-hero-actions"><a class="btn primary" href="__REPORTING_HASH__">Содержание</a> <a class="btn outline" href="__HOME_URL__">На главную</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
 
-<!-- wp:button {"className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="__HOME_URL__">На главную</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"verticalAlignment":"top","width":"28%"} -->
-<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:28%"><!-- wp:group {"className":"sbp-hero-links"} -->
-<div class="wp-block-group sbp-hero-links"><!-- wp:paragraph {"className":"sbp-hero-link"} -->
+<!-- wp:group {"className":"sbp-hero-side"} -->
+<div class="wp-block-group sbp-hero-side"><!-- wp:paragraph {"className":"sbp-hero-link"} -->
 <p class="sbp-hero-link"><a href="__REQUISITES_URL__">Реквизиты</a></p>
 <!-- /wp:paragraph -->
 
@@ -68,9 +59,6 @@ if (!function_exists('sb_alpha_reporting_pattern_hero')) {
 <p class="sbp-hero-link"><a href="__INFO_URL__">Информация банка</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns --></div>
-<!-- /wp:group --></div></div>
 <!-- /wp:group -->
 HTML);
     }
@@ -80,9 +68,8 @@ if (!function_exists('sb_alpha_reporting_pattern_summary')) {
     function sb_alpha_reporting_pattern_summary(): string
     {
         return <<<'HTML'
-<!-- wp:group {"anchor":"reporting-content","className":"block sbp-block sbp-block--summary","layout":{"type":"default"}} -->
-<div class="wp-block-group block sbp-block sbp-block--summary" id="reporting-content"><div class="container"><!-- wp:group {"className":"section-card section-card--accent sbp-section-card","layout":{"type":"default"}} -->
-<div class="wp-block-group section-card section-card--accent sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
+<!-- wp:group {"anchor":"reporting-content","className":"sbp-block sbp-block--summary section-card section-card--accent sbp-section-card"} -->
+<div class="wp-block-group sbp-block sbp-block--summary section-card section-card--accent sbp-section-card" id="reporting-content"><!-- wp:paragraph {"className":"kicker"} -->
 <p class="kicker">АО НКБ «СЛАВЯНБАНК»</p>
 <!-- /wp:paragraph -->
 
@@ -97,7 +84,6 @@ if (!function_exists('sb_alpha_reporting_pattern_summary')) {
 <!-- wp:paragraph -->
 <p>Ниже приведены документы по годовой и промежуточной бухгалтерской (финансовой) отчетности банка в едином карточном формате. При необходимости этот блок можно редактировать как обычный текст без изменения внешней композиции страницы.</p>
 <!-- /wp:paragraph --></div>
-<!-- /wp:group --></div></div>
 <!-- /wp:group -->
 HTML;
     }
@@ -107,9 +93,8 @@ if (!function_exists('sb_alpha_reporting_pattern_annual_shelf')) {
     function sb_alpha_reporting_pattern_annual_shelf(): string
     {
         return sb_alpha_reporting_pattern_render(<<<'HTML'
-<!-- wp:group {"className":"block sbp-block sbp-block--annual","layout":{"type":"default"}} -->
-<div class="wp-block-group block sbp-block sbp-block--annual"><div class="container"><!-- wp:group {"className":"section-card sbp-section-card","layout":{"type":"default"}} -->
-<div class="wp-block-group section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
+<!-- wp:group {"className":"sbp-block sbp-block--annual section-card sbp-section-card"} -->
+<div class="wp-block-group sbp-block sbp-block--annual section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
 <p class="kicker">Годовая отчетность</p>
 <!-- /wp:paragraph -->
 
@@ -117,8 +102,8 @@ if (!function_exists('sb_alpha_reporting_pattern_annual_shelf')) {
 <h2>Документы</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"className":"sbp-doc-shelf","layout":{"type":"grid","columnCount":2,"minimumColumnWidth":"18rem"}} -->
-<div class="wp-block-group sbp-doc-shelf"><!-- wp:group {"className":"sbp-doc-card","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"sbp-doc-shelf"} -->
+<div class="wp-block-group sbp-doc-shelf"><!-- wp:group {"className":"sbp-doc-card"} -->
 <div class="wp-block-group sbp-doc-card"><!-- wp:paragraph {"className":"sbp-doc-kind"} -->
 <p class="sbp-doc-kind">PDF</p>
 <!-- /wp:paragraph -->
@@ -131,14 +116,12 @@ if (!function_exists('sb_alpha_reporting_pattern_annual_shelf')) {
 <p class="sbp-doc-meta">(Опубликовано 11.04.2025г. Утверждена на годовом ОСА 10.04.2025г.)</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="__ANNUAL_2024_URL__">Открыть документ</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
+<!-- wp:paragraph {"className":"sbp-doc-action"} -->
+<p class="sbp-doc-action"><a class="btn primary" href="__ANNUAL_2024_URL__">Открыть документ</a></p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"sbp-doc-card","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"sbp-doc-card"} -->
 <div class="wp-block-group sbp-doc-card"><!-- wp:paragraph {"className":"sbp-doc-kind"} -->
 <p class="sbp-doc-kind">PDF</p>
 <!-- /wp:paragraph -->
@@ -151,14 +134,11 @@ if (!function_exists('sb_alpha_reporting_pattern_annual_shelf')) {
 <p class="sbp-doc-meta">(Опубликовано 12.03.2024г. Утверждена на годовом ОСА 02.04.2024г.)</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="__ANNUAL_2023_URL__">Открыть документ</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
+<!-- wp:paragraph {"className":"sbp-doc-action"} -->
+<p class="sbp-doc-action"><a class="btn primary" href="__ANNUAL_2023_URL__">Открыть документ</a></p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
-<!-- /wp:group --></div></div>
 <!-- /wp:group -->
 HTML);
     }
@@ -168,9 +148,8 @@ if (!function_exists('sb_alpha_reporting_pattern_year_section')) {
     function sb_alpha_reporting_pattern_year_section(): string
     {
         return sb_alpha_reporting_pattern_render(<<<'HTML'
-<!-- wp:group {"className":"block sbp-block sbp-block--year","layout":{"type":"default"}} -->
-<div class="wp-block-group block sbp-block sbp-block--year"><div class="container"><!-- wp:group {"className":"section-card sbp-section-card","layout":{"type":"default"}} -->
-<div class="wp-block-group section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
+<!-- wp:group {"className":"sbp-block sbp-block--year section-card sbp-section-card"} -->
+<div class="wp-block-group sbp-block sbp-block--year section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
 <p class="kicker">Промежуточная отчетность</p>
 <!-- /wp:paragraph -->
 
@@ -179,48 +158,56 @@ if (!function_exists('sb_alpha_reporting_pattern_year_section')) {
 <!-- /wp:heading -->
 
 <!-- wp:details {"summary":"Промежуточная бухгалтерская (финансовая) отчетность за 2025 год","className":"sbp-accordion"} -->
-<details class="wp-block-details sbp-accordion"><summary>Промежуточная бухгалтерская (финансовая) отчетность за 2025 год</summary><!-- wp:group {"className":"sbp-link-list","layout":{"type":"default"}} -->
-<div class="wp-block-group sbp-link-list"><!-- wp:group {"className":"sbp-link-row","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"top"}} -->
-<div class="wp-block-group sbp-link-row"><div class="wp-block-group"><!-- wp:paragraph -->
+<details class="wp-block-details sbp-accordion"><summary>Промежуточная бухгалтерская (финансовая) отчетность за 2025 год</summary><!-- wp:group {"className":"sbp-link-list"} -->
+<div class="wp-block-group sbp-link-list"><!-- wp:group {"className":"sbp-link-row"} -->
+<div class="wp-block-group sbp-link-row"><!-- wp:group {"className":"sbp-link-text"} -->
+<div class="wp-block-group sbp-link-text"><!-- wp:paragraph -->
 <p><strong><a href="__INTERIM_2025_Q1_URL__">Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2025 г.</a></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"sbp-doc-meta"} -->
 <p class="sbp-doc-meta">(опубликовано 16.05.2025г.)</p>
 <!-- /wp:paragraph --></div>
-<div class="wp-block-group"><!-- wp:paragraph {"className":"sbp-link-kind"} -->
-<p class="sbp-link-kind">PDF →</p>
-<!-- /wp:paragraph --></div></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"sbp-link-row","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"top"}} -->
-<div class="wp-block-group sbp-link-row"><div class="wp-block-group"><!-- wp:paragraph -->
+<!-- wp:paragraph {"className":"sbp-link-kind"} -->
+<p class="sbp-link-kind">PDF →</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"sbp-link-row"} -->
+<div class="wp-block-group sbp-link-row"><!-- wp:group {"className":"sbp-link-text"} -->
+<div class="wp-block-group sbp-link-text"><!-- wp:paragraph -->
 <p><strong><a href="__INTERIM_2025_H1_URL__">Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2025 г.</a></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"sbp-doc-meta"} -->
 <p class="sbp-doc-meta">(опубликовано 07.08.2025г.)</p>
 <!-- /wp:paragraph --></div>
-<div class="wp-block-group"><!-- wp:paragraph {"className":"sbp-link-kind"} -->
-<p class="sbp-link-kind">PDF →</p>
-<!-- /wp:paragraph --></div></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"sbp-link-row","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"top"}} -->
-<div class="wp-block-group sbp-link-row"><div class="wp-block-group"><!-- wp:paragraph -->
+<!-- wp:paragraph {"className":"sbp-link-kind"} -->
+<p class="sbp-link-kind">PDF →</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"sbp-link-row"} -->
+<div class="wp-block-group sbp-link-row"><!-- wp:group {"className":"sbp-link-text"} -->
+<div class="wp-block-group sbp-link-text"><!-- wp:paragraph -->
 <p><strong><a href="__INTERIM_2025_9M_URL__">Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2025 г.</a></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"sbp-doc-meta"} -->
 <p class="sbp-doc-meta">(опубликовано 12.11.2025г.)</p>
 <!-- /wp:paragraph --></div>
-<div class="wp-block-group"><!-- wp:paragraph {"className":"sbp-link-kind"} -->
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"sbp-link-kind"} -->
 <p class="sbp-link-kind">PDF →</p>
-<!-- /wp:paragraph --></div></div>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></details>
 <!-- /wp:details --></div>
-<!-- /wp:group --></div></div>
 <!-- /wp:group -->
 HTML);
     }
@@ -245,9 +232,15 @@ function sb_alpha_register_reporting_patterns(): void
         return;
     }
 
-    register_block_pattern_category('sb-alpha', [
-        'label' => 'SB Alpha',
-    ]);
+    if (class_exists('WP_Block_Pattern_Categories_Registry')) {
+        $category_registry = WP_Block_Pattern_Categories_Registry::get_instance();
+
+        if (!$category_registry->is_registered('sb-alpha')) {
+            register_block_pattern_category('sb-alpha', [
+                'label' => 'SB Alpha',
+            ]);
+        }
+    }
 
     $patterns = [
         'sb-alpha/reporting-page-starter' => [
@@ -276,6 +269,26 @@ function sb_alpha_register_reporting_patterns(): void
             'content' => sb_alpha_reporting_pattern_year_section(),
         ],
     ];
+
+    if (class_exists('WP_Block_Patterns_Registry')) {
+        $registry = WP_Block_Patterns_Registry::get_instance();
+
+        foreach ($patterns as $name => $data) {
+            if ($registry->is_registered($name)) {
+                continue;
+            }
+
+            register_block_pattern($name, [
+                'title' => $data['title'],
+                'description' => $data['description'],
+                'categories' => ['sb-alpha'],
+                'inserter' => true,
+                'content' => $data['content'],
+            ]);
+        }
+
+        return;
+    }
 
     foreach ($patterns as $name => $data) {
         register_block_pattern($name, [
