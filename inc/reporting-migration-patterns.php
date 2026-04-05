@@ -256,36 +256,21 @@ if (!function_exists('sb_alpha_reporting_migration_render_annual_shelf')) {
         $cards = [];
 
         foreach ($items as $item) {
-            $title = esc_html((string) ($item['title'] ?? ''));
-            $meta = esc_html((string) ($item['footer'] ?? ''));
-            $url = esc_url((string) ($item['url'] ?? '#'));
-            $kind = esc_html(sb_alpha_reporting_migration_kind($url));
-
-            $cards[] = <<<HTML
-<!-- wp:group {"className":"sbp-doc-card"} -->
-<div class="wp-block-group sbp-doc-card"><!-- wp:paragraph {"className":"sbp-doc-kind"} -->
-<p class="sbp-doc-kind">{$kind}</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"level":3,"className":"sbp-doc-title"} -->
-<h3 class="sbp-doc-title">{$title}</h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"className":"sbp-doc-meta"} -->
-<p class="sbp-doc-meta">{$meta}</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"sbp-doc-action"} -->
-<p class="sbp-doc-action"><a class="btn primary" href="{$url}">Открыть документ</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-HTML;
+            $cards[] = function_exists('sb_alpha_reporting_doc_card_markup')
+                ? sb_alpha_reporting_doc_card_markup(
+                    (string) ($item['title'] ?? ''),
+                    (string) ($item['footer'] ?? ''),
+                    (string) ($item['url'] ?? '#'),
+                    'Открыть документ',
+                    sb_alpha_reporting_migration_kind((string) ($item['url'] ?? '#'))
+                )
+                : '';
         }
 
-        $cards_markup = implode("\n\n", $cards);
+        $cards_markup = implode("\n\n", array_filter($cards));
 
         return <<<HTML
-<!-- wp:group {"className":"sbp-block sbp-block--annual section-card sbp-section-card"} -->
+<!-- wp:group {"className":"sbp-block sbp-block--annual section-card sbp-section-card","lock":{"move":true,"remove":true}} -->
 <div class="wp-block-group sbp-block sbp-block--annual section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
 <p class="kicker">Годовая отчетность</p>
 <!-- /wp:paragraph -->
@@ -302,34 +287,6 @@ HTML;
     }
 }
 
-if (!function_exists('sb_alpha_reporting_migration_render_link_row')) {
-    function sb_alpha_reporting_migration_render_link_row(array $item): string
-    {
-        $title = esc_html((string) ($item['title'] ?? ''));
-        $meta = esc_html((string) ($item['meta'] ?? ''));
-        $url = esc_url((string) ($item['url'] ?? '#'));
-        $kind = esc_html(sb_alpha_reporting_migration_kind($url));
-
-        return <<<HTML
-<!-- wp:group {"className":"sbp-link-row"} -->
-<div class="wp-block-group sbp-link-row"><!-- wp:group {"className":"sbp-link-text"} -->
-<div class="wp-block-group sbp-link-text"><!-- wp:paragraph -->
-<p><strong><a href="{$url}">{$title}</a></strong></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"sbp-doc-meta"} -->
-<p class="sbp-doc-meta">{$meta}</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"className":"sbp-link-kind"} -->
-<p class="sbp-link-kind">{$kind} →</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-HTML;
-    }
-}
-
 if (!function_exists('sb_alpha_reporting_migration_render_year_pattern')) {
     function sb_alpha_reporting_migration_render_year_pattern(array $section): string
     {
@@ -337,13 +294,22 @@ if (!function_exists('sb_alpha_reporting_migration_render_year_pattern')) {
         $rows = [];
 
         foreach ((array) ($section['items'] ?? []) as $item) {
-            $rows[] = sb_alpha_reporting_migration_render_link_row((array) $item);
+            if (!function_exists('sb_alpha_reporting_link_row_markup')) {
+                continue;
+            }
+
+            $rows[] = sb_alpha_reporting_link_row_markup(
+                (string) ($item['title'] ?? ''),
+                (string) ($item['meta'] ?? ''),
+                (string) ($item['url'] ?? '#'),
+                sb_alpha_reporting_migration_kind((string) ($item['url'] ?? '#'))
+            );
         }
 
         $rows_markup = implode("\n\n", $rows);
 
         return <<<HTML
-<!-- wp:group {"className":"sbp-block sbp-block--year section-card sbp-section-card"} -->
+<!-- wp:group {"className":"sbp-block sbp-block--year section-card sbp-section-card","lock":{"move":true,"remove":true}} -->
 <div class="wp-block-group sbp-block sbp-block--year section-card sbp-section-card"><!-- wp:paragraph {"className":"kicker"} -->
 <p class="kicker">Промежуточная отчетность</p>
 <!-- /wp:paragraph -->
