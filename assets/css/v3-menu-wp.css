@@ -1,0 +1,60 @@
+.v3-links--wp,
+.v3-mobile-links--wp {
+  display: block;
+}
+
+.v3-links--wp .v3-menu-list,
+.v3-mobile-links--wp .v3-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.v3-links--wp .v3-menu-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.v3-links--wp .v3-menu-list > li {
+  display: flex;
+}
+
+.v3-links--wp .v3-menu-list a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.v3-mobile-links--wp .v3-menu-list {
+  display: grid;
+  gap: 10px;
+}
+
+.v3-mobile-links--wp .v3-menu-list > li {
+  display: block;
+}
+
+.v3-mobile-links--wp .v3-menu-list a {
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+}
+
+.v3-variant-switch {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px 0;
+}
+
+.v3-variant-switch .route-chip {
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .v3-variant-switch {
+    padding-top: 6px;
+  }
+}
