@@ -28,9 +28,10 @@ $use_home_menu = $is_real_front
     || in_array($python_route_key, $v3_route_keys, true)
     || is_page($v3_page_slugs);
 
-$home_menu_candidate = get_theme_file_path('template-parts/site-menu-home.php');
-    get_template_part('template-parts/site', 'menu-home');
+$menu_variant = isset($_GET['menu_variant']) ? sanitize_key((string) wp_unslash($_GET['menu_variant'])) : '';
+$menu_template_part = $menu_variant === 'wp' ? 'menu-home-wp' : 'menu-home';
 
+get_template_part('template-parts/site', $menu_template_part);
 ?>
 
 <div class="overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Поиск по сайту">
