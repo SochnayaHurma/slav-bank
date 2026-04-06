@@ -1,10 +1,33 @@
 <?php
-$affiliate_documents = sb_alpha_get_info_bank_affiliate_documents();
-$control_document = sb_alpha_get_info_bank_control_document();
-$message_documents = sb_alpha_get_info_bank_message_documents();
+$helper = get_theme_file_path('inc/route-migration-bank-pages.php');
+if (is_string($helper) && $helper !== '' && file_exists($helper)) {
+    require_once $helper;
+}
+require get_theme_file_path('template-parts/routes/info-bank-page.php');
+
+
+<?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+if (function_exists('sb_alpha_route_page_has_migrated_content') && sb_alpha_route_page_has_migrated_content()) {
+    sb_alpha_route_render_editor_content_main();
+    return;
+}
+
+$affiliate_documents = function_exists('sb_alpha_get_info_bank_affiliate_documents')
+    ? sb_alpha_get_info_bank_affiliate_documents()
+    : [];
+$control_document = function_exists('sb_alpha_get_info_bank_control_document')
+    ? sb_alpha_get_info_bank_control_document()
+    : [];
+$message_documents = function_exists('sb_alpha_get_info_bank_message_documents')
+    ? sb_alpha_get_info_bank_message_documents()
+    : [];
+
 get_header();
 ?>
-
 <main id="main">
   <section class="block dashv2" id="info-bank">
     <div class="container">
@@ -27,15 +50,9 @@ get_header();
             </div>
 
             <div class="dash-tabs" id="documents" role="tablist" aria-label="Документы банка">
-              <button class="seg" role="tab" data-doc-tab="aff" aria-selected="true">
-                Аффилированные лица
-              </button>
-              <button class="seg" role="tab" data-doc-tab="control" aria-selected="false">
-                Список лиц, под контролем или значительным влиянием
-              </button>
-              <button class="seg" role="tab" data-doc-tab="msg" aria-selected="false">
-                Сообщения
-              </button>
+              <button class="seg" role="tab" data-doc-tab="aff" aria-selected="true">Аффилированные лица</button>
+              <button class="seg" role="tab" data-doc-tab="control" aria-selected="false">Список лиц, под контролем или значительным влиянием</button>
+              <button class="seg" role="tab" data-doc-tab="msg" aria-selected="false">Сообщения</button>
             </div>
 
             <div class="dash-panels">
@@ -47,10 +64,10 @@ get_header();
 
                 <div class="doc-list" style="margin-top: 12px;">
                   <?php foreach ($affiliate_documents as $item) : ?>
-                    <a class="doc-row" href="<?php echo esc_url((string) $item['url']); ?>" target="_blank" rel="noopener">
-                      <span class="doc-date"><?php echo esc_html((string) $item['date']); ?></span>
-                      <span class="doc-title"><?php echo esc_html((string) $item['title']); ?></span>
-                      <span class="doc-ext"><?php echo esc_html((string) $item['kind']); ?></span>
+                    <a class="doc-row" href="<?php echo esc_url((string) ($item['url'] ?? '')); ?>" target="_blank" rel="noopener">
+                      <span class="doc-date"><?php echo esc_html((string) ($item['date'] ?? '')); ?></span>
+                      <span class="doc-title"><?php echo esc_html((string) ($item['title'] ?? '')); ?></span>
+                      <span class="doc-ext"><?php echo esc_html((string) ($item['kind'] ?? 'XLS')); ?></span>
                       <span class="doc-arrow" aria-hidden="true">→</span>
                     </a>
                   <?php endforeach; ?>
@@ -59,24 +76,21 @@ get_header();
 
               <div class="dash-panel" data-doc-panel="control" hidden>
                 <div class="muted" style="line-height: 1.6;">
-                  Опубликовано: <?php echo esc_html((string) $control_document['published']); ?> ·
-                  Актуализировано: <?php echo esc_html((string) $control_document['updated']); ?>.
-                  Документ доступен в формате <?php echo esc_html((string) $control_document['kind']); ?>.
+                  Опубликовано: <?php echo esc_html((string) ($control_document['published'] ?? '')); ?> ·
+                  Актуализировано: <?php echo esc_html((string) ($control_document['updated'] ?? '')); ?>.
+                  Документ доступен в формате <?php echo esc_html((string) ($control_document['kind'] ?? 'PDF')); ?>.
                 </div>
 
-                <a class="doc-hero" href="<?php echo esc_url((string) $control_document['url']); ?>" target="_blank" rel="noopener" style="margin-top: 12px;">
-                  <span class="ico" aria-hidden="true">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                      <path d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" opacity=".8" />
-                      <path d="M14 3v4a2 2 0 0 0 2 2h4" stroke="currentColor" stroke-width="2" opacity=".5" />
-                    </svg>
-                  </span>
-                  <span>
-                    <strong><?php echo esc_html((string) $control_document['title']); ?></strong>
-                    <small class="muted">Скачать <?php echo esc_html((string) $control_document['kind']); ?></small>
-                  </span>
-                  <span class="arrow" aria-hidden="true">→</span>
-                </a>
+                <?php if (!empty($control_document['url'])) : ?>
+                  <a class="doc-hero" href="<?php echo esc_url((string) $control_document['url']); ?>" target="_blank" rel="noopener" style="margin-top: 12px;">
+                    <span class="ico" aria-hidden="true">📄</span>
+                    <span>
+                      <strong><?php echo esc_html((string) ($control_document['title'] ?? '')); ?></strong>
+                      <small class="muted">Скачать <?php echo esc_html((string) ($control_document['kind'] ?? 'PDF')); ?></small>
+                    </span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                  </a>
+                <?php endif; ?>
               </div>
 
               <div class="dash-panel" data-doc-panel="msg" hidden>
@@ -86,10 +100,10 @@ get_header();
 
                 <div class="doc-list" style="margin-top: 12px;">
                   <?php foreach ($message_documents as $item) : ?>
-                    <a class="doc-row" href="<?php echo esc_url((string) $item['url']); ?>" target="_blank" rel="noopener">
-                      <span class="doc-date"><?php echo esc_html((string) $item['date']); ?></span>
-                      <span class="doc-title"><?php echo esc_html((string) $item['title']); ?></span>
-                      <span class="doc-ext"><?php echo esc_html((string) $item['kind']); ?></span>
+                    <a class="doc-row" href="<?php echo esc_url((string) ($item['url'] ?? '')); ?>" target="_blank" rel="noopener">
+                      <span class="doc-date"><?php echo esc_html((string) ($item['date'] ?? '')); ?></span>
+                      <span class="doc-title"><?php echo esc_html((string) ($item['title'] ?? '')); ?></span>
+                      <span class="doc-ext"><?php echo esc_html((string) ($item['kind'] ?? 'PDF')); ?></span>
                       <span class="doc-arrow" aria-hidden="true">→</span>
                     </a>
                   <?php endforeach; ?>
@@ -104,5 +118,4 @@ get_header();
     </div>
   </section>
 </main>
-
 <?php get_footer(); ?>

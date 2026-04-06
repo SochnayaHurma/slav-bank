@@ -57,7 +57,8 @@ $home_menu_candidate = get_theme_file_path('template-parts/site-menu-home.php');
     <div id="searchHints" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px">
       <button class="btn soft" type="button" data-hint="Экспертиза контрактов">Экспертиза контрактов</button>
       <button class="btn soft" type="button" data-hint="Международные расчёты (SWIFT)">SWIFT</button>
-      <button class="btn soft" type="button" data-hint="Валютный контроль">Валютный контроль</button>
+      <!-- <button class="btn soft" type="button" data-hint="Валютный контроль">Валютный контроль</button> -->
+      <button class="btn soft" type="button" data-hint="ВЭД">ВЭД</button>
       <button class="btn soft" type="button" data-hint="Тарифы банка">Тарифы</button>
       <button class="btn soft" type="button" data-hint="Реквизиты">Реквизиты</button>
     </div>

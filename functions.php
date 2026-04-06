@@ -13,6 +13,12 @@ require_once get_template_directory() . '/inc/content-slots.php';
 require_once get_template_directory() . '/inc/page-mode.php';
 require_once get_template_directory() . '/inc/home-stack-data.php';
 require_once get_template_directory() . '/inc/admin-home-stack.php';
+
+// Миграции
+require_once get_template_directory() . '/inc/route-migration-tariffs.php';
+require_once get_template_directory() . '/migrations/slavbank-reporting-tariffs-migration-patterns.php';
+require_once get_template_directory() . '/migrations/slavbank-requisites-tariffs-nohero-migration-patterns.php';
+require_once get_template_directory() . '/migrations/slavbank-requisites-filled-migration.php';
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
 
 
@@ -131,6 +137,9 @@ function sb_alpha_document_title_parts(array $parts): array
         'napisat-v-bank' => 'Написать в банк - АО НКБ "СЛАВЯНБАНК"',
         'podderzhka' => 'Поддержка - АО НКБ "СЛАВЯНБАНК"',
         'tarify-banka' => 'Тарифы банка - АО НКБ "СЛАВЯНБАНК"',
+
+        'tarify-banka-html' => 'Тарифы банка - АО НКБ "СЛАВЯНБАНК"',
+
     ];
 
     foreach ($page_titles as $slug => $title) {
@@ -194,7 +203,8 @@ function sb_alpha_routes(): array
         'disclosur-regulatory' => sb_python_route_url('disclosur-regulatory'),
         'notaries' => sb_python_route_url('notaries'),
         'novosti' => sb_python_route_url('novosti'),
-        'tariffs' => sb_python_route_url('tariffs'),
+        'tariffs' => sb_alpha_wp_page_url('tarify-banka-html', sb_python_route_url('tariffs')),
+        // 'tariffs' => sb_python_route_url('tariffs'),
         'tariffs_rub' => sb_python_route_url('tariffs_rub'),
         'tariffs_slavny' => sb_python_route_url('tariffs_slavny'),
         'tariff_privetstvenny' => sb_python_route_url('tariff_privetstvenny'),
