@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/contacts-page",
+  "title": "Славянбанк / Страница контактов",
+  "category": "widgets",
+  "icon": "id-alt",
+  "description": "Полная страница контактов с hero, повторяемыми контактными карточками и динамическим sidebar.",
+  "textdomain": "slavbank",
+  "allowedBlocks": [
+    "slavbank/contact-item",
+    "slavbank/address-item",
+    "slavbank/hours-item",
+    "slavbank/info-item"
+  ],
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "Контакты"
+    },
+    "heroDescription": {
+      "type": "string",
+      "default": "Как связаться с банком: телефон, электронная почта, адрес и режим работы."
+    },
+    "heroImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "introTitle": {
+      "type": "string",
+      "default": "Контакты банка"
+    },
+    "introText": {
+      "type": "string",
+      "default": "Ниже — основные каналы связи, адрес и режим работы. Для обращений используйте форму «Написать в банк»."
+    },
+    "mapTitle": {
+      "type": "string",
+      "default": "Как нас найти"
+    },
+    "mapAddress": {
+      "type": "string",
+      "default": "г. Великий Новгород, ул. Черемнова-Конюхова, дом 12"
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-contacts-page",
+  "viewScript": "sb-contacts-page-view",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  }
+}

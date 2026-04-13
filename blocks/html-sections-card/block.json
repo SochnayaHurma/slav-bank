@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/html-sections-card",
+  "title": "Славянбанк / HTML sections card",
+  "category": "widgets",
+  "icon": "media-document",
+  "description": "Карточка из нескольких rich HTML-секций. Подходит для сложных информационных страниц.",
+  "textdomain": "slavbank",
+  "attributes": {
+    "sections": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

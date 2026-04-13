@@ -1,0 +1,33 @@
+# PHP
+/vendor/
+/composer.lock
+
+# Node
+**/node_modules/
+/npm-debug.log
+/yarn-error.log
+/build/
+dist/
+
+# React (если React в папке `frontend`)
+/frontend/build/
+/frontend/.env
+/frontend/.env.local
+/frontend/.env.production
+/frontend/.env.development
+
+# Логи
+*.log
+
+# Кэш
+/.cache/
+.DS_Store
+Thumbs.db
+
+# Среда разработки
+.idea/
+.vscode/
+
+# Системные файлы
+*.swp
+*~

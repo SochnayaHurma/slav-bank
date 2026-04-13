@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/legal-service-card",
+  "title": "Карточка услуги для юрлиц",
+  "category": "widgets",
+  "icon": "id",
+  "parent": ["slavbank/legal-entities-page"],
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Название услуги"
+    },
+    "titleUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "leadText": {
+      "type": "string",
+      "default": ""
+    },
+    "itemsRaw": {
+      "type": "string",
+      "default": ""
+    },
+    "detailsLabel": {
+      "type": "string",
+      "default": "Подробнее"
+    },
+    "detailsUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "contactText": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonText": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

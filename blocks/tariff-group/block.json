@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/tariff-group",
+  "title": "Группа тарифов",
+  "category": "widgets",
+  "icon": "excerpt-view",
+  "parent": ["slavbank/tariffs-page"],
+  "allowedBlocks": [
+    "slavbank/tariff-link-item"
+  ],
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "— скачать:"
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

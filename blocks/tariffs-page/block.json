@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/tariffs-page",
+  "title": "Славянбанк / Тарифы банка",
+  "category": "widgets",
+  "icon": "media-document",
+  "description": "Страница тарифов банка с неизменным hero и динамическим stack.",
+  "textdomain": "slavbank",
+  "allowedBlocks": [
+    "slavbank/tariff-group"
+  ],
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "ТАРИФЫ БАНКА"
+    },
+    "heroDescription": {
+      "type": "string",
+      "default": "Уважаемые клиенты! АО НКБ «СЛАВЯНБАНК« запускает с 01.11.2025 года специальные предложения для новых клиентов! Также, банк обновил тарифные сетки по денежным средствам, привлекаемым в депозиты от юридических лиц и индивидуальных предпринимателей."
+    },
+    "heroImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "heroImageLeft": {
+      "type": "number",
+      "default": 700
+    },
+    "heroImageTop": {
+      "type": "number",
+      "default": 77
+    },
+    "anchorId": {
+      "type": "string",
+      "default": "pdf"
+    },
+    "introTitle": {
+      "type": "string",
+      "default": "АО НКБ «СЛАВЯНБАНК» предлагает к рассмотрению следующие виды тарифов банковских услуг:"
+    },
+    "introLinkText": {
+      "type": "string",
+      "default": "ТАРИФОВ"
+    },
+    "introLinkUrl": {
+      "type": "string",
+      "default": "https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-i-in-valyute-s-131025.pdf"
+    },
+    "finalCtaText": {
+      "type": "string",
+      "default": "СКАЧАТЬ ТАРИФЫ БАНКА"
+    },
+    "finalCtaUrl": {
+      "type": "string",
+      "default": "https://slavbank.ru/wp-content/uploads/tarify-banka-v-valyute-rf-s-01072024-i-in-valyute-s-131025.pdf"
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/access-card",
+  "title": "Славянбанк / Access card",
+  "category": "widgets",
+  "icon": "lock",
+  "description": "Карточка входа, перехода или ключевого действия.",
+  "textdomain": "slavbank",
+  "attributes": {
+    "kicker": { "type": "string", "default": "Вход" },
+    "title": { "type": "string", "default": "Заголовок карточки" },
+    "text": { "type": "string", "default": "" },
+
+    "primaryText": { "type": "string", "default": "" },
+    "primaryUrl": { "type": "string", "default": "" },
+    "primaryBlank": { "type": "boolean", "default": true },
+
+    "secondaryText": { "type": "string", "default": "" },
+    "secondaryUrl": { "type": "string", "default": "" },
+    "secondaryBlank": { "type": "boolean", "default": false }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/contact-item",
+  "title": "Контакт",
+  "category": "widgets",
+  "icon": "phone",
+  "parent": ["slavbank/contacts-page"],
+  "attributes": {
+    "label": { "type": "string", "default": "Телефон" },
+    "value": { "type": "string", "default": "" },
+    "href": { "type": "string", "default": "" },
+    "note": { "type": "string", "default": "" },
+    "copyValue": { "type": "string", "default": "" },
+    "actionLabel": { "type": "string", "default": "Открыть" }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-contacts-page",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

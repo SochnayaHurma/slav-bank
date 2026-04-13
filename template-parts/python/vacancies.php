@@ -1,0 +1,88 @@
+<main id="main">
+  <section class="block">
+    <div class="container">
+      <div class="hero-wrap" style="padding: var(--s-5);">
+        <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
+          <div style="min-width: 280px; flex: 1 1 520px;">
+            <h1 style="margin:8px 0 10px;">ВАКАНСИИ</h1>
+            <p  style="max-width:78ch;">Если вы активный, инициативный и целеустремленный человек, желающий
+              работать и зарабатывать, мы всегда открыты для диалога с вами! Даже при отсутствии актуальных вакансий, вы
+              всегда можете прислать нам своё резюме и мы обязательно рассмотрим его.</p>
+
+            <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
+            </div>
+          </div>
+
+          <div class="pill" style="align-self:flex-start;">
+            <a href="<?php echo esc_url(sb_alpha_url('support')); ?>" class="mono badge">Поддержка</a>
+            <span class="muted">·</span>
+            <a href="<?php echo esc_url(sb_alpha_url('write-to-bank')); ?>#form" class="mono badge">Написать</a>
+            <span class="muted">·</span>
+            <a href="<?php echo esc_url(sb_alpha_url('covid19')); ?>" class="mono badge">COVID19</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dashv2" id="content">
+    <div class="container">
+
+
+      <div class="bento">
+        <div class="bento-card" style="padding: var(--s-4); position:relative;">
+
+
+
+          <div class="prose" id="form">
+            <div class="entry-content">
+
+              <p> Если вы <strong>активный, инициативный и целеустремленный</strong> человек, желающий работать и
+                зарабатывать, мы всегда <strong>открыты для диалога</strong> с вами! <br>  Даже при отсутствии
+                актуальных вакансий, вы всегда можете <strong>прислать нам своё резюме</strong> и мы обязательно
+                <strong>рассмотрим </strong>его.</p>
+
+
+
+              <p class="has-dark-blue-color has-text-color">  <strong>Преимущества работы в АО НКБ
+                  «СЛАВЯНБАНК»</strong>:</p>
+
+
+
+              <p class="has-navy-blue-color has-text-color">   <strong>🗹</strong> <strong>Трудоустройство в
+                  соответствии с ТК РФ;<br> </strong>  <strong>🗹 Комфортные условия труда;<br> </strong>  <strong>🗹
+                  Стабильная выплата заработной платы (два раза в месяц);<br> </strong>  <strong>🗹 Возможности
+                  профессионального и карьерного роста;<br> </strong>  <strong>🗹 Дружный
+                  коллектив;<br> </strong>  <strong>🗹 Участие в вебинарах и семинарах</strong>.</p>
+
+
+              <div class="wp-block-image">
+                <figure class="alignright size-medium"><img decoding="async" width="300" height="116"
+                    src="./ВАКАНСИИ и КАРЬЕРА - АО НКБ _СЛАВЯНБАНК__files/work-300x116.jpg" alt="" class="wp-image-1450"
+                    title="Вакансии АО НКБ &quot;СЛАВЯНБАНК&quot;"
+                    srcset="https://slavbank.ru/wp-content/uploads/work-300x116.jpg 300w, https://slavbank.ru/wp-content/uploads/work-360x139.jpg 360w, https://slavbank.ru/wp-content/uploads/work.jpg 561w"
+                    sizes="(max-width: 300px) 100vw, 300px">
+                  <figcaption class="wp-element-caption">Вакансии АО НКБ «СЛАВЯНБАНК»</figcaption>
+                </figure>
+              </div>
+
+
+              <p><br>  <a href="mailto:nkb@slavbank.ru" target="_blank" rel="noreferrer noopener"><strong>Отправить
+                    резюме</strong>.</a></p>
+
+
+
+              <p>  Или связаться с нами по&nbsp;<strong><a href="<?php echo esc_url(sb_alpha_url('contacts')); ?>" target="_blank"
+                    rel="noreferrer noopener">контактным телефонам</a></strong>.</p>
+            </div>
+          </div>
+        </div>
+<?php get_template_part('template-parts/home', 'stack'); ?>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>Готово</div>
+</main>

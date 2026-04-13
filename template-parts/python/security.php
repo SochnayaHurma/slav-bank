@@ -1,0 +1,76 @@
+<main id="main">
+  <section class="block">
+    <div class="container">
+      <div class="hero-wrap" style="padding: var(--s-5);">
+        <div class="row" style="align-items:flex-start; gap: var(--s-4); flex-wrap:wrap;">
+          <div style="min-width: 280px; flex: 1 1 520px;">
+            <h1 style="margin:8px 0 10px;">Рекомендации по безопасности</h1>
+            <p style="max-width:78ch; ">АО НКБ «СЛАВЯНБАНК» (далее – Банк) напоминает, что единственным
+              официальным интернет-сайтом Банка является «www.slavbank.ru», единственным официальным сайтом системы ДБО
+              Банка является «https://dbo.slavbank.ru»</p>
+
+            <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
+            </div>
+          </div>
+
+          <div class="pill" style="align-self:flex-start;">
+            <a href="<?php echo esc_url(sb_alpha_url('support')); ?>" class="mono badge">Поддержка</a>
+            <span class="muted">·</span>
+            <a href="<?php echo esc_url(sb_alpha_url('client-bank-online')); ?>" class="mono badge">Клиент‑Банк</a>
+            <span class="muted">·</span>
+            <a href="<?php echo esc_url(sb_alpha_url('appeal-123-fz')); ?>" class="mono badge">123‑ФЗ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dashv2" id="content">
+    <div class="container">
+
+
+      <div class="bento">
+        <div class="bento-card" style="padding: var(--s-4); position:relative;">
+
+
+
+
+          <div class="prose">
+            <div class="entry-content">
+
+              <h3 class="has-dark-blue-color has-text-color">  <strong>Будьте осторожны!</strong>&nbsp;</h3>
+
+
+
+
+              <p class="has-text-align-justify">  Любые иные интернет-сайты, содержащие в доменном имени указание
+                на&nbsp;принадлежность к Банку, а также содержащие на своих страницах изобразительный товарный знак
+                (логотип) и наименование Банка, могут использоваться с целью заражения посетителей данных
+                интернет-страниц вредоносным программным обеспечением, а также для получения от клиентов
+                конфиденциальных данных (логинов и паролей от Интернет-банка).</p>
+
+
+
+              <p class="has-text-align-justify">  <strong>При совершении каких-либо действий на сайте Банка в сети
+                  «Интернет» в целях соблюдения рекомендаций информационной и финансовой безопасности обращайте внимание
+                  на соответствие доменного имени сайта</strong>,&nbsp;<strong>на котором Вы работаете <a
+                    href="https://slavbank.ru/">www.slavbank.ru</a></strong> <strong>или &nbsp;<a
+                    href="https://dbo.slavbank.ru:20101/">dbo.slavbank.ru</a>.</strong></p>
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+<?php get_template_part('template-parts/home', 'stack'); ?>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>Готово</div>
+</main>

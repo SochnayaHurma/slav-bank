@@ -1,0 +1,22 @@
+
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/address-item",
+  "title": "Адрес",
+  "category": "widgets",
+  "icon": "location-alt",
+  "parent": ["slavbank/contacts-page"],
+  "attributes": {
+    "label": { "type": "string", "default": "Адрес" },
+    "value": { "type": "string", "default": "" },
+    "note": { "type": "string", "default": "" },
+    "copyValue": { "type": "string", "default": "" }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": ["sb-contacts-page", "sb-contacts-page-tokens", "sb-bank-pages-editor", "sb-bank-motion"],
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

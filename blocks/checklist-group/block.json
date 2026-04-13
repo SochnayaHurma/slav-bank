@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/checklist-group",
+  "title": "Славянбанк / Checklist group",
+  "category": "widgets",
+  "icon": "yes-alt",
+  "description": "Список пунктов с красивыми чек-иконками.",
+  "textdomain": "slavbank",
+  "attributes": {
+    "title": { "type": "string", "default": "Заголовок списка" },
+    "items": {
+      "type": "array",
+      "default": [
+        "Новый пункт"
+      ]
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

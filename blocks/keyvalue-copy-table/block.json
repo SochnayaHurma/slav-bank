@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/keyvalue-copy-table",
+  "title": "Славянбанк / Key-value copy table",
+  "category": "widgets",
+  "icon": "table-col-after",
+  "description": "Таблица «параметр — значение» с кнопками копирования.",
+  "textdomain": "slavbank",
+  "attributes": {
+    "anchorId": {
+      "type": "string",
+      "default": "full"
+    },
+    "headerKey": {
+      "type": "string",
+      "default": "Параметр"
+    },
+    "headerValue": {
+      "type": "string",
+      "default": "Значение"
+    },
+    "rows": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

@@ -1,0 +1,99 @@
+<?php get_template_part('template-parts/python/top-level-v4', 'styles'); $hero_img = esc_url(sb_alpha_asset('png/3.jpg')); ?>
+<main id="main">
+    <section class="block">
+    <div class="container">
+      <div class="hero-wrap" style="padding: var(--s-5);">
+
+        <div class="v4-strips">
+          <div class="v4-strip reveal" data-reveal="scale" >
+            <img style="left:407px;" src="<?php echo $hero_img ?>" alt="Иллюстрация: РКО — банк, платежи и документы" />
+            <div class="v4-strip-copy v4-glass">
+              <h3>КЛИЕНТ-БАНК ВХОД ОНЛАЙН</h3>
+              <p>Система Банк-Клиент — система дистанционного банковского
+              обслуживания (ДБО), которая дает возможность клиентам банка: юридическим лицам и предпринимателям,
+              управлять своим расчётным счётом в банке удаленным образом (без визита в банк), используя Интернет.</p>
+              <div class="v4-strip-actions">
+              <a class="btn primary" href="#content">Содержание</a>
+              <a class="btn outline" href="/">На главную</a>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dashv2" id="content">
+    <div class="container">
+
+
+      <div class="bento">
+        <div class="bento-card" style="padding: var(--s-4); position:relative;">
+
+
+
+            <div class="access-card" style="margin-top: 10px;">
+              <div class="kicker">Вход</div>
+              <div class="access-title">КЛИЕНТ-БАНК ВХОД</div>
+              <div class="muted" style="margin-top:6px;">Откроется в новой вкладке. Рекомендуем использовать защищённое
+                соединение и актуальный браузер.</div>
+              <div class="row" style="margin-top:12px; flex-wrap:wrap;">
+                <a class="btn primary " href="https://dbo.slavbank.ru:20101/" target="_blank" rel="noopener">Войти
+                  →</a>
+                <a class="btn outline " href="{% url 'security'%}">Правила безопасности</a>
+              </div>
+            </div>
+
+
+          <div class="prose">
+            <div class="entry-content">
+
+              <p><br><strong>Система
+                  Банк-Клиент</strong>&nbsp;<strong>—</strong>&nbsp;<strong>система</strong>&nbsp;<strong>дистанционного</strong>&nbsp;<strong>банковского</strong>&nbsp;<strong>обслуживания</strong>&nbsp;<strong>(ДБО)</strong>,
+                которая дает возможность клиентам банка: юридическим лицам и предпринимателям, управлять своим расчётным
+                счётом в банке удаленным образом (без визита в банк), используя Интернет.</p>
+
+
+              <div>
+                <div >
+                  <div>
+                    <div>
+                      <div>
+                        <div>
+                          <a 
+                            href="https://dbo.slavbank.ru:20101/" target="_blank"
+                            rel="noreferrer noopener"><strong>КЛИЕНТ-БАНК ВХОД</strong></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <p><strong>Система «Клиент-Банк» позволяет:</strong></p>
+
+
+
+              <p>🗹 отправлять в банк платёжные поручения<br>🗹 посылать в банк официальные письма, заверенные
+                электронной цифровой подписью<br>🗹 получать выписки по расчётным счетам <br>🗹 получать из банка
+                сообщения, уведомления и другую справочную информацию<br>🗹 отправлять в банк валютные переводы, справки
+                о валютных операциях (для клиентов, имеющих валютные счета) <br>🗹 получать из банка различные
+                документы, справки, и т.п.<br><br>Банк имеет все необходимые сертификаты для работы со средствами
+                криптографической защиты информации.</p>
+
+
+
+              <p></p>
+            </div>
+          </div>
+
+        </div>
+
+<?php get_template_part('template-parts/home', 'stack'); ?>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>Готово</div>
+</main>

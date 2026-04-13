@@ -1,0 +1,33 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="ved1" x1="176" y1="88" x2="940" y2="652" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A6C86"/>
+      <stop offset="1" stop-color="#17A6B5"/>
+    </linearGradient>
+    <linearGradient id="ved2" x1="938" y1="190" x2="502" y2="688" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9FD5D5"/>
+      <stop offset="1" stop-color="#D6BDA6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="40" fill="#F5FAFC"/>
+  <circle cx="930" cy="154" r="146" fill="url(#ved1)" fill-opacity="0.2"/>
+  <circle cx="260" cy="634" r="188" fill="url(#ved2)" fill-opacity="0.22"/>
+  <g transform="translate(150 118)">
+    <circle cx="248" cy="222" r="186" fill="white" fill-opacity="0.9" stroke="#D9E6EB" stroke-width="3"/>
+    <circle cx="248" cy="222" r="130" stroke="#0A6C86" stroke-opacity="0.18" stroke-width="3"/>
+    <circle cx="248" cy="222" r="84" stroke="#0A6C86" stroke-opacity="0.14" stroke-width="3"/>
+    <path d="M66 222C140 120 356 120 430 222C356 324 140 324 66 222Z" stroke="#0A6C86" stroke-width="8" stroke-linecap="round" opacity="0.56"/>
+    <path d="M100 158C170 202 326 202 396 158" stroke="#9FD5D5" stroke-width="7" stroke-linecap="round" opacity="0.78"/>
+    <path d="M100 286C170 242 326 242 396 286" stroke="#D6BDA6" stroke-width="6" stroke-linecap="round" opacity="0.64"/>
+  </g>
+  <path d="M468 174C560 132 666 134 770 178" stroke="#0A6C86" stroke-width="8" stroke-linecap="round" opacity="0.52"/>
+  <path d="M470 248C570 204 706 206 846 278" stroke="#9FD5D5" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+  <path d="M480 330C606 294 738 304 950 378" stroke="#D6BDA6" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+  <g transform="translate(720 378)">
+    <rect width="312" height="186" rx="28" fill="white" fill-opacity="0.9" stroke="#D9E6EB" stroke-width="3"/>
+    <path d="M42 96L80 134L146 58" stroke="#0A6C86" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+    <path d="M188 60H256" stroke="#0A6C86" stroke-width="6" stroke-linecap="round" opacity="0.34"/>
+    <path d="M188 96H272" stroke="#0A6C86" stroke-width="6" stroke-linecap="round" opacity="0.26"/>
+    <path d="M188 132H246" stroke="#0A6C86" stroke-width="6" stroke-linecap="round" opacity="0.2"/>
+  </g>
+</svg>

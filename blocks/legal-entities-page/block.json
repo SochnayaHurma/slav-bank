@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/legal-entities-page",
+  "title": "Славянбанк / Юридическим лицам",
+  "category": "widgets",
+  "icon": "building",
+  "description": "Страница для юридических лиц с hero, повторяемыми карточками услуг и динамическим stack.",
+  "textdomain": "slavbank",
+  "allowedBlocks": [
+    "slavbank/legal-service-card"
+  ],
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "ЮРИДИЧЕСКИМ ЛИЦАМ"
+    },
+    "heroDescription": {
+      "type": "string",
+      "default": "Для юридических лиц АО НКБ «СЛАВЯНБАНК» предлагает следующие банковские услуги"
+    },
+    "heroImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "anchorId": {
+      "type": "string",
+      "default": "content"
+    },
+    "alertTitle": {
+      "type": "string",
+      "default": "ЮРИДИЧЕСКИМ ЛИЦАМ"
+    },
+    "alertText": {
+      "type": "string",
+      "default": "Для юридических лиц АО НКБ «СЛАВЯНБАНК» предлагает следующие банковские услуги:"
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  }
+}

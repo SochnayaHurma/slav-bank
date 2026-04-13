@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/currency-point-group",
+  "title": "Группа пунктов валютного контроля",
+  "category": "widgets",
+  "icon": "list-view",
+  "parent": ["slavbank/currency-control-page"],
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Что входит в сопровождение"
+    },
+    "items": {
+      "type": "array",
+      "default": [
+        "Новый пункт"
+      ]
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/text-note",
+  "title": "Славянбанк / Text note",
+  "category": "widgets",
+  "icon": "info-outline",
+  "description": "Спокойная или акцентная текстовая плашка.",
+  "textdomain": "slavbank",
+  "attributes": {
+    "text": { "type": "string", "default": "Новый тезис" },
+    "tone": { "type": "string", "default": "strong" }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

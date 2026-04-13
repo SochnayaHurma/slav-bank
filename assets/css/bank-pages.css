@@ -1,0 +1,50 @@
+.sb-html-sections {
+  display: grid;
+  gap: 16px;
+}
+
+.sb-html-section {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.sb-html-section.figure-body {
+  border: 1px solid rgba(2, 6, 23, 0.08);
+  border-radius: 18px;
+  background: rgba(247, 250, 252, 0.92);
+  padding: 16px;
+}
+
+.table-wrap {
+  overflow: auto;
+  border-radius: 20px;
+  border: 1px solid rgba(2, 6, 23, 0.08);
+  background: #fff;
+}
+
+.req-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.req-table th,
+.req-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(2, 6, 23, 0.08);
+  vertical-align: top;
+  text-align: left;
+}
+
+.req-table thead th {
+  background: rgba(247, 250, 252, 0.95);
+  font-weight: 700;
+}
+
+.sb-hero-split__pill a {
+  text-decoration: none;
+}
+
+.sb-hero-split__pill a:hover {
+  text-decoration: underline;
+}

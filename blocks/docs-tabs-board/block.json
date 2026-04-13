@@ -1,0 +1,103 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/docs-tabs-board",
+  "title": "Славянбанк / Документы с вкладками",
+  "category": "widgets",
+  "icon": "index-card",
+  "description": "Табовый блок для разделов с документами и списками ссылок.",
+  "textdomain": "slavbank",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Информация банка"
+    },
+    "tabs": {
+      "type": "array",
+      "default": [
+        {
+          "id": "aff",
+          "label": "Аффилированные лица",
+          "type": "list",
+          "intro": "Списки аффилированных лиц (формат XLS). Показали последние обновления, остальное — по раскрытию.",
+          "rows": [
+            {
+              "date": "29.09.2021",
+              "title": "Список аффилированных лиц",
+              "ext": "XLS",
+              "url": "https://slavbank.ru/wp-content/uploads/afl29092021.xls"
+            },
+            {
+              "date": "30.06.2021",
+              "title": "Список аффилированных лиц",
+              "ext": "XLS",
+              "url": "https://slavbank.ru/wp-content/uploads/afl30062021.xls"
+            },
+            {
+              "date": "28.04.2021",
+              "title": "Список аффилированных лиц",
+              "ext": "XLS",
+              "url": "https://slavbank.ru/wp-content/uploads/afl28042021.xls"
+            },
+            {
+              "date": "25.02.2020",
+              "title": "Список аффилированных лиц",
+              "ext": "XLS",
+              "url": "https://slavbank.ru/wp-content/uploads/2021/03/afl25022020.xls"
+            }
+          ]
+        },
+        {
+          "id": "control",
+          "label": "Список лиц, под контролем, либо значительным влиянием которых, находится банк.",
+          "type": "hero",
+          "intro": "Опубликовано: 20.07.2018 · Актуализировано: 25.03.2020. Документ в формате PDF.",
+          "heroTitle": "Список лиц, под контролем или значительным влиянием которых находится банк",
+          "heroSubtitle": "Скачать PDF",
+          "heroUrl": "https://slavbank.ru/wp-content/uploads/2021/03/spisok250320.pdf"
+        },
+        {
+          "id": "msg",
+          "label": "Сообщения",
+          "type": "list",
+          "intro": "Сообщения об утверждении годовой бухгалтерской (финансовой) отчетности.",
+          "rows": [
+            {
+              "date": "2017",
+              "title": "Сообщение об утверждении годовой бухгалтерской (финансовой) отчетности за 2017 год",
+              "ext": "PDF",
+              "url": "https://slavbank.ru/wp-content/uploads/2021/03/message_rep2017.pdf"
+            },
+            {
+              "date": "2018",
+              "title": "Сообщение об утверждении годовой бухгалтерской (финансовой) отчетности за 2018 год",
+              "ext": "PDF",
+              "url": "https://slavbank.ru/wp-content/uploads/2021/03/message_rep2018.pdf"
+            },
+            {
+              "date": "2019",
+              "title": "Сообщение об утверждении годовой бухгалтерской (финансовой) отчетности за 2019 год · 17 апреля 2020",
+              "ext": "PDF",
+              "url": "https://slavbank.ru/wp-content/uploads/2021/03/message_rep2019.pdf"
+            },
+            {
+              "date": "2020",
+              "title": "Сообщение об утверждении годовой бухгалтерской (финансовой) отчетности за 2020 год · 23 апреля 2021",
+              "ext": "PDF",
+              "url": "https://slavbank.ru/wp-content/uploads/message_rep2020.pdf"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

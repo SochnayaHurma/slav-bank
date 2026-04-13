@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/currency-control-page",
+  "title": "Славянбанк / Валютный контроль",
+  "category": "widgets",
+  "icon": "money-alt",
+  "description": "Страница валютного контроля с фиксированным hero и динамическим stack.",
+  "textdomain": "slavbank",
+  "allowedBlocks": [
+    "slavbank/currency-point-group",
+    "slavbank/currency-note"
+  ],
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "Валютный контроль"
+    },
+    "heroDescription": {
+      "type": "string",
+      "default": "АО НКБ «СЛАВЯНБАНК» предоставляет широкий спектр услуг, связанных с выполнением Банком функций агента валютного контроля"
+    },
+    "heroImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "heroImageLeft": {
+      "type": "number",
+      "default": 146
+    },
+    "anchorId": {
+      "type": "string",
+      "default": "content"
+    },
+    "alertTitle": {
+      "type": "string",
+      "default": "ВЭД и валютный контроль"
+    },
+    "alertText": {
+      "type": "string",
+      "default": "Помогаем с экспертизой контрактов, расчётами и валютным контролем."
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  }
+}

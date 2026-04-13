@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/hours-item",
+  "title": "Режим работы",
+  "category": "widgets",
+  "icon": "clock",
+  "parent": ["slavbank/contacts-page"],
+  "attributes": {
+    "label": { "type": "string", "default": "Режим работы" },
+    "items": {
+      "type": "array",
+      "default": [
+        { "title": "С клиентами", "text": "" }
+      ]
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-contacts-page",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

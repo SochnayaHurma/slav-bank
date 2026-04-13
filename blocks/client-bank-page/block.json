@@ -1,0 +1,85 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/client-bank-page",
+  "title": "Славянбанк / Клиент-Банк",
+  "category": "widgets",
+  "icon": "laptop",
+  "description": "Страница входа в Клиент-Банк с hero, карточкой доступа, списком возможностей и динамическим stack.",
+  "textdomain": "slavbank",
+  "allowedBlocks": [
+    "slavbank/client-bank-feature-group",
+    "slavbank/client-bank-note"
+  ],
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "КЛИЕНТ-БАНК ВХОД ОНЛАЙН"
+    },
+    "heroDescription": {
+      "type": "string",
+      "default": "Система Банк-Клиент — система дистанционного банковского обслуживания (ДБО), которая дает возможность клиентам банка: юридическим лицам и предпринимателям, управлять своим расчётным счётом в банке удаленным образом (без визита в банк), используя Интернет."
+    },
+    "heroImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "heroImageLeft": {
+      "type": "number",
+      "default": 407
+    },
+    "anchorId": {
+      "type": "string",
+      "default": "content"
+    },
+    "accessKicker": {
+      "type": "string",
+      "default": "Вход"
+    },
+    "accessTitle": {
+      "type": "string",
+      "default": "КЛИЕНТ-БАНК ВХОД"
+    },
+    "accessText": {
+      "type": "string",
+      "default": "Откроется в новой вкладке. Рекомендуем использовать защищённое соединение и актуальный браузер."
+    },
+    "accessPrimaryText": {
+      "type": "string",
+      "default": "Войти →"
+    },
+    "accessPrimaryUrl": {
+      "type": "string",
+      "default": "https://dbo.slavbank.ru:20101/"
+    },
+    "accessSecondaryText": {
+      "type": "string",
+      "default": "Правила безопасности"
+    },
+    "accessSecondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "leadText": {
+      "type": "string",
+      "default": "Система Банк-Клиент — система дистанционного банковского обслуживания (ДБО), которая дает возможность клиентам банка: юридическим лицам и предпринимателям, управлять своим расчётным счётом в банке удаленным образом (без визита в банк), используя Интернет."
+    },
+    "entryLinkText": {
+      "type": "string",
+      "default": "КЛИЕНТ-БАНК ВХОД"
+    },
+    "entryLinkUrl": {
+      "type": "string",
+      "default": "https://dbo.slavbank.ru:20101/"
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  }
+}

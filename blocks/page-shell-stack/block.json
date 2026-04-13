@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/page-shell-stack",
+  "title": "Славянбанк / Page shell + stack",
+  "category": "widgets",
+  "icon": "screenoptions",
+  "description": "Основной layout страницы: контент слева, динамический stack справа.",
+  "textdomain": "slavbank",
+  "attributes": {
+    "anchorId": { "type": "string", "default": "content" },
+    "showAlert": { "type": "boolean", "default": false },
+    "alertTitle": { "type": "string", "default": "" },
+    "alertText": { "type": "string", "default": "" }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

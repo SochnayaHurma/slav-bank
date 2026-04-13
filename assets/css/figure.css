@@ -1,0 +1,5 @@
+.figure-body {
+    border: var(--c-primary) 1px solid;
+    margin: 0;
+    padding: 15px;
+}

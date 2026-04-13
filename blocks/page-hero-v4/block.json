@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/page-hero-v4",
+  "title": "Славянбанк / Hero",
+  "category": "widgets",
+  "icon": "cover-image",
+  "description": "Переиспользуемый hero-блок для внутренних страниц банка.",
+  "textdomain": "slavbank",
+  "attributes": {
+    "variant": {
+      "type": "string",
+      "default": "v4"
+    },
+    "title": {
+      "type": "string",
+      "default": "Заголовок страницы"
+    },
+    "description": {
+      "type": "string",
+      "default": "Описание страницы"
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageLeft": {
+      "type": "number",
+      "default": 0
+    },
+    "imageTop": {
+      "type": "number",
+      "default": 0
+    },
+
+    "primaryText": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+
+    "secondaryText": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+
+    "tertiaryText": {
+      "type": "string",
+      "default": ""
+    },
+    "tertiaryUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

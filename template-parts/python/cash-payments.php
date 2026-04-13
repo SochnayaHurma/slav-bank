@@ -1,0 +1,253 @@
+    <main id="main">
+      <section class="block">
+        <div class="container">
+          <div class="hero-wrap" style="padding: var(--s-5)">
+            <div
+              class="row"
+              style="align-items: flex-start; gap: var(--s-4); flex-wrap: wrap"
+            >
+              <div style="min-width: 280px; flex: 1 1 520px">
+                <h1 style="margin: 8px 0 10px">Наличные расчеты</h1>
+                <p style="max-width: 78ch">
+                  АО НКБ «СЛАВЯНБАНК» осуществляет прием наличных денежных
+                  средств в кассу Банка, а также пересчет и зачисление на счет
+                  внесенных в кассу Банка или инкассированных наличных денежных
+                  средств Клиента.
+                </p>
+
+                <div
+                  class="row"
+                  style="margin-top: var(--s-4); flex-wrap: wrap"
+                >
+                  <a class="btn primary" href="#content">Содержание</a>
+                  <a class="btn outline" href="/">На главную</a>
+                  <a class="btn outline" href="<?php echo esc_url(sb_alpha_url('write-to-bank')); ?>#form"
+                    >Задать вопрос</a
+                  >
+                </div>
+              </div>
+
+              <div class="pill" style="align-self: flex-start">
+                <a href="<?php echo esc_url(sb_alpha_url('cashless-payments')); ?>" class="mono badge">Безналичные платежи</a>
+                <span class="muted">·</span>
+                <a href="<?php echo esc_url(sb_alpha_url('fx-account-service')); ?>" class="mono badge">Счета</a>
+                <span class="muted">·</span>
+                <a href="<?php echo esc_url(sb_alpha_url('payment-demands')); ?>" class="mono badge">Требования</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block dashv2" id="content">
+        <div class="container">
+          <div class="bento">
+            <div
+              class="bento-card"
+              style="padding: var(--s-4); position: relative"
+            >
+              <div class="alert">
+                <div class="alert-dot" aria-hidden="true"></div>
+                <div>
+                  <div style="font-weight: 600">Наличные расчеты</div>
+                  <div class="muted" style="margin-top: 4px">
+                    Кассовые операции и выдача/внесение наличных по правилам
+                    банка.
+                  </div>
+                </div>
+              </div>
+              <div class="summary-grid">
+                <div class="summary-card">
+                  <div class="kicker">Операции</div>
+                  <div class="summary-text">
+                    АО НКБ «СЛАВЯНБАНК» осуществляет прием наличных денежных
+                    средств в кассу Банка, а также пересчет и зачисление на счет
+                    внесенных в кассу Банка или инкассированных наличных
+                    денежных средств Клиента.
+                  </div>
+                </div>
+
+                <div class="summary-card">
+                  <div class="kicker">Требования</div>
+                  <div class="summary-text">
+                    Для получения Клиентом наличных денежных средств со счета
+                    необходимо оформить денежную чековую книжку.
+                  </div>
+                </div>
+
+                <div class="summary-card">
+                  <div class="kicker">Советы</div>
+                  <div class="summary-text">
+                    Оформление чековой книжки »»» производится на основании
+                    письменного заявления Клиента не позднее рабочего дня Банка,
+                    следующего за днем подачи заявления.
+                  </div>
+                </div>
+              </div>
+              <div class="chip-row">
+                <a
+                  class="chip"
+                  href="https://slavbank.ru/obyavlenie-na-vznos-nalichnymi-instrukcziya.html"
+                  target="_blank"
+                  rel="noopener"
+                  >Шаблон объявления на взнос наличными в формате MS Ex</a
+                >
+                <a
+                  class="chip"
+                  href="https://slavbank.ru/wp-content/uploads/newcheck.doc"
+                  target="_blank"
+                  rel="noopener"
+                  >Оформление чековой книжки</a
+                >
+              </div>
+
+              <div class="kicker" style="margin-top: 12px">Документы</div>
+              <div class="doc-shelf">
+                <a
+                  class="doc-card"
+                  href="https://slavbank.ru/wp-content/uploads/newcheck.doc"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="doc-ext">DOC</span>
+                  <span class="doc-title">Оформление чековой книжки</span>
+                  <span class="doc-arrow">→</span>
+                </a>
+              </div>
+
+              <div class="kicker" style="margin-top: 12px">Текст страницы</div>
+              <div class="prose">
+                <div class="entry-content">
+                  <p>
+                      <strong>АО НКБ «СЛАВЯНБАНК» </strong>осуществляет прием
+                    наличных денежных средств в кассу Банка, а также пересчет и
+                    зачисление на счет внесенных в кассу Банка или
+                    инкассированных наличных денежных средств Клиента.
+                  </p>
+
+                  <p class="has-text-align-justify">
+                      <strong
+                      >Для получения Клиентом наличных денежных средств со счета
+                      необходимо оформить денежную чековую книжку.</strong
+                    >
+                  </p>
+
+                  <p class="has-dark-blue-color has-text-color">
+                      <strong
+                      ><span
+                        ><a
+                          href="https://slavbank.ru/wp-content/uploads/newcheck.doc"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          >Оформление чековой книжки</a
+                        >
+                        »»»</span
+                      ></strong
+                    ><br />
+                    <br />  производится на основании письменного заявления
+                    Клиента не позднее рабочего дня Банка, следующего за днем
+                    подачи заявления.
+                  </p>
+
+                  <p class="has-dark-blue-color has-text-color">
+                    <strong> </strong> <strong
+                      >Выдача со счета наличных денежных средств</strong
+                    >
+                  </p>
+
+                  <p>
+                    Выдача со счета наличных денежных средств осуществляется на
+                    основании надлежащим образом оформленного денежного чека.
+                  </p>
+
+                  <p class="has-dark-blue-color has-text-color">
+                      <strong
+                      >Доставка наличных денежных средств по заявке
+                      Клиента</strong
+                    >
+                  </p>
+
+                  <p>
+                      Доставка наличных денежных средств по заявке Клиента
+                    осуществляется Банком на основании договора между Банком и
+                    Клиентом установленной формы.
+                  </p>
+
+                  <p class="has-dark-blue-color has-text-color">
+                      <strong
+                      >Прием, пересчет и зачисление наличных денежных средств на
+                      счет</strong
+                    >
+                  </p>
+
+                  <p>
+                      Прием наличных денежных средств в кассу Банка
+                    осуществляется на основании объявления на взнос наличными
+                    установленной формы. Клиенту выдается квитанция объявления
+                    на взнос наличными с отметкой Банка. Инкассирование наличных
+                    денежных средств Клиента производится на основании
+                    отдельного договора. Банк производит пересчет и зачисление
+                    на счет внесенных в кассу Банка или инкассированных наличных
+                    денежных средств Клиента.
+                  </p>
+
+                  <p>
+                      Банк осуществляет прием ветхих наличных денежных средств.
+                    Ветхие наличные денежные средства зачисляются на расчетный
+                    счет Клиента по номинальной стоимости.
+                  </p>
+
+                  <p>
+                      По просьбе клиента Банк производит обмен банкнот на купюры
+                    другого достоинства или монету.
+                  </p>
+
+                  <p>
+                      В случаях необходимости Банк производит экспертизу
+                    денежных знаков, вызывающих сомнение, оформляя справку о
+                    приеме на экспертизу, выдаваемую Клиенту.
+                  </p>
+
+                  <p>
+                      <strong
+                      ><a
+                        href="https://slavbank.ru/obyavlenie-na-vznos-nalichnymi-instrukcziya.html"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        >Шаблон объявления на взнос наличными в формате MS Exel
+                        и инструкция по настройке</a
+                      ></strong
+                    >
+                  </p>
+
+                  <p>
+                      <strong
+                      ><em
+                        >Более подробную информацию по обслуживанию счетов в
+                        валюте РФ Вы можете получить по тел.&nbsp; (8162)
+                        66-52-05</em
+                      ></strong
+                    >, <strong><em>+7-921-201-47-00</em></strong
+                    >.
+                  </p>
+
+                  <p></p>
+                </div>
+              </div>
+            </div>
+
+<?php get_template_part('template-parts/home', 'stack'); ?>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        hidden
+      >
+        Готово
+      </div>
+    </main>
