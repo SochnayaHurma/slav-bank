@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "yourtheme/card",
+  "title": "Карточка",
+  "category": "design",
+  "icon": "index-card",
+  "description": "Карточка с редактируемым контентом.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Заголовок карточки"
+    },
+    "text": {
+      "type": "string",
+      "default": "Текст карточки можно менять прямо внутри макета."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Подробнее"
+    },
+    "url": {
+      "type": "string",
+      "default": "#"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  }
+}
