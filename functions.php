@@ -28,6 +28,19 @@ require_once get_template_directory() . '/inc/blocks-contacts.php';
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
 
 
+add_action('init', function () {
+    $blocks_dir = __DIR__ . '/mine-front/build/blocks';
+
+    if (!is_dir($blocks_dir)) {
+        return;
+    }
+
+    foreach (glob($blocks_dir . '/*', GLOB_ONLYDIR) as $block_dir) {
+        register_block_type($block_dir);
+    }
+});
+
+
 if (!function_exists('sb_alpha_force_404')) {
     function sb_alpha_force_404(): void
     {
