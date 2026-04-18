@@ -1,1 +1,32 @@
-.wp-block-yourtheme-card.theme-card{background:#fff;border:1px solid #ddd;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.06);display:grid;gap:14px;padding:24px}.theme-card__title{font-size:24px;line-height:1.2;margin:0}.theme-card__text{color:#555;margin:0}.theme-card__button{background:#111;border-radius:12px;color:#fff;display:inline-block;padding:10px 16px;text-decoration:none}
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/card/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+.wp-block-yourtheme-card.theme-card {
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  padding: 24px;
+  background: #fff;
+  display: grid;
+  gap: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.theme-card__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.theme-card__text {
+  margin: 0;
+  color: #555;
+}
+
+.theme-card__button {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+}

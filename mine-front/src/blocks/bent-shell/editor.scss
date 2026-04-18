@@ -1,0 +1,75 @@
+.wp-block-acme-blocks-card-4.acme-card4 {
+	position: relative;
+}
+
+.acme-card4__badge-label .block-editor-rich-text__editable,
+.acme-card4__action-label .block-editor-rich-text__editable {
+	display: inline-block;
+	min-width: 2ch;
+	outline: none;
+}
+
+.acme-card4__item-tools {
+	display: flex;
+	gap: 4px;
+	opacity: 0;
+	transform: translateY(-2px);
+	transition:
+		opacity 0.14s ease,
+		transform 0.14s ease;
+	pointer-events: none;
+}
+
+.wp-block-acme-blocks-card-4.acme-card4:hover .acme-card4__item-tools,
+.wp-block-acme-blocks-card-4.acme-card4.is-selected .acme-card4__item-tools,
+.acme-card4__badge-item:hover .acme-card4__item-tools,
+.acme-card4__action-item:hover .acme-card4__item-tools {
+	opacity: 1;
+	transform: translateY(0);
+	pointer-events: auto;
+}
+
+.acme-card4__tool-button.components-button {
+	min-width: 28px;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border-radius: 999px;
+}
+
+.acme-card4__popover {
+	width: min(320px, 80vw);
+	padding: 12px;
+}
+
+.acme-card4-sidebar-list {
+	display: grid;
+	gap: 12px;
+}
+
+.acme-card4-sidebar-empty {
+	margin: 0;
+	color: #757575;
+}
+
+.acme-card4-sidebar-item {
+	display: grid;
+	gap: 8px;
+	padding: 10px;
+	border: 1px solid #e5e7eb;
+	border-radius: 10px;
+}
+
+.acme-card4-sidebar-item--stack {
+	gap: 10px;
+}
+
+.acme-card4-sidebar-item__meta {
+	display: grid;
+	gap: 4px;
+}
+
+.acme-card4-sidebar-item__meta span {
+	color: #666;
+	font-size: 12px;
+}

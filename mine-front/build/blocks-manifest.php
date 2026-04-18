@@ -1,6 +1,37 @@
 <?php
 // This file is generated. Do not modify it manually.
 return array(
+	'bent-shell' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'mytheme/bento-shell1',
+		'title' => 'Bento Shell1',
+		'category' => 'design',
+		'icon' => 'columns',
+		'description' => 'Контент слева + динамический сайдбар справа.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php',
+		'attributes' => array(
+			'showSidebar' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'sidebarKind' => array(
+				'type' => 'string',
+				'default' => 'rates'
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'card' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -122,6 +153,97 @@ return array(
 			)
 		)
 	),
+	'hero-simple' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/hero-simple',
+		'title' => 'Hero simple',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => 'Секция с заранее заданными контейнерами и наполнением.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'kicker' => array(
+				'type' => 'string',
+				'default' => 'О банке'
+			),
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Заголовок страницы'
+			),
+			'description' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'actions' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			),
+			'pillItems' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			),
+			'primaryText' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'primaryUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'secondaryText' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'secondaryUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'tertiaryText' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'tertiaryUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'badge' => array(
+				'type' => 'string',
+				'default' => 'Контакты'
+			),
+			'phoneText' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'phoneHref' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'emailText' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'emailHref' => array(
+				'type' => 'string',
+				'default' => ''
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'hero_hover_editor' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -236,6 +358,35 @@ return array(
 				'fontSize' => true,
 				'lineHeight' => true
 			)
+		)
+	),
+	'home-stack' => array(
+		'apiVersion' => 3,
+		'name' => 'slav-bank/home-stack',
+		'title' => 'Home Stack',
+		'category' => 'slav-bank',
+		'editorScript' => 'file:./index.js',
+		'render' => 'file:./render.php'
+	),
+	'page-support' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/support',
+		'title' => 'Страница поддержки',
+		'category' => 'Страницы',
+		'icon' => 'screenoptions',
+		'description' => 'Секция с заранее заданными контейнерами и наполнением.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
 		)
 	)
 );

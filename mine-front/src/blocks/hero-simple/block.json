@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/hero-simple",
+  "title": "Hero simple",
+  "category": "Компоненты темы",
+  "icon": "screenoptions",
+  "description": "Секция с заранее заданными контейнерами и наполнением.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "kicker": {
+      "type": "string",
+      "default": "О банке"
+    },
+    "title": {
+      "type": "string",
+      "default": "Заголовок страницы"
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+
+    "actions": {
+      "type": "array",
+      "default": []
+    },
+    "pillItems": {
+      "type": "array",
+      "default": []
+    },
+
+    "primaryText": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryText": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "tertiaryText": {
+      "type": "string",
+      "default": ""
+    },
+    "tertiaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+
+    "badge": {
+      "type": "string",
+      "default": "Контакты"
+    },
+    "phoneText": {
+      "type": "string",
+      "default": ""
+    },
+    "phoneHref": {
+      "type": "string",
+      "default": ""
+    },
+    "emailText": {
+      "type": "string",
+      "default": ""
+    },
+    "emailHref": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

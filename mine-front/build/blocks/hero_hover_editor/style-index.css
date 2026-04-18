@@ -1,1 +1,97 @@
-.wp-block-acme-blocks-card-5.acme-card5{background:#fff;border:1px solid #d9d9d9;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.06);display:grid;gap:14px;padding:56px 24px 24px;position:relative}.acme-card5__corner{align-items:flex-start;display:flex;justify-content:flex-end;left:14px;pointer-events:none;position:absolute;right:14px;top:14px;z-index:2}.acme-card5__badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;max-width:100%;pointer-events:auto}.acme-card5__badge{align-items:center;background:#eef2ff;border-radius:999px;color:#1f2a44;display:inline-flex;font-size:12px;line-height:1;min-height:30px;padding:6px 10px;text-decoration:none;white-space:nowrap}.acme-card5__title{font-size:24px;line-height:1.2;margin:0}.acme-card5__text{color:#555;margin:0}.acme-card5__footer{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}.acme-card5__action{align-items:center;border-radius:12px;display:inline-flex;font-weight:600;justify-content:center;min-height:42px;padding:10px 16px;text-decoration:none}.acme-card5__action--primary{background:#111;border:1px solid #111;color:#fff}.acme-card5__action--secondary{background:#fff;border:1px solid #111;color:#111}.acme-card5__action--ghost{background:#f3f4f6;border:1px solid transparent;color:#111}
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/hero_hover_editor/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-acme-blocks-card-5.acme-card5 {
+  position: relative;
+  border: 1px solid #d9d9d9;
+  border-radius: 18px;
+  padding: 56px 24px 24px;
+  background: #fff;
+  display: grid;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.acme-card5__corner {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  left: 14px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.acme-card5__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: 100%;
+  pointer-events: auto;
+}
+
+.acme-card5__badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1f2a44;
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.acme-card5__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.acme-card5__text {
+  margin: 0;
+  color: #555;
+}
+
+.acme-card5__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.acme-card5__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.acme-card5__action--primary {
+  background: #111;
+  color: #fff;
+  border: 1px solid #111;
+}
+
+.acme-card5__action--secondary {
+  background: #fff;
+  color: #111;
+  border: 1px solid #111;
+}
+
+.acme-card5__action--ghost {
+  background: #f3f4f6;
+  color: #111;
+  border: 1px solid transparent;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

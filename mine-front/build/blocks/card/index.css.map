@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/card/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/card/editor.scss"],"sourcesContent":[".wp-block-yourtheme-card.theme-card.is-selected {\r\n\toutline: 1px dashed #2271b1;\r\n}"],"names":[],"sourceRoot":""}

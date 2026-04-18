@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mytheme/bento-shell1",
+  "title": "Bento Shell1",
+  "category": "design",
+  "icon": "columns",
+  "description": "Контент слева + динамический сайдбар справа.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "showSidebar": {
+      "type": "boolean",
+      "default": true
+    },
+    "sidebarKind": {
+      "type": "string",
+      "default": "rates"
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "apiVersion": 3,
+  "name": "slav-bank/home-stack",
+  "title": "Home Stack",
+  "category": "slav-bank",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
