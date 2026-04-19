@@ -75,15 +75,12 @@
 	color: #666;
 	font-size: 12px;
 }
-html, main {
+html {
 	width: 100% !important;
 }
-.wp-block-my-plugin-bento-grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
-    display: contents;
-}
-
-.bento > .block-editor-block-list__layout  {
+.editor-styles-wrapper .wp-block-slav-bank-support > .block-editor-inner-blocks > .block-editor-block-list__layout {
   display: grid;
-  grid-template-columns: 1.25fr .75fr;
-  gap: var(--s-4);
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
 }
