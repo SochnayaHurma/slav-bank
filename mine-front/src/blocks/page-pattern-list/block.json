@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "slav-bank/page-pattern-list",
+	"title": "Страница: список",
+	"category": "Компоненты темы",
+	"icon": "editor-ul",
+	"description": "Повторяемый текстовый список для страниц.",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"items": {
+			"type": "array",
+			"default": []
+		},
+		"extraClass": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": true
+	}
+}

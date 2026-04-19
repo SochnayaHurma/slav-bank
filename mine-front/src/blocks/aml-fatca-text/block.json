@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "slav-bank/aml-fatca-text",
+	"title": "ПОД/ФТ/ФРОМУ/FATCA: текст",
+	"category": "Компоненты темы",
+	"icon": "text-page",
+	"description": "Текст страницы ПОД/ФТ/ФРОМУ/FATCA.",
+	"parent": [ "slav-bank/body-aml-fatca" ],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": true
+	}
+}

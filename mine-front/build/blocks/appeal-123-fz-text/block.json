@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/appeal-123-fz-text",
+  "title": "Обращение по 123-ФЗ: текст",
+  "category": "Компоненты темы",
+  "icon": "text-page",
+  "description": "Текст страницы обращения по 123-ФЗ.",
+  "parent": [
+    "slav-bank/body-appeal-123-fz"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

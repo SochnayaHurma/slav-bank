@@ -1,6 +1,54 @@
 <?php
 // This file is generated. Do not modify it manually.
 return array(
+	'aml-fatca-text' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/aml-fatca-text',
+		'title' => 'ПОД/ФТ/ФРОМУ/FATCA: текст',
+		'category' => 'Компоненты темы',
+		'icon' => 'text-page',
+		'description' => 'Текст страницы ПОД/ФТ/ФРОМУ/FATCA.',
+		'parent' => array(
+			'slav-bank/body-aml-fatca'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'appeal-123-fz-text' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/appeal-123-fz-text',
+		'title' => 'Обращение по 123-ФЗ: текст',
+		'category' => 'Компоненты темы',
+		'icon' => 'text-page',
+		'description' => 'Текст страницы обращения по 123-ФЗ.',
+		'parent' => array(
+			'slav-bank/body-appeal-123-fz'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'base-card-ref' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -335,6 +383,30 @@ return array(
 			'layout' => true
 		)
 	),
+	'crs-text' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/crs-text',
+		'title' => 'CRS: текст',
+		'category' => 'Компоненты темы',
+		'icon' => 'text-page',
+		'description' => 'Текстовая часть страницы CRS.',
+		'parent' => array(
+			'slav-bank/body-crs'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'ecp-regeneration-alert' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -592,6 +664,204 @@ return array(
 		'category' => 'slav-bank',
 		'editorScript' => 'file:./index.js',
 		'render' => 'file:./render.php'
+	),
+	'page-aml-fatca' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/aml-fatca',
+		'title' => 'Страница ПОД/ФТ/ФРОМУ/FATCA',
+		'category' => 'Страницы',
+		'icon' => 'shield',
+		'description' => 'Страница ПОД/ФТ/ФРОМУ/FATCA.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-aml-fatca-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-aml-fatca-bento',
+		'title' => 'ПОД/ФТ/ФРОМУ/FATCA bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Bento-секция страницы ПОД/ФТ/ФРОМУ/FATCA.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-aml-fatca-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-aml-fatca',
+		'title' => 'ПОД/ФТ/ФРОМУ/FATCA: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'shield',
+		'description' => 'Карточка содержимого страницы ПОД/ФТ/ФРОМУ/FATCA.',
+		'parent' => array(
+			'slav-bank/body-aml-fatca-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-appeal-123-fz' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/appeal-123-fz',
+		'title' => 'Страница Обращение по 123-ФЗ',
+		'category' => 'Страницы',
+		'icon' => 'megaphone',
+		'description' => 'Страница обращения по 123-ФЗ.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-appeal-123-fz-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-appeal-123-fz-bento',
+		'title' => 'Обращение по 123-ФЗ bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Bento-секция страницы обращения по 123-ФЗ.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-appeal-123-fz-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-appeal-123-fz',
+		'title' => 'Обращение по 123-ФЗ: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'megaphone',
+		'description' => 'Карточка содержимого страницы обращения по 123-ФЗ.',
+		'parent' => array(
+			'slav-bank/body-appeal-123-fz-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-crs' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/crs',
+		'title' => 'Страница CRS',
+		'category' => 'Страницы',
+		'icon' => 'database-export',
+		'description' => 'Страница CRS — обмен с ФНС.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-crs-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-crs-bento',
+		'title' => 'CRS bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Bento-секция страницы CRS.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-crs-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-crs',
+		'title' => 'CRS: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'database-export',
+		'description' => 'Карточка содержимого страницы CRS.',
+		'parent' => array(
+			'slav-bank/body-crs-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
 	),
 	'page-ecp-regeneration' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -867,6 +1137,186 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-pattern-alert' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/page-pattern-alert',
+		'title' => 'Страница: предупреждение',
+		'category' => 'Компоненты темы',
+		'icon' => 'warning',
+		'description' => 'Универсальный alert-блок для страниц.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Важно'
+			),
+			'text' => array(
+				'type' => 'string',
+				'default' => ''
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-pattern-checks' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/page-pattern-checks',
+		'title' => 'Страница: чек-лист',
+		'category' => 'Компоненты темы',
+		'icon' => 'yes-alt',
+		'description' => 'Повторяемый чек-лист для страниц.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-pattern-chips' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/page-pattern-chips',
+		'title' => 'Страница: чипы',
+		'category' => 'Компоненты темы',
+		'icon' => 'tag',
+		'description' => 'Повторяемые ссылочные чипы для страниц.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-pattern-documents' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/page-pattern-documents',
+		'title' => 'Страница: документы',
+		'category' => 'Компоненты темы',
+		'icon' => 'media-document',
+		'description' => 'Повторяемые карточки документов для страниц.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-pattern-list' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/page-pattern-list',
+		'title' => 'Страница: список',
+		'category' => 'Компоненты темы',
+		'icon' => 'editor-ul',
+		'description' => 'Повторяемый текстовый список для страниц.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			),
+			'extraClass' => array(
+				'type' => 'string',
+				'default' => ''
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-pattern-tips' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/page-pattern-tips',
+		'title' => 'Страница: подсказки',
+		'category' => 'Компоненты темы',
+		'icon' => 'info',
+		'description' => 'Повторяемые карточки-подсказки для страниц.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			)
+		),
 		'supports' => array(
 			'html' => false,
 			'anchor' => true,

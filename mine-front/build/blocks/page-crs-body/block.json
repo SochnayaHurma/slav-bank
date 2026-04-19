@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/body-crs",
+  "title": "CRS: содержимое",
+  "category": "Наполнение",
+  "icon": "database-export",
+  "description": "Карточка содержимого страницы CRS.",
+  "parent": [
+    "slav-bank/body-crs-bento"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/aml-fatca-text/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/aml-fatca-text/editor.scss"],"sourcesContent":[".wp-block-slav-bank-aml-fatca-text.prose {\n\twidth: 100%;\n}\n"],"names":[],"sourceRoot":""}

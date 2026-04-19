@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "slav-bank/page-pattern-alert",
+	"title": "Страница: предупреждение",
+	"category": "Компоненты темы",
+	"icon": "warning",
+	"description": "Универсальный alert-блок для страниц.",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Важно"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": true
+	}
+}
