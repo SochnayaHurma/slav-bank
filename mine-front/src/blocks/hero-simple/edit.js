@@ -325,7 +325,7 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 				</InspectorControls>
 			)}
 
-			<section {...blockProps}>
+			<section className='block'>
 				<div className="container">
 					<div className="hero-wrap" style={{ padding: 'var(--s-5)' }}>
 						<div

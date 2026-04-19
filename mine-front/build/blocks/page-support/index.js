@@ -264,7 +264,7 @@ function Edit({
         }, action.id))]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
-      ...blockProps,
+      className: "block",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -430,7 +430,6 @@ function Edit() {
     /*#__PURE__*/
     // ПОДДЕРЖКА
     (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("main", {
-      ...blockProps,
       id: "main",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
         template: TEMPLATE

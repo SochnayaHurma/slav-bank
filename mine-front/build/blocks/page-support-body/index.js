@@ -10,7 +10,6 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createFRef: () => (/* binding */ createFRef),
 /* harmony export */   "default": () => (/* binding */ Edit)
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
@@ -31,22 +30,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const normalizeFaqRefs = (faqRef, index) => ({
-  id: faqRef?.id || `fRef-${index}`,
-  title: faqRef?.text || '',
-  urlTitle: faqRef?.text || '',
-  url: faqRef?.url || '',
-  linkMode: !!faqRef?.linkMode,
-  pageId: Number(faqRef?.pageId) || 0
-});
-const createFRef = () => ({
-  id: `fRef-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-  text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Заголовок...', 'acme-blocks'),
-  url: '',
-  opensInNewTab: false,
-  linkMode: false,
-  pageId: 0
-});
 function Edit({
   attributes,
   setAttributes
@@ -54,123 +37,22 @@ function Edit({
   const [addMenuAnchor, setAddMenuAnchor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
   const {
     title,
-    titleFaqRefs,
-    faqRefs
+    titleFaqRefs
   } = attributes;
-  const safeFRefs = Array.isArray(faqRefs) ? faqRefs.map(normalizeFaqRefs) : [];
-  const updateFRefs = nextBadges => {
-    setAttributes({
-      pillItems: nextBadges
-    });
-  };
-  const updateFRef = (fRefId, patch) => {
-    updateFRefs(safeFRefs.map(fRef => fRef.id === fRefId ? {
-      ...fRef,
-      ...patch
-    } : fRef));
-  };
-  const addFRef = () => {
-    updateFRefs([...safeFRefs, createFRef()]);
-    setAddMenuAnchor(null);
-  };
-  const removeFRefs = fRefId => {
-    updateFRefs(safeFRefs.filter(fRef => fRef.id !== fRefId));
-  };
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
     className: 'bento-card'
   });
+  const TEMPLATE = [['slav-bank/title', {
+    title: 'Данный раздел создан для поддержки клиентов АО НКБ «СЛАВЯНБАНК».',
+    level: '2'
+  }], ['slav-bank/kicker', {
+    text: 'Популярные темы'
+  }], ['slav-bank/tile-container', {}]];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "bento-card",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
-        style: {
-          padding: 'var(--s-4)',
-          position: 'relative'
-        },
-        tagName: "strong",
-        value: title,
-        onChange: value => setAttributes({
-          title: value
-        })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
-      className: "kicker",
-      tagName: "div",
-      value: titleFaqRefs,
-      onChange: value => setAttributes({
-        titleFaqRefs: value
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "tiles",
-      children: [faqRefs.length > 0 && faqRefs.map(fRef => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("a", {
-        className: "tile",
-        href: fRef.url,
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
-          tagName: "div",
-          className: "tile-title",
-          value: fRef.title,
-          onChange: value => updateFRef(fRef.id, {
-            title: value
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
-          tagName: "div",
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          value: fRef.urlTitle,
-          onChange: value => updateFRef(fRef.id, {
-            urlTitle: value
-          })
-        })]
-      })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("a", {
-        className: "tile",
-        href: " esc_url(sb_alpha_url('faq'))",
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "tile-title",
-          children: "\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("a", {
-        className: "tile",
-        href: "ecp-regeneration.html",
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "tile-title",
-          children: "\u041F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F \u042D\u0426\u041F"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("a", {
-        className: "tile",
-        href: "esc_url(sb_alpha_url('security'))",
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "tile-title",
-          children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-        })]
-      })]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
+      template: TEMPLATE,
+      templateLock: 'all'
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "kicker",
       style: {
@@ -399,55 +281,7 @@ function save() {
       padding: 'var(--s-4)',
       position: 'relative'
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "tiles",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-        className: "tile",
-        href: "esc_url(sb_alpha_url('faq'))",
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "tile-title",
-          children: "\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-        className: "tile",
-        href: "ecp-regeneration.html",
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "tile-title",
-          children: "\u041F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F \u042D\u0426\u041F"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-        className: "tile",
-        href: "esc_url(sb_alpha_url('security'))",
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "tile-title",
-          children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-        })]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "kicker",
       style: {
         marginTop: '12px'

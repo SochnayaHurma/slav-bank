@@ -58,7 +58,7 @@ export default function Edit() {
 
 	return (
 // ПОДДЕРЖКА
-<main {...blockProps} id="main">
+<main  id="main">
 <InnerBlocks template={TEMPLATE}/>
 			<div
 				className="toast"

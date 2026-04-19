@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/kicker",
+  "title": "Подзаголовок (Кикер)",
+  "category": "Компоненты темы",
+  "icon": "screenoptions",
+  "description": "Заголовок с выбором уровня h1,h2,h3...",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": "Мини описание..."
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

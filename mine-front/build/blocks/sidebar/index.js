@@ -86,7 +86,6 @@ function Edit({
         })]
       })
     }), showSidebar && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      ...blockProps,
       className: "stack",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "bento-card reveal is-in",

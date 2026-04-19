@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/tile-container",
+  "title": "Контейнер ссылок-плиток",
+  "category": "Компоненты темы",
+  "icon": "screenoptions",
+  "description": "",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "tiles": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Часто задаваемые вопросы",
+          "urlTitle": "Открыть раздел →",
+          "url": ""
+        },
+        {
+          "title": "Перегенерация ЭЦП",
+          "urlTitle": "Открыть раздел →",
+          "url": ""
+        },
+        {
+          "title": "Рекомендации по безопасности",
+          "urlTitle": "Открыть раздел →",
+          "url": ""
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

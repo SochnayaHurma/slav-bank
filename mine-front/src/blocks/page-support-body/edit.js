@@ -6,117 +6,41 @@ import { store as coreDataStore } from '@wordpress/core-data';
 
 
 
-const normalizeFaqRefs = (faqRef, index) => ({
-	id: faqRef?.id || `fRef-${index}`,
-	title: faqRef?.text || '',
-	urlTitle: faqRef?.text || '',
-	url: faqRef?.url || '',
-	linkMode: !!faqRef?.linkMode,
-	pageId: Number(faqRef?.pageId) || 0,
-});
-
-export const createFRef = () => ({
-  id: `fRef-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-  text: __('Заголовок...', 'acme-blocks'),
-  url: '',
-  opensInNewTab: false,
-  linkMode: false,
-  pageId: 0,
-});
 
 export default function Edit({attributes, setAttributes}) {
 	const [addMenuAnchor, setAddMenuAnchor] = useState(null);
 
   const {
     title,
-    titleFaqRefs,
-    faqRefs,
+    titleFaqRefs
   } = attributes;
 
-  
-	const safeFRefs = Array.isArray(faqRefs)
-		? faqRefs.map(normalizeFaqRefs)
-		: [];
-	const updateFRefs = (nextBadges) => {
-		setAttributes({ pillItems: nextBadges });
-	};
-
-	const updateFRef = (fRefId, patch) => {
-		updateFRefs(
-			safeFRefs.map((fRef) =>
-				fRef.id === fRefId ? { ...fRef, ...patch } : fRef
-			)
-		);
-	};
-  const addFRef = () => {
-    updateFRefs([...safeFRefs, createFRef()]);
-    setAddMenuAnchor(null);
-  };
-  
-    const removeFRefs = (fRefId) => {
-      updateFRefs(safeFRefs.filter((fRef) => fRef.id !== fRefId));
-    };
-
-  
   
   const blockProps = useBlockProps({
 		className: 'bento-card',
 	});
 
-
+const TEMPLATE = [
+  [
+    'slav-bank/title',
+    {
+      title: 'Данный раздел создан для поддержки клиентов АО НКБ «СЛАВЯНБАНК».',
+      level: '2'
+    }
+  ],
+  [
+    'slav-bank/kicker', {text: 'Популярные темы'}
+  ],
+  [
+    'slav-bank/tile-container', {}
+  ],
+];
 
 	return (
         <div className="bento-card" >
-          <h2><RichText 
-                  style={{ padding: 'var(--s-4)', position: 'relative' }}
-                  tagName='strong'
-                  value={title}
-                  onChange={(value) => setAttributes({title: value})}
-                /></h2>
-              
-          <RichText 
-            className="kicker"
-            tagName='div'
-            value={titleFaqRefs}
-            onChange={(value) => setAttributes({titleFaqRefs: value})}
-
-          />
-          <div className="tiles">
-            {faqRefs.length > 0 && faqRefs.map(fRef => (
-
-              <a className="tile" href={fRef.url} target="_blank" rel="noopener">
-                <RichText 
-                  tagName='div'
-                   className="tile-title"
-                   value={fRef.title}
-                    onChange={value => updateFRef(fRef.id, {title: value})}
-                />
-                <RichText 
-                  tagName='div'
-                  className="muted"
-                  style={{ marginTop: '6px' }}
-                  value={fRef.urlTitle}
-                  onChange={value => updateFRef(fRef.id, {urlTitle: value})}
-                />
-            </a>
-            ))}
-            <a className="tile" href=" esc_url(sb_alpha_url('faq'))" target="_blank" rel="noopener">
-              <div className="tile-title">Часто задаваемые вопросы</div>
-              <div className="muted" style={{ marginTop: '6px' }}>Открыть раздел →</div>
-            </a>
-
-            <a className="tile" href="ecp-regeneration.html" target="_blank" rel="noopener">
-              <div className="tile-title">Перегенерация ЭЦП</div>
-              <div className="muted" style={{ marginTop: '6px' }}>Открыть раздел →</div>
-            </a>
-
-            <a className="tile" href="esc_url(sb_alpha_url('security'))" target="_blank" rel="noopener">
-              <div className="tile-title">Рекомендации по безопасности</div>
-              <div className="muted" style={{ marginTop: '6px' }}>Открыть раздел →</div>
-            </a>
-          </div>
-
-
+          <InnerBlocks 
+                template={TEMPLATE}
+                templateLock={'all'}/>
 
           <div className="kicker" style={{ marginTop: '12px' }}>Документы</div>
           <div className="doc-shelf">
@@ -194,8 +118,5 @@ export default function Edit({attributes, setAttributes}) {
           </div>
 
         </div>
-
-
-
 	);
 }

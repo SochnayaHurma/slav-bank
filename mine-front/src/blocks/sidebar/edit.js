@@ -77,7 +77,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 				{showSidebar && (
-					<div {...blockProps} className="stack">
+					<div className="stack">
 						<div className="bento-card reveal is-in">
 							<h3 style={{ margin: '6px 0 10px' }}>
 								Курсы обмена валют (Макет для визуала)

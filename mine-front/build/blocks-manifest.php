@@ -43,6 +43,107 @@ return array(
 			'layout' => true
 		)
 	),
+	'base-kicker' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/kicker',
+		'title' => 'Подзаголовок (Кикер)',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => 'Заголовок с выбором уровня h1,h2,h3...',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'text' => array(
+				'type' => 'string',
+				'default' => 'Мини описание...'
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'base-tile-container' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/tile-container',
+		'title' => 'Контейнер ссылок-плиток',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => '',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'tiles' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Часто задаваемые вопросы',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					),
+					array(
+						'title' => 'Перегенерация ЭЦП',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					),
+					array(
+						'title' => 'Рекомендации по безопасности',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					)
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'base-title' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/title',
+		'title' => 'Заголовок',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => 'Заголовок с выбором уровня h1,h2,h3...',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Заголовок...'
+			),
+			'level' => array(
+				'type' => 'string',
+				'default' => '2'
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'bent-shell' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,

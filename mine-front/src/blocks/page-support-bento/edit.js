@@ -1,18 +1,14 @@
-import { InnerBlocks, RichText, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
-import { useState } from '@wordpress/element';
-import { __, sprintf } from '@wordpress/i18n';
-import { useSelect } from '@wordpress/data';
-import { store as coreDataStore } from '@wordpress/core-data';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 const TEMPLATE = [
-
 	[
 		'slav-bank/body-support',
-		{}
+		{},
 	],
-		[
+	[
 		'slav-bank/bento-shell-sidebar',
-		{}
+		{},
 	],
 ];
 
@@ -26,27 +22,34 @@ const normalizeFaqRefs = (faqRef, index) => ({
 });
 
 export const createFRef = () => ({
-  id: `fRef-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-  text: __('Заголовок...', 'acme-blocks'),
-  url: '',
-  opensInNewTab: false,
-  linkMode: false,
-  pageId: 0,
+	id: `fRef-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+	text: __('Заголовок...', 'acme-blocks'),
+	url: '',
+	opensInNewTab: false,
+	linkMode: false,
+	pageId: 0,
 });
 
-export default function Edit({attributes, setAttributes}) {
-  const blockProps = useBlockProps({
+export default function Edit({ attributes, setAttributes }) {
+	const blockProps = useBlockProps({
 		className: 'block dashv2',
-		id: "content"
+		id: 'content',
 	});
 
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'bento',
+		},
+		{
+			template: TEMPLATE,
+		}
+	);
+
 	return (
-  <section {...blockProps} >
-    <div className="container">
-      <div className="bento">
-		<InnerBlocks template={TEMPLATE}/>
-      </div>
-    </div>
-  </section>
+		<section className="block dashv2" id="content">
+			<div className="container">
+				<div {...innerBlocksProps} />
+			</div>
+		</section>
 	);
 }

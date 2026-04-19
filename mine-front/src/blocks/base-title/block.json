@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/title",
+  "title": "Заголовок",
+  "category": "Компоненты темы",
+  "icon": "screenoptions",
+  "description": "Заголовок с выбором уровня h1,h2,h3...",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "title": {"type": "string", "default": "Заголовок..."},
+    "level": {"type": "string", "default": "2"}
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}
