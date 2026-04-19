@@ -5,4 +5,8 @@
   outline: 1px dashed #2271b1;
 }
 
+html {
+  width: 100% !important;
+}
+
 /*# sourceMappingURL=index.css.map*/

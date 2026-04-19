@@ -8,14 +8,40 @@ const TEMPLATE = [
 			title: 'ПОДДЕРЖКА',
       kicker: 'qweq',
 			description: 'Часто задаваемые вопросы — ответы на вопросы, возникающие при работе в системе Клиент-Банк (данный раздел сайта постоянно обновляется и редактируется).',
-      badge: [
-        {...createBadge(),
-  text: 'Безопасность1',
-  url: 'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html',
-  linkMode: false,
-        }
+      pillItems: [
+      {
+        ...createBadge(),
+        text: 'Безопасность',
+        url: 'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html',
+        linkMode: false,
+      },
+      {
+        ...createBadge(),
+        text: 'Клиент-Банк',
+        url: 'https://slavbank.ru/klient-bank-online.html',
+        linkMode: false,
+      },
+      {
+        ...createBadge(),
+        text: '123-ФЗ',
+        url: 'https://slavbank.ru/obrashhenie-po-123-fz.html',
+        linkMode: false,
+      },
       ],
-      actions: [],
+      actions: [
+        {
+          ...createAction(),
+          text: 'Содержание',
+          url: '#content',
+          linkMode: false,
+        },
+        {
+          ...createAction(),
+          text: 'На главную',
+          url: '/',
+          linkMode: false,
+        },
+      ],
     }
 	],
 	[

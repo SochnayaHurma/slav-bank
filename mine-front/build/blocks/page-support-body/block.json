@@ -9,6 +9,80 @@
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Данный раздел создан для поддержки клиентов АО НКБ «СЛАВЯНБАНК»."
+    },
+    "titleFaqRefs": {
+      "type": "string",
+      "default": "Популяярные темы"
+    },
+    "faqRefs": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Часто задаваемые вопросы",
+          "hrefTitle": "Открыть раздел →",
+          "href": ""
+        },
+        {
+          "title": "Перегенерация ЭЦП",
+          "hrefTitle": "Открыть раздел →",
+          "href": ""
+        },
+        {
+          "title": "Рекомендации по безопасности",
+          "hrefTitle": "Открыть раздел →",
+          "href": ""
+        }
+      ]
+    },
+    "titleDocRefs": {
+      "type": "string",
+      "default": "Документы"
+    },
+    "docRefs": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Скачать здесь >>",
+          "format": "PDF",
+          "symbol": "→"
+        }
+      ]
+    },
+    "titleContacts": {
+      "type": "string",
+      "default": "В случае возникновения вопросов вы можете связаться с нами по телефонам, указанным ниже:"
+    },
+    "numberBlock": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Телефоны технической поддержки:",
+          "description": "(8162) 66-51-95,\n66-52-47,\n+7921-690-17-00"
+        }
+      ]
+    },
+    "workingHours": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Режим работы:",
+          "description": "с 8.30 до 17.30 (пт. – до 16.30), обед с 13.00 до 14.00, (выходной суб., вск.)"
+        }
+      ]
+    },
+    "infoTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "infoBlock": {
+      "type": "string",
+      "default": ""
+    }
+  },
   "supports": {
     "html": false,
     "anchor": true,

@@ -31,11 +31,11 @@ export default function save({ attributes }) {
 		title,
 		description,
 		kicker,
-		badges = [],  
+		pillItems = [],  
 		actions = [],
 	} = attributes;
 
-	const safeBadges = Array.isArray(badges) ? badges.map(normalizeBadge) : [];
+	const safeBadges = Array.isArray(pillItems) ? pillItems.map(normalizeBadge) : [];
 	const safeActions = Array.isArray(actions) ? actions.map(normalizeAction) : [];
 
 	return (

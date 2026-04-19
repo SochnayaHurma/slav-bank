@@ -40,7 +40,7 @@ const createBadge = () => ({
   text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Новый badge', 'acme-blocks'),
   url: '',
   opensInNewTab: false,
-  linkMode: true,
+  linkMode: false,
   pageId: 0
 });
 const createAction = (variant = 'primary') => ({
@@ -56,7 +56,7 @@ const normalizeBadge = (badge, index) => ({
   id: badge?.id || `badge-${index}`,
   text: badge?.text || '',
   url: badge?.url || '',
-  linkMode: badge?.linkMode || false,
+  linkMode: !!badge?.linkMode,
   pageId: Number(badge?.pageId) || 0,
   opensInNewTab: !!badge?.opensInNewTab
 });
@@ -78,11 +78,11 @@ function Edit({
     title,
     description,
     kicker,
-    badges = [],
+    pillItems = [],
     actions = []
   } = attributes;
   const [addMenuAnchor, setAddMenuAnchor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
-  const safeBadges = Array.isArray(badges) ? badges.map(normalizeBadge) : [];
+  const safeBadges = Array.isArray(pillItems) ? pillItems.map(normalizeBadge) : [];
   const safeActions = Array.isArray(actions) ? actions.map(normalizeAction) : [];
   const pages = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__.store).getEntityRecords('postType', 'page', {
     per_page: 100,
@@ -90,24 +90,25 @@ function Edit({
     order: 'asc',
     _fields: 'id,title,link'
   }), []);
+  const pagesById = Object.fromEntries((pages || []).map(page => [page.id, page]));
+  const updateBadges = nextBadges => {
+    setAttributes({
+      pillItems: nextBadges
+    });
+  };
   const updateBadge = (badgeId, patch) => {
     updateBadges(safeBadges.map(badge => badge.id === badgeId ? {
       ...badge,
       ...patch
     } : badge));
   };
-  const updateBadges = nextBadges => {
-    setAttributes({
-      badges: nextBadges
-    });
-  };
   const addBadge = () => {
     updateBadges([...safeBadges, createBadge()]);
     setAddMenuAnchor(null);
   };
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
-    className: 'theme-shell'
-  });
+  const removeBadge = badgeId => {
+    updateBadges(safeBadges.filter(badge => badge.id !== badgeId));
+  };
   const updateActions = nextActions => {
     setAttributes({
       actions: nextActions
@@ -120,21 +121,16 @@ function Edit({
     } : action));
   };
   const addAction = () => {
-    try {
-      const variant = safeActions.length === 0 ? 'primary' : 'secondary';
-      updateActions([...safeActions, createAction(variant)]);
-      setAddMenuAnchor(null);
-    } catch (exceptionVar) {
-      console.log(exceptionVar);
-    }
-  };
-  const removeBadge = badgeId => {
-    updateBadges(safeBadges.filter(badge => badge.id !== badgeId));
+    const variant = safeActions.length === 0 ? 'primary' : 'secondary';
+    updateActions([...safeActions, createAction(variant)]);
+    setAddMenuAnchor(null);
   };
   const removeAction = actionId => {
     updateActions(safeActions.filter(action => action.id !== actionId));
   };
-  const pagesById = Object.fromEntries((pages || []).map(page => [page.id, page]));
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
+    className: 'theme-shell block'
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.BlockControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarGroup, {
@@ -238,11 +234,14 @@ function Edit({
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Primary', 'acme-blocks'),
               value: 'primary'
             }, {
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Secondary', 'acme-blocks'),
-              value: 'secondary'
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Outline', 'acme-blocks'),
+              value: 'outline'
             }, {
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Ghost', 'acme-blocks'),
-              value: 'ghost'
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Soft', 'acme-blocks'),
+              value: 'soft'
+            }, {
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Glass', 'acme-blocks'),
+              value: 'glass'
             }],
             onChange: value => updateAction(action.id, {
               variant: value
@@ -265,13 +264,13 @@ function Edit({
         }, action.id))]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
-      className: "block",
+      ...blockProps,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "hero-wrap",
           style: {
-            padding: "var(--s-5)"
+            padding: 'var(--s-5)'
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "row",
@@ -309,7 +308,10 @@ function Edit({
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
                 className: "kicker",
                 value: kicker,
-                tagName: "div"
+                tagName: "div",
+                onChange: value => setAttributes({
+                  kicker: value
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
                 value: title,
                 style: {
@@ -325,14 +327,17 @@ function Edit({
                   maxWidth: '78ch'
                 },
                 value: description,
-                tagName: "p"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                tagName: "p",
+                onChange: value => setAttributes({
+                  description: value
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 className: "row",
                 style: {
                   marginTop: 'var(--s-4)',
                   flexWrap: 'wrap'
                 },
-                children: [safeActions.length > 0 && safeActions.map(action => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
+                children: safeActions.length > 0 && safeActions.map(action => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
                   tagName: "a",
                   className: `btn ${action.variant || 'primary'}`,
                   href: action.url || '',
@@ -340,54 +345,25 @@ function Edit({
                   onChange: value => updateAction(action.id, {
                     text: value
                   })
-                }, action.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-                  className: "btn primary",
-                  href: "#content",
-                  children: "\u0421\u043E\u0434\u0435\u0440\u0436\u0430\u043D\u0438\u0435"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-                  className: "btn outline",
-                  href: "/",
-                  children: "\u041D\u0430 \u0433\u043B\u0430\u0432\u043D\u0443\u044E"
-                })]
+                }, action.id))
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "pill",
               style: {
                 alignSelf: 'flex-start'
               },
-              children: [safeBadges.length > 0 && safeBadges.map(badge => {
+              children: safeBadges.length > 0 && safeBadges.map(badge => {
                 const badgeHref = badge.linkMode ? pagesById[badge.pageId]?.link || '' : badge.url;
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
-                  href: badgeHref,
                   tagName: "a",
                   className: "mono badge",
+                  href: badgeHref,
                   value: badge.text,
                   onChange: value => updateBadge(badge.id, {
                     text: value
                   })
                 }, badge.id);
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "muted",
-                children: "\xB7"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-                href: "esc_url(sb_alpha_url('security'))",
-                className: "mono badge",
-                children: "\u0411\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "muted",
-                children: "\xB7"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-                href: "esc_url(sb_alpha_url('client-bank-online'))",
-                className: "mono badge",
-                children: "\u041A\u043B\u0438\u0435\u043D\u0442\u2011\u0411\u0430\u043D\u043A"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "muted",
-                children: "\xB7"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-                href: "esc_url(sb_alpha_url('appeal-123-fz'));",
-                className: "mono badge",
-                children: "123\u2011\u0424\u0417"
-              })]
+              })
             })]
           })
         })
@@ -420,13 +396,33 @@ const TEMPLATE = [['slav-bank/hero-simple', {
   title: 'ПОДДЕРЖКА',
   kicker: 'qweq',
   description: 'Часто задаваемые вопросы — ответы на вопросы, возникающие при работе в системе Клиент-Банк (данный раздел сайта постоянно обновляется и редактируется).',
-  badge: [{
+  pillItems: [{
     ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createBadge)(),
-    text: 'Безопасность1',
+    text: 'Безопасность',
     url: 'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html',
     linkMode: false
+  }, {
+    ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createBadge)(),
+    text: 'Клиент-Банк',
+    url: 'https://slavbank.ru/klient-bank-online.html',
+    linkMode: false
+  }, {
+    ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createBadge)(),
+    text: '123-ФЗ',
+    url: 'https://slavbank.ru/obrashhenie-po-123-fz.html',
+    linkMode: false
   }],
-  actions: []
+  actions: [{
+    ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createAction)(),
+    text: 'Содержание',
+    url: '#content',
+    linkMode: false
+  }, {
+    ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createAction)(),
+    text: 'На главную',
+    url: '/',
+    linkMode: false
+  }]
 }], ['slav-bank/body-support', {}]];
 function Edit() {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({

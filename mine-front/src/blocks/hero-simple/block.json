@@ -86,5 +86,42 @@
       "margin": true
     },
     "layout": true
+  },
+    "example": {
+    "attributes": {
+      "kicker": "Поддержка",
+      "title": "Помощь клиентам",
+      "description": "Часто задаваемые вопросы и полезные материалы.",
+      "pillItems": [
+        {
+          "id": "badge-demo-1",
+          "text": "Безопасность",
+          "url": "/security",
+          "linkMode": false,
+          "pageId": 0,
+          "opensInNewTab": false
+        },
+        {
+          "id": "badge-demo-2",
+          "text": "Клиент-Банк",
+          "url": "/client-bank-online",
+          "linkMode": false,
+          "pageId": 0,
+          "opensInNewTab": false
+        }
+      ],
+      "actions": [
+        {
+          "id": "action-demo-1",
+          "text": "Содержание",
+          "url": "#content",
+          "variant": "primary",
+          "linkMode": false,
+          "pageId": 0,
+          "opensInNewTab": false
+        }
+      ]
+    },
+    "viewportWidth": 1200
   }
 }
