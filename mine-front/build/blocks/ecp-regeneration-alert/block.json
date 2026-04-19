@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/ecp-regeneration-alert",
+  "title": "Перегенерация ЭЦП: предупреждение",
+  "category": "Компоненты темы",
+  "icon": "warning",
+  "description": "Предупреждение для страницы перегенерации ЭЦП.",
+  "parent": [
+    "slav-bank/body-ecp-regeneration"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Важно"
+    },
+    "text": {
+      "type": "string",
+      "default": "Выпуск и перегенерация ЭЦП/ключей требует аккуратности. Используйте только официальные инструкции и защищённый канал связи."
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

@@ -335,6 +335,128 @@ return array(
 			'layout' => true
 		)
 	),
+	'ecp-regeneration-alert' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/ecp-regeneration-alert',
+		'title' => 'Перегенерация ЭЦП: предупреждение',
+		'category' => 'Компоненты темы',
+		'icon' => 'warning',
+		'description' => 'Предупреждение для страницы перегенерации ЭЦП.',
+		'parent' => array(
+			'slav-bank/body-ecp-regeneration'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Важно'
+			),
+			'text' => array(
+				'type' => 'string',
+				'default' => 'Выпуск и перегенерация ЭЦП/ключей требует аккуратности. Используйте только официальные инструкции и защищённый канал связи.'
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'ecp-regeneration-documents' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/ecp-regeneration-documents',
+		'title' => 'Перегенерация ЭЦП: документы',
+		'category' => 'Компоненты темы',
+		'icon' => 'media-document',
+		'description' => 'Повторяемые карточки документов для страницы перегенерации ЭЦП.',
+		'parent' => array(
+			'slav-bank/body-ecp-regeneration'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'ecp-regeneration-steps' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/ecp-regeneration-steps',
+		'title' => 'Перегенерация ЭЦП: шаги',
+		'category' => 'Компоненты темы',
+		'icon' => 'editor-ol',
+		'description' => 'Повторяемые шаги краткой инструкции.',
+		'parent' => array(
+			'slav-bank/body-ecp-regeneration'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'ecp-regeneration-text' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/ecp-regeneration-text',
+		'title' => 'Перегенерация ЭЦП: текст',
+		'category' => 'Компоненты темы',
+		'icon' => 'text-page',
+		'description' => 'Текстовая инструкция с редактируемыми абзацами и изображениями.',
+		'parent' => array(
+			'slav-bank/body-ecp-regeneration'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'hero-simple' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -470,6 +592,148 @@ return array(
 		'category' => 'slav-bank',
 		'editorScript' => 'file:./index.js',
 		'render' => 'file:./render.php'
+	),
+	'page-ecp-regeneration' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/ecp-regeneration',
+		'title' => 'Страница Перегенерация ЭЦП',
+		'category' => 'Страницы',
+		'icon' => 'admin-network',
+		'description' => 'Страница перегенерации электронной подписи.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-ecp-regeneration-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-ecp-regeneration-bento',
+		'title' => 'Перегенерация ЭЦП bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Секция с заранее заданными контейнерами и наполнением.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Данный раздел создан для поддержки клиентов АО НКБ «СЛАВЯНБАНК».'
+			),
+			'titleFaqRefs' => array(
+				'type' => 'string',
+				'default' => 'Популяярные темы'
+			),
+			'faqRefs' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Часто задаваемые вопросы',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					),
+					array(
+						'title' => 'Перегенерация ЭЦП',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					),
+					array(
+						'title' => 'Рекомендации по безопасности',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					)
+				)
+			),
+			'titleDocRefs' => array(
+				'type' => 'string',
+				'default' => 'Документы'
+			),
+			'docRefs' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Скачать здесь >>',
+						'format' => 'PDF',
+						'symbol' => '→'
+					)
+				)
+			),
+			'titleContacts' => array(
+				'type' => 'string',
+				'default' => 'В случае возникновения вопросов вы можете связаться с нами по телефонам, указанным ниже:'
+			),
+			'numberBlock' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Телефоны технической поддержки:',
+						'description' => '(8162) 66-51-95,
+66-52-47,
++7921-690-17-00'
+					)
+				)
+			),
+			'workingHours' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Режим работы:',
+						'description' => 'с 8.30 до 17.30 (пт. – до 16.30), обед с 13.00 до 14.00, (выходной суб., вск.)'
+					)
+				)
+			),
+			'infoTitle' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'infoBlock' => array(
+				'type' => 'string',
+				'default' => ''
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-ecp-regeneration-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-ecp-regeneration',
+		'title' => 'Перегенерация ЭЦП: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'admin-network',
+		'description' => 'Карточка содержимого страницы перегенерации ЭЦП.',
+		'parent' => array(
+			'slav-bank/body-ecp-regeneration-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
 	),
 	'page-faq' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',

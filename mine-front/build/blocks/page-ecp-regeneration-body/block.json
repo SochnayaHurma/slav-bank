@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/body-ecp-regeneration",
+  "title": "Перегенерация ЭЦП: содержимое",
+  "category": "Наполнение",
+  "icon": "admin-network",
+  "description": "Карточка содержимого страницы перегенерации ЭЦП.",
+  "parent": [
+    "slav-bank/body-ecp-regeneration-bento"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}
