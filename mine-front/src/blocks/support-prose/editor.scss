@@ -1,0 +1,19 @@
+.support-prose {
+	outline: 1px dashed rgba(34, 113, 177, 0.35);
+	padding: 12px;
+}
+
+.support-prose__editor-item {
+	position: relative;
+}
+
+.support-prose__remove,
+.support-prose__add {
+	margin-top: 8px;
+}
+
+.support-prose__hint {
+	color: #50575e;
+	font-size: 12px;
+	margin: 10px 0 0;
+}

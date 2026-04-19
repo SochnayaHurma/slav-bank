@@ -716,5 +716,41 @@ return array(
 			),
 			'layout' => true
 		)
+	),
+	'support-prose' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/support-prose',
+		'title' => 'Текст поддержки',
+		'category' => 'Компоненты темы',
+		'icon' => 'editor-paragraph',
+		'description' => 'Повторяемые абзацы с возможностью добавлять ссылки внутри текста.',
+		'parent' => array(
+			'slav-bank/body-support'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'heading' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
 	)
 );
