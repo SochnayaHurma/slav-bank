@@ -45,7 +45,7 @@ const TEMPLATE = [
     }
 	],
 	[
-		'slav-bank/body-support',
+		'slav-bank/body-support-bento',
 		{
 		}
 	],
@@ -54,14 +54,21 @@ const TEMPLATE = [
 
 export default function Edit() {
 	const blockProps = useBlockProps({
-		className: 'theme-shell',
 	});
 
 	return (
 // ПОДДЕРЖКА
 <main {...blockProps} id="main">
 <InnerBlocks template={TEMPLATE}/>
-
+			<div
+				className="toast"
+				role="status"
+				aria-live="polite"
+				aria-atomic="true"
+				hidden
+			>
+				Готово
+			</div>
 </main>
 	);
 }

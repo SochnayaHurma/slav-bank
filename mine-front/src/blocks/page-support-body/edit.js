@@ -4,12 +4,7 @@ import { __, sprintf } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import { store as coreDataStore } from '@wordpress/core-data';
 
-const TEMPLATE = [
-	[
-		'slav-bank/bento-shell-sidebar',
-		{}
-	]
-];
+
 
 const normalizeFaqRefs = (faqRef, index) => ({
 	id: faqRef?.id || `fRef-${index}`,
@@ -65,19 +60,12 @@ export default function Edit({attributes, setAttributes}) {
   
   
   const blockProps = useBlockProps({
-		className: 'theme-shell',
+		className: 'bento-card',
 	});
 
 
 
 	return (
-<>
-
-  <section {...blockProps} className="block dashv2" id="content">
-    <div className="container">
-
-
-      <div className="bento">
         <div className="bento-card" >
           <h2><RichText 
                   style={{ padding: 'var(--s-4)', position: 'relative' }}
@@ -206,14 +194,8 @@ export default function Edit({attributes, setAttributes}) {
           </div>
 
         </div>
-<InnerBlocks template={TEMPLATE}/>
 
 
-      </div>
-    </div>
-  </section>
 
-  <div className="toast" role="status" aria-live="polite" aria-atomic="true" hidden>Готово</div>
-</>
 	);
 }

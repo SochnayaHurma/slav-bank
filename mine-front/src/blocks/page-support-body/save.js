@@ -1,35 +1,16 @@
 import { InnerBlocks, useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function save({attributes}) {
+export default function save() {
 	const blockProps = useBlockProps.save({
 		className: 'theme-shell',
 	});
-  const {
-    title,
-    titleFaqRefs,
-  
-  } = attributes;
-	return (
-		<>
 
-			<section { ...blockProps } className="block dashv2" id="content">
-				<div className="container">
-					<div className="bento">
-						<div
-							className="bento-card"
-							style={ { padding: 'var(--s-4)', position: 'relative' } }
-						>
-		  <h2><RichText.Content
-				  style={{ padding: 'var(--s-4)', position: 'relative' }}
-				  tagName='strong'
-				  value={title}
-				/></h2>
-			  
-		  <RichText.Content
-			className="kicker"
-			tagName='div'
-			value={titleFaqRefs}
-			/>
+	return (
+
+	<div
+		className="bento-card"
+		style={ { padding: 'var(--s-4)', position: 'relative' } }>
+
 
 
 							<div className="tiles">
@@ -292,21 +273,6 @@ export default function save({attributes}) {
 								</div>
 							</div>
 						</div>
-			<InnerBlocks.Content />
 
-					</div>
-				</div>
-			</section>
-
-			<div
-				className="toast"
-				role="status"
-				aria-live="polite"
-				aria-atomic="true"
-				hidden
-			>
-				Готово
-			</div>
-		</>
 	);
 }

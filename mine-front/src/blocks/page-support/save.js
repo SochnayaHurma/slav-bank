@@ -1,5 +1,4 @@
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
-import ServerSideRender from '@wordpress/server-side-render';
 
 export default function save() {
 	const blockProps = useBlockProps.save({
@@ -9,6 +8,15 @@ export default function save() {
 	return (
 		<main { ...blockProps } id="main">
 			<InnerBlocks.Content />
+						<div
+				className="toast"
+				role="status"
+				aria-live="polite"
+				aria-atomic="true"
+				hidden
+			>
+				Готово
+			</div>
 		</main>
 	);
 }
