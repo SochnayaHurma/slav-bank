@@ -39,7 +39,28 @@ add_action('init', function () {
         register_block_type($block_dir);
     }
 });
-
+add_filter( 'block_categories_all', function( $categories ) {
+	return array_merge(
+		array(
+			array(
+				'slug'  => 'Страницы',
+				'title' => __( 'Страницы' ),
+				'icon'  => 'layout',
+			),
+            			array(
+				'slug'  => 'Компоненты темы',
+				'title' => __( 'Компоненты темы'),
+				'icon'  => 'layout',
+			),
+            			array(
+				'slug'  => 'Наполнение',
+				'title' => __( 'Наполнение'),
+				'icon'  => 'layout',
+			),
+		),
+		$categories
+	);
+}, 10, 2 );
 
 if (!function_exists('sb_alpha_force_404')) {
     function sb_alpha_force_404(): void
