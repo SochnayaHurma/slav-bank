@@ -471,6 +471,148 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'render' => 'file:./render.php'
 	),
+	'page-faq' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/faq',
+		'title' => 'Страница FAQ',
+		'category' => 'Страницы',
+		'icon' => 'editor-help',
+		'description' => 'Страница часто задаваемых вопросов.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-faq-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-faq-bento',
+		'title' => 'faq bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Секция с заранее заданными контейнерами и наполнением.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Данный раздел создан для поддержки клиентов АО НКБ «СЛАВЯНБАНК».'
+			),
+			'titleFaqRefs' => array(
+				'type' => 'string',
+				'default' => 'Популяярные темы'
+			),
+			'faqRefs' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Часто задаваемые вопросы',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					),
+					array(
+						'title' => 'Перегенерация ЭЦП',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					),
+					array(
+						'title' => 'Рекомендации по безопасности',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					)
+				)
+			),
+			'titleDocRefs' => array(
+				'type' => 'string',
+				'default' => 'Документы'
+			),
+			'docRefs' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Скачать здесь >>',
+						'format' => 'PDF',
+						'symbol' => '→'
+					)
+				)
+			),
+			'titleContacts' => array(
+				'type' => 'string',
+				'default' => 'В случае возникновения вопросов вы можете связаться с нами по телефонам, указанным ниже:'
+			),
+			'numberBlock' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Телефоны технической поддержки:',
+						'description' => '(8162) 66-51-95,
+66-52-47,
++7921-690-17-00'
+					)
+				)
+			),
+			'workingHours' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Режим работы:',
+						'description' => 'с 8.30 до 17.30 (пт. – до 16.30), обед с 13.00 до 14.00, (выходной суб., вск.)'
+					)
+				)
+			),
+			'infoTitle' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'infoBlock' => array(
+				'type' => 'string',
+				'default' => ''
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-faq-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-faq',
+		'title' => 'FAQ: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'editor-help',
+		'description' => 'Содержимое страницы часто задаваемых вопросов.',
+		'parent' => array(
+			'slav-bank/body-faq-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'page-support' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,

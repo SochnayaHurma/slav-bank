@@ -394,7 +394,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const TEMPLATE = [['slav-bank/hero-simple', {
   title: 'ПОДДЕРЖКА',
-  kicker: 'qweq',
+  kicker: '',
   description: 'Часто задаваемые вопросы — ответы на вопросы, возникающие при работе в системе Клиент-Банк (данный раздел сайта постоянно обновляется и редактируется).',
   pillItems: [{
     ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createBadge)(),
