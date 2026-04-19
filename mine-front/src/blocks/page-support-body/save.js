@@ -1,11 +1,14 @@
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
-import ServerSideRender from '@wordpress/server-side-render';
+import { InnerBlocks, useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function save() {
+export default function save({attributes}) {
 	const blockProps = useBlockProps.save({
 		className: 'theme-shell',
 	});
-
+  const {
+    title,
+    titleFaqRefs,
+  
+  } = attributes;
 	return (
 		<>
 
@@ -16,14 +19,18 @@ export default function save() {
 							className="bento-card"
 							style={ { padding: 'var(--s-4)', position: 'relative' } }
 						>
-							<h2>
-								<strong>
-									Данный раздел создан для поддержки клиентов АО НКБ
-									«СЛАВЯНБАНК».
-								</strong>
-							</h2>
+		  <h2><RichText.Content
+				  style={{ padding: 'var(--s-4)', position: 'relative' }}
+				  tagName='strong'
+				  value={title}
+				/></h2>
+			  
+		  <RichText.Content
+			className="kicker"
+			tagName='div'
+			value={titleFaqRefs}
+			/>
 
-							<div className="kicker">Частые темы</div>
 
 							<div className="tiles">
 								<a

@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/base-info-block/index.css","mappings":";;;AAAA;EACC;AACD;;AACA;EACC;AAED,C","sources":["webpack://your-theme-blocks/./src/blocks/base-info-block/editor.scss"],"sourcesContent":[".wp-block-yourtheme-content-shell.theme-shell.is-selected {\r\n\toutline: 1px dashed #2271b1;\r\n}\r\nhtml {\r\n\twidth: 100% !important;\r\n}"],"names":[],"sourceRoot":""}

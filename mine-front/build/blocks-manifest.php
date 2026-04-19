@@ -4,11 +4,32 @@ return array(
 	'base-card-ref' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'slav-bank/body-support',
-		'title' => 'Поддержка',
+		'name' => 'slav-bank/card-ref',
+		'title' => 'Карточка ссылки',
 		'category' => 'Наполнение',
 		'icon' => 'screenoptions',
 		'description' => 'Секция с заранее заданными контейнерами и наполнением.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'base-info-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/info-block',
+		'title' => 'Заголовок + большой текст',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => 'Для объемного текста',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
@@ -235,18 +256,18 @@ return array(
 				'default' => array(
 					array(
 						'title' => 'Часто задаваемые вопросы',
-						'hrefTitle' => 'Открыть раздел →',
-						'href' => ''
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
 					),
 					array(
 						'title' => 'Перегенерация ЭЦП',
-						'hrefTitle' => 'Открыть раздел →',
-						'href' => ''
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
 					),
 					array(
 						'title' => 'Рекомендации по безопасности',
-						'hrefTitle' => 'Открыть раздел →',
-						'href' => ''
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
 					)
 				)
 			),

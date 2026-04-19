@@ -1,146 +1,11 @@
-import { InnerBlocks, RichText, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
-import { useState } from '@wordpress/element';
-import { __, sprintf } from '@wordpress/i18n';
-import { useSelect } from '@wordpress/data';
-import { store as coreDataStore } from '@wordpress/core-data';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import ServerSideRender from '@wordpress/server-side-render';
 
-const TEMPLATE = [
-	[
-		'slav-bank/bento-shell-sidebar',
-		{}
-	]
-];
-
-const normalizeFaqRefs = (faqRef, index) => ({
-	id: faqRef?.id || `fRef-${index}`,
-	title: faqRef?.text || '',
-	urlTitle: faqRef?.text || '',
-	url: faqRef?.url || '',
-	linkMode: !!faqRef?.linkMode,
-	pageId: Number(faqRef?.pageId) || 0,
-});
-
-export const createFRef = () => ({
-  id: `fRef-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-  text: __('Заголовок...', 'acme-blocks'),
-  url: '',
-  opensInNewTab: false,
-  linkMode: false,
-  pageId: 0,
-});
-
-export default function Edit({attributes, setAttributes}) {
-	const [addMenuAnchor, setAddMenuAnchor] = useState(null);
-
-  const {
-    title,
-    titleFaqRefs,
-    faqRefs,
-  } = attributes;
-
-  
-	const safeFRefs = Array.isArray(faqRefs)
-		? faqRefs.map(normalizeFaqRefs)
-		: [];
-	const updateFRefs = (nextBadges) => {
-		setAttributes({ pillItems: nextBadges });
-	};
-
-	const updateFRef = (fRefId, patch) => {
-		updateFRefs(
-			safeFRefs.map((fRef) =>
-				fRef.id === fRefId ? { ...fRef, ...patch } : fRef
-			)
-		);
-	};
-  const addFRef = () => {
-    updateFRefs([...safeFRefs, createFRef()]);
-    setAddMenuAnchor(null);
-  };
-  
-    const removeFRefs = (fRefId) => {
-      updateFRefs(safeFRefs.filter((fRef) => fRef.id !== fRefId));
-    };
-
-  
-  
-  const blockProps = useBlockProps({
+export default function save() {
+	const blockProps = useBlockProps.save({
 		className: 'theme-shell',
 	});
-
-
-
 	return (
-<>
-
-  <section {...blockProps} className="block dashv2" id="content">
-    <div className="container">
-
-
-      <div className="bento">
-        <div className="bento-card" >
-          <h2><RichText 
-                  style={{ padding: 'var(--s-4)', position: 'relative' }}
-                  tagName='strong'
-                  value={title}
-                  onChange={(value) => setAttributes({title: value})}
-                /></h2>
-              
-          <RichText 
-            className="kicker"
-            tagName='div'
-            value={titleFaqRefs}
-            onChange={(value) => setAttributes({titleFaqRefs: value})}
-
-          />
-          <div className="tiles">
-            {faqRefs.length > 0 && faqRefs.map(fRef => (
-
-              <a className="tile" href={fRef.url} target="_blank" rel="noopener">
-                <RichText 
-                  tagName='div'
-                   className="tile-title"
-                   value={fRef.title}
-                    onChange={value => updateFRef(fRef.id, {title: value})}
-                />
-                <RichText 
-                  tagName='div'
-                  className="muted"
-                  style={{ marginTop: '6px' }}
-                  value={fRef.urlTitle}
-                  onChange={value => updateFRef(fRef.id, {urlTitle: value})}
-                />
-            </a>
-            ))}
-            <a className="tile" href=" esc_url(sb_alpha_url('faq'))" target="_blank" rel="noopener">
-              <div className="tile-title">Часто задаваемые вопросы</div>
-              <div className="muted" style={{ marginTop: '6px' }}>Открыть раздел →</div>
-            </a>
-
-            <a className="tile" href="ecp-regeneration.html" target="_blank" rel="noopener">
-              <div className="tile-title">Перегенерация ЭЦП</div>
-              <div className="muted" style={{ marginTop: '6px' }}>Открыть раздел →</div>
-            </a>
-
-            <a className="tile" href="esc_url(sb_alpha_url('security'))" target="_blank" rel="noopener">
-              <div className="tile-title">Рекомендации по безопасности</div>
-              <div className="muted" style={{ marginTop: '6px' }}>Открыть раздел →</div>
-            </a>
-          </div>
-
-
-
-          <div className="kicker" style={{ marginTop: '12px' }}>Документы</div>
-          <div className="doc-shelf">
-            <a className="doc-card"
-              href="https://slavbank.ru/wp-content/uploads/internet-klient.-rukovodstvo-polzovatelya.pdf"
-              target="_blank" rel="noopener">
-              <span className="doc-ext">PDF</span>
-              <span className="doc-title">Скачать здесь &gt;&gt;</span>
-              <span className="doc-arrow">→</span>
-            </a>
-          </div>
-
 
           <div className="prose">
             <div className="entry-content">
@@ -204,16 +69,5 @@ export default function Edit({attributes, setAttributes}) {
               <p></p>
             </div>
           </div>
-
-        </div>
-<InnerBlocks template={TEMPLATE}/>
-
-
-      </div>
-    </div>
-  </section>
-
-  <div className="toast" role="status" aria-live="polite" aria-atomic="true" hidden>Готово</div>
-</>
 	);
 }

@@ -1,8 +1,8 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "slav-bank/body-support",
-  "title": "Поддержка",
+  "name": "slav-bank/card-ref",
+  "title": "Карточка ссылки",
   "category": "Наполнение",
   "icon": "screenoptions",
   "description": "Секция с заранее заданными контейнерами и наполнением.",
