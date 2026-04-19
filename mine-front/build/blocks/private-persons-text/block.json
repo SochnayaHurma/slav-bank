@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/private-persons-text",
+  "title": "Частным лицам: текст",
+  "category": "Компоненты темы",
+  "icon": "editor-paragraph",
+  "description": "Текстовая часть страницы для частных лиц.",
+  "parent": [
+    "slav-bank/body-private-persons"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

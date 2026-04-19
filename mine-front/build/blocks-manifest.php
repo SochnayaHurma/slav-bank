@@ -613,6 +613,148 @@ return array(
 			'layout' => true
 		)
 	),
+	'page-private-persons' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/private-persons',
+		'title' => 'Страница Частным лицам',
+		'category' => 'Страницы',
+		'icon' => 'groups',
+		'description' => 'Страница для частных лиц.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-private-persons-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/page-private-persons-bento',
+		'title' => 'Частным лицам bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Секция с заранее заданными контейнерами и наполнением.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Данный раздел создан для поддержки клиентов АО НКБ «СЛАВЯНБАНК».'
+			),
+			'titleFaqRefs' => array(
+				'type' => 'string',
+				'default' => 'Популяярные темы'
+			),
+			'faqRefs' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Часто задаваемые вопросы',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					),
+					array(
+						'title' => 'Перегенерация ЭЦП',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					),
+					array(
+						'title' => 'Рекомендации по безопасности',
+						'urlTitle' => 'Открыть раздел →',
+						'url' => ''
+					)
+				)
+			),
+			'titleDocRefs' => array(
+				'type' => 'string',
+				'default' => 'Документы'
+			),
+			'docRefs' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Скачать здесь >>',
+						'format' => 'PDF',
+						'symbol' => '→'
+					)
+				)
+			),
+			'titleContacts' => array(
+				'type' => 'string',
+				'default' => 'В случае возникновения вопросов вы можете связаться с нами по телефонам, указанным ниже:'
+			),
+			'numberBlock' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Телефоны технической поддержки:',
+						'description' => '(8162) 66-51-95,
+66-52-47,
++7921-690-17-00'
+					)
+				)
+			),
+			'workingHours' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Режим работы:',
+						'description' => 'с 8.30 до 17.30 (пт. – до 16.30), обед с 13.00 до 14.00, (выходной суб., вск.)'
+					)
+				)
+			),
+			'infoTitle' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'infoBlock' => array(
+				'type' => 'string',
+				'default' => ''
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-private-persons-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-private-persons',
+		'title' => 'Частным лицам: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'groups',
+		'description' => 'Карточка содержимого страницы для частных лиц.',
+		'parent' => array(
+			'slav-bank/body-private-persons-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'page-support' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -818,6 +960,94 @@ return array(
 				'default' => ''
 			)
 		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'private-persons-documents' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/private-persons-documents',
+		'title' => 'Частным лицам: документы',
+		'category' => 'Компоненты темы',
+		'icon' => 'media-document',
+		'description' => 'Повторяемые карточки документов для страницы частных лиц.',
+		'parent' => array(
+			'slav-bank/body-private-persons'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'private-persons-services' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/private-persons-services',
+		'title' => 'Частным лицам: услуги',
+		'category' => 'Компоненты темы',
+		'icon' => 'grid-view',
+		'description' => 'Повторяемые карточки услуг для страницы частных лиц.',
+		'parent' => array(
+			'slav-bank/body-private-persons'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'items' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'private-persons-text' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/private-persons-text',
+		'title' => 'Частным лицам: текст',
+		'category' => 'Компоненты темы',
+		'icon' => 'editor-paragraph',
+		'description' => 'Текстовая часть страницы для частных лиц.',
+		'parent' => array(
+			'slav-bank/body-private-persons'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
 			'anchor' => true,
