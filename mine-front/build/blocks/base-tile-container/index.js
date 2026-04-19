@@ -45,8 +45,8 @@ const normalizeTiles = (faqRef, index) => ({
 });
 const createTile = () => ({
   id: `fRef-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-  title: faqRef?.title || '',
-  urlTitle: faqRef?.urlTitle || '',
+  title: 'Новая плитка',
+  urlTitle: 'Перейти..',
   url: '',
   // opensInNewTab: false,
   linkMode: false,
@@ -93,7 +93,7 @@ function Edit({
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarButton, {
           icon: "plus-alt2",
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить элемент', 'acme-blocks'),
-          onClick: event => setAddMenuAnchor(event.currentTarget)
+          onClick: event => addFRef(event.currentTarget)
         })
       })
     }), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, {
@@ -160,9 +160,9 @@ function Edit({
           })]
         }, badge.id))]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "tiles",
-      children: [safeFRefs.length > 0 && safeFRefs.map(fRef => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: safeFRefs.length > 0 && safeFRefs.map(fRef => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "tile",
         href: fRef.url,
         target: "_blank",
@@ -185,52 +185,7 @@ function Edit({
             urlTitle: value
           })
         })]
-      }, fRef.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("a", {
-        className: "tile",
-        href: " esc_url(sb_alpha_url('faq'))",
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "tile-title",
-          children: "\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("a", {
-        className: "tile",
-        href: "ecp-regeneration.html",
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "tile-title",
-          children: "\u041F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F \u042D\u0426\u041F"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("a", {
-        className: "tile",
-        href: "esc_url(sb_alpha_url('security'))",
-        target: "_blank",
-        rel: "noopener",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "tile-title",
-          children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "muted",
-          style: {
-            marginTop: '6px'
-          },
-          children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-        })]
-      })]
+      }, fRef.id))
     })]
   });
 }
@@ -262,9 +217,9 @@ function save({
     tiles = []
   } = attributes;
   const safeFRefs = Array.isArray(tiles) ? tiles.map(_edit__WEBPACK_IMPORTED_MODULE_1__.normalizeTiles) : [];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "tiles",
-    children: [safeFRefs.length > 0 && safeFRefs.map(fRef => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+    children: safeFRefs.length > 0 && safeFRefs.map(fRef => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
       className: "tile",
       href: fRef.url,
       target: "_blank",
@@ -281,52 +236,7 @@ function save({
         },
         value: fRef.urlTitle
       })]
-    }, fRef.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-      className: "tile",
-      href: " esc_url(sb_alpha_url('faq'))",
-      target: "_blank",
-      rel: "noopener",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "tile-title",
-        children: "\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "muted",
-        style: {
-          marginTop: '6px'
-        },
-        children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-      className: "tile",
-      href: "ecp-regeneration.html",
-      target: "_blank",
-      rel: "noopener",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "tile-title",
-        children: "\u041F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F \u042D\u0426\u041F"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "muted",
-        style: {
-          marginTop: '6px'
-        },
-        children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-      className: "tile",
-      href: "esc_url(sb_alpha_url('security'))",
-      target: "_blank",
-      rel: "noopener",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "tile-title",
-        children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "muted",
-        style: {
-          marginTop: '6px'
-        },
-        children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-      })]
-    })]
+    }, fRef.id))
   });
 }
 
@@ -418,7 +328,7 @@ module.exports = window["wp"]["i18n"];
   \***************************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/tile-container","title":"Контейнер ссылок-плиток","category":"Компоненты темы","icon":"screenoptions","description":"","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"tiles":{"type":"array","default":[{"title":"Часто задаваемые вопросы","urlTitle":"Открыть раздел →","url":""},{"title":"Перегенерация ЭЦП","urlTitle":"Открыть раздел →","url":""},{"title":"Рекомендации по безопасности","urlTitle":"Открыть раздел →","url":""}]}},"supports":{"html":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/tile-container","title":"Контейнер ссылок-плиток","category":"Компоненты темы","icon":"screenoptions","description":"","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"tiles":{"type":"array","default":[]}},"supports":{"html":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true}}');
 
 /***/ }
 

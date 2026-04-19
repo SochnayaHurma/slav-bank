@@ -78,3 +78,13 @@
 html {
 	width: 100% !important;
 }
+div.components-base-control.components-input-control,
+div.block-editor-link-control__search-item.is-current.is-preview.is-url-title,
+div.components-flex.components-h-stack.block-editor-link-control__search-actions
+{
+  width: 230px !important;
+}
+
+div.components-base-control.block-editor-url-input.block-editor-link-control__field.block-editor-link-control__search-input {
+	margin-left: 0 !important;
+}

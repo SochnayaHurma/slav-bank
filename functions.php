@@ -39,6 +39,28 @@ add_action('init', function () {
         register_block_type($block_dir);
     }
 });
+add_action( 'enqueue_block_editor_assets', function () {
+	$dir =  __DIR__  . '/assets/css/';
+	$url =  __DIR__  . '/assets/css/';
+
+	$files = glob( $dir . '*.css' );
+	sort( $files );
+
+	$deps = array();
+
+	foreach ( $files as $file ) {
+		$handle = 'slavbank-' . sanitize_title( basename( $file, '.css' ) );
+
+		wp_enqueue_style(
+			$handle,
+			$url . basename( $file ),
+			$deps,
+			filemtime( $file )
+		);
+
+		$deps[] = $handle;
+	}
+} );
 add_filter( 'block_categories_all', function( $categories ) {
 	return array_merge(
 		array(

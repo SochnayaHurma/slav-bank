@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/title-ref",
+  "title": "Заголовок с ссылкой",
+  "category": "Компоненты темы",
+  "icon": "screenoptions",
+  "description": "Заголовок с ссылкой",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "title": {"type": "string", "default": "Заголовок..."},
+    "description": {"type": "string", "default": "Ссылка..."},
+    "url": {"type": "string", "default": ""},
+    		"linkMode": {"type": "boolean", "default": false},
+		"pageId": {"type": "number", "default": 0},
+		"opensInNewTab": {"type": "boolean", "default": false}
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

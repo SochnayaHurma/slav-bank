@@ -30,8 +30,8 @@ export const normalizeTiles = (faqRef, index) => ({
 
 export const createTile = () => ({
   id: `fRef-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-  	title: faqRef?.title || '',
-    urlTitle: faqRef?.urlTitle || '',
+  	title: 'Новая плитка',
+    urlTitle: 'Перейти..',
     url: '',
     // opensInNewTab: false,
     linkMode: false,
@@ -85,7 +85,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 					<ToolbarButton
 						icon="plus-alt2"
 						label={__('Добавить элемент', 'acme-blocks')}
-						onClick={(event) => setAddMenuAnchor(event.currentTarget)}
+						onClick={(event) => addFRef(event.currentTarget)}
 					/>
 				</ToolbarGroup>
 			</BlockControls>
@@ -201,20 +201,6 @@ export default function Edit({attributes, setAttributes, isSelected}) {
                 />
             </div>
             ))}
-            <a className="tile" href=" esc_url(sb_alpha_url('faq'))" target="_blank" rel="noopener">
-              <div className="tile-title">Часто задаваемые вопросы</div>
-              <div className="muted" style={{ marginTop: '6px' }}>Открыть раздел →</div>
-            </a>
-
-            <a className="tile" href="ecp-regeneration.html" target="_blank" rel="noopener">
-              <div className="tile-title">Перегенерация ЭЦП</div>
-              <div className="muted" style={{ marginTop: '6px' }}>Открыть раздел →</div>
-            </a>
-
-            <a className="tile" href="esc_url(sb_alpha_url('security'))" target="_blank" rel="noopener">
-              <div className="tile-title">Рекомендации по безопасности</div>
-              <div className="muted" style={{ marginTop: '6px' }}>Открыть раздел →</div>
-            </a>
           </div>
     </>
 

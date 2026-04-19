@@ -70,6 +70,99 @@ return array(
 			'layout' => true
 		)
 	),
+	'base-linked-text' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/one-row-card',
+		'title' => 'Строчная карточка',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => 'Заголовок и описание в одну строку',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Заголовок...'
+			),
+			'description' => array(
+				'type' => 'string',
+				'default' => 'Мини описание...'
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'base-one-row-card' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/one-row-card',
+		'title' => 'Строчная карточка',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => 'Заголовок и описание в одну строку',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Заголовок...'
+			),
+			'description' => array(
+				'type' => 'string',
+				'default' => 'Мини описание...'
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'base-simple-card' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/simple-card',
+		'title' => 'Простая карточка',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => 'Простая карточка (Заголовок + текст)',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Заголовок...'
+			),
+			'description' => array(
+				'type' => 'string',
+				'default' => 'Мини описание...'
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'base-tile-container' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -85,20 +178,40 @@ return array(
 			'tiles' => array(
 				'type' => 'array',
 				'default' => array(
+					
+				)
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'base-tile-file-container' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/tile-file-container',
+		'title' => 'Контейнер файлов-плиток',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => '',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'tiles' => array(
+				'type' => 'array',
+				'default' => array(
 					array(
-						'title' => 'Часто задаваемые вопросы',
-						'urlTitle' => 'Открыть раздел →',
-						'url' => ''
-					),
-					array(
-						'title' => 'Перегенерация ЭЦП',
-						'urlTitle' => 'Открыть раздел →',
-						'url' => ''
-					),
-					array(
-						'title' => 'Рекомендации по безопасности',
-						'urlTitle' => 'Открыть раздел →',
-						'url' => ''
+						'title' => 'Скачать здесь >>',
+						'format' => 'PDF',
+						'symbol' => '→',
+						'url' => 'https://slavbank.ru/wp-content/uploads/internet-klient.-rukovodstvo-polzovatelya.pdf'
 					)
 				)
 			)
@@ -132,6 +245,53 @@ return array(
 			'level' => array(
 				'type' => 'string',
 				'default' => '2'
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'base-title-ref' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/title-ref',
+		'title' => 'Заголовок с ссылкой',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => 'Заголовок с ссылкой',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => 'Заголовок...'
+			),
+			'description' => array(
+				'type' => 'string',
+				'default' => 'Ссылка...'
+			),
+			'url' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'linkMode' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'pageId' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'opensInNewTab' => array(
+				'type' => 'boolean',
+				'default' => false
 			)
 		),
 		'supports' => array(

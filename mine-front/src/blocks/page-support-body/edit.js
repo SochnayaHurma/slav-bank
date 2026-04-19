@@ -32,7 +32,60 @@ const TEMPLATE = [
     'slav-bank/kicker', {text: 'Популярные темы'}
   ],
   [
-    'slav-bank/tile-container', {}
+    'slav-bank/tile-container', {
+      tiles: [
+        {
+          "title": "Часто задаваемые вопросы",
+          "urlTitle": "Открыть раздел →",
+          "url": ""
+        },
+        {
+          "title": "Перегенерация ЭЦП",
+          "urlTitle": "Открыть раздел →",
+          "url": ""
+        },
+        {
+          "title": "Рекомендации по безопасности",
+          "urlTitle": "Открыть раздел →",
+          "url": ""
+        }
+      ]
+    }
+  ],
+  [
+    'slav-bank/kicker', {text: 'Документы'}
+  ],
+  [
+    'slav-bank/tile-file-container', {}
+  ],
+    [
+    'slav-bank/title',
+    {
+      title: 'В случае возникновения вопросов вы можете связаться с\nнами по телефонам, указанным ниже:',
+      level: '3'
+    }
+  ],
+    [
+    'slav-bank/simple-card',
+    {
+      title: "Телефоны технической поддержки:",
+      description: "(8162) 66-51-95,\n66-52-47,\n+7921-690-17-00"
+    }
+  ],
+    [
+    'slav-bank/one-row-card',
+    {
+      title: "Режим работы:",
+      description: "с 8.30 до 17.30 (пт. – до 16.30), обед с 13.00 до 14.00, (выходной суб., вск.)"
+    }
+  ],
+    [
+    'slav-bank/title-ref',
+    {
+      title: "Электронная почта:&nbsp;",
+      description: "nkb@slavbank.ru",
+      url: "mailto:nkb@slavbank.ru"
+    }
   ],
 ];
 
@@ -42,42 +95,9 @@ const TEMPLATE = [
                 template={TEMPLATE}
                 templateLock={'all'}/>
 
-          <div className="kicker" style={{ marginTop: '12px' }}>Документы</div>
-          <div className="doc-shelf">
-            <a className="doc-card"
-              href="https://slavbank.ru/wp-content/uploads/internet-klient.-rukovodstvo-polzovatelya.pdf"
-              target="_blank" rel="noopener">
-              <span className="doc-ext">PDF</span>
-              <span className="doc-title">Скачать здесь &gt;&gt;</span>
-              <span className="doc-arrow">→</span>
-            </a>
-          </div>
-
-
           <div className="prose">
             <div className="entry-content">
-              <h3>В случае возникновения вопросов вы можете связаться с
-                    нами по телефонам, указанным ниже:<br/>
-              </h3>
-              <h4 className="kicker doc-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
-				Телефоны технической поддержки:
-                    <strong style={{ fontStyle: 'italic' }}>
-						<span className="fine" style={{ fontSize: '14px' }}>
-							(8162) 66-51-95,
-							<br/> 
-							66-52-47,
-							<br/> 
-							+7921-690-17-00
-						</span>
-					</strong>
-              </h4>
-              <h4 className="kicker doc-card " data-title="Заголовок">
-                <strong >Режим работы:
-                  <span className="fine" style={{ fontSize: '14px' }}>с 8.30 до 17.30 (пт. – до 16.30), обед с 13.00 до 14.00, (выходной суб., вск.)</span>
-                </strong>
-              </h4>
-              <h3>Электронная почта:&nbsp;<a href="mailto:nkb@slavbank.ru"><em data-rich-text-format-boundary="true"><strong>nkb@slavbank.ru</strong></em></a>
-              </h3>
+
               <hr/>
               <h2><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Здесь вы найдете полезную информацию, инструкции, ссылки для
                   работы с системами банка.</strong></h2>
