@@ -2,6 +2,402 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/blocks/hero-simple/edit.js"
+/*!****************************************!*\
+  !*** ./src/blocks/hero-simple/edit.js ***!
+  \****************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createAction: () => (/* binding */ createAction),
+/* harmony export */   createBadge: () => (/* binding */ createBadge),
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+const createBadge = () => ({
+  id: `badge-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+  text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Новый badge', 'acme-blocks'),
+  url: '',
+  opensInNewTab: false,
+  linkMode: true,
+  pageId: 0
+});
+const createAction = (variant = 'primary') => ({
+  id: `action-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+  text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Новая кнопка', 'acme-blocks'),
+  url: '',
+  opensInNewTab: false,
+  linkMode: true,
+  pageId: 0,
+  variant
+});
+const normalizeBadge = (badge, index) => ({
+  id: badge?.id || `badge-${index}`,
+  text: badge?.text || '',
+  url: badge?.url || '',
+  linkMode: badge?.linkMode || false,
+  pageId: Number(badge?.pageId) || 0,
+  opensInNewTab: !!badge?.opensInNewTab
+});
+const normalizeAction = (action, index) => ({
+  id: action?.id || `action-${index}`,
+  text: action?.text || '',
+  url: action?.url || '',
+  linkMode: !!action?.linkMode,
+  opensInNewTab: !!action?.opensInNewTab,
+  variant: action?.variant || (index === 0 ? 'primary' : 'secondary'),
+  pageId: Number(action?.pageId) || 0
+});
+function Edit({
+  attributes,
+  setAttributes,
+  isSelected
+}) {
+  const {
+    title,
+    description,
+    kicker,
+    badges = [],
+    actions = []
+  } = attributes;
+  const [addMenuAnchor, setAddMenuAnchor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const safeBadges = Array.isArray(badges) ? badges.map(normalizeBadge) : [];
+  const safeActions = Array.isArray(actions) ? actions.map(normalizeAction) : [];
+  const pages = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__.store).getEntityRecords('postType', 'page', {
+    per_page: 100,
+    orderby: 'title',
+    order: 'asc',
+    _fields: 'id,title,link'
+  }), []);
+  const updateBadge = (badgeId, patch) => {
+    updateBadges(safeBadges.map(badge => badge.id === badgeId ? {
+      ...badge,
+      ...patch
+    } : badge));
+  };
+  const updateBadges = nextBadges => {
+    setAttributes({
+      badges: nextBadges
+    });
+  };
+  const addBadge = () => {
+    updateBadges([...safeBadges, createBadge()]);
+    setAddMenuAnchor(null);
+  };
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
+    className: 'theme-shell'
+  });
+  const updateActions = nextActions => {
+    setAttributes({
+      actions: nextActions
+    });
+  };
+  const updateAction = (actionId, patch) => {
+    updateActions(safeActions.map(action => action.id === actionId ? {
+      ...action,
+      ...patch
+    } : action));
+  };
+  const addAction = () => {
+    try {
+      const variant = safeActions.length === 0 ? 'primary' : 'secondary';
+      updateActions([...safeActions, createAction(variant)]);
+      setAddMenuAnchor(null);
+    } catch (exceptionVar) {
+      console.log(exceptionVar);
+    }
+  };
+  const removeBadge = badgeId => {
+    updateBadges(safeBadges.filter(badge => badge.id !== badgeId));
+  };
+  const removeAction = actionId => {
+    updateActions(safeActions.filter(action => action.id !== actionId));
+  };
+  const pagesById = Object.fromEntries((pages || []).map(page => [page.id, page]));
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.BlockControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarGroup, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarButton, {
+          icon: "plus-alt2",
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить элемент', 'acme-blocks'),
+          onClick: event => setAddMenuAnchor(event.currentTarget)
+        })
+      })
+    }), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, {
+      group: "settings",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавление элементов', 'acme-blocks'),
+        initialOpen: true,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "acme-card5-sidebar-actions",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+            variant: "primary",
+            onClick: addBadge,
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить бадж', 'acme-blocks')
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+            variant: "secondary",
+            onClick: addAction,
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить кнопку', 'acme-blocks')
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Badge-ссылки', 'acme-blocks'),
+        initialOpen: false,
+        children: [safeBadges.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          className: "acme-card5-sidebar-empty",
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Badge пока нет.', 'acme-blocks')
+        }), safeBadges.map((badge, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "acme-card5-sidebar-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "acme-card5-sidebar-item__meta",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Badge %d', 'acme-blocks'), index + 1)
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              children: badge.text || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Без текста', 'acme-blocks')
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToggleControl, {
+            label: "\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0443 \u0442\u0435\u043A\u0443\u0449\u0435\u0433\u043E \u0441\u0430\u0439\u0442\u0430",
+            checked: badge.linkMode,
+            onChange: value => updateBadge(badge.id, {
+              linkMode: value
+            })
+          }), !badge.linkMode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.LinkControl, {
+            value: {
+              url: badge.url,
+              opensInNewTab: badge.opensInNewTab
+            },
+            onChange: value => updateBadge(badge.id, {
+              url: value?.url || '',
+              opensInNewTab: !!value?.opensInNewTab
+            })
+          }), badge.linkMode && (!pages ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Spinner, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
+            label: "\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430",
+            value: String(badge.pageId || 0),
+            options: [{
+              label: 'Выберите страницу',
+              value: '0'
+            }, ...(pages || []).map(page => ({
+              label: page?.title?.rendered || `(ID: ${page.id})`,
+              value: String(page.id)
+            }))],
+            onChange: value => {
+              const nextPageId = Number(value);
+              const selectedPage = pagesById[nextPageId];
+              updateBadge(badge.id, {
+                pageId: nextPageId,
+                url: selectedPage?.link || ''
+              });
+            }
+          })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+            variant: "secondary",
+            isDestructive: true,
+            onClick: () => removeBadge(badge.id),
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Удалить badge', 'acme-blocks')
+          })]
+        }, badge.id))]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Action buttons', 'acme-blocks'),
+        initialOpen: false,
+        children: [safeActions.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          className: "acme-card5-sidebar-empty",
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Кнопок пока нет.', 'acme-blocks')
+        }), safeActions.map((action, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "acme-card5-sidebar-item acme-card5-sidebar-item--stack",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "acme-card5-sidebar-item__meta",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Кнопка %d', 'acme-blocks'), index + 1)
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              children: action.text || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Без текста', 'acme-blocks')
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Стиль', 'acme-blocks'),
+            value: action.variant,
+            options: [{
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Primary', 'acme-blocks'),
+              value: 'primary'
+            }, {
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Secondary', 'acme-blocks'),
+              value: 'secondary'
+            }, {
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Ghost', 'acme-blocks'),
+              value: 'ghost'
+            }],
+            onChange: value => updateAction(action.id, {
+              variant: value
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.LinkControl, {
+            value: {
+              url: action.url,
+              opensInNewTab: action.opensInNewTab
+            },
+            onChange: value => updateAction(action.id, {
+              url: value?.url || '',
+              opensInNewTab: !!value?.opensInNewTab
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+            variant: "secondary",
+            isDestructive: true,
+            onClick: () => removeAction(action.id),
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Удалить кнопку', 'acme-blocks')
+          })]
+        }, action.id))]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
+      className: "block",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "container",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "hero-wrap",
+          style: {
+            padding: "var(--s-5)"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "row",
+            style: {
+              alignItems: 'flex-start',
+              gap: 'var(--s-4)',
+              flexWrap: 'wrap'
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+              className: "acme-card5__quick-add",
+              icon: "plus-alt2",
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить элемент', 'acme-blocks'),
+              showTooltip: true,
+              onClick: event => setAddMenuAnchor(event.currentTarget)
+            }), addMenuAnchor && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Popover, {
+              anchor: addMenuAnchor,
+              onClose: () => setAddMenuAnchor(null),
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "acme-card5__add-menu",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+                  variant: "primary",
+                  onClick: addBadge,
+                  children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить бадж', 'acme-blocks')
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+                  variant: "secondary",
+                  onClick: addAction,
+                  children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить кнопку', 'acme-blocks')
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              style: {
+                minWidth: '280px',
+                flex: '1 1 520px'
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
+                className: "kicker",
+                value: kicker,
+                tagName: "div"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
+                value: title,
+                style: {
+                  margin: '8px 0 10px'
+                },
+                tagName: "h1",
+                onChange: value => setAttributes({
+                  title: value
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
+                className: "muted",
+                style: {
+                  maxWidth: '78ch'
+                },
+                value: description,
+                tagName: "p"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "row",
+                style: {
+                  marginTop: 'var(--s-4)',
+                  flexWrap: 'wrap'
+                },
+                children: [safeActions.length > 0 && safeActions.map(action => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
+                  tagName: "a",
+                  className: `btn ${action.variant || 'primary'}`,
+                  href: action.url || '',
+                  value: action.text,
+                  onChange: value => updateAction(action.id, {
+                    text: value
+                  })
+                }, action.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                  className: "btn primary",
+                  href: "#content",
+                  children: "\u0421\u043E\u0434\u0435\u0440\u0436\u0430\u043D\u0438\u0435"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                  className: "btn outline",
+                  href: "/",
+                  children: "\u041D\u0430 \u0433\u043B\u0430\u0432\u043D\u0443\u044E"
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "pill",
+              style: {
+                alignSelf: 'flex-start'
+              },
+              children: [safeBadges.length > 0 && safeBadges.map(badge => {
+                const badgeHref = badge.linkMode ? pagesById[badge.pageId]?.link || '' : badge.url;
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
+                  href: badgeHref,
+                  tagName: "a",
+                  className: "mono badge",
+                  value: badge.text,
+                  onChange: value => updateBadge(badge.id, {
+                    text: value
+                  })
+                }, badge.id);
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                className: "muted",
+                children: "\xB7"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                href: "esc_url(sb_alpha_url('security'))",
+                className: "mono badge",
+                children: "\u0411\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                className: "muted",
+                children: "\xB7"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                href: "esc_url(sb_alpha_url('client-bank-online'))",
+                className: "mono badge",
+                children: "\u041A\u043B\u0438\u0435\u043D\u0442\u2011\u0411\u0430\u043D\u043A"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                className: "muted",
+                children: "\xB7"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                href: "esc_url(sb_alpha_url('appeal-123-fz'));",
+                className: "mono badge",
+                children: "123\u2011\u0424\u0417"
+              })]
+            })]
+          })
+        })
+      })
+    })]
+  });
+}
+
+/***/ },
+
 /***/ "./src/blocks/page-support/edit.js"
 /*!*****************************************!*\
   !*** ./src/blocks/page-support/edit.js ***!
@@ -14,278 +410,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hero-simple/edit */ "./src/blocks/hero-simple/edit.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 const TEMPLATE = [['slav-bank/hero-simple', {
   title: 'ПОДДЕРЖКА',
   kicker: 'qweq',
-  description: 'Часто задаваемые вопросы — ответы на вопросы, возникающие при работе в системе Клиент-Банк (данный раздел сайта постоянно обновляется и редактируется).'
-}]];
+  description: 'Часто задаваемые вопросы — ответы на вопросы, возникающие при работе в системе Клиент-Банк (данный раздел сайта постоянно обновляется и редактируется).',
+  badge: [{
+    ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createBadge)(),
+    text: 'Безопасность1',
+    url: 'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html',
+    linkMode: false
+  }],
+  actions: []
+}], ['slav-bank/body-support', {}]];
 function Edit() {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
     className: 'theme-shell'
   });
-  const innerBlocksProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps.save({
-    className: 'hero-wrap'
-  });
   return (
     /*#__PURE__*/
     // ПОДДЕРЖКА
-    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("main", {
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {
+      ...blockProps,
       id: "main",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
         template: TEMPLATE
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
-        className: "block dashv2",
-        id: "content",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "bento",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "bento-card",
-              style: {
-                padding: 'var(--s-4)',
-                position: 'relative'
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                  children: "\u0414\u0430\u043D\u043D\u044B\u0439 \u0440\u0430\u0437\u0434\u0435\u043B \u0441\u043E\u0437\u0434\u0430\u043D \u0434\u043B\u044F \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0438 \u043A\u043B\u0438\u0435\u043D\u0442\u043E\u0432 \u0410\u041E \u041D\u041A\u0411 \xAB\u0421\u041B\u0410\u0412\u042F\u041D\u0411\u0410\u041D\u041A\xBB."
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "kicker",
-                children: "\u0427\u0430\u0441\u0442\u044B\u0435 \u0442\u0435\u043C\u044B"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "tiles",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                  className: "tile",
-                  href: " esc_url(sb_alpha_url('faq'))",
-                  target: "_blank",
-                  rel: "noopener",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "tile-title",
-                    children: "\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "muted",
-                    style: {
-                      marginTop: '6px'
-                    },
-                    children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                  className: "tile",
-                  href: "ecp-regeneration.html",
-                  target: "_blank",
-                  rel: "noopener",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "tile-title",
-                    children: "\u041F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F \u042D\u0426\u041F"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "muted",
-                    style: {
-                      marginTop: '6px'
-                    },
-                    children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                  className: "tile",
-                  href: "esc_url(sb_alpha_url('security'))",
-                  target: "_blank",
-                  rel: "noopener",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "tile-title",
-                    children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "muted",
-                    style: {
-                      marginTop: '6px'
-                    },
-                    children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "kicker",
-                style: {
-                  marginTop: '12px'
-                },
-                children: "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "doc-shelf",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                  className: "doc-card",
-                  href: "https://slavbank.ru/wp-content/uploads/internet-klient.-rukovodstvo-polzovatelya.pdf",
-                  target: "_blank",
-                  rel: "noopener",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                    className: "doc-ext",
-                    children: "PDF"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                    className: "doc-title",
-                    children: "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0437\u0434\u0435\u0441\u044C >>"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                    className: "doc-arrow",
-                    children: "\u2192"
-                  })]
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "prose",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                  className: "entry-content",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h3", {
-                    children: ["\u0412 \u0441\u043B\u0443\u0447\u0430\u0435 \u0432\u043E\u0437\u043D\u0438\u043A\u043D\u043E\u0432\u0435\u043D\u0438\u044F \u0432\u043E\u043F\u0440\u043E\u0441\u043E\u0432 \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F \u0441 \u043D\u0430\u043C\u0438 \u043F\u043E \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430\u043C, \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u043C \u043D\u0438\u0436\u0435:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h4", {
-                    className: "kicker doc-card",
-                    style: {
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'start'
-                    },
-                    children: ["\u0422\u0435\u043B\u0435\u0444\u043E\u043D\u044B \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0438:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                      style: {
-                        fontStyle: 'italic'
-                      },
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-                        className: "fine",
-                        style: {
-                          fontSize: '14px'
-                        },
-                        children: ["(8162) 66-51-95,", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "66-52-47,", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "+7921-690-17-00"]
-                      })
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
-                    className: "kicker doc-card ",
-                    "data-title": "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("strong", {
-                      children: ["\u0420\u0435\u0436\u0438\u043C \u0440\u0430\u0431\u043E\u0442\u044B:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        className: "fine",
-                        style: {
-                          fontSize: '14px'
-                        },
-                        children: "\u0441 8.30 \u0434\u043E 17.30 (\u043F\u0442. \u2013 \u0434\u043E 16.30), \u043E\u0431\u0435\u0434 \u0441 13.00 \u0434\u043E 14.00, (\u0432\u044B\u0445\u043E\u0434\u043D\u043E\u0439 \u0441\u0443\u0431., \u0432\u0441\u043A.)"
-                      })]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h3", {
-                    children: ["\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                      href: "mailto:nkb@slavbank.ru",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
-                        "data-rich-text-format-boundary": "true",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                          children: "nkb@slavbank.ru"
-                        })
-                      })
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                      children: "\xA0 \xA0 \xA0 \xA0 \xA0\u0417\u0434\u0435\u0441\u044C \u0432\u044B \u043D\u0430\u0439\u0434\u0435\u0442\u0435 \u043F\u043E\u043B\u0435\u0437\u043D\u0443\u044E \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E, \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u0438, \u0441\u0441\u044B\u043B\u043A\u0438 \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0441\u0438\u0441\u0442\u0435\u043C\u0430\u043C\u0438 \u0431\u0430\u043D\u043A\u0430."
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("strong", {
-                      children: ["\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-                        children: [">> ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                          href: "esc_url(sb_alpha_url('faq'))",
-                          children: "\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B"
-                        }), "\xA0"]
-                      }), "\u2014 \u043E\u0442\u0432\u0435\u0442\u044B \u043D\u0430 \u0432\u043E\u043F\u0440\u043E\u0441\u044B, \u0432\u043E\u0437\u043D\u0438\u043A\u0430\u044E\u0449\u0438\u0435 \u043F\u0440\u0438 \u0440\u0430\u0431\u043E\u0442\u0435 \u0432 \u0441\u0438\u0441\u0442\u0435\u043C\u0435 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A (\u0434\u0430\u043D\u043D\u044B\u0439 \u0440\u0430\u0437\u0434\u0435\u043B \u0441\u0430\u0439\u0442\u0430 \u043F\u043E\u0441\u0442\u043E\u044F\u043D\u043D\u043E \u043E\u0431\u043D\u043E\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u0438 \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u0443\u0435\u0442\u0441\u044F).\xA0"]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("strong", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "\xA0 \xA0 \xA0 >> \u0412\u0445\u043E\u0434 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A \xA0"
-                      }), "\u2014 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                        href: "https://dbo.slavbank.ru:20101/",
-                        children: "https://dbo.slavbank.ru:20101 "
-                      }), " (\u0434\u043B\u044F \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E \u043F\u043E\u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430 \u043F\u043B\u0430\u0433\u0438\u043D\u0430).", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-                        children: ["\u0421\u0438\u0441\u0442\u0435\u043C\u0430\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                          className: "emphasis",
-                          children: "\xAB\u0414\u0411\u041E BS-Client x64\xBB"
-                        })]
-                      }), " \u2013 \u044D\u0442\u043E \u0441\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u0430\u044F \u0438 \u0443\u0434\u043E\u0431\u043D\u0430\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u0430 \u0438\u043D\u0442\u0435\u0440\u043D\u0435\u0442-\u0431\u0430\u043D\u043A\u0438\u043D\u0433\u0430, \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u044E\u0449\u0430\u044F \u043A\u043B\u0438\u0435\u043D\u0442\u0430\u043C \u0411\u0430\u043D\u043A\u0430 \u043E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0442\u044C \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u043E\u0435 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0435 \u0438 \u043F\u043B\u0430\u0442\u0435\u0436\u043D\u043E-\u0440\u0430\u0441\u0447\u0435\u0442\u043D\u043E\u0435 \u043E\u0431\u0441\u043B\u0443\u0436\u0438\u0432\u0430\u043D\u0438\u0435 \u0432 \u0411\u0430\u043D\u043A\u0435 \u0431\u0435\u0437 \u043B\u0438\u0447\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u044F \u0441 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435\u043C \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u0433\u043E \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u0430 \u0438 \u0441\u0435\u0442\u0438 \u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442.\xA0"]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("strong", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "\xA0 \xA0 \xA0 \xA0 >> \u0420\u0435\u0437\u0435\u0440\u0432\u043D\u044B\u0439 \u0432\u0445\u043E\u0434 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A \u2014"
-                      }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                        href: "https://dbo1.slavbank.ru:20101/",
-                        children: "https://dbo1.slavbank.ru:20101"
-                      }), "\xA0\u2014 \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C \u0434\u043B\u044F \u0432\u0445\u043E\u0434\u0430 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A \u0432 \u0441\u043B\u0443\u0447\u0430\u0435, \u0435\u0441\u043B\u0438\xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "\u0432\u0445\u043E\u0434 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A"
-                      }), " \u043F\u043E \u043E\u0431\u044B\u0447\u043D\u043E\u0439 \u0441\u0441\u044B\u043B\u043A\u0435 \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "\u043D\u0435\u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D"
-                      }), ".\xA0 \u0414\u0430\u043D\u043D\u043E\u0439 \u0441\u0441\u044B\u043B\u043A\u043E\u0439 \u043C\u043E\u0436\u043D\u043E \u0432\u043E\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "\u0442\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u0441\u043B\u0435 \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F \u0431\u0430\u043D\u043A\u0430"
-                      }), " \u043E \u043F\u0435\u0440\u0435\u0445\u043E\u0434\u0435 \u043D\u0430 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "\u0420\u0435\u0437\u0435\u0440\u0432\u043D\u044B\u0439 \u0432\u0445\u043E\u0434"
-                      }), ", \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u0432 \u0432 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0443\u044E \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0443 \u0411\u0430\u043D\u043A\u0430."]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("strong", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: " \xA0 \xA0 \xA0 \xA0 >> \u0420\u0443\u043A\u043E\u0432\u043E\u0434\u0441\u0442\u0432\u043E \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F \xAB\u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442-\u041A\u043B\u0438\u0435\u043D\u0442\xBB"
-                      }), "\u2014\xA0 \u043F\u043E\u043B\u043D\u0430\u044F \u043F\u043E\u0434\u0440\u043E\u0431\u043D\u0430\u044F \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F \u043F\u043E \u0440\u0430\u0431\u043E\u0442\u0435 \u0432 \u0441\u0438\u0441\u0442\u0435\u043C\u0435 \xAB\u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A\xBB. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                        href: "https://slavbank.ru/wp-content/uploads/internet-klient.-rukovodstvo-polzovatelya.pdf",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                          children: "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0437\u0434\u0435\u0441\u044C >>"
-                        })
-                      })]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("strong", {
-                      children: ["\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: ">> "
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                        href: "ecp-regeneration.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                          children: "\u041F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F \u042D\u0426\u041F"
-                        }), " "]
-                      }), "\u2013 \u043F\u0440\u043E\u0434\u043B\u0435\u043D\u0438\u0435 \u043F\u0440\u0430\u0432 \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A. \u0417\u0434\u0435\u0441\u044C \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0430 \u043F\u043E\u0434\u0440\u043E\u0431\u043D\u0430\u044F \u043F\u043E\u0448\u0430\u0433\u043E\u0432\u0430\u044F \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F \u043F\u043E \u043F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u0438 \u042D\u0426\u041F.\xA0"]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("strong", {
-                      children: ["\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-                        children: [">> ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                          href: "https://www.ammyy.com/ru/",
-                          children: "\u0423\u0434\u0430\u043B\u0435\u043D\u043D\u043E\u0435 \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435"
-                        })]
-                      }), " \u2013 \u0437\u0434\u0435\u0441\u044C \u0432\u044B \u0441\u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u043A\u0430\u0447\u0430\u0442\u044C \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u044E\u044E \u0432\u0435\u0440\u0441\u0438\u044E \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "Ammyy Admin"
-                      }), " \u0443\u0434\u0430\u043B\u0435\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430 (\u0430\u0434\u0440\u0435\u0441 \u0441\u0430\u0439\u0442\u0430 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "https://www.ammyy.com/ru"
-                      }), "/, \u043D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435\xA0 \u0444\u0430\u0439\u043B\u0430 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "AA_v3.exe"
-                      }), ")"]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("strong", {
-                      children: ["\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-                        children: [">> ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                          href: "esc_url(sb_alpha_url('security'))",
-                          children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438\xA0"
-                        })]
-                      }), "\u2014 \u043E\u0431\u0440\u0430\u0449\u0430\u0435\u043C \u0412\u0430\u0448\u0435 \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u0435 \u043D\u0430 \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0435 \u0434\u043E\u043C\u0435\u043D\u043D\u043E\u0433\u043E \u0438\u043C\u0435\u043D\u0438 \u0441\u0430\u0439\u0442\u0430\xA0\u2014", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                        href: "esc_url(sb_alpha_url('home'))",
-                        children: "href=\"echo esc_url(sb_alpha_url('home'))\""
-                      }), "\xA0\u0438\u043B\u0438 \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                        href: "https://dbo.slavbank.ru:20101/",
-                        children: "dbo.slavbank.ru"
-                      }), "."]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {})]
-                })
-              })]
-            })
-          })
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "toast",
-        role: "status",
-        "aria-live": "polite",
-        "aria-atomic": "true",
-        hidden: true,
-        children: "\u0413\u043E\u0442\u043E\u0432\u043E"
-      })]
+      })
     })
   );
 }
@@ -342,258 +497,10 @@ function save() {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
     className: 'theme-shell'
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("main", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {
     ...blockProps,
     id: "main",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-      className: "block dashv2",
-      id: "content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "bento",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "bento-card",
-            style: {
-              padding: 'var(--s-4)',
-              position: 'relative'
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
-                children: "\u0414\u0430\u043D\u043D\u044B\u0439 \u0440\u0430\u0437\u0434\u0435\u043B \u0441\u043E\u0437\u0434\u0430\u043D \u0434\u043B\u044F \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0438 \u043A\u043B\u0438\u0435\u043D\u0442\u043E\u0432 \u0410\u041E \u041D\u041A\u0411 \xAB\u0421\u041B\u0410\u0412\u042F\u041D\u0411\u0410\u041D\u041A\xBB."
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "kicker",
-              children: "\u0427\u0430\u0441\u0442\u044B\u0435 \u0442\u0435\u043C\u044B"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "tiles",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-                className: "tile",
-                href: "esc_url(sb_alpha_url('faq'))",
-                target: "_blank",
-                rel: "noopener",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "tile-title",
-                  children: "\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "muted",
-                  style: {
-                    marginTop: '6px'
-                  },
-                  children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-                className: "tile",
-                href: "ecp-regeneration.html",
-                target: "_blank",
-                rel: "noopener",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "tile-title",
-                  children: "\u041F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F \u042D\u0426\u041F"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "muted",
-                  style: {
-                    marginTop: '6px'
-                  },
-                  children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-                className: "tile",
-                href: "esc_url(sb_alpha_url('security'))",
-                target: "_blank",
-                rel: "noopener",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "tile-title",
-                  children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "muted",
-                  style: {
-                    marginTop: '6px'
-                  },
-                  children: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0440\u0430\u0437\u0434\u0435\u043B \u2192"
-                })]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "kicker",
-              style: {
-                marginTop: '12px'
-              },
-              children: "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "doc-shelf",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-                className: "doc-card",
-                href: "https://slavbank.ru/wp-content/uploads/internet-klient.-rukovodstvo-polzovatelya.pdf",
-                target: "_blank",
-                rel: "noopener",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                  className: "doc-ext",
-                  children: "PDF"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                  className: "doc-title",
-                  children: "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0437\u0434\u0435\u0441\u044C >>"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                  className: "doc-arrow",
-                  children: "\u2192"
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "prose",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "entry-content",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
-                  children: ["\u0412 \u0441\u043B\u0443\u0447\u0430\u0435 \u0432\u043E\u0437\u043D\u0438\u043A\u043D\u043E\u0432\u0435\u043D\u0438\u044F \u0432\u043E\u043F\u0440\u043E\u0441\u043E\u0432 \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F \u0441 \u043D\u0430\u043C\u0438 \u043F\u043E \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430\u043C, \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u043C \u043D\u0438\u0436\u0435:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {})]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
-                  className: "kicker doc-card",
-                  style: {
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'start'
-                  },
-                  children: ["\u0422\u0435\u043B\u0435\u0444\u043E\u043D\u044B \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0438:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
-                    style: {
-                      fontStyle: 'italic'
-                    },
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                      className: "fine",
-                      style: {
-                        fontSize: '14px'
-                      },
-                      children: ["(8162) 66-51-95,", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "66-52-47,", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "+7921-690-17-00"]
-                    })
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-                  className: "kicker doc-card",
-                  "data-title": "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("strong", {
-                    children: ["\u0420\u0435\u0436\u0438\u043C \u0440\u0430\u0431\u043E\u0442\u044B:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      className: "fine",
-                      style: {
-                        fontSize: '14px'
-                      },
-                      children: "\u0441 8.30 \u0434\u043E 17.30 (\u043F\u0442. \u2013 \u0434\u043E 16.30), \u043E\u0431\u0435\u0434 \u0441 13.00 \u0434\u043E 14.00, (\u0432\u044B\u0445\u043E\u0434\u043D\u043E\u0439 \u0441\u0443\u0431., \u0432\u0441\u043A.)"
-                    })]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
-                  children: ["\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430:\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                    href: "mailto:nkb@slavbank.ru",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
-                      "data-rich-text-format-boundary": "true",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
-                        children: "nkb@slavbank.ru"
-                      })
-                    })
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
-                    children: "\xA0 \xA0 \xA0 \xA0 \xA0\u0417\u0434\u0435\u0441\u044C \u0432\u044B \u043D\u0430\u0439\u0434\u0435\u0442\u0435 \u043F\u043E\u043B\u0435\u0437\u043D\u0443\u044E \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E, \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u0438, \u0441\u0441\u044B\u043B\u043A\u0438 \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0441\u0438\u0441\u0442\u0435\u043C\u0430\u043C\u0438 \u0431\u0430\u043D\u043A\u0430."
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("strong", {
-                    children: ["\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: ">> "
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      href: "esc_url(sb_alpha_url('faq'))",
-                      children: "\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B"
-                    }), "\xA0 \u2014 \u043E\u0442\u0432\u0435\u0442\u044B \u043D\u0430 \u0432\u043E\u043F\u0440\u043E\u0441\u044B, \u0432\u043E\u0437\u043D\u0438\u043A\u0430\u044E\u0449\u0438\u0435 \u043F\u0440\u0438 \u0440\u0430\u0431\u043E\u0442\u0435 \u0432 \u0441\u0438\u0441\u0442\u0435\u043C\u0435 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A (\u0434\u0430\u043D\u043D\u044B\u0439 \u0440\u0430\u0437\u0434\u0435\u043B \u0441\u0430\u0439\u0442\u0430 \u043F\u043E\u0441\u0442\u043E\u044F\u043D\u043D\u043E \u043E\u0431\u043D\u043E\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u0438 \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u0443\u0435\u0442\u0441\u044F).\xA0"]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("strong", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "\xA0 \xA0 \xA0 >> \u0412\u0445\u043E\u0434 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A \xA0"
-                    }), "\u2014", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      href: "https://dbo.slavbank.ru:20101/",
-                      children: "https://dbo.slavbank.ru:20101"
-                    }), ' ', "(\u0434\u043B\u044F \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E \u043F\u043E\u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430 \u043F\u043B\u0430\u0433\u0438\u043D\u0430).", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "\u0421\u0438\u0441\u0442\u0435\u043C\u0430\xA0"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      className: "emphasis",
-                      children: "\xAB\u0414\u0411\u041E BS-Client x64\xBB"
-                    }), ' ', "\u2013 \u044D\u0442\u043E \u0441\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u0430\u044F \u0438 \u0443\u0434\u043E\u0431\u043D\u0430\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u0430 \u0438\u043D\u0442\u0435\u0440\u043D\u0435\u0442-\u0431\u0430\u043D\u043A\u0438\u043D\u0433\u0430, \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u044E\u0449\u0430\u044F \u043A\u043B\u0438\u0435\u043D\u0442\u0430\u043C \u0411\u0430\u043D\u043A\u0430 \u043E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0442\u044C \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u043E\u0435 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0435 \u0438 \u043F\u043B\u0430\u0442\u0435\u0436\u043D\u043E-\u0440\u0430\u0441\u0447\u0435\u0442\u043D\u043E\u0435 \u043E\u0431\u0441\u043B\u0443\u0436\u0438\u0432\u0430\u043D\u0438\u0435 \u0432 \u0411\u0430\u043D\u043A\u0435 \u0431\u0435\u0437 \u043B\u0438\u0447\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u044F \u0441 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435\u043C \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u0433\u043E \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u0430 \u0438 \u0441\u0435\u0442\u0438 \u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442.\xA0"]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("strong", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "\xA0 \xA0 \xA0 \xA0 >> \u0420\u0435\u0437\u0435\u0440\u0432\u043D\u044B\u0439 \u0432\u0445\u043E\u0434 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A \u2014"
-                    }), ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      href: "https://dbo1.slavbank.ru:20101/",
-                      children: "https://dbo1.slavbank.ru:20101"
-                    }), "\xA0\u2014 \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C \u0434\u043B\u044F \u0432\u0445\u043E\u0434\u0430 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A \u0432 \u0441\u043B\u0443\u0447\u0430\u0435, \u0435\u0441\u043B\u0438\xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "\u0432\u0445\u043E\u0434 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A"
-                    }), ' ', "\u043F\u043E \u043E\u0431\u044B\u0447\u043D\u043E\u0439 \u0441\u0441\u044B\u043B\u043A\u0435 \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "\u043D\u0435\u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D"
-                    }), ". \xA0 \u0414\u0430\u043D\u043D\u043E\u0439 \u0441\u0441\u044B\u043B\u043A\u043E\u0439 \u043C\u043E\u0436\u043D\u043E \u0432\u043E\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "\u0442\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u0441\u043B\u0435 \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F \u0431\u0430\u043D\u043A\u0430"
-                    }), " \u043E \u043F\u0435\u0440\u0435\u0445\u043E\u0434\u0435 \u043D\u0430 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "\u0420\u0435\u0437\u0435\u0440\u0432\u043D\u044B\u0439 \u0432\u0445\u043E\u0434"
-                    }), ", \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u0432 \u0432 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0443\u044E \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0443 \u0411\u0430\u043D\u043A\u0430."]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("strong", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "\xA0 \xA0 \xA0 \xA0 >> \u0420\u0443\u043A\u043E\u0432\u043E\u0434\u0441\u0442\u0432\u043E \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F \xAB\u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442-\u041A\u043B\u0438\u0435\u043D\u0442\xBB"
-                    }), "\u2014\xA0 \u043F\u043E\u043B\u043D\u0430\u044F \u043F\u043E\u0434\u0440\u043E\u0431\u043D\u0430\u044F \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F \u043F\u043E \u0440\u0430\u0431\u043E\u0442\u0435 \u0432 \u0441\u0438\u0441\u0442\u0435\u043C\u0435 \xAB\u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A\xBB.", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      href: "https://slavbank.ru/wp-content/uploads/internet-klient.-rukovodstvo-polzovatelya.pdf",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                        children: "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0437\u0434\u0435\u0441\u044C >>"
-                      })
-                    })]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("strong", {
-                    children: ["\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: ">> "
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      href: "ecp-regeneration.html",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                        children: "\u041F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F \u042D\u0426\u041F"
-                      })
-                    }), ' ', "\u2013 \u043F\u0440\u043E\u0434\u043B\u0435\u043D\u0438\u0435 \u043F\u0440\u0430\u0432 \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u0432 \u041A\u043B\u0438\u0435\u043D\u0442-\u0411\u0430\u043D\u043A. \u0417\u0434\u0435\u0441\u044C \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0430 \u043F\u043E\u0434\u0440\u043E\u0431\u043D\u0430\u044F \u043F\u043E\u0448\u0430\u0433\u043E\u0432\u0430\u044F \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F \u043F\u043E \u043F\u0435\u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u0438 \u042D\u0426\u041F.\xA0"]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("strong", {
-                    children: ["\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: ">> "
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      href: "https://www.ammyy.com/ru/",
-                      children: "\u0423\u0434\u0430\u043B\u0435\u043D\u043D\u043E\u0435 \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435"
-                    }), ' ', "\u2013 \u0437\u0434\u0435\u0441\u044C \u0432\u044B \u0441\u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u043A\u0430\u0447\u0430\u0442\u044C \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u044E\u044E \u0432\u0435\u0440\u0441\u0438\u044E \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "Ammyy Admin"
-                    }), " \u0443\u0434\u0430\u043B\u0435\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430 (\u0430\u0434\u0440\u0435\u0441 \u0441\u0430\u0439\u0442\u0430", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "https://www.ammyy.com/ru"
-                    }), "/, \u043D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435\xA0 \u0444\u0430\u0439\u043B\u0430 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: "AA_v3.exe"
-                    }), ")"]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("strong", {
-                    children: ["\xA0 \xA0 \xA0 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      children: ">> "
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      href: "esc_url(sb_alpha_url('security'))",
-                      children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438\xA0"
-                    }), "\u2014 \u043E\u0431\u0440\u0430\u0449\u0430\u0435\u043C \u0412\u0430\u0448\u0435 \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u0435 \u043D\u0430 \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0435 \u0434\u043E\u043C\u0435\u043D\u043D\u043E\u0433\u043E \u0438\u043C\u0435\u043D\u0438 \u0441\u0430\u0439\u0442\u0430\xA0\u2014", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      href: "esc_url(sb_alpha_url('home'))",
-                      children: "href=\"echo esc_url(sb_alpha_url('home'))\""
-                    }), "\xA0\u0438\u043B\u0438 \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                      href: "https://dbo.slavbank.ru:20101/",
-                      children: "dbo.slavbank.ru"
-                    }), "."]
-                  })
-                })]
-              })
-            })]
-          })
-        })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "toast",
-      role: "status",
-      "aria-live": "polite",
-      "aria-atomic": "true",
-      hidden: true,
-      children: "\u0413\u043E\u0442\u043E\u0432\u043E"
-    })]
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
   });
 }
 
@@ -650,6 +557,56 @@ module.exports = window["wp"]["blockEditor"];
 (module) {
 
 module.exports = window["wp"]["blocks"];
+
+/***/ },
+
+/***/ "@wordpress/components"
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+(module) {
+
+module.exports = window["wp"]["components"];
+
+/***/ },
+
+/***/ "@wordpress/core-data"
+/*!**********************************!*\
+  !*** external ["wp","coreData"] ***!
+  \**********************************/
+(module) {
+
+module.exports = window["wp"]["coreData"];
+
+/***/ },
+
+/***/ "@wordpress/data"
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+(module) {
+
+module.exports = window["wp"]["data"];
+
+/***/ },
+
+/***/ "@wordpress/element"
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+(module) {
+
+module.exports = window["wp"]["element"];
+
+/***/ },
+
+/***/ "@wordpress/i18n"
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+(module) {
+
+module.exports = window["wp"]["i18n"];
 
 /***/ },
 

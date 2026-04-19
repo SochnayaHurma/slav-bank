@@ -1,0 +1,104 @@
+.wp-block-acme-blocks-card-4.acme-card4 {
+	position: relative;
+	border: 1px solid #d9d9d9;
+	border-radius: 18px;
+	padding: 56px 24px 24px;
+	background: #fff;
+	display: grid;
+	gap: 14px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.acme-card4__corner {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	left: 14px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	z-index: 3;
+	pointer-events: none;
+}
+
+.acme-card4__badges {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 8px;
+	max-width: 100%;
+	pointer-events: auto;
+}
+
+.acme-card4__badge-item,
+.acme-card4__action-item {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.acme-card4__badge {
+	display: inline-flex;
+	align-items: center;
+	min-height: 30px;
+	padding: 6px 10px;
+	border-radius: 999px;
+	background: #eef2ff;
+	color: #1f2a44;
+	font-size: 12px;
+	line-height: 1;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.acme-card4__title {
+	margin: 0;
+	font-size: 24px;
+	line-height: 1.2;
+}
+
+.acme-card4__text {
+	margin: 0;
+	color: #555;
+}
+
+.acme-card4__footer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 8px;
+}
+
+.acme-card4__action {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 42px;
+	padding: 10px 16px;
+	border-radius: 12px;
+	text-decoration: none;
+	font-weight: 600;
+	transition:
+		background 0.15s ease,
+		color 0.15s ease,
+		border-color 0.15s ease;
+}
+
+.acme-card4__action--primary {
+	background: #111;
+	color: #fff;
+	border: 1px solid #111;
+}
+
+.acme-card4__action--secondary {
+	background: #fff;
+	color: #111;
+	border: 1px solid #111;
+}
+
+.acme-card4__action--ghost {
+	background: #f3f4f6;
+	color: #111;
+	border: 1px solid transparent;
+}

@@ -1,0 +1,24 @@
+.wp-block-yourtheme-content-shell.theme-shell {
+	border-radius: 22px;
+	padding: 32px;
+	background: #f5f5f5;
+	display: grid;
+	gap: 20px;
+}
+
+.theme-shell__header,
+.theme-shell__body,
+.theme-shell__footer {
+	padding: 20px;
+	border-radius: 16px;
+	background: #fff;
+}
+
+.theme-shell__header {
+	border-left: 4px solid #111;
+}
+
+.theme-shell__footer {
+	background: #111;
+	color: #fff;
+}

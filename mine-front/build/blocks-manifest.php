@@ -4,11 +4,11 @@ return array(
 	'bent-shell' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'mytheme/bento-shell1',
-		'title' => 'Bento Shell1',
-		'category' => 'design',
+		'name' => 'mytheme/bento-shell-sidebar-page',
+		'title' => 'Страница с сайдбаром',
+		'category' => 'Компоненты',
 		'icon' => 'columns',
-		'description' => 'Контент слева + динамический сайдбар справа.',
+		'description' => 'Заготовка страницы с сайдбаром справа',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
@@ -382,6 +382,58 @@ return array(
 		'supports' => array(
 			'html' => false,
 			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-support-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-support',
+		'title' => 'Поддержка',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Секция с заранее заданными контейнерами и наполнением.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'sidebar' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/bento-shell-sidebar',
+		'title' => 'Sidebar',
+		'category' => 'Компоненты',
+		'icon' => 'columns',
+		'description' => 'Сайдбар с валютным блоком',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php',
+		'attributes' => array(
+			'showSidebar' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'sidebarKind' => array(
+				'type' => 'string',
+				'default' => 'rates'
+			)
+		),
+		'supports' => array(
+			'html' => false,
 			'spacing' => array(
 				'padding' => true,
 				'margin' => true

@@ -21,7 +21,7 @@ import {
   ErrorBoundary
 } from '@wordpress/components';
 
-const createBadge = () => ({
+export const createBadge = () => ({
 	id: `badge-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
 	text: __('Новый badge', 'acme-blocks'),
 	url: '',
@@ -32,7 +32,7 @@ const createBadge = () => ({
 
 });
 
-const createAction = (variant = 'primary') => ({
+export const createAction = (variant = 'primary') => ({
 	id: `action-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
 	text: __('Новая кнопка', 'acme-blocks'),
 	url: '',
