@@ -10,7 +10,6 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createFRef: () => (/* binding */ createFRef),
 /* harmony export */   "default": () => (/* binding */ Edit)
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
@@ -23,30 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const TEMPLATE = [['slav-bank/body-support', {}], ['slav-bank/bento-shell-sidebar', {}]];
-const normalizeFaqRefs = (faqRef, index) => ({
-  id: faqRef?.id || `fRef-${index}`,
-  title: faqRef?.text || '',
-  urlTitle: faqRef?.text || '',
-  url: faqRef?.url || '',
-  linkMode: !!faqRef?.linkMode,
-  pageId: Number(faqRef?.pageId) || 0
-});
-const createFRef = () => ({
-  id: `fRef-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-  text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Заголовок...', 'acme-blocks'),
-  url: '',
-  opensInNewTab: false,
-  linkMode: false,
-  pageId: 0
-});
-function Edit({
-  attributes,
-  setAttributes
-}) {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: 'block dashv2',
-    id: 'content'
-  });
+function Edit() {
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({
     className: 'bento'
   }, {
@@ -198,7 +174,7 @@ module.exports = window["wp"]["i18n"];
   \**************************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/body-support-bento","title":"Поддержка","category":"Наполнение","icon":"screenoptions","description":"Секция с заранее заданными контейнерами и наполнением.","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string","default":"Данный раздел создан для поддержки клиентов АО НКБ «СЛАВЯНБАНК»."},"titleFaqRefs":{"type":"string","default":"Популяярные темы"},"faqRefs":{"type":"array","default":[{"title":"Часто задаваемые вопросы","urlTitle":"Открыть раздел →","url":""},{"title":"Перегенерация ЭЦП","urlTitle":"Открыть раздел →","url":""},{"title":"Рекомендации по безопасности","urlTitle":"Открыть раздел →","url":""}]},"titleDocRefs":{"type":"string","default":"Документы"},"docRefs":{"type":"array","default":[{"title":"Скачать здесь >>","format":"PDF","symbol":"→"}]},"titleContacts":{"type":"string","default":"В случае возникновения вопросов вы можете связаться с нами по телефонам, указанным ниже:"},"numberBlock":{"type":"array","default":[{"title":"Телефоны технической поддержки:","description":"(8162) 66-51-95,\\n66-52-47,\\n+7921-690-17-00"}]},"workingHours":{"type":"array","default":[{"title":"Режим работы:","description":"с 8.30 до 17.30 (пт. – до 16.30), обед с 13.00 до 14.00, (выходной суб., вск.)"}]},"infoTitle":{"type":"string","default":""},"infoBlock":{"type":"string","default":""}},"supports":{"html":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/body-support-bento","title":"Поддержка","category":"Наполнение","icon":"screenoptions","description":"Секция с заранее заданными контейнерами и наполнением.","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string","default":"Данный раздел создан для поддержки клиентов АО НКБ «СЛАВЯНБАНК»."},"titleFaqRefs":{"type":"string","default":"Популяярные темы"},"faqRefs":{"type":"array","default":[{"title":"Часто задаваемые вопросы","urlTitle":"Открыть раздел →","url":""},{"title":"Перегенерация ЭЦП","urlTitle":"Открыть раздел →","url":""},{"title":"Рекомендации по безопасности","urlTitle":"Открыть раздел →","url":""}]},"titleDocRefs":{"type":"string","default":"Документы"},"docRefs":{"type":"array","default":[{"title":"Скачать здесь >>","format":"PDF","symbol":"→"}]},"titleContacts":{"type":"string","default":"В случае возникновения вопросов вы можете связаться с нами по телефонам, указанным ниже:"},"numberBlock":{"type":"array","default":[{"title":"Телефоны технической поддержки:","description":"(8162) 66-51-95,\\n66-52-47,\\n+7921-690-17-00"}]},"workingHours":{"type":"array","default":[{"title":"Режим работы:","description":"с 8.30 до 17.30 (пт. – до 16.30), обед с 13.00 до 14.00, (выходной суб., вск.)"}]},"infoTitle":{"type":"string","default":""},"infoBlock":{"type":"string","default":""}},"supports":{"html":false,"inserter":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true}}');
 
 /***/ }
 

@@ -11,6 +11,7 @@
 	"style": "file:./style-index.css",
 	"supports": {
 		"html": false,
+		"inserter": false,
 		"anchor": true,
 		"spacing": {
 			"padding": true,

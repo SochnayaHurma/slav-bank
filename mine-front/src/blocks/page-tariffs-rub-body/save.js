@@ -1,1 +1,1 @@
-export { pageSave as default } from '../page-pattern';
+export { bodySave as default } from '../page-pattern';

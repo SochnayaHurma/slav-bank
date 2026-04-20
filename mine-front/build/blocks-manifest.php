@@ -49,6 +49,57 @@ return array(
 			'layout' => true
 		)
 	),
+	'base-btn' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/btn',
+		'title' => 'Кнопка',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
+		'description' => '',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'variant' => array(
+				'type' => 'string',
+				'default' => 'primary'
+			),
+			'url' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'text' => array(
+				'type' => 'string',
+				'default' => 'Кнопка'
+			),
+			'pageId' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'linkMode' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'blockWidth' => array(
+				'type' => 'string',
+				'default' => '100%'
+			),
+			'opensInNewTab' => array(
+				'type' => 'boolean',
+				'default' => true
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'base-card-ref' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -698,6 +749,7 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
+			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -764,6 +816,7 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
+			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -831,6 +884,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -897,6 +951,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -964,6 +1019,7 @@ return array(
 		'supports' => array(
 			'html' => false,
 			'anchor' => true,
+			'inserter' => false,
 			'spacing' => array(
 				'padding' => true,
 				'margin' => true
@@ -1029,6 +1085,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1095,6 +1152,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1139,6 +1197,7 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
+			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -1161,6 +1220,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1205,6 +1265,7 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
+			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -1227,6 +1288,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1251,6 +1313,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1293,6 +1356,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1359,6 +1423,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1403,6 +1468,7 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
+			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -1491,6 +1557,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1633,6 +1700,7 @@ return array(
 		),
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1775,6 +1843,7 @@ return array(
 		),
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1841,6 +1910,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1907,6 +1977,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -1951,6 +2022,7 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
+			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -1973,6 +2045,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -2039,6 +2112,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -2083,6 +2157,7 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
+			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -2105,6 +2180,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -2171,6 +2247,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -2216,6 +2293,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -2237,6 +2315,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -2453,7 +2532,6 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
-		'render' => 'file:./render.php',
 		'attributes' => array(
 			'title' => array(
 				'type' => 'string',
@@ -2699,6 +2777,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -2841,6 +2920,7 @@ return array(
 		),
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -2885,6 +2965,7 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
+			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -2907,6 +2988,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -2973,6 +3055,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3039,6 +3122,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3181,6 +3265,7 @@ return array(
 		),
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3320,6 +3405,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3386,6 +3472,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3430,6 +3517,7 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
+			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -3452,6 +3540,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3518,6 +3607,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3584,6 +3674,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3650,6 +3741,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3716,6 +3808,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3782,6 +3875,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3848,6 +3942,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
@@ -3914,6 +4009,7 @@ return array(
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserter' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,

@@ -15,8 +15,7 @@ const TEMPLATE = [
 			title: 'Заполните форму и отправьте запрос прямо сейчас!',
 			shortcode:
 				'[contact-form-7 title="Запрос на открытие расчетного счета"]',
-			fallbackText:
-				'Форма запроса на открытие расчетного счета будет отображена после подключения Contact Form 7.',
+			fallbackText: ''
 		},
 	],
 	[ 'slav-bank/page-pattern-consent', {} ],

@@ -487,7 +487,11 @@ const createBodyEdit = template => function Edit() {
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
+    className: "bento-card",
+    style: {
+      padding: 'var(--s-4)',
+      position: 'relative'
+    },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
       template: template
     })
@@ -502,7 +506,11 @@ function bodySave() {
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
+    className: "bento-card",
+    style: {
+      padding: 'var(--s-4)',
+      position: 'relative'
+    },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
   });
 }
@@ -552,7 +560,7 @@ const TEMPLATE = [['slav-bank/hero-simple', {
   kicker: 'Тарифы',
   description: 'Тарифные условия по пакету «Депозитный».',
   pillItems: [(0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroBadge)('Тарифы банка', '/tarify-banka.html/'), (0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroBadge)('«Славный»', '/tarify-banka-html/tarif_slavny.html/'), (0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroBadge)('«Приветственный»', '/tarify-banka-html/tarif_privetstvenny.html/')],
-  actions: [(0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('Перейти к содержимому', '#content'), (0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('На главную', '/')]
+  actions: [(0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('К содержимому', '#content'), (0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('На главную', '/')]
 }], ['slav-bank/body-tariff-depositny-bento', {}]];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.createPageEdit)(TEMPLATE));
 

@@ -6,7 +6,7 @@ const TEMPLATE = [
 		{
 			title: 'Тариф Славный',
 			kicker: 'Тарифы',
-			description: 'Редактируемая страница для маршрута tariffs-slavny.',
+			description: 'Подробная информация о тарифе "Славный"',
 			actions: [
 				heroAction( 'Содержание', '#content' ),
 				heroAction( 'На главную', '/' ),

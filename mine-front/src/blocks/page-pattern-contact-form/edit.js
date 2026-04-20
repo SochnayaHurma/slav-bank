@@ -2,12 +2,14 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
+	InnerBlocks
 } from '@wordpress/block-editor';
 import { PanelBody, TextareaControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 const ALLOWED_FORMATS = [ 'core/bold', 'core/italic', 'core/link' ];
 
+const ALLOWED_BLOCKS = [ 'contact-form-7/contact-form-selector' ];
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { title, description, shortcode, fallbackText } = attributes;
 	const blockProps = useBlockProps( {
@@ -58,8 +60,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				/>
 				<div className="form-wrap">
 					<div className="form-shortcode-note">
-						<strong>{ __( 'Contact Form 7', 'slav-bank' ) }</strong>
-						<span>{ shortcode || fallbackText }</span>
+						<strong>{ __( 'Место для вставки contact form', 'slav-bank' ) }</strong>
+
+						                        <InnerBlocks 
+                            allowedBlocks={ ALLOWED_BLOCKS }
+                            template={ [ [ 'contact-form-7/contact-form-selector' ] ] }
+                        />
 					</div>
 				</div>
 				<RichText

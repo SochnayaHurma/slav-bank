@@ -392,7 +392,9 @@ const TEMPLATE = [['slav-bank/hero-simple', {
   description: 'АО НКБ «СЛАВЯНБАНК» информирует о том, что не практикует выдачу доверенностей на бумажном носителе в простой письменной форме для целей направления нотариусу уведомлений о залоге.',
   pillItems: [(0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroBadge)('Реквизиты', '/o-banke-slavyanbank-html/rekvizity-banka.html/'), (0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroBadge)('Информация банка', '/o-banke-slavyanbank-html/o-banke-slavyanbank-html-info_bank-html/')],
   actions: [(0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('Содержание', '#content'), (0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('На главную', '/')]
-}], ['slav-bank/body-notaries-bento', {}]];
+}]
+// [ 'slav-bank/body-notaries-bento', {} ],
+];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.createPageEdit)(TEMPLATE));
 
 /***/ },
@@ -552,7 +554,11 @@ const createBodyEdit = template => function Edit() {
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
+    className: "bento-card",
+    style: {
+      padding: 'var(--s-4)',
+      position: 'relative'
+    },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
       template: template
     })
@@ -567,7 +573,11 @@ function bodySave() {
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
+    className: "bento-card",
+    style: {
+      padding: 'var(--s-4)',
+      position: 'relative'
+    },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
   });
 }

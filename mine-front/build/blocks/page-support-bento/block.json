@@ -85,6 +85,7 @@
   },
   "supports": {
     "html": false,
+    "inserter": false,
     "anchor": true,
     "spacing": {
       "padding": true,

@@ -19,7 +19,7 @@ const TEMPLATE = [
 				),
 			],
 			actions: [
-				heroAction( 'Перейти к содержимому', '#content' ),
+				heroAction( 'К содержимому', '#content' ),
 				heroAction( 'На главную', '/' ),
 			],
 		},

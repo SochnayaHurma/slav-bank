@@ -1,1 +1,1 @@
-export { pageSave as default } from '../page-pattern';
+export { bentoSave as default } from '../page-pattern';

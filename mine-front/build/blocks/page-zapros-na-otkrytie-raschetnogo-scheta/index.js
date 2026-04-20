@@ -487,7 +487,11 @@ const createBodyEdit = template => function Edit() {
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
+    className: "bento-card",
+    style: {
+      padding: 'var(--s-4)',
+      position: 'relative'
+    },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
       template: template
     })
@@ -502,7 +506,11 @@ function bodySave() {
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
+    className: "bento-card",
+    style: {
+      padding: 'var(--s-4)',
+      position: 'relative'
+    },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
   });
 }
@@ -547,12 +555,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _page_pattern__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../page-pattern */ "./src/blocks/page-pattern.js");
 
-const TEMPLATE = [['slav-bank/hero-simple', {
-  title: 'Запрос на открытие расчетного счета',
-  kicker: 'Заявки',
-  description: 'Отправьте запрос на открытие расчетного счета. Специалист Банка свяжется с вами и уточнит следующие шаги.',
-  actions: [(0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('Заполнить форму', '#form'), (0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('На главную', '/')]
-}], ['slav-bank/body-zapros-na-otkrytie-raschetnogo-scheta-bento', {}]];
+const TEMPLATE = [
+// [
+// 	'slav-bank/hero-simple',
+// 	{
+// 		title: 'Запрос на открытие расчетного счета',
+// 		kicker: 'Заявки',
+// 		description:
+// 			'Отправьте запрос на открытие расчетного счета. Специалист Банка свяжется с вами и уточнит следующие шаги.',
+// 		actions: [
+// 			heroAction( 'Заполнить форму', '#form' ),
+// 			heroAction( 'На главную', '/' ),
+// 		],
+// 	},
+// ],
+['slav-bank/body-zapros-na-otkrytie-raschetnogo-scheta-bento', {}]];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.createPageEdit)(TEMPLATE));
 
 /***/ },
@@ -592,7 +609,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _page_pattern__WEBPACK_IMPORTED_MODULE_0__.pageSave)
+/* harmony export */   "default": () => (/* reexport safe */ _page_pattern__WEBPACK_IMPORTED_MODULE_0__.bentoSave)
 /* harmony export */ });
 /* harmony import */ var _page_pattern__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../page-pattern */ "./src/blocks/page-pattern.js");
 

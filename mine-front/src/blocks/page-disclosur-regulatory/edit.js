@@ -6,7 +6,7 @@ const TEMPLATE = [
 		{
 			title: 'Раскрытие регуляторной информации',
 			kicker: 'Информация банка',
-			description: 'Редактируемая страница для маршрута disclosur-regulatory.',
+			description: '',
 			actions: [
 				heroAction( 'Содержание', '#content' ),
 				heroAction( 'На главную', '/' ),

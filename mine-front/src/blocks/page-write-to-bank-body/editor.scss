@@ -1,3 +1,47 @@
 .wp-block-slav-bank-body-write-to-bank {
 	width: 100%;
 }
+// Стили только для режима редактора
+.wp-block {
+    // Находим обертку вашего блока
+    &.form-shell {
+        
+        // В Gutenberg вложенные блоки оборачиваются в дополнительные контейнеры
+        .block-editor-inner-blocks {
+            // Убеждаемся, что контейнер не обрезает вылетающие элементы (кнопки управления)
+            overflow: visible !important;
+        }
+
+        .block-editor-block-list__layout {
+            // Исправляем возможные проблемы с флексами, которые могут сплющивать блок выбора формы
+            display: block !important;
+        }
+
+        // Конкретно для блока Contact Form 7 внутри вашего
+        [data-type="contact-form-7/contact-form-selector"] {
+            margin-bottom: 0;
+            
+            // Если кнопка-крестик (appender/remover) стоит криво:
+            .block-editor-block-list__block-edit {
+                &::before {
+                    // Иногда стандартные границы Gutenberg конфликтуют с вашим фоном
+                    border: none !important;
+                }
+            }
+        }
+        
+        // Убираем возможные конфликты с вашим .form-wrap
+        .form-wrap {
+            // В редакторе лучше отключить жесткое позиционирование, 
+            // если оно мешает служебным кнопкам
+            position: relative !important;
+            min-height: 50px; // Чтобы пустая область не схлопывалась
+        }
+    }
+}
+
+// Если крестик "вылетает" за границы из-за padding:
+.block-editor-block-list__block.is-selected {
+    // Гарантируем, что панель инструментов не перекрывается вашими z-index
+    z-index: 10;
+}

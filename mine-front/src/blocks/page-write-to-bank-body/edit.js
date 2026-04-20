@@ -40,8 +40,7 @@ const TEMPLATE = [
 			anchor: 'form',
 			title: 'Форма обратной связи',
 			shortcode: '[contact-form-7 title="Написать в банк"]',
-			fallbackText:
-				'Форма обратной связи будет отображена после подключения Contact Form 7.',
+			fallbackText: '',
 		},
 	],
 	[ 'slav-bank/page-pattern-consent', {} ],

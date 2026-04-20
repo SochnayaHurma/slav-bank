@@ -142,14 +142,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								updateItem( item.id, { label: value } )
 							}
 						/>
-						<Button
-							className="private-persons-services__remove"
-							variant="secondary"
-							isDestructive
-							onClick={ () => removeItem( item.id ) }
-						>
-							{ __( 'Удалить', 'slav-bank' ) }
-						</Button>
+
 					</div>
 				) ) }
 			</div>

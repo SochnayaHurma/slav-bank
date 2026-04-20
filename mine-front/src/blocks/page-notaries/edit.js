@@ -18,7 +18,7 @@ const TEMPLATE = [
 			],
 		},
 	],
-	[ 'slav-bank/body-notaries-bento', {} ],
+	// [ 'slav-bank/body-notaries-bento', {} ],
 ];
 
 export default createPageEdit( TEMPLATE );

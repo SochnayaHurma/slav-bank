@@ -25,6 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const ALLOWED_FORMATS = ['core/bold', 'core/italic', 'core/link'];
+const ALLOWED_BLOCKS = ['contact-form-7/contact-form-selector'];
 function Edit({
   attributes,
   setAttributes,
@@ -79,9 +80,10 @@ function Edit({
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "form-shortcode-note",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
-            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Contact Form 7', 'slav-bank')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            children: shortcode || fallbackText
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Место для вставки contact form', 'slav-bank')
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
+            allowedBlocks: ALLOWED_BLOCKS,
+            template: [['contact-form-7/contact-form-selector']]
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
@@ -135,10 +137,46 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */   "default": () => (/* binding */ Save)
 /* harmony export */ });
-function save() {
-  return null;
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function Save({
+  attributes
+}) {
+  const {
+    title,
+    description,
+    fallbackText
+  } = attributes;
+
+  // Генерируем пропсы для обертки (те же классы и дата-атрибуты)
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
+    className: 'form-shell',
+    'data-form-shell': true
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    ...blockProps,
+    children: [!_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.isEmpty(title) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
+      tagName: "h3",
+      value: title
+    }), !_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.isEmpty(description) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
+      tagName: "p",
+      className: "muted",
+      value: description
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "form-wrap",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
+    }), !_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.isEmpty(fallbackText) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
+      tagName: "p",
+      className: "muted form-fallback-text",
+      value: fallbackText
+    })]
+  });
 }
 
 /***/ },
@@ -223,7 +261,7 @@ module.exports = window["wp"]["i18n"];
   \*********************************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/page-pattern-contact-form","title":"Страница: форма Contact Form 7","category":"Компоненты темы","icon":"email-alt","description":"Редактируемая обертка формы Contact Form 7 для страниц обращений.","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","attributes":{"title":{"type":"string","default":"Форма обращения"},"description":{"type":"string","default":""},"shortcode":{"type":"string","default":"[contact-form-7 title=\\"Написать в банк\\"]"},"fallbackText":{"type":"string","default":"Форма будет отображена после подключения Contact Form 7 и выбора нужного шорткода."}},"supports":{"html":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/page-pattern-contact-form","title":"Страница: форма Contact Form 7","category":"Компоненты темы","icon":"email-alt","description":"Редактируемая обертка формы Contact Form 7 для страниц обращений.","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string","default":"Форма обращения"},"description":{"type":"string","default":""},"shortcode":{"type":"string","default":"[contact-form-7 title=\\"Написать в банк\\"]"},"fallbackText":{"type":"string","default":"Форма будет отображена после подключения Contact Form 7 и выбора нужного шорткода."}},"supports":{"html":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true}}');
 
 /***/ }
 

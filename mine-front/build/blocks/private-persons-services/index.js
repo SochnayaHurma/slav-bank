@@ -133,12 +133,6 @@ function Edit({
           onChange: value => updateItem(item.id, {
             label: value
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-          className: "private-persons-services__remove",
-          variant: "secondary",
-          isDestructive: true,
-          onClick: () => removeItem(item.id),
-          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Удалить', 'slav-bank')
         })]
       }, item.id))
     })]

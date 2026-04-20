@@ -106,7 +106,7 @@ export const createBodyEdit = ( template ) =>
 		} );
 
 		return (
-			<div { ...blockProps }>
+			<div className='bento-card' style={{ padding: 'var(--s-4)', position: 'relative' }}>
 				<InnerBlocks template={ template } />
 			</div>
 		);
@@ -119,7 +119,9 @@ export function bodySave() {
 	} );
 
 	return (
-		<div { ...blockProps }>
+	<div
+		className="bento-card"
+		style={ { padding: 'var(--s-4)', position: 'relative' } }>
 			<InnerBlocks.Content />
 		</div>
 	);

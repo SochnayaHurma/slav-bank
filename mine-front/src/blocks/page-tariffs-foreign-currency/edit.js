@@ -14,7 +14,7 @@ const TEMPLATE = [
 				heroBadge( '«Депозитный»', '/tarify-banka-html/tarif_depositny-html/' ),
 			],
 			actions: [
-				heroAction( 'Перейти к содержимому', '#content' ),
+				heroAction( 'К содержимому', '#content' ),
 				heroAction( 'На главную', '/' ),
 			],
 		},

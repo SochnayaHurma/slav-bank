@@ -4,3 +4,7 @@
 .wp-block-slav-bank-ecp-regeneration {
   width: 100%;
 }
+
+.step-num {
+  min-width: 44px !important;
+}

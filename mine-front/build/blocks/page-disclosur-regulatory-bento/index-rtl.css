@@ -4,3 +4,7 @@
 .wp-block-slav-bank-body-disclosur-regulatory-bento {
   width: 100%;
 }
+
+.doc-ext {
+  min-width: 46px !important;
+}

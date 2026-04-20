@@ -5,4 +5,8 @@
   width: 100%;
 }
 
+.doc-ext {
+  min-width: 46px !important;
+}
+
 /*# sourceMappingURL=index.css.map*/

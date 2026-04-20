@@ -14,8 +14,7 @@ const TEMPLATE = [
 			anchor: 'form',
 			title: 'Форма запроса на кредитование МСП',
 			shortcode: '[contact-form-7 title="Запрос на кредитование МСП"]',
-			fallbackText:
-				'Форма запроса на кредитование МСП будет отображена после подключения Contact Form 7.',
+			fallbackText: ''
 		},
 	],
 	[ 'slav-bank/page-pattern-consent', {} ],

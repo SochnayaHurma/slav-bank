@@ -5,4 +5,8 @@
   width: 100%;
 }
 
+.step-num {
+  min-width: 44px !important;
+}
+
 /*# sourceMappingURL=index.css.map*/

@@ -5,6 +5,7 @@ $sidebar_kind = $attributes['sidebarKind'] ?? 'rates';
 $classes = 'bento-shell';
 $classes .= $show_sidebar ? ' has-sidebar' : ' no-sidebar';
 
+
 ?>
 
 

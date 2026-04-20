@@ -18,7 +18,7 @@ const TEMPLATE = [
 			],
 		},
 	],
-	[ 'slav-bank/body-governance-bento', {} ],
+	// [ 'slav-bank/body-governance-bento', {} ],
 ];
 
 export default createPageEdit( TEMPLATE );

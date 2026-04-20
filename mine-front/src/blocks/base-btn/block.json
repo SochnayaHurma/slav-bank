@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/btn",
+  "title": "Кнопка",
+  "category": "Компоненты темы",
+  "icon": "screenoptions",
+  "description": "",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "variant": {"type": "string", "default": "primary"},
+    "url": {"type": "string", "default": ""},
+    "text": {"type": "string", "default": "Кнопка"},
+    "pageId": {"type": "number", "default": 0},
+    "linkMode": {"type": "boolean", "default": false},
+    "blockWidth": {"type": "string", "default": "100%"},
+    "opensInNewTab": {"type": "boolean", "default": true}
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}
