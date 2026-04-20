@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "slav-bank/tariffs-rub",
+	"title": "Страница Тарифы в рублях",
+	"category": "Страницы",
+	"icon": "screenoptions",
+	"description": "Страница Тарифы в рублях.",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": true
+	}
+}
