@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "slav-bank/page-pattern-pdf",
+	"title": "Страница: PDF",
+	"category": "Компоненты темы",
+	"icon": "pdf",
+	"description": "Редактируемый PDF-блок для тарифных страниц.",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"kicker": {
+			"type": "string",
+			"default": "PDF-документ"
+		},
+		"title": {
+			"type": "string",
+			"default": "PDF-документ"
+		},
+		"description": {
+			"type": "string",
+			"default": "Откройте внутри страницы или скачайте файл."
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"openText": {
+			"type": "string",
+			"default": "Открыть"
+		},
+		"downloadText": {
+			"type": "string",
+			"default": "Скачать"
+		},
+		"fallbackText": {
+			"type": "string",
+			"default": "Если PDF не отображается, используйте кнопку «Открыть»."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": true
+	}
+}
