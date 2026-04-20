@@ -2,544 +2,430 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/blocks/hero-simple/edit.js"
-/*!****************************************!*\
-  !*** ./src/blocks/hero-simple/edit.js ***!
-  \****************************************/
+/***/ "./src/blocks/page-reporting-body/defaults.js"
+/*!****************************************************!*\
+  !*** ./src/blocks/page-reporting-body/defaults.js ***!
+  \****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createAction: () => (/* binding */ createAction),
-/* harmony export */   createBadge: () => (/* binding */ createBadge),
-/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */   DEFAULT_ANNUAL_REPORTS: () => (/* binding */ DEFAULT_ANNUAL_REPORTS),
+/* harmony export */   DEFAULT_CATEGORY_LINKS: () => (/* binding */ DEFAULT_CATEGORY_LINKS),
+/* harmony export */   DEFAULT_INTERIM_GROUPS: () => (/* binding */ DEFAULT_INTERIM_GROUPS),
+/* harmony export */   DEFAULT_POSTS: () => (/* binding */ DEFAULT_POSTS),
+/* harmony export */   DEFAULT_RATES: () => (/* binding */ DEFAULT_RATES),
+/* harmony export */   DEFAULT_SECTION_LINKS: () => (/* binding */ DEFAULT_SECTION_LINKS),
+/* harmony export */   createAnnualReport: () => (/* binding */ createAnnualReport),
+/* harmony export */   createInterimDocument: () => (/* binding */ createInterimDocument),
+/* harmony export */   createInterimGroup: () => (/* binding */ createInterimGroup),
+/* harmony export */   createLinkItem: () => (/* binding */ createLinkItem),
+/* harmony export */   createPostItem: () => (/* binding */ createPostItem),
+/* harmony export */   createRateRow: () => (/* binding */ createRateRow),
+/* harmony export */   normalizeAnnualReport: () => (/* binding */ normalizeAnnualReport),
+/* harmony export */   normalizeAnnualReports: () => (/* binding */ normalizeAnnualReports),
+/* harmony export */   normalizeInterimDocument: () => (/* binding */ normalizeInterimDocument),
+/* harmony export */   normalizeInterimGroup: () => (/* binding */ normalizeInterimGroup),
+/* harmony export */   normalizeInterimGroups: () => (/* binding */ normalizeInterimGroups),
+/* harmony export */   normalizeLinkItem: () => (/* binding */ normalizeLinkItem),
+/* harmony export */   normalizeLinkItems: () => (/* binding */ normalizeLinkItems),
+/* harmony export */   normalizePostItem: () => (/* binding */ normalizePostItem),
+/* harmony export */   normalizePosts: () => (/* binding */ normalizePosts),
+/* harmony export */   normalizeRateRow: () => (/* binding */ normalizeRateRow),
+/* harmony export */   normalizeRates: () => (/* binding */ normalizeRates)
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
-/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
-
-
-
-
-
-
-
-const createBadge = () => ({
-  id: `badge-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-  text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Новый badge', 'acme-blocks'),
-  url: '',
-  opensInNewTab: false,
-  linkMode: false,
-  pageId: 0
-});
-const createAction = (variant = 'primary') => ({
-  id: `action-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-  text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Новая кнопка', 'acme-blocks'),
-  url: '',
-  opensInNewTab: false,
-  linkMode: true,
-  pageId: 0,
-  variant
-});
-const normalizeBadge = (badge, index) => ({
-  id: badge?.id || `badge-${index}`,
-  text: badge?.text || '',
-  url: badge?.url || '',
-  linkMode: !!badge?.linkMode,
-  pageId: Number(badge?.pageId) || 0,
-  opensInNewTab: !!badge?.opensInNewTab
-});
-const normalizeAction = (action, index) => ({
-  id: action?.id || `action-${index}`,
-  text: action?.text || '',
-  url: action?.url || '',
-  linkMode: !!action?.linkMode,
-  opensInNewTab: !!action?.opensInNewTab,
-  variant: action?.variant || (index === 0 ? 'primary' : 'secondary'),
-  pageId: Number(action?.pageId) || 0
-});
-function Edit({
-  attributes,
-  setAttributes,
-  isSelected
-}) {
-  const {
-    title,
-    description,
-    kicker,
-    pillItems = [],
-    actions = []
-  } = attributes;
-  const [addMenuAnchor, setAddMenuAnchor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
-  const safeBadges = Array.isArray(pillItems) ? pillItems.map(normalizeBadge) : [];
-  const safeActions = Array.isArray(actions) ? actions.map(normalizeAction) : [];
-  const pages = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__.store).getEntityRecords('postType', 'page', {
-    per_page: 100,
-    orderby: 'title',
-    order: 'asc',
-    _fields: 'id,title,link'
-  }), []);
-  const pagesById = Object.fromEntries((pages || []).map(page => [page.id, page]));
-  const updateBadges = nextBadges => {
-    setAttributes({
-      pillItems: nextBadges
-    });
-  };
-  const updateBadge = (badgeId, patch) => {
-    updateBadges(safeBadges.map(badge => badge.id === badgeId ? {
-      ...badge,
-      ...patch
-    } : badge));
-  };
-  const addBadge = () => {
-    updateBadges([...safeBadges, createBadge()]);
-    setAddMenuAnchor(null);
-  };
-  const removeBadge = badgeId => {
-    updateBadges(safeBadges.filter(badge => badge.id !== badgeId));
-  };
-  const updateActions = nextActions => {
-    setAttributes({
-      actions: nextActions
-    });
-  };
-  const updateAction = (actionId, patch) => {
-    updateActions(safeActions.map(action => action.id === actionId ? {
-      ...action,
-      ...patch
-    } : action));
-  };
-  const addAction = () => {
-    const variant = safeActions.length === 0 ? 'primary' : 'secondary';
-    updateActions([...safeActions, createAction(variant)]);
-    setAddMenuAnchor(null);
-  };
-  const removeAction = actionId => {
-    updateActions(safeActions.filter(action => action.id !== actionId));
-  };
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
-    className: 'theme-shell block'
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.BlockControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarGroup, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarButton, {
-          icon: "plus-alt2",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить элемент', 'acme-blocks'),
-          onClick: event => setAddMenuAnchor(event.currentTarget)
-        })
-      })
-    }), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, {
-      group: "settings",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавление элементов', 'acme-blocks'),
-        initialOpen: true,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "acme-card5-sidebar-actions",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-            variant: "primary",
-            onClick: addBadge,
-            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить бадж', 'acme-blocks')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-            variant: "secondary",
-            onClick: addAction,
-            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить кнопку', 'acme-blocks')
-          })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Badge-ссылки', 'acme-blocks'),
-        initialOpen: false,
-        children: [safeBadges.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-          className: "acme-card5-sidebar-empty",
-          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Badge пока нет.', 'acme-blocks')
-        }), safeBadges.map((badge, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "acme-card5-sidebar-item",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "acme-card5-sidebar-item__meta",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
-              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Badge %d', 'acme-blocks'), index + 1)
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-              children: badge.text || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Без текста', 'acme-blocks')
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToggleControl, {
-            label: "\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0443 \u0442\u0435\u043A\u0443\u0449\u0435\u0433\u043E \u0441\u0430\u0439\u0442\u0430",
-            checked: badge.linkMode,
-            onChange: value => updateBadge(badge.id, {
-              linkMode: value
-            })
-          }), !badge.linkMode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.LinkControl, {
-            value: {
-              url: badge.url,
-              opensInNewTab: badge.opensInNewTab
-            },
-            onChange: value => updateBadge(badge.id, {
-              url: value?.url || '',
-              opensInNewTab: !!value?.opensInNewTab
-            })
-          }), badge.linkMode && (!pages ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Spinner, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
-            label: "\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430",
-            value: String(badge.pageId || 0),
-            options: [{
-              label: 'Выберите страницу',
-              value: '0'
-            }, ...(pages || []).map(page => ({
-              label: page?.title?.rendered || `(ID: ${page.id})`,
-              value: String(page.id)
-            }))],
-            onChange: value => {
-              const nextPageId = Number(value);
-              const selectedPage = pagesById[nextPageId];
-              updateBadge(badge.id, {
-                pageId: nextPageId,
-                url: selectedPage?.link || ''
-              });
-            }
-          })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-            variant: "secondary",
-            isDestructive: true,
-            onClick: () => removeBadge(badge.id),
-            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Удалить badge', 'acme-blocks')
-          })]
-        }, badge.id))]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Action buttons', 'acme-blocks'),
-        initialOpen: false,
-        children: [safeActions.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-          className: "acme-card5-sidebar-empty",
-          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Кнопок пока нет.', 'acme-blocks')
-        }), safeActions.map((action, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "acme-card5-sidebar-item acme-card5-sidebar-item--stack",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "acme-card5-sidebar-item__meta",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
-              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Кнопка %d', 'acme-blocks'), index + 1)
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-              children: action.text || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Без текста', 'acme-blocks')
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Стиль', 'acme-blocks'),
-            value: action.variant,
-            options: [{
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Primary', 'acme-blocks'),
-              value: 'primary'
-            }, {
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Outline', 'acme-blocks'),
-              value: 'outline'
-            }, {
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Soft', 'acme-blocks'),
-              value: 'soft'
-            }, {
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Glass', 'acme-blocks'),
-              value: 'glass'
-            }],
-            onChange: value => updateAction(action.id, {
-              variant: value
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.LinkControl, {
-            value: {
-              url: action.url,
-              opensInNewTab: action.opensInNewTab
-            },
-            onChange: value => updateAction(action.id, {
-              url: value?.url || '',
-              opensInNewTab: !!value?.opensInNewTab
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-            variant: "secondary",
-            isDestructive: true,
-            onClick: () => removeAction(action.id),
-            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Удалить кнопку', 'acme-blocks')
-          })]
-        }, action.id))]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
-      className: "block",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        className: "container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "hero-wrap",
-          style: {
-            padding: 'var(--s-5)'
-          },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "row",
-            style: {
-              alignItems: 'flex-start',
-              gap: 'var(--s-4)',
-              flexWrap: 'wrap'
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-              className: "acme-card5__quick-add",
-              icon: "plus-alt2",
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить элемент', 'acme-blocks'),
-              showTooltip: true,
-              onClick: event => setAddMenuAnchor(event.currentTarget)
-            }), addMenuAnchor && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Popover, {
-              anchor: addMenuAnchor,
-              onClose: () => setAddMenuAnchor(null),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                className: "acme-card5__add-menu",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-                  variant: "primary",
-                  onClick: addBadge,
-                  children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить бадж', 'acme-blocks')
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-                  variant: "secondary",
-                  onClick: addAction,
-                  children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Добавить кнопку', 'acme-blocks')
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              style: {
-                minWidth: '280px',
-                flex: '1 1 520px'
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
-                className: "kicker",
-                value: kicker,
-                tagName: "div",
-                onChange: value => setAttributes({
-                  kicker: value
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
-                value: title,
-                style: {
-                  margin: '8px 0 10px'
-                },
-                tagName: "h1",
-                onChange: value => setAttributes({
-                  title: value
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
-                className: "muted",
-                style: {
-                  maxWidth: '78ch'
-                },
-                value: description,
-                tagName: "p",
-                onChange: value => setAttributes({
-                  description: value
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                className: "row",
-                style: {
-                  marginTop: 'var(--s-4)',
-                  flexWrap: 'wrap'
-                },
-                children: safeActions.length > 0 && safeActions.map(action => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
-                  tagName: "a",
-                  className: `btn ${action.variant || 'primary'}`,
-                  href: action.url || '',
-                  value: action.text,
-                  onChange: value => updateAction(action.id, {
-                    text: value
-                  })
-                }, action.id))
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-              className: "pill",
-              style: {
-                alignSelf: 'flex-start'
-              },
-              children: safeBadges.length > 0 && safeBadges.map(badge => {
-                const badgeHref = badge.linkMode ? pagesById[badge.pageId]?.link || '' : badge.url;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
-                  tagName: "a",
-                  className: "mono badge",
-                  href: badgeHref,
-                  value: badge.text,
-                  onChange: value => updateBadge(badge.id, {
-                    text: value
-                  })
-                }, badge.id);
-              })
-            })]
-          })
-        })
-      })
-    })]
-  });
-}
-
-/***/ },
-
-/***/ "./src/blocks/page-pattern.js"
-/*!************************************!*\
-  !*** ./src/blocks/page-pattern.js ***!
-  \************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   bentoSave: () => (/* binding */ bentoSave),
-/* harmony export */   bodySave: () => (/* binding */ bodySave),
-/* harmony export */   createBentoEdit: () => (/* binding */ createBentoEdit),
-/* harmony export */   createBodyEdit: () => (/* binding */ createBodyEdit),
-/* harmony export */   createPageEdit: () => (/* binding */ createPageEdit),
-/* harmony export */   createProseEdit: () => (/* binding */ createProseEdit),
-/* harmony export */   heroAction: () => (/* binding */ heroAction),
-/* harmony export */   heroBadge: () => (/* binding */ heroBadge),
-/* harmony export */   pageSave: () => (/* binding */ pageSave),
-/* harmony export */   proseSave: () => (/* binding */ proseSave)
-/* harmony export */ });
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hero-simple/edit */ "./src/blocks/hero-simple/edit.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-const heroBadge = (text, url) => ({
-  ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createBadge)(),
-  text,
-  url,
-  linkMode: false
-});
-const heroAction = (text, url) => ({
-  ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createAction)(),
-  text,
-  url,
-  linkMode: false
-});
-const createPageEdit = template => function Edit() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("main", {
-    id: "main",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
-      template: template
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "toast",
-      role: "status",
-      "aria-live": "polite",
-      "aria-atomic": "true",
-      hidden: true,
-      children: "\u0413\u043E\u0442\u043E\u0432\u043E"
-    })]
-  });
-};
-function pageSave() {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: 'theme-shell'
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("main", {
-    ...blockProps,
-    id: "main",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "toast",
-      role: "status",
-      "aria-live": "polite",
-      "aria-atomic": "true",
-      hidden: true,
-      children: "\u0413\u043E\u0442\u043E\u0432\u043E"
-    })]
-  });
-}
-const createBentoEdit = bodyBlockName => function Edit() {
-  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({
-    className: 'bento'
+const DEFAULT_ANNUAL_REPORTS = [{
+  "id": "annual-1",
+  "ext": "PDF",
+  "title": "Годовая бухгалтерская (финансовая) отчетность за 2025 год.",
+  "meta": "(Опубликовано 02.04.2026г. Планируется к утверждению на годовом ОСА 21.04.2026г.)",
+  "url": "https://slavbank.ru/wp-content/uploads/otchet-2025-website.pdf",
+  "opensInNewTab": true
+}, {
+  "id": "annual-2",
+  "ext": "PDF",
+  "title": "Годовая бухгалтерская (финансовая) отчетность за 2024 год.",
+  "meta": "(Опубликовано 11.04.2025г. Утверждена на годовом ОСА 10.04.2025г.)",
+  "url": "https://slavbank.ru/wp-content/uploads/azo_-2024_nmm_slavyanbank.pdf",
+  "opensInNewTab": true
+}, {
+  "id": "annual-3",
+  "ext": "PDF",
+  "title": "Годовая бухгалтерская (финансовая) отчетность за 2023 год.",
+  "meta": "(Опубликовано 12.03.2024г. Утверждена на годовом ОСА 02.04.2024г.)",
+  "url": "https://slavbank.ru/wp-content/uploads/otchet_2023_publ.pdf",
+  "opensInNewTab": true
+}, {
+  "id": "annual-4",
+  "ext": "PDF",
+  "title": "Годовая бухгалтерская (финансовая) отчетность за 2022 год.",
+  "meta": "(Опубликовано 29.03.2023г. Утверждена на годовом ОСА 20.04.2023г.)",
+  "url": "https://slavbank.ru/wp-content/uploads/otchet2022.pdf",
+  "opensInNewTab": true
+}, {
+  "id": "annual-5",
+  "ext": "PDF",
+  "title": "Годовая бухгалтерская (финансовая) отчетность за 2020 год.",
+  "meta": "(Опубликовано 29.03.2021г. Утверждена на годовом ОСА 22.04.2021г.)",
+  "url": "https://slavbank.ru/wp-content/uploads/otchet2020.pdf",
+  "opensInNewTab": true
+}, {
+  "id": "annual-6",
+  "ext": "PDF",
+  "title": "Годовая бухгалтерская (финансовая) отчетность за 2019 год.",
+  "meta": "(Опубликовано 26.03.2020г. Утверждена на годовом ОСА 16.04.2020г.)",
+  "url": "https://slavbank.ru/wp-content/uploads/2021/03/report2019.pdf",
+  "opensInNewTab": true
+}, {
+  "id": "annual-7",
+  "ext": "PDF",
+  "title": "Годовая бухгалтерская (финансовая) отчетность за 2018 год.",
+  "meta": "(Утверждена на годовом ОСА 18.04.2019г) (Опубликовано 28.03.2019г.)",
+  "url": "https://slavbank.ru/wp-content/uploads/2021/03/report2018.pdf",
+  "opensInNewTab": true
+}, {
+  "id": "annual-8",
+  "ext": "PDF",
+  "title": "Годовая бухгалтерская (финансовая) отчетность за 2017 год.",
+  "meta": "(Опубликовано 12.04.2018г.)",
+  "url": "https://slavbank.ru/wp-content/uploads/2021/03/report2017.pdf",
+  "opensInNewTab": true
+}];
+const DEFAULT_INTERIM_GROUPS = [{
+  "id": "interim-group-1",
+  "title": "Промежуточная бухгалтерская (финансовая) отчетность за 2025 год",
+  "open": true,
+  "documents": [{
+    "id": "interim-1-doc-1",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2025 г.",
+    "meta": "(опубликовано 16.05.2025г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet-publ-i-2025.pdf",
+    "opensInNewTab": true
   }, {
-    template: [[bodyBlockName, {}], ['slav-bank/bento-shell-sidebar', {}]]
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-    className: "block dashv2",
-    id: "content",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        ...innerBlocksProps
-      })
-    })
-  });
+    "id": "interim-1-doc-2",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2025 г.",
+    "meta": "(опубликовано 07.08.2025г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet-publ-ii-2025.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-1-doc-3",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2025 г.",
+    "meta": "(опубликовано 12.11.2025г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet-publ-9-2025.pdf",
+    "opensInNewTab": true
+  }]
+}, {
+  "id": "interim-group-2",
+  "title": "Промежуточная бухгалтерская (финансовая) отчетность за 2024 год",
+  "open": false,
+  "documents": [{
+    "id": "interim-2-doc-1",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2024 г.",
+    "meta": "(опубликовано 16.05.2024г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet_publ-1-24-1.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-2-doc-2",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2024 г.",
+    "meta": "(опубликовано 09.08.2024г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/na-sajt-otchet-2-2024-publ.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-2-doc-3",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2024 г.",
+    "meta": "(опубликовано 08.11.2024г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet-publ-9-2024.pdf",
+    "opensInNewTab": true
+  }]
+}, {
+  "id": "interim-group-3",
+  "title": "Промежуточная бухгалтерская (финансовая) отчетность за 2023 год",
+  "open": false,
+  "documents": [{
+    "id": "interim-3-doc-1",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2023 г.",
+    "meta": "(опубликовано 15.05.2023г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet-i-2023-for-publ.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-3-doc-2",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2023 г.",
+    "meta": "(опубликовано 02.08.2023г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet-6-2023-publ.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-3-doc-3",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2023 г.",
+    "meta": "(опубликовано 07.11.2023г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/publ-otchet-9-2023.pdf",
+    "opensInNewTab": true
+  }]
+}, {
+  "id": "interim-group-4",
+  "title": "Промежуточная бухгалтерская (финансовая) отчетность за 2022 год",
+  "open": false,
+  "documents": [{
+    "id": "interim-4-doc-1",
+    "title": "Показатели на 01.01.2022 г.",
+    "meta": "(дата размещения 18.01.2022г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/pocaz_01012022.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-4-doc-2",
+    "title": "Показатели на 01.02.2022 г.",
+    "meta": "(дата размещения 09.02.2022г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/pocaz_01022022.pdf",
+    "opensInNewTab": true
+  }]
+}, {
+  "id": "interim-group-5",
+  "title": "Промежуточная бухгалтерская (финансовая) отчетность за 2021 год",
+  "open": false,
+  "documents": [{
+    "id": "interim-5-doc-1",
+    "title": "Предварительные показатели на 01.01.2021 г.",
+    "meta": "(дата размещения 18.01.2021)",
+    "url": "https://slavbank.ru/wp-content/uploads/pr_pokaz_01012021.xls",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-5-doc-2",
+    "title": "Показатели на 01.02.2021 г.",
+    "meta": "(дата размещения 17.02.2021)",
+    "url": "https://slavbank.ru/wp-content/uploads/pokaz_01022021.xls",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-5-doc-3",
+    "title": "Показатели на 01.03.2021 г.",
+    "meta": "(дата размещения 10.03.2021)",
+    "url": "https://slavbank.ru/wp-content/uploads/pokaz_01032021.xls",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-5-doc-4",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2021 г.",
+    "meta": "(опубликовано 12.05.2021г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet-1-2021.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-5-doc-5",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2021 г.",
+    "meta": "(опубликовано 30.07.2021г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet-2-2021.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-5-doc-6",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2021 г.",
+    "meta": "(опубликовано 10.11.2021г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/otchet-3-2021.pdf",
+    "opensInNewTab": true
+  }]
+}, {
+  "id": "interim-group-6",
+  "title": "Промежуточная бухгалтерская (финансовая) отчетность за 2020 год",
+  "open": false,
+  "documents": [{
+    "id": "interim-6-doc-1",
+    "title": "Предварительные показатели на 01.01.2020г.",
+    "meta": "(дата размещения 15.01.2020г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/pr_pokaz_01012020.xls",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-6-doc-2",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2020 года",
+    "meta": "(опубликовано 18.05.2020г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/2021/03/otchet04-2020.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-6-doc-3",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2020 года",
+    "meta": "(опубликовано 29.07.2020г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/2021/03/1h-2020.pdf",
+    "opensInNewTab": true
+  }, {
+    "id": "interim-6-doc-4",
+    "title": "Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2020 г.",
+    "meta": "(опубликовано 28.10.2020г.)",
+    "url": "https://slavbank.ru/wp-content/uploads/2021/03/pbo9m2020.pdf",
+    "opensInNewTab": true
+  }]
+}];
+const DEFAULT_RATES = [{
+  "id": "rate-1",
+  "code": "USD",
+  "buy": "89.40",
+  "sell": "92.30"
+}, {
+  "id": "rate-2",
+  "code": "EUR",
+  "buy": "96.80",
+  "sell": "99.90"
+}];
+const DEFAULT_POSTS = [{
+  "id": "post-1",
+  "date": "05.04.2026",
+  "title": "Изменения в тарифах банка",
+  "url": "https://slavbank.ru/novosti/",
+  "opensInNewTab": false
+}, {
+  "id": "post-2",
+  "date": "01.04.2026",
+  "title": "Обновление раздела отчетности",
+  "url": "https://slavbank.ru/otchetnost/",
+  "opensInNewTab": false
+}];
+const DEFAULT_SECTION_LINKS = [{
+  "id": "drawer-1-link-1",
+  "label": "ИНФОРМАЦИЯ БАНКА",
+  "url": "https://slavbank.ru/informaciya-banka/",
+  "opensInNewTab": false
+}, {
+  "id": "drawer-1-link-2",
+  "label": "НОВОСТИ",
+  "url": "https://slavbank.ru/novosti/",
+  "opensInNewTab": false
+}, {
+  "id": "drawer-1-link-3",
+  "label": "ТАРИФЫ БАНКА",
+  "url": "https://slavbank.ru/tarify-banka/",
+  "opensInNewTab": false
+}, {
+  "id": "drawer-1-link-4",
+  "label": "ЮРИДИЧЕСКИМ ЛИЦАМ",
+  "url": "https://slavbank.ru/yuridicheskim-licam/",
+  "opensInNewTab": false
+}, {
+  "id": "drawer-1-link-5",
+  "label": "ПОДДЕРЖКА",
+  "url": "https://slavbank.ru/podderzhka/",
+  "opensInNewTab": false
+}, {
+  "id": "drawer-1-link-6",
+  "label": "КОНТАКТЫ",
+  "url": "https://slavbank.ru/kontakty/",
+  "opensInNewTab": false
+}];
+const DEFAULT_CATEGORY_LINKS = [{
+  "id": "drawer-2-link-1",
+  "label": "Новости",
+  "url": "https://slavbank.ru/novosti/",
+  "opensInNewTab": false
+}, {
+  "id": "drawer-2-link-2",
+  "label": "Полезная информация",
+  "url": "https://slavbank.ru/novosti/",
+  "opensInNewTab": false
+}, {
+  "id": "drawer-2-link-3",
+  "label": "АРХИВ",
+  "url": "https://slavbank.ru/category/arhiv",
+  "opensInNewTab": true
+}];
+const createId = (prefix = 'item') => `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+const createAnnualReport = (overrides = {}) => ({
+  id: createId('annual'),
+  ext: 'PDF',
+  title: 'Новый годовой документ',
+  meta: '',
+  url: '',
+  opensInNewTab: true,
+  ...overrides
+});
+const normalizeAnnualReport = (item = {}, index = 0) => ({
+  id: item.id || `annual-${index}`,
+  ext: item.ext || 'PDF',
+  title: item.title || '',
+  meta: item.meta || '',
+  url: item.url || '',
+  opensInNewTab: !!item.opensInNewTab
+});
+const normalizeAnnualReports = (items, fallback = DEFAULT_ANNUAL_REPORTS) => {
+  const source = Array.isArray(items) && items.length ? items : fallback;
+  return source.map(normalizeAnnualReport);
 };
-function bentoSave() {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: 'block dashv2',
-    id: 'content'
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-    ...blockProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "bento",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
-      })
-    })
-  });
-}
-const createBodyEdit = template => function Edit() {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: 'bento-card',
-    style: {
-      padding: 'var(--s-4)',
-      position: 'relative'
-    }
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "bento-card",
-    style: {
-      padding: 'var(--s-4)',
-      position: 'relative'
-    },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
-      template: template
-    })
-  });
+const createInterimDocument = (overrides = {}) => ({
+  id: createId('interim-doc'),
+  title: 'Новый документ',
+  meta: '',
+  url: '',
+  opensInNewTab: true,
+  ...overrides
+});
+const normalizeInterimDocument = (item = {}, index = 0) => ({
+  id: item.id || `interim-doc-${index}`,
+  title: item.title || '',
+  meta: item.meta || '',
+  url: item.url || '',
+  opensInNewTab: !!item.opensInNewTab
+});
+const createInterimGroup = (overrides = {}) => ({
+  id: createId('interim-group'),
+  title: 'Новая группа промежуточной отчетности',
+  open: false,
+  documents: [createInterimDocument()],
+  ...overrides
+});
+const normalizeInterimGroup = (group = {}, index = 0) => ({
+  id: group.id || `interim-group-${index}`,
+  title: group.title || '',
+  open: !!group.open,
+  documents: Array.isArray(group.documents) ? group.documents.map(normalizeInterimDocument) : []
+});
+const normalizeInterimGroups = (groups, fallback = DEFAULT_INTERIM_GROUPS) => {
+  const source = Array.isArray(groups) && groups.length ? groups : fallback;
+  return source.map(normalizeInterimGroup);
 };
-function bodySave() {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: 'bento-card',
-    style: {
-      padding: 'var(--s-4)',
-      position: 'relative'
-    }
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "bento-card",
-    style: {
-      padding: 'var(--s-4)',
-      position: 'relative'
-    },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
-  });
-}
-const createProseEdit = template => function Edit() {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: 'prose'
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "entry-content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
-        template: template
-      })
-    })
-  });
+const createRateRow = (overrides = {}) => ({
+  id: createId('rate'),
+  code: 'USD',
+  buy: '0.00',
+  sell: '0.00',
+  ...overrides
+});
+const normalizeRateRow = (item = {}, index = 0) => ({
+  id: item.id || `rate-${index}`,
+  code: item.code || '',
+  buy: item.buy || '',
+  sell: item.sell || ''
+});
+const normalizeRates = (items, fallback = DEFAULT_RATES) => {
+  const source = Array.isArray(items) && items.length ? items : fallback;
+  return source.map(normalizeRateRow);
 };
-function proseSave() {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: 'prose'
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "entry-content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
-    })
-  });
-}
+const createPostItem = (overrides = {}) => ({
+  id: createId('post'),
+  date: '01.01.2026',
+  title: 'Новая публикация',
+  url: '',
+  opensInNewTab: false,
+  ...overrides
+});
+const normalizePostItem = (item = {}, index = 0) => ({
+  id: item.id || `post-${index}`,
+  date: item.date || '',
+  title: item.title || '',
+  url: item.url || '',
+  opensInNewTab: !!item.opensInNewTab
+});
+const normalizePosts = (items, fallback = DEFAULT_POSTS) => {
+  const source = Array.isArray(items) && items.length ? items : fallback;
+  return source.map(normalizePostItem);
+};
+const createLinkItem = (overrides = {}) => ({
+  id: createId('link'),
+  label: 'Новая ссылка',
+  url: '',
+  opensInNewTab: false,
+  ...overrides
+});
+const normalizeLinkItem = (item = {}, index = 0) => ({
+  id: item.id || `link-${index}`,
+  label: item.label || '',
+  url: item.url || '',
+  opensInNewTab: !!item.opensInNewTab
+});
+const normalizeLinkItems = (items, fallback = []) => {
+  const source = Array.isArray(items) && items.length ? items : fallback;
+  return source.map(normalizeLinkItem);
+};
 
 /***/ },
 
@@ -551,29 +437,491 @@ function proseSave() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Edit)
 /* harmony export */ });
-/* harmony import */ var _page_pattern__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../page-pattern */ "./src/blocks/page-pattern.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _defaults__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./defaults */ "./src/blocks/page-reporting-body/defaults.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 
-const TEMPLATE = [['slav-bank/kicker', {
-  text: 'Отчетность'
-}], ['slav-bank/title', {
-  title: 'Документы и раскрытия',
-  level: '2'
-}], ['core/paragraph', {
-  content: 'Страница полностью редактируемая: управляйте карточками документов, периодами раскрытия и пояснениями без правки кода.'
-}], ['slav-bank/kicker', {
-  text: 'Годовая отчетность'
-}], ['slav-bank/page-pattern-documents', {
-  items: []
-}], ['slav-bank/kicker', {
-  text: 'Промежуточная отчетность'
-}], ['core/details', {
-  summary: 'Добавьте период раскрытия'
-}, [['core/paragraph', {
-  content: 'Внутри этого блока добавьте ссылки на документы и даты публикации.'
-}]]]];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.createBodyEdit)(TEMPLATE));
+
+
+
+
+const insertAfter = (items, afterId, nextItem) => {
+  const list = Array.isArray(items) ? [...items] : [];
+  if (!afterId) {
+    list.push(nextItem);
+    return list;
+  }
+  const index = list.findIndex(item => item.id === afterId);
+  if (index === -1) {
+    list.push(nextItem);
+    return list;
+  }
+  list.splice(index + 1, 0, nextItem);
+  return list;
+};
+function ItemToolbar({
+  onAdd,
+  onRemove,
+  addLabel = 'Добавить ниже',
+  removeLabel = 'Удалить',
+  canRemove = true
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "sb-reporting-item-toolbar",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+      variant: "secondary",
+      onClick: onAdd,
+      isSmall: true,
+      children: addLabel
+    }), canRemove && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+      variant: "secondary",
+      isDestructive: true,
+      onClick: onRemove,
+      isSmall: true,
+      children: removeLabel
+    })]
+  });
+}
+function Edit({
+  attributes,
+  setAttributes,
+  isSelected
+}) {
+  const {
+    contentAnchor = 'content',
+    annualCardTitle = 'ОТЧЕТНОСТЬ АО НКБ «СЛАВЯНБАНК»',
+    annualHeading = 'ГОДОВАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ',
+    annualReports: rawAnnualReports = _defaults__WEBPACK_IMPORTED_MODULE_3__.DEFAULT_ANNUAL_REPORTS,
+    interimKickerTitle = 'ПРОМЕЖУТОЧНАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ,',
+    interimSubTitle = 'ПОКАЗАТЕЛИ ДЕЯТЕЛЬНОСТИ БАНКА',
+    interimGroups: rawInterimGroups = _defaults__WEBPACK_IMPORTED_MODULE_3__.DEFAULT_INTERIM_GROUPS
+  } = attributes;
+  const annualReports = (0,_defaults__WEBPACK_IMPORTED_MODULE_3__.normalizeAnnualReports)(rawAnnualReports, _defaults__WEBPACK_IMPORTED_MODULE_3__.DEFAULT_ANNUAL_REPORTS);
+  const interimGroups = (0,_defaults__WEBPACK_IMPORTED_MODULE_3__.normalizeInterimGroups)(rawInterimGroups, _defaults__WEBPACK_IMPORTED_MODULE_3__.DEFAULT_INTERIM_GROUPS);
+  const setField = (field, value) => setAttributes({
+    [field]: value
+  });
+  const updateAnnualReport = (reportId, patch) => {
+    setAttributes({
+      annualReports: annualReports.map(report => report.id === reportId ? {
+        ...report,
+        ...patch
+      } : report)
+    });
+  };
+  const addAnnualReport = (afterId = null) => {
+    setAttributes({
+      annualReports: insertAfter(annualReports, afterId, (0,_defaults__WEBPACK_IMPORTED_MODULE_3__.createAnnualReport)())
+    });
+  };
+  const removeAnnualReport = reportId => {
+    setAttributes({
+      annualReports: annualReports.filter(report => report.id !== reportId)
+    });
+  };
+  const updateInterimGroup = (groupId, patch) => {
+    setAttributes({
+      interimGroups: interimGroups.map(group => group.id === groupId ? {
+        ...group,
+        ...patch
+      } : group)
+    });
+  };
+  const addInterimGroup = (afterId = null) => {
+    setAttributes({
+      interimGroups: insertAfter(interimGroups, afterId, (0,_defaults__WEBPACK_IMPORTED_MODULE_3__.createInterimGroup)())
+    });
+  };
+  const removeInterimGroup = groupId => {
+    setAttributes({
+      interimGroups: interimGroups.filter(group => group.id !== groupId)
+    });
+  };
+  const updateInterimDocument = (groupId, docId, patch) => {
+    setAttributes({
+      interimGroups: interimGroups.map(group => {
+        if (group.id !== groupId) {
+          return group;
+        }
+        return {
+          ...group,
+          documents: group.documents.map(document => document.id === docId ? {
+            ...document,
+            ...patch
+          } : document)
+        };
+      })
+    });
+  };
+  const addInterimDocument = (groupId, afterDocId = null) => {
+    setAttributes({
+      interimGroups: interimGroups.map(group => {
+        if (group.id !== groupId) {
+          return group;
+        }
+        return {
+          ...group,
+          documents: insertAfter(group.documents, afterDocId, (0,_defaults__WEBPACK_IMPORTED_MODULE_3__.createInterimDocument)())
+        };
+      })
+    });
+  };
+  const removeInterimDocument = (groupId, docId) => {
+    setAttributes({
+      interimGroups: interimGroups.map(group => {
+        if (group.id !== groupId) {
+          return group;
+        }
+        return {
+          ...group,
+          documents: group.documents.filter(document => document.id !== docId)
+        };
+      })
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: "\u041E\u0431\u0449\u0438\u0435 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438",
+        initialOpen: true,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+          label: "\u042F\u043A\u043E\u0440\u044C \u0441\u0435\u043A\u0446\u0438\u0438",
+          value: contentAnchor,
+          onChange: value => setField('contentAnchor', value),
+          help: "\u041F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E hero-\u043A\u043D\u043E\u043F\u043A\u0430 \u0432\u0435\u0434\u0435\u0442 \u043D\u0430 #content."
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: "\u0413\u043E\u0434\u043E\u0432\u0430\u044F \u043E\u0442\u0447\u0435\u0442\u043D\u043E\u0441\u0442\u044C",
+        initialOpen: false,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "sb-reporting-inspector-stack",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: "\u041C\u0430\u043B\u044B\u0439 \u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A",
+            value: annualCardTitle,
+            onChange: value => setField('annualCardTitle', value)
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: "\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438",
+            value: annualHeading,
+            onChange: value => setField('annualHeading', value)
+          }), annualReports.map((report, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "sb-reporting-inspector-card",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+              children: `Документ #${index + 1}`
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+              label: "\u0424\u043E\u0440\u043C\u0430\u0442",
+              value: report.ext,
+              onChange: value => updateAnnualReport(report.id, {
+                ext: value
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
+              label: "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A",
+              value: report.title,
+              onChange: value => updateAnnualReport(report.id, {
+                title: value
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
+              label: "\u041F\u043E\u0434\u043F\u0438\u0441\u044C",
+              value: report.meta,
+              onChange: value => updateAnnualReport(report.id, {
+                meta: value
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+              label: "URL",
+              value: report.url,
+              onChange: value => updateAnnualReport(report.id, {
+                url: value
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+              label: "\u041E\u0442\u043A\u0440\u044B\u0432\u0430\u0442\u044C \u0432 \u043D\u043E\u0432\u043E\u0439 \u0432\u043A\u043B\u0430\u0434\u043A\u0435",
+              checked: report.opensInNewTab,
+              onChange: value => updateAnnualReport(report.id, {
+                opensInNewTab: value
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+              variant: "secondary",
+              isDestructive: true,
+              onClick: () => removeAnnualReport(report.id),
+              children: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442"
+            })]
+          }, report.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+            variant: "primary",
+            onClick: () => addAnnualReport(),
+            children: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0433\u043E\u0434\u043E\u0432\u043E\u0439 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442"
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: "\u041F\u0440\u043E\u043C\u0435\u0436\u0443\u0442\u043E\u0447\u043D\u0430\u044F \u043E\u0442\u0447\u0435\u0442\u043D\u043E\u0441\u0442\u044C",
+        initialOpen: false,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "sb-reporting-inspector-stack",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: "\u0412\u0435\u0440\u0445\u043D\u0438\u0439 \u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A",
+            value: interimKickerTitle,
+            onChange: value => setField('interimKickerTitle', value)
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: "\u041F\u043E\u0434\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A",
+            value: interimSubTitle,
+            onChange: value => setField('interimSubTitle', value)
+          }), interimGroups.map((group, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "sb-reporting-inspector-card",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+              children: `Группа #${index + 1}`
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+              label: "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A summary",
+              value: group.title,
+              onChange: value => updateInterimGroup(group.id, {
+                title: value
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+              label: "\u0420\u0430\u0441\u043A\u0440\u044B\u0432\u0430\u0442\u044C \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E",
+              checked: group.open,
+              onChange: value => updateInterimGroup(group.id, {
+                open: value
+              })
+            }), group.documents.map((document, docIndex) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "sb-reporting-inspector-subcard",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                children: `Документ #${docIndex + 1}`
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
+                label: "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430",
+                value: document.title,
+                onChange: value => updateInterimDocument(group.id, document.id, {
+                  title: value
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
+                label: "\u041F\u043E\u0434\u043F\u0438\u0441\u044C",
+                value: document.meta,
+                onChange: value => updateInterimDocument(group.id, document.id, {
+                  meta: value
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+                label: "URL",
+                value: document.url,
+                onChange: value => updateInterimDocument(group.id, document.id, {
+                  url: value
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+                label: "\u041E\u0442\u043A\u0440\u044B\u0432\u0430\u0442\u044C \u0432 \u043D\u043E\u0432\u043E\u0439 \u0432\u043A\u043B\u0430\u0434\u043A\u0435",
+                checked: document.opensInNewTab,
+                onChange: value => updateInterimDocument(group.id, document.id, {
+                  opensInNewTab: value
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                variant: "secondary",
+                isDestructive: true,
+                onClick: () => removeInterimDocument(group.id, document.id),
+                children: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442"
+              })]
+            }, document.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "sb-reporting-inspector-actions",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                variant: "secondary",
+                onClick: () => addInterimDocument(group.id),
+                children: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                variant: "secondary",
+                isDestructive: true,
+                onClick: () => removeInterimGroup(group.id),
+                children: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0433\u0440\u0443\u043F\u043F\u0443"
+              })]
+            })]
+          }, group.id)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+            variant: "primary",
+            onClick: () => addInterimGroup(),
+            children: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0433\u0440\u0443\u043F\u043F\u0443"
+          })]
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "bento-card sb-reporting-main-card",
+      style: {
+        padding: 'var(--s-4)'
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+        tagName: "h3",
+        className: "wp-block-heading kicker",
+        value: annualCardTitle,
+        onChange: value => setField('annualCardTitle', value)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        className: "has-text-align-center",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+            tagName: "span",
+            value: annualHeading,
+            onChange: value => setField('annualHeading', value)
+          })
+        })
+      }), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "sb-reporting-section-toolbar",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+          variant: "primary",
+          onClick: () => addAnnualReport(),
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Добавить годовой документ', 'slav-bank')
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "doc-shelf",
+        children: annualReports.map(report => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "doc-card sb-reporting-editor-card",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            className: "doc-ext",
+            children: report.ext || 'PDF'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "doc-body",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+              tagName: "div",
+              className: "doc-title",
+              value: report.title,
+              onChange: value => updateAnnualReport(report.id, {
+                title: value
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+              tagName: "div",
+              className: "muted",
+              style: {
+                fontSize: '10px'
+              },
+              value: report.meta,
+              onChange: value => updateAnnualReport(report.id, {
+                meta: value
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            className: "doc-arrow",
+            children: "\u2192"
+          }), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ItemToolbar, {
+            onAdd: () => addAnnualReport(report.id),
+            onRemove: () => removeAnnualReport(report.id),
+            canRemove: annualReports.length > 1
+          })]
+        }, report.id))
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "prose",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "entry-content",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "dashv2",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "bento-card sb-reporting-inner-card",
+              style: {
+                padding: 'var(--s-4)',
+                position: 'relative'
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "prose",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "entry-content",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+                    className: "kicker",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+                        tagName: "span",
+                        value: interimKickerTitle,
+                        onChange: value => setField('interimKickerTitle', value)
+                      })
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+                    className: "kicker",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+                        tagName: "span",
+                        value: interimSubTitle,
+                        onChange: value => setField('interimSubTitle', value)
+                      })
+                    })
+                  }), interimGroups.map(group => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("details", {
+                    className: "wp-block-details has-gray-color has-text-color has-link-color is-layout-flow wp-block-details-is-layout-flow",
+                    open: group.open,
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("summary", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+                          tagName: "span",
+                          value: group.title,
+                          onChange: value => updateInterimGroup(group.id, {
+                            title: value
+                          })
+                        })
+                      })
+                    }), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "sb-reporting-section-toolbar",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                        variant: "secondary",
+                        onClick: () => updateInterimGroup(group.id, {
+                          open: !group.open
+                        }),
+                        children: group.open ? 'Свернуть' : 'Раскрыть'
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                        variant: "secondary",
+                        onClick: () => addInterimDocument(group.id),
+                        children: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                        variant: "secondary",
+                        onClick: () => addInterimGroup(group.id),
+                        children: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0433\u0440\u0443\u043F\u043F\u0443 \u043D\u0438\u0436\u0435"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                        variant: "secondary",
+                        isDestructive: true,
+                        onClick: () => removeInterimGroup(group.id),
+                        disabled: interimGroups.length === 1,
+                        children: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0433\u0440\u0443\u043F\u043F\u0443"
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("figure", {
+                      className: "wp-block-table is-style-stripes",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("table", {
+                        className: "has-fixed-layout",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
+                          children: group.documents.map(document => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tr", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
+                              className: "has-text-align-center",
+                              "data-align": "center",
+                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+                                  tagName: "span",
+                                  value: document.title,
+                                  onChange: value => updateInterimDocument(group.id, document.id, {
+                                    title: value
+                                  })
+                                })
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+                                tagName: "sub",
+                                value: document.meta,
+                                onChange: value => updateInterimDocument(group.id, document.id, {
+                                  meta: value
+                                })
+                              }), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ItemToolbar, {
+                                onAdd: () => addInterimDocument(group.id, document.id),
+                                onRemove: () => removeInterimDocument(group.id, document.id),
+                                canRemove: group.documents.length > 1
+                              })]
+                            })
+                          }, document.id))
+                        })
+                      })
+                    })]
+                  }, group.id)), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "sb-reporting-section-toolbar",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                      variant: "primary",
+                      onClick: () => addInterimGroup(),
+                      children: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0435\u0449\u0435 \u043E\u0434\u043D\u0443 \u0433\u0440\u0443\u043F\u043F\u0443"
+                    })
+                  })]
+                })
+              })
+            })
+          })
+        })
+      })]
+    })]
+  });
+}
 
 /***/ },
 
@@ -612,10 +960,155 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _page_pattern__WEBPACK_IMPORTED_MODULE_0__.pageSave)
+/* harmony export */   "default": () => (/* binding */ Edit)
 /* harmony export */ });
-/* harmony import */ var _page_pattern__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../page-pattern */ "./src/blocks/page-pattern.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./defaults */ "./src/blocks/page-reporting-body/defaults.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
 
+
+
+
+function Edit({
+  attributes
+}) {
+  const {
+    annualCardTitle = 'ОТЧЕТНОСТЬ АО НКБ «СЛАВЯНБАНК»',
+    annualHeading = 'ГОДОВАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ',
+    annualReports: rawAnnualReports = _defaults__WEBPACK_IMPORTED_MODULE_2__.DEFAULT_ANNUAL_REPORTS,
+    interimKickerTitle = 'ПРОМЕЖУТОЧНАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ,',
+    interimSubTitle = 'ПОКАЗАТЕЛИ ДЕЯТЕЛЬНОСТИ БАНКА',
+    interimGroups: rawInterimGroups = _defaults__WEBPACK_IMPORTED_MODULE_2__.DEFAULT_INTERIM_GROUPS
+  } = attributes;
+  const annualReports = (0,_defaults__WEBPACK_IMPORTED_MODULE_2__.normalizeAnnualReports)(rawAnnualReports, _defaults__WEBPACK_IMPORTED_MODULE_2__.DEFAULT_ANNUAL_REPORTS);
+  const interimGroups = (0,_defaults__WEBPACK_IMPORTED_MODULE_2__.normalizeInterimGroups)(rawInterimGroups, _defaults__WEBPACK_IMPORTED_MODULE_2__.DEFAULT_INTERIM_GROUPS);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "bento-card sb-reporting-main-card",
+    style: {
+      padding: 'var(--s-4)'
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+      tagName: "h3",
+      className: "wp-block-heading kicker",
+      value: annualCardTitle
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      className: "has-text-align-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+          tagName: "span",
+          value: annualHeading
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "doc-shelf",
+      children: annualReports.map(report => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
+        rel: report?.openInNewTab ? 'noopener noreferrer' : undefined,
+        blank: report?.openInNewTab ? '_blank' : undefined,
+        href: report.url,
+        className: "doc-card sb-reporting-editor-card",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "doc-ext",
+          children: report.ext || 'PDF'
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "doc-body",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+            tagName: "div",
+            className: "doc-title",
+            value: report.title
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+            tagName: "div",
+            className: "muted",
+            style: {
+              fontSize: '10px'
+            },
+            value: report.meta
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "doc-arrow",
+          children: "\u2192"
+        })]
+      }, report.id))
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prose",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "entry-content",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "dashv2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "bento-card sb-reporting-inner-card",
+            style: {
+              padding: 'var(--s-4)',
+              position: 'relative'
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "prose",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "entry-content",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                  className: "kicker",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+                      tagName: "span",
+                      value: interimKickerTitle
+                    })
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+                  className: "kicker",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+                      tagName: "span",
+                      value: interimSubTitle
+                    })
+                  })
+                }), interimGroups.map(group => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("details", {
+                  className: "wp-block-details has-gray-color has-text-color has-link-color is-layout-flow wp-block-details-is-layout-flow",
+                  open: group.open,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("summary", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+                        tagName: "span",
+                        value: group.title
+                      })
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("figure", {
+                    className: "wp-block-table is-style-stripes",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("table", {
+                      className: "has-fixed-layout",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
+                        children: group.documents.map(document => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tr", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
+                            className: "has-text-align-center",
+                            "data-align": "center",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+                                rel: document?.openInNewTab ? 'noopener noreferrer' : undefined,
+                                blank: document?.openInNewTab ? '_blank' : undefined,
+                                href: document?.url,
+                                tagName: "a",
+                                value: document.title
+                              })
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+                              tagName: "sub",
+                              value: document.meta
+                            })]
+                          })
+                        }, document.id))
+                      })
+                    })
+                  })]
+                }, group.id))]
+              })
+            })
+          })
+        })
+      })
+    })]
+  });
+}
 
 /***/ },
 
@@ -683,36 +1176,6 @@ module.exports = window["wp"]["components"];
 
 /***/ },
 
-/***/ "@wordpress/core-data"
-/*!**********************************!*\
-  !*** external ["wp","coreData"] ***!
-  \**********************************/
-(module) {
-
-module.exports = window["wp"]["coreData"];
-
-/***/ },
-
-/***/ "@wordpress/data"
-/*!******************************!*\
-  !*** external ["wp","data"] ***!
-  \******************************/
-(module) {
-
-module.exports = window["wp"]["data"];
-
-/***/ },
-
-/***/ "@wordpress/element"
-/*!*********************************!*\
-  !*** external ["wp","element"] ***!
-  \*********************************/
-(module) {
-
-module.exports = window["wp"]["element"];
-
-/***/ },
-
 /***/ "@wordpress/i18n"
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -729,7 +1192,7 @@ module.exports = window["wp"]["i18n"];
   \***************************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/body-reporting","title":"Отчетность: содержимое","category":"Наполнение","icon":"media-document","description":"Карточка содержимого страницы Отчетность.","parent":["slav-bank/body-reporting-bento"],"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","supports":{"html":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/body-reporting-body","title":"Отчетность — body","category":"Компоненты темы","icon":"screenoptions","parent":["slav-bank/page-reporting"],"description":"","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","supports":{"html":false,"inserting":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true},"attributes":{"contentAnchor":{"type":"string","default":"content"},"annualCardTitle":{"type":"string","default":"ОТЧЕТНОСТЬ АО НКБ «СЛАВЯНБАНК»"},"annualHeading":{"type":"string","default":"ГОДОВАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ"},"annualReports":{"type":"array","default":[{"id":"annual-1","ext":"PDF","title":"Годовая бухгалтерская (финансовая) отчетность за 2025 год.","meta":"(Опубликовано 02.04.2026г. Планируется к утверждению на годовом ОСА 21.04.2026г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-2025-website.pdf","opensInNewTab":true},{"id":"annual-2","ext":"PDF","title":"Годовая бухгалтерская (финансовая) отчетность за 2024 год.","meta":"(Опубликовано 11.04.2025г. Утверждена на годовом ОСА 10.04.2025г.)","url":"https://slavbank.ru/wp-content/uploads/azo_-2024_nmm_slavyanbank.pdf","opensInNewTab":true},{"id":"annual-3","ext":"PDF","title":"Годовая бухгалтерская (финансовая) отчетность за 2023 год.","meta":"(Опубликовано 12.03.2024г. Утверждена на годовом ОСА 02.04.2024г.)","url":"https://slavbank.ru/wp-content/uploads/otchet_2023_publ.pdf","opensInNewTab":true},{"id":"annual-4","ext":"PDF","title":"Годовая бухгалтерская (финансовая) отчетность за 2022 год.","meta":"(Опубликовано 29.03.2023г. Утверждена на годовом ОСА 20.04.2023г.)","url":"https://slavbank.ru/wp-content/uploads/otchet2022.pdf","opensInNewTab":true},{"id":"annual-5","ext":"PDF","title":"Годовая бухгалтерская (финансовая) отчетность за 2020 год.","meta":"(Опубликовано 29.03.2021г. Утверждена на годовом ОСА 22.04.2021г.)","url":"https://slavbank.ru/wp-content/uploads/otchet2020.pdf","opensInNewTab":true},{"id":"annual-6","ext":"PDF","title":"Годовая бухгалтерская (финансовая) отчетность за 2019 год.","meta":"(Опубликовано 26.03.2020г. Утверждена на годовом ОСА 16.04.2020г.)","url":"https://slavbank.ru/wp-content/uploads/2021/03/report2019.pdf","opensInNewTab":true},{"id":"annual-7","ext":"PDF","title":"Годовая бухгалтерская (финансовая) отчетность за 2018 год.","meta":"(Утверждена на годовом ОСА 18.04.2019г) (Опубликовано 28.03.2019г.)","url":"https://slavbank.ru/wp-content/uploads/2021/03/report2018.pdf","opensInNewTab":true},{"id":"annual-8","ext":"PDF","title":"Годовая бухгалтерская (финансовая) отчетность за 2017 год.","meta":"(Опубликовано 12.04.2018г.)","url":"https://slavbank.ru/wp-content/uploads/2021/03/report2017.pdf","opensInNewTab":true}]},"interimKickerTitle":{"type":"string","default":"ПРОМЕЖУТОЧНАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ,"},"interimSubTitle":{"type":"string","default":"ПОКАЗАТЕЛИ ДЕЯТЕЛЬНОСТИ БАНКА"},"interimGroups":{"type":"array","default":[{"id":"interim-group-1","title":"Промежуточная бухгалтерская (финансовая) отчетность за 2025 год","open":true,"documents":[{"id":"interim-1-doc-1","title":"Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2025 г.","meta":"(опубликовано 16.05.2025г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-publ-i-2025.pdf","opensInNewTab":true},{"id":"interim-1-doc-2","title":"Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2025 г.","meta":"(опубликовано 07.08.2025г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-publ-ii-2025.pdf","opensInNewTab":true},{"id":"interim-1-doc-3","title":"Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2025 г.","meta":"(опубликовано 12.11.2025г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-publ-9-2025.pdf","opensInNewTab":true}]},{"id":"interim-group-2","title":"Промежуточная бухгалтерская (финансовая) отчетность за 2024 год","open":false,"documents":[{"id":"interim-2-doc-1","title":"Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2024 г.","meta":"(опубликовано 16.05.2024г.)","url":"https://slavbank.ru/wp-content/uploads/otchet_publ-1-24-1.pdf","opensInNewTab":true},{"id":"interim-2-doc-2","title":"Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2024 г.","meta":"(опубликовано 09.08.2024г.)","url":"https://slavbank.ru/wp-content/uploads/na-sajt-otchet-2-2024-publ.pdf","opensInNewTab":true},{"id":"interim-2-doc-3","title":"Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2024 г.","meta":"(опубликовано 08.11.2024г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-publ-9-2024.pdf","opensInNewTab":true}]},{"id":"interim-group-3","title":"Промежуточная бухгалтерская (финансовая) отчетность за 2023 год","open":false,"documents":[{"id":"interim-3-doc-1","title":"Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2023 г.","meta":"(опубликовано 15.05.2023г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-i-2023-for-publ.pdf","opensInNewTab":true},{"id":"interim-3-doc-2","title":"Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2023 г.","meta":"(опубликовано 02.08.2023г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-6-2023-publ.pdf","opensInNewTab":true},{"id":"interim-3-doc-3","title":"Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2023 г.","meta":"(опубликовано 07.11.2023г.)","url":"https://slavbank.ru/wp-content/uploads/publ-otchet-9-2023.pdf","opensInNewTab":true}]},{"id":"interim-group-4","title":"Промежуточная бухгалтерская (финансовая) отчетность за 2022 год","open":false,"documents":[{"id":"interim-4-doc-1","title":"Показатели на 01.01.2022 г.","meta":"(дата размещения 18.01.2022г.)","url":"https://slavbank.ru/wp-content/uploads/pocaz_01012022.pdf","opensInNewTab":true},{"id":"interim-4-doc-2","title":"Показатели на 01.02.2022 г.","meta":"(дата размещения 09.02.2022г.)","url":"https://slavbank.ru/wp-content/uploads/pocaz_01022022.pdf","opensInNewTab":true}]},{"id":"interim-group-5","title":"Промежуточная бухгалтерская (финансовая) отчетность за 2021 год","open":false,"documents":[{"id":"interim-5-doc-1","title":"Предварительные показатели на 01.01.2021 г.","meta":"(дата размещения 18.01.2021)","url":"https://slavbank.ru/wp-content/uploads/pr_pokaz_01012021.xls","opensInNewTab":true},{"id":"interim-5-doc-2","title":"Показатели на 01.02.2021 г.","meta":"(дата размещения 17.02.2021)","url":"https://slavbank.ru/wp-content/uploads/pokaz_01022021.xls","opensInNewTab":true},{"id":"interim-5-doc-3","title":"Показатели на 01.03.2021 г.","meta":"(дата размещения 10.03.2021)","url":"https://slavbank.ru/wp-content/uploads/pokaz_01032021.xls","opensInNewTab":true},{"id":"interim-5-doc-4","title":"Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2021 г.","meta":"(опубликовано 12.05.2021г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-1-2021.pdf","opensInNewTab":true},{"id":"interim-5-doc-5","title":"Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2021 г.","meta":"(опубликовано 30.07.2021г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-2-2021.pdf","opensInNewTab":true},{"id":"interim-5-doc-6","title":"Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2021 г.","meta":"(опубликовано 10.11.2021г.)","url":"https://slavbank.ru/wp-content/uploads/otchet-3-2021.pdf","opensInNewTab":true}]},{"id":"interim-group-6","title":"Промежуточная бухгалтерская (финансовая) отчетность за 2020 год","open":false,"documents":[{"id":"interim-6-doc-1","title":"Предварительные показатели на 01.01.2020г.","meta":"(дата размещения 15.01.2020г.)","url":"https://slavbank.ru/wp-content/uploads/pr_pokaz_01012020.xls","opensInNewTab":true},{"id":"interim-6-doc-2","title":"Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2020 года","meta":"(опубликовано 18.05.2020г.)","url":"https://slavbank.ru/wp-content/uploads/2021/03/otchet04-2020.pdf","opensInNewTab":true},{"id":"interim-6-doc-3","title":"Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2020 года","meta":"(опубликовано 29.07.2020г.)","url":"https://slavbank.ru/wp-content/uploads/2021/03/1h-2020.pdf","opensInNewTab":true},{"id":"interim-6-doc-4","title":"Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2020 г.","meta":"(опубликовано 28.10.2020г.)","url":"https://slavbank.ru/wp-content/uploads/2021/03/pbo9m2020.pdf","opensInNewTab":true}]}]},"ratesCardTitle":{"type":"string","default":"Курсы валют"},"ratesKicker":{"type":"string","default":"Данные на текущую дату"},"ratesLegend":{"type":"string","default":"Наличные"},"ratesMetaLegend":{"type":"string","default":"Покупка / Продажа"},"ratesBuyLabel":{"type":"string","default":"Покупка"},"ratesSellLabel":{"type":"string","default":"Продажа"},"currencyRates":{"type":"array","default":[{"id":"rate-1","code":"USD","buy":"89.40","sell":"92.30"},{"id":"rate-2","code":"EUR","buy":"96.80","sell":"99.90"}]},"ratesDisclaimer":{"type":"string","default":"Информация носит справочный характер."},"postsKicker":{"type":"string","default":"Полезная информация"},"postsTitle":{"type":"string","default":"Последние публикации"},"posts":{"type":"array","default":[{"id":"post-1","date":"05.04.2026","title":"Изменения в тарифах банка","url":"https://slavbank.ru/novosti/","opensInNewTab":false},{"id":"post-2","date":"01.04.2026","title":"Обновление раздела отчетности","url":"https://slavbank.ru/otchetnost/","opensInNewTab":false}]},"sectionsDrawerTitle":{"type":"string","default":"Разделы сайта"},"sectionsDrawerOpen":{"type":"boolean","default":true},"sectionsLinks":{"type":"array","default":[{"id":"drawer-1-link-1","label":"ИНФОРМАЦИЯ БАНКА","url":"https://slavbank.ru/informaciya-banka/","opensInNewTab":false},{"id":"drawer-1-link-2","label":"НОВОСТИ","url":"https://slavbank.ru/novosti/","opensInNewTab":false},{"id":"drawer-1-link-3","label":"ТАРИФЫ БАНКА","url":"https://slavbank.ru/tarify-banka/","opensInNewTab":false},{"id":"drawer-1-link-4","label":"ЮРИДИЧЕСКИМ ЛИЦАМ","url":"https://slavbank.ru/yuridicheskim-licam/","opensInNewTab":false},{"id":"drawer-1-link-5","label":"ПОДДЕРЖКА","url":"https://slavbank.ru/podderzhka/","opensInNewTab":false},{"id":"drawer-1-link-6","label":"КОНТАКТЫ","url":"https://slavbank.ru/kontakty/","opensInNewTab":false}]},"categoriesDrawerTitle":{"type":"string","default":"Рубрики"},"categoriesDrawerOpen":{"type":"boolean","default":true},"categoriesLinks":{"type":"array","default":[{"id":"drawer-2-link-1","label":"Новости","url":"https://slavbank.ru/novosti/","opensInNewTab":false},{"id":"drawer-2-link-2","label":"Полезная информация","url":"https://slavbank.ru/novosti/","opensInNewTab":false},{"id":"drawer-2-link-3","label":"АРХИВ","url":"https://slavbank.ru/category/arhiv","opensInNewTab":true}]}}}');
 
 /***/ }
 

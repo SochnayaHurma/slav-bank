@@ -374,50 +374,57 @@ function Edit({
 
 /***/ },
 
-/***/ "./src/blocks/page-pattern.js"
-/*!************************************!*\
-  !*** ./src/blocks/page-pattern.js ***!
-  \************************************/
+/***/ "./src/blocks/page-reporting/edit.js"
+/*!*******************************************!*\
+  !*** ./src/blocks/page-reporting/edit.js ***!
+  \*******************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   bentoSave: () => (/* binding */ bentoSave),
-/* harmony export */   bodySave: () => (/* binding */ bodySave),
-/* harmony export */   createBentoEdit: () => (/* binding */ createBentoEdit),
-/* harmony export */   createBodyEdit: () => (/* binding */ createBodyEdit),
-/* harmony export */   createPageEdit: () => (/* binding */ createPageEdit),
-/* harmony export */   createProseEdit: () => (/* binding */ createProseEdit),
-/* harmony export */   heroAction: () => (/* binding */ heroAction),
-/* harmony export */   heroBadge: () => (/* binding */ heroBadge),
-/* harmony export */   pageSave: () => (/* binding */ pageSave),
-/* harmony export */   proseSave: () => (/* binding */ proseSave)
+/* harmony export */   "default": () => (/* binding */ Edit)
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hero-simple/edit */ "./src/blocks/hero-simple/edit.js");
+/* harmony import */ var _hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hero-simple/edit */ "./src/blocks/hero-simple/edit.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
-const heroBadge = (text, url) => ({
-  ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createBadge)(),
-  text,
-  url,
-  linkMode: false
-});
-const heroAction = (text, url) => ({
-  ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createAction)(),
-  text,
-  url,
-  linkMode: false
-});
-const createPageEdit = template => function Edit() {
+const TEMPLATE = [['slav-bank/hero-simple', {
+  title: 'Отчетность',
+  kicker: 'Информация банка',
+  description: 'Бухгалтерская (финансовая) отчетность раскрывается в ограниченном объёме в соответствии с Решением Совета директоров Банка России от 19 декабря 2025 года.',
+  pillItems: [{
+    ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createBadge)(),
+    text: 'Реквизиты',
+    url: 'https://slavbank.ru/rekvizity-banka/',
+    linkMode: false
+  }, {
+    ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createBadge)(),
+    text: 'Информация банка',
+    url: 'https://slavbank.ru/informaciya-banka/',
+    linkMode: false
+  }],
+  actions: [{
+    ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createAction)(),
+    text: 'Содержание',
+    url: '#content',
+    linkMode: false
+  }, {
+    ...(0,_hero_simple_edit__WEBPACK_IMPORTED_MODULE_1__.createAction)('outline'),
+    text: 'На главную',
+    url: '/',
+    linkMode: false
+  }]
+}], ['slav-bank/body-reporting-bento', {}]];
+function Edit() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("main", {
     id: "main",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
-      template: template
+      template: TEMPLATE,
+      templateLock: false
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "toast",
       role: "status",
@@ -427,141 +434,7 @@ const createPageEdit = template => function Edit() {
       children: "\u0413\u043E\u0442\u043E\u0432\u043E"
     })]
   });
-};
-function pageSave() {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: 'theme-shell'
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("main", {
-    ...blockProps,
-    id: "main",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "toast",
-      role: "status",
-      "aria-live": "polite",
-      "aria-atomic": "true",
-      hidden: true,
-      children: "\u0413\u043E\u0442\u043E\u0432\u043E"
-    })]
-  });
 }
-const createBentoEdit = bodyBlockName => function Edit() {
-  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({
-    className: 'bento'
-  }, {
-    template: [[bodyBlockName, {}], ['slav-bank/bento-shell-sidebar', {}]]
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-    className: "block dashv2",
-    id: "content",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        ...innerBlocksProps
-      })
-    })
-  });
-};
-function bentoSave() {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: 'block dashv2',
-    id: 'content'
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-    ...blockProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "bento",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
-      })
-    })
-  });
-}
-const createBodyEdit = template => function Edit() {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: 'bento-card',
-    style: {
-      padding: 'var(--s-4)',
-      position: 'relative'
-    }
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "bento-card",
-    style: {
-      padding: 'var(--s-4)',
-      position: 'relative'
-    },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
-      template: template
-    })
-  });
-};
-function bodySave() {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: 'bento-card',
-    style: {
-      padding: 'var(--s-4)',
-      position: 'relative'
-    }
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "bento-card",
-    style: {
-      padding: 'var(--s-4)',
-      position: 'relative'
-    },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
-  });
-}
-const createProseEdit = template => function Edit() {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: 'prose'
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "entry-content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
-        template: template
-      })
-    })
-  });
-};
-function proseSave() {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: 'prose'
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    ...blockProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "entry-content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
-    })
-  });
-}
-
-/***/ },
-
-/***/ "./src/blocks/page-reporting/edit.js"
-/*!*******************************************!*\
-  !*** ./src/blocks/page-reporting/edit.js ***!
-  \*******************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _page_pattern__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../page-pattern */ "./src/blocks/page-pattern.js");
-
-const TEMPLATE = [['slav-bank/hero-simple', {
-  title: 'Отчетность',
-  kicker: 'Информация банка',
-  description: 'Редактируемая страница для маршрута reporting.',
-  actions: [(0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('Содержание', '#content'), (0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.heroAction)('На главную', '/')]
-}], ['slav-bank/body-reporting-bento', {}]];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_page_pattern__WEBPACK_IMPORTED_MODULE_0__.createPageEdit)(TEMPLATE));
 
 /***/ },
 
@@ -600,10 +473,31 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _page_pattern__WEBPACK_IMPORTED_MODULE_0__.pageSave)
+/* harmony export */   "default": () => (/* binding */ save)
 /* harmony export */ });
-/* harmony import */ var _page_pattern__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../page-pattern */ "./src/blocks/page-pattern.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
+
+function save() {
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
+    className: 'theme-shell'
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("main", {
+    ...blockProps,
+    id: "main",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "toast",
+      role: "status",
+      "aria-live": "polite",
+      "aria-atomic": "true",
+      hidden: true,
+      children: "\u0413\u043E\u0442\u043E\u0432\u043E"
+    })]
+  });
+}
 
 /***/ },
 
@@ -717,7 +611,7 @@ module.exports = window["wp"]["i18n"];
   \**********************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/reporting","title":"Страница Отчетность","category":"Страницы","icon":"screenoptions","description":"Страница Отчетность.","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","supports":{"inserter":false,"html":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"slav-bank/page-reporting","title":"Страница отчетности","category":"Страницы","icon":"media-document","description":"Контейнер страницы отчетности с hero и основной bento-секцией.","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","supports":{"html":false,"anchor":true,"spacing":{"padding":true,"margin":true},"layout":true}}');
 
 /***/ }
 

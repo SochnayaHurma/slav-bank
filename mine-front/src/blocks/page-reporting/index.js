@@ -6,7 +6,7 @@ import save from './save';
 import './editor.scss';
 import './style.scss';
 
-registerBlockType( metadata.name, {
+registerBlockType(metadata.name, {
 	edit: Edit,
 	save,
-} );
+});

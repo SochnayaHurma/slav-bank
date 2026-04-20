@@ -1,22 +1,21 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "slav-bank/reporting",
-	"title": "Страница Отчетность",
-	"category": "Страницы",
-	"icon": "screenoptions",
-	"description": "Страница Отчетность.",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"supports": {
-		"inserter": false,
-		"html": false,
-		"anchor": true,
-		"spacing": {
-			"padding": true,
-			"margin": true
-		},
-		"layout": true
-	}
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/page-reporting",
+  "title": "Страница отчетности",
+  "category": "Страницы",
+  "icon": "media-document",
+  "description": "Контейнер страницы отчетности с hero и основной bento-секцией.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
 }

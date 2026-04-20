@@ -2956,16 +2956,15 @@ return array(
 	'page-reporting' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'slav-bank/reporting',
-		'title' => 'Страница Отчетность',
+		'name' => 'slav-bank/page-reporting',
+		'title' => 'Страница отчетности',
 		'category' => 'Страницы',
-		'icon' => 'screenoptions',
-		'description' => 'Страница Отчетность.',
+		'icon' => 'media-document',
+		'description' => 'Контейнер страницы отчетности с hero и основной bento-секцией.',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
-			'inserter' => false,
 			'html' => false,
 			'anchor' => true,
 			'spacing' => array(
@@ -2979,46 +2978,924 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'slav-bank/body-reporting-bento',
-		'title' => 'Отчетность bento',
-		'category' => 'Наполнение',
+		'title' => 'Отчетность — bento',
+		'category' => 'Компоненты темы',
 		'icon' => 'screenoptions',
-		'description' => 'Bento-секция страницы Отчетность.',
+		'parent' => array(
+			'slav-bank/page-reporting'
+		),
+		'description' => 'Редактируемая bento-секция страницы отчетности.',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
-			'inserter' => false,
+			'inserting' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
 				'margin' => true
 			),
 			'layout' => true
+		),
+		'attributes' => array(
+			'contentAnchor' => array(
+				'type' => 'string',
+				'default' => 'content'
+			),
+			'annualCardTitle' => array(
+				'type' => 'string',
+				'default' => 'ОТЧЕТНОСТЬ АО НКБ «СЛАВЯНБАНК»'
+			),
+			'annualHeading' => array(
+				'type' => 'string',
+				'default' => 'ГОДОВАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ'
+			),
+			'annualReports' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'annual-1',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2025 год.',
+						'meta' => '(Опубликовано 02.04.2026г. Планируется к утверждению на годовом ОСА 21.04.2026г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/otchet-2025-website.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-2',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2024 год.',
+						'meta' => '(Опубликовано 11.04.2025г. Утверждена на годовом ОСА 10.04.2025г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/azo_-2024_nmm_slavyanbank.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-3',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2023 год.',
+						'meta' => '(Опубликовано 12.03.2024г. Утверждена на годовом ОСА 02.04.2024г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/otchet_2023_publ.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-4',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2022 год.',
+						'meta' => '(Опубликовано 29.03.2023г. Утверждена на годовом ОСА 20.04.2023г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/otchet2022.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-5',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2020 год.',
+						'meta' => '(Опубликовано 29.03.2021г. Утверждена на годовом ОСА 22.04.2021г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/otchet2020.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-6',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2019 год.',
+						'meta' => '(Опубликовано 26.03.2020г. Утверждена на годовом ОСА 16.04.2020г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/report2019.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-7',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2018 год.',
+						'meta' => '(Утверждена на годовом ОСА 18.04.2019г) (Опубликовано 28.03.2019г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/report2018.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-8',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2017 год.',
+						'meta' => '(Опубликовано 12.04.2018г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/report2017.pdf',
+						'opensInNewTab' => true
+					)
+				)
+			),
+			'interimKickerTitle' => array(
+				'type' => 'string',
+				'default' => 'ПРОМЕЖУТОЧНАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ,'
+			),
+			'interimSubTitle' => array(
+				'type' => 'string',
+				'default' => 'ПОКАЗАТЕЛИ ДЕЯТЕЛЬНОСТИ БАНКА'
+			),
+			'interimGroups' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'interim-group-1',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2025 год',
+						'open' => true,
+						'documents' => array(
+							array(
+								'id' => 'interim-1-doc-1',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2025 г.',
+								'meta' => '(опубликовано 16.05.2025г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-publ-i-2025.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-1-doc-2',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2025 г.',
+								'meta' => '(опубликовано 07.08.2025г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-publ-ii-2025.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-1-doc-3',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2025 г.',
+								'meta' => '(опубликовано 12.11.2025г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-publ-9-2025.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-2',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2024 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-2-doc-1',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2024 г.',
+								'meta' => '(опубликовано 16.05.2024г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet_publ-1-24-1.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-2-doc-2',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2024 г.',
+								'meta' => '(опубликовано 09.08.2024г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/na-sajt-otchet-2-2024-publ.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-2-doc-3',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2024 г.',
+								'meta' => '(опубликовано 08.11.2024г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-publ-9-2024.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-3',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2023 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-3-doc-1',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2023 г.',
+								'meta' => '(опубликовано 15.05.2023г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-i-2023-for-publ.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-3-doc-2',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2023 г.',
+								'meta' => '(опубликовано 02.08.2023г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-6-2023-publ.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-3-doc-3',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2023 г.',
+								'meta' => '(опубликовано 07.11.2023г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/publ-otchet-9-2023.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-4',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2022 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-4-doc-1',
+								'title' => 'Показатели на 01.01.2022 г.',
+								'meta' => '(дата размещения 18.01.2022г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pocaz_01012022.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-4-doc-2',
+								'title' => 'Показатели на 01.02.2022 г.',
+								'meta' => '(дата размещения 09.02.2022г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pocaz_01022022.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-5',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2021 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-5-doc-1',
+								'title' => 'Предварительные показатели на 01.01.2021 г.',
+								'meta' => '(дата размещения 18.01.2021)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pr_pokaz_01012021.xls',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-2',
+								'title' => 'Показатели на 01.02.2021 г.',
+								'meta' => '(дата размещения 17.02.2021)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pokaz_01022021.xls',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-3',
+								'title' => 'Показатели на 01.03.2021 г.',
+								'meta' => '(дата размещения 10.03.2021)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pokaz_01032021.xls',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-4',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2021 г.',
+								'meta' => '(опубликовано 12.05.2021г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-1-2021.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-5',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2021 г.',
+								'meta' => '(опубликовано 30.07.2021г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-2-2021.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-6',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2021 г.',
+								'meta' => '(опубликовано 10.11.2021г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-3-2021.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-6',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2020 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-6-doc-1',
+								'title' => 'Предварительные показатели на 01.01.2020г.',
+								'meta' => '(дата размещения 15.01.2020г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pr_pokaz_01012020.xls',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-6-doc-2',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2020 года',
+								'meta' => '(опубликовано 18.05.2020г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/otchet04-2020.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-6-doc-3',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2020 года',
+								'meta' => '(опубликовано 29.07.2020г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/1h-2020.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-6-doc-4',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2020 г.',
+								'meta' => '(опубликовано 28.10.2020г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/pbo9m2020.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					)
+				)
+			),
+			'ratesCardTitle' => array(
+				'type' => 'string',
+				'default' => 'Курсы валют'
+			),
+			'ratesKicker' => array(
+				'type' => 'string',
+				'default' => 'Данные на текущую дату'
+			),
+			'ratesLegend' => array(
+				'type' => 'string',
+				'default' => 'Наличные'
+			),
+			'ratesMetaLegend' => array(
+				'type' => 'string',
+				'default' => 'Покупка / Продажа'
+			),
+			'ratesBuyLabel' => array(
+				'type' => 'string',
+				'default' => 'Покупка'
+			),
+			'ratesSellLabel' => array(
+				'type' => 'string',
+				'default' => 'Продажа'
+			),
+			'currencyRates' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'rate-1',
+						'code' => 'USD',
+						'buy' => '89.40',
+						'sell' => '92.30'
+					),
+					array(
+						'id' => 'rate-2',
+						'code' => 'EUR',
+						'buy' => '96.80',
+						'sell' => '99.90'
+					)
+				)
+			),
+			'ratesDisclaimer' => array(
+				'type' => 'string',
+				'default' => 'Информация носит справочный характер.'
+			),
+			'postsKicker' => array(
+				'type' => 'string',
+				'default' => 'Полезная информация'
+			),
+			'postsTitle' => array(
+				'type' => 'string',
+				'default' => 'Последние публикации'
+			),
+			'posts' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'post-1',
+						'date' => '05.04.2026',
+						'title' => 'Изменения в тарифах банка',
+						'url' => 'https://slavbank.ru/novosti/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'post-2',
+						'date' => '01.04.2026',
+						'title' => 'Обновление раздела отчетности',
+						'url' => 'https://slavbank.ru/otchetnost/',
+						'opensInNewTab' => false
+					)
+				)
+			),
+			'sectionsDrawerTitle' => array(
+				'type' => 'string',
+				'default' => 'Разделы сайта'
+			),
+			'sectionsDrawerOpen' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'sectionsLinks' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'drawer-1-link-1',
+						'label' => 'ИНФОРМАЦИЯ БАНКА',
+						'url' => 'https://slavbank.ru/informaciya-banka/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-2',
+						'label' => 'НОВОСТИ',
+						'url' => 'https://slavbank.ru/novosti/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-3',
+						'label' => 'ТАРИФЫ БАНКА',
+						'url' => 'https://slavbank.ru/tarify-banka/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-4',
+						'label' => 'ЮРИДИЧЕСКИМ ЛИЦАМ',
+						'url' => 'https://slavbank.ru/yuridicheskim-licam/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-5',
+						'label' => 'ПОДДЕРЖКА',
+						'url' => 'https://slavbank.ru/podderzhka/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-6',
+						'label' => 'КОНТАКТЫ',
+						'url' => 'https://slavbank.ru/kontakty/',
+						'opensInNewTab' => false
+					)
+				)
+			),
+			'categoriesDrawerTitle' => array(
+				'type' => 'string',
+				'default' => 'Рубрики'
+			),
+			'categoriesDrawerOpen' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'categoriesLinks' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'drawer-2-link-1',
+						'label' => 'Новости',
+						'url' => 'https://slavbank.ru/novosti/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-2-link-2',
+						'label' => 'Полезная информация',
+						'url' => 'https://slavbank.ru/novosti/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-2-link-3',
+						'label' => 'АРХИВ',
+						'url' => 'https://slavbank.ru/category/arhiv',
+						'opensInNewTab' => true
+					)
+				)
+			)
 		)
 	),
 	'page-reporting-body' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'slav-bank/body-reporting',
-		'title' => 'Отчетность: содержимое',
-		'category' => 'Наполнение',
-		'icon' => 'media-document',
-		'description' => 'Карточка содержимого страницы Отчетность.',
+		'name' => 'slav-bank/body-reporting-body',
+		'title' => 'Отчетность — body',
+		'category' => 'Компоненты темы',
+		'icon' => 'screenoptions',
 		'parent' => array(
-			'slav-bank/body-reporting-bento'
+			'slav-bank/page-reporting'
 		),
+		'description' => '',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'supports' => array(
 			'html' => false,
+			'inserting' => false,
 			'anchor' => true,
 			'spacing' => array(
 				'padding' => true,
 				'margin' => true
 			),
 			'layout' => true
+		),
+		'attributes' => array(
+			'contentAnchor' => array(
+				'type' => 'string',
+				'default' => 'content'
+			),
+			'annualCardTitle' => array(
+				'type' => 'string',
+				'default' => 'ОТЧЕТНОСТЬ АО НКБ «СЛАВЯНБАНК»'
+			),
+			'annualHeading' => array(
+				'type' => 'string',
+				'default' => 'ГОДОВАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ'
+			),
+			'annualReports' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'annual-1',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2025 год.',
+						'meta' => '(Опубликовано 02.04.2026г. Планируется к утверждению на годовом ОСА 21.04.2026г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/otchet-2025-website.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-2',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2024 год.',
+						'meta' => '(Опубликовано 11.04.2025г. Утверждена на годовом ОСА 10.04.2025г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/azo_-2024_nmm_slavyanbank.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-3',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2023 год.',
+						'meta' => '(Опубликовано 12.03.2024г. Утверждена на годовом ОСА 02.04.2024г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/otchet_2023_publ.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-4',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2022 год.',
+						'meta' => '(Опубликовано 29.03.2023г. Утверждена на годовом ОСА 20.04.2023г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/otchet2022.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-5',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2020 год.',
+						'meta' => '(Опубликовано 29.03.2021г. Утверждена на годовом ОСА 22.04.2021г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/otchet2020.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-6',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2019 год.',
+						'meta' => '(Опубликовано 26.03.2020г. Утверждена на годовом ОСА 16.04.2020г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/report2019.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-7',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2018 год.',
+						'meta' => '(Утверждена на годовом ОСА 18.04.2019г) (Опубликовано 28.03.2019г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/report2018.pdf',
+						'opensInNewTab' => true
+					),
+					array(
+						'id' => 'annual-8',
+						'ext' => 'PDF',
+						'title' => 'Годовая бухгалтерская (финансовая) отчетность за 2017 год.',
+						'meta' => '(Опубликовано 12.04.2018г.)',
+						'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/report2017.pdf',
+						'opensInNewTab' => true
+					)
+				)
+			),
+			'interimKickerTitle' => array(
+				'type' => 'string',
+				'default' => 'ПРОМЕЖУТОЧНАЯ БУХГАЛТЕРСКАЯ (ФИНАНСОВАЯ) ОТЧЕТНОСТЬ,'
+			),
+			'interimSubTitle' => array(
+				'type' => 'string',
+				'default' => 'ПОКАЗАТЕЛИ ДЕЯТЕЛЬНОСТИ БАНКА'
+			),
+			'interimGroups' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'interim-group-1',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2025 год',
+						'open' => true,
+						'documents' => array(
+							array(
+								'id' => 'interim-1-doc-1',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2025 г.',
+								'meta' => '(опубликовано 16.05.2025г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-publ-i-2025.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-1-doc-2',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2025 г.',
+								'meta' => '(опубликовано 07.08.2025г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-publ-ii-2025.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-1-doc-3',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2025 г.',
+								'meta' => '(опубликовано 12.11.2025г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-publ-9-2025.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-2',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2024 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-2-doc-1',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2024 г.',
+								'meta' => '(опубликовано 16.05.2024г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet_publ-1-24-1.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-2-doc-2',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2024 г.',
+								'meta' => '(опубликовано 09.08.2024г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/na-sajt-otchet-2-2024-publ.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-2-doc-3',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2024 г.',
+								'meta' => '(опубликовано 08.11.2024г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-publ-9-2024.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-3',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2023 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-3-doc-1',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2023 г.',
+								'meta' => '(опубликовано 15.05.2023г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-i-2023-for-publ.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-3-doc-2',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2023 г.',
+								'meta' => '(опубликовано 02.08.2023г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-6-2023-publ.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-3-doc-3',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2023 г.',
+								'meta' => '(опубликовано 07.11.2023г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/publ-otchet-9-2023.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-4',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2022 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-4-doc-1',
+								'title' => 'Показатели на 01.01.2022 г.',
+								'meta' => '(дата размещения 18.01.2022г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pocaz_01012022.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-4-doc-2',
+								'title' => 'Показатели на 01.02.2022 г.',
+								'meta' => '(дата размещения 09.02.2022г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pocaz_01022022.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-5',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2021 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-5-doc-1',
+								'title' => 'Предварительные показатели на 01.01.2021 г.',
+								'meta' => '(дата размещения 18.01.2021)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pr_pokaz_01012021.xls',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-2',
+								'title' => 'Показатели на 01.02.2021 г.',
+								'meta' => '(дата размещения 17.02.2021)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pokaz_01022021.xls',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-3',
+								'title' => 'Показатели на 01.03.2021 г.',
+								'meta' => '(дата размещения 10.03.2021)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pokaz_01032021.xls',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-4',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2021 г.',
+								'meta' => '(опубликовано 12.05.2021г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-1-2021.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-5',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2021 г.',
+								'meta' => '(опубликовано 30.07.2021г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-2-2021.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-5-doc-6',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2021 г.',
+								'meta' => '(опубликовано 10.11.2021г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/otchet-3-2021.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					),
+					array(
+						'id' => 'interim-group-6',
+						'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 2020 год',
+						'open' => false,
+						'documents' => array(
+							array(
+								'id' => 'interim-6-doc-1',
+								'title' => 'Предварительные показатели на 01.01.2020г.',
+								'meta' => '(дата размещения 15.01.2020г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/pr_pokaz_01012020.xls',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-6-doc-2',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I квартал 2020 года',
+								'meta' => '(опубликовано 18.05.2020г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/otchet04-2020.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-6-doc-3',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за I полугодие 2020 года',
+								'meta' => '(опубликовано 29.07.2020г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/1h-2020.pdf',
+								'opensInNewTab' => true
+							),
+							array(
+								'id' => 'interim-6-doc-4',
+								'title' => 'Промежуточная бухгалтерская (финансовая) отчетность за 9 месяцев 2020 г.',
+								'meta' => '(опубликовано 28.10.2020г.)',
+								'url' => 'https://slavbank.ru/wp-content/uploads/2021/03/pbo9m2020.pdf',
+								'opensInNewTab' => true
+							)
+						)
+					)
+				)
+			),
+			'ratesCardTitle' => array(
+				'type' => 'string',
+				'default' => 'Курсы валют'
+			),
+			'ratesKicker' => array(
+				'type' => 'string',
+				'default' => 'Данные на текущую дату'
+			),
+			'ratesLegend' => array(
+				'type' => 'string',
+				'default' => 'Наличные'
+			),
+			'ratesMetaLegend' => array(
+				'type' => 'string',
+				'default' => 'Покупка / Продажа'
+			),
+			'ratesBuyLabel' => array(
+				'type' => 'string',
+				'default' => 'Покупка'
+			),
+			'ratesSellLabel' => array(
+				'type' => 'string',
+				'default' => 'Продажа'
+			),
+			'currencyRates' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'rate-1',
+						'code' => 'USD',
+						'buy' => '89.40',
+						'sell' => '92.30'
+					),
+					array(
+						'id' => 'rate-2',
+						'code' => 'EUR',
+						'buy' => '96.80',
+						'sell' => '99.90'
+					)
+				)
+			),
+			'ratesDisclaimer' => array(
+				'type' => 'string',
+				'default' => 'Информация носит справочный характер.'
+			),
+			'postsKicker' => array(
+				'type' => 'string',
+				'default' => 'Полезная информация'
+			),
+			'postsTitle' => array(
+				'type' => 'string',
+				'default' => 'Последние публикации'
+			),
+			'posts' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'post-1',
+						'date' => '05.04.2026',
+						'title' => 'Изменения в тарифах банка',
+						'url' => 'https://slavbank.ru/novosti/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'post-2',
+						'date' => '01.04.2026',
+						'title' => 'Обновление раздела отчетности',
+						'url' => 'https://slavbank.ru/otchetnost/',
+						'opensInNewTab' => false
+					)
+				)
+			),
+			'sectionsDrawerTitle' => array(
+				'type' => 'string',
+				'default' => 'Разделы сайта'
+			),
+			'sectionsDrawerOpen' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'sectionsLinks' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'drawer-1-link-1',
+						'label' => 'ИНФОРМАЦИЯ БАНКА',
+						'url' => 'https://slavbank.ru/informaciya-banka/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-2',
+						'label' => 'НОВОСТИ',
+						'url' => 'https://slavbank.ru/novosti/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-3',
+						'label' => 'ТАРИФЫ БАНКА',
+						'url' => 'https://slavbank.ru/tarify-banka/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-4',
+						'label' => 'ЮРИДИЧЕСКИМ ЛИЦАМ',
+						'url' => 'https://slavbank.ru/yuridicheskim-licam/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-5',
+						'label' => 'ПОДДЕРЖКА',
+						'url' => 'https://slavbank.ru/podderzhka/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-1-link-6',
+						'label' => 'КОНТАКТЫ',
+						'url' => 'https://slavbank.ru/kontakty/',
+						'opensInNewTab' => false
+					)
+				)
+			),
+			'categoriesDrawerTitle' => array(
+				'type' => 'string',
+				'default' => 'Рубрики'
+			),
+			'categoriesDrawerOpen' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'categoriesLinks' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'id' => 'drawer-2-link-1',
+						'label' => 'Новости',
+						'url' => 'https://slavbank.ru/novosti/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-2-link-2',
+						'label' => 'Полезная информация',
+						'url' => 'https://slavbank.ru/novosti/',
+						'opensInNewTab' => false
+					),
+					array(
+						'id' => 'drawer-2-link-3',
+						'label' => 'АРХИВ',
+						'url' => 'https://slavbank.ru/category/arhiv',
+						'opensInNewTab' => true
+					)
+				)
+			)
 		)
 	),
 	'page-requisites-bank' => array(

@@ -1,8 +1,81 @@
 /*!*******************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/page-reporting-body/editor.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************************/
-.wp-block-slav-bank-body-reporting {
+.wp-block-slav-bank-body-reporting-bento {
   width: 100%;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-main-card,
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-inner-card,
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-side-card {
+  position: relative;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-section-toolbar,
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-item-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-item-toolbar {
+  margin-top: 8px;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-editor-card,
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-post-editor,
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-drawer-item {
+  position: relative;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-post-editor {
+  display: grid;
+  gap: 6px;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-drawer-item {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-inspector-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-inspector-card {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #dcdcde;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-inspector-subcard {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  border: 1px dashed #c3c4c7;
+  border-radius: 8px;
+  background: #fcfcfc;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-inspector-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-drawer .drawer-sub {
+  text-decoration: none;
+}
+
+.wp-block-slav-bank-body-reporting-bento .doc-card,
+.wp-block-slav-bank-body-reporting-bento .post {
+  cursor: default;
 }
 
 /*# sourceMappingURL=index.css.map*/

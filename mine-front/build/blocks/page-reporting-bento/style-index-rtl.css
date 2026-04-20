@@ -1,6 +1,18 @@
 /*!*******************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/page-reporting-bento/style.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************************/
-.wp-block-slav-bank-body-reporting-bento {
-  width: 100%;
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-main-card .doc-shelf {
+  margin-bottom: 16px;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-side-card .post strong {
+  display: block;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-drawer summary {
+  list-style: revert;
+}
+
+.wp-block-slav-bank-body-reporting-bento .sb-reporting-drawer .drawer-sub {
+  text-decoration: none;
 }
