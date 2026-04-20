@@ -6,14 +6,17 @@ const TEMPLATE = [
 		{
 			title: 'Безналичные расчеты',
 			kicker: 'Раздел',
-			description: 'Безналичные расчеты и расчетные операции.',
+			description:
+				'АО НКБ «СЛАВЯНБАНК» осуществляет прием и исполнение поручений Клиента на перечисление денежных средств на основании надлежаще оформленных платежных поручений.',
 			pillItems: [
-				heroBadge( 'Поддержка', '/podderzhka.html/' ),
-				heroBadge( 'Написать в банк', '/forma-obratnoj-svyazi.html/' ),
+				heroBadge( 'Наличные', '/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html/' ),
+				heroBadge( 'Счета', '/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html/' ),
+				heroBadge( 'Требования', '/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html/' ),
 			],
 			actions: [
 				heroAction( 'Содержание', '#content' ),
 				heroAction( 'На главную', '/' ),
+				heroAction( 'Задать вопрос', '/forma-obratnoj-svyazi.html/#form' ),
 			],
 		},
 	],

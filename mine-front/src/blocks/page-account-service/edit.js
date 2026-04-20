@@ -6,14 +6,17 @@ const TEMPLATE = [
 		{
 			title: 'Обслуживание счетов в валюте РФ',
 			kicker: 'Раздел',
-			description: 'Услуги по обслуживанию счетов в валюте РФ для юридических лиц.',
+			description: 'Комплекс услуг по обслуживанию расчетных счетов в валюте Российской Федерации.',
 			pillItems: [
-				heroBadge( 'Поддержка', '/podderzhka.html/' ),
-				heroBadge( 'Написать в банк', '/forma-obratnoj-svyazi.html/' ),
+				heroBadge( 'Безналичные', '/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html/' ),
+				heroBadge( 'Наличные платежи', '/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html/' ),
+				heroBadge( 'Счета', '/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html/' ),
+				heroBadge( 'Требования', '/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html/' ),
 			],
 			actions: [
 				heroAction( 'Содержание', '#content' ),
 				heroAction( 'На главную', '/' ),
+				heroAction( 'Задать вопрос', '/forma-obratnoj-svyazi.html/#form' ),
 			],
 		},
 	],
