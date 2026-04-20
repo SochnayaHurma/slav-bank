@@ -5,6 +5,10 @@ Routes with template in 'template-parts/python/*': **22**.
 Routes already migrated to 'mine-front/src/blocks/page-*': **22**.
 Routes still missing in 'mine-front': **0**.
 
+sb_alpha_routes keys that reference legacy python routes: **38**.
+sb_alpha_routes keys with mine-front page blocks: **23**.
+sb_alpha_routes keys still missing in mine-front: **15**.
+
 ## Complexity (hard → easy, by template size)
 
 | Route key | Lines | Chars | Mine-front page | Mode |
@@ -34,6 +38,67 @@ Routes still missing in 'mine-front': **0**.
 
 ## Missing pages to implement in mine-front
 
+
+## sb_alpha_routes coverage vs mine-front page blocks
+
+| Route key | Has python template | Mine-front page |
+| --- | :---: | :---: |
+| account-service | ✅ | ✅ |
+| aml-fatca | ✅ | ✅ |
+| appeal-123-fz | ✅ | ✅ |
+| business-deposits | ✅ | ✅ |
+| business-lending | ✅ | ✅ |
+| cash-payments | ✅ | ✅ |
+| cashless-payments | ✅ | ✅ |
+| client-bank-online | — | ❌ |
+| contacts | — | ❌ |
+| covid19 | ✅ | ✅ |
+| crs | ✅ | ✅ |
+| currency-control | — | ❌ |
+| disclosur-regulatory | — | ❌ |
+| ecp-regeneration | ✅ | ✅ |
+| faq | ✅ | ✅ |
+| fx-account-service | ✅ | ✅ |
+| governance | ✅ | ✅ |
+| info-bank-page | — | ❌ |
+| instruction | ✅ | ✅ |
+| legal-entities | ✅ | ✅ |
+| notaries | ✅ | ✅ |
+| novosti | — | ❌ |
+| payment-demands | ✅ | ✅ |
+| private-persons | ✅ | ✅ |
+| reporting | — | ❌ |
+| requisites_bank | — | ❌ |
+| security | ✅ | ✅ |
+| support | — | ✅ |
+| tariff_privetstvenny | — | ❌ |
+| tariff-depositny | ✅ | ✅ |
+| tariffs | — | ❌ |
+| tariffs_rub | — | ❌ |
+| tariffs_slavny | — | ❌ |
+| tariffs-foreign-currency | ✅ | ✅ |
+| vacancies | ✅ | ✅ |
+| write-to-bank | — | ❌ |
+| zapros-na-kreditovanie-msp | — | ❌ |
+| zapros-na-otkrytie-raschetnogo-scheta | — | ❌ |
+
+## Missing from sb_alpha_routes coverage (duplicates ignored)
+
+- 'client-bank-online' → no python template file
+- 'contacts' → no python template file
+- 'currency-control' → no python template file
+- 'disclosur-regulatory' → no python template file
+- 'info-bank-page' → no python template file
+- 'novosti' → no python template file
+- 'reporting' → no python template file
+- 'requisites_bank' → no python template file
+- 'tariff_privetstvenny' → no python template file
+- 'tariffs' → no python template file
+- 'tariffs_rub' → no python template file
+- 'tariffs_slavny' → no python template file
+- 'write-to-bank' → no python template file
+- 'zapros-na-kreditovanie-msp' → no python template file
+- 'zapros-na-otkrytie-raschetnogo-scheta' → no python template file
 
 ## Suggested rollout waves
 

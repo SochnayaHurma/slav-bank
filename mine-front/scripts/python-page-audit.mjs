@@ -4,10 +4,12 @@ import path from 'node:path';
 const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
 
 const routesPath = path.join(repoRoot, 'inc/python-routes.php');
+const functionsPath = path.join(repoRoot, 'functions.php');
 const pythonDir = path.join(repoRoot, 'template-parts/python');
 const blocksDir = path.join(repoRoot, 'mine-front/src/blocks');
 
 const routeSource = fs.readFileSync(routesPath, 'utf8');
+const functionsSource = fs.readFileSync(functionsPath, 'utf8');
 
 const routeEntries = [];
 const routeRegex = /'([^']+)'\s*=>\s*\[(.*?)\n\s*\],/gs;
@@ -75,6 +77,31 @@ const missingInMineFront = migrationPool.filter(
 	(row) => !row.hasMineFrontPage
 );
 
+const sbAlphaRoutesBody = functionsSource.match(
+	/function\s+sb_alpha_routes\(\):\s*array\s*\{\s*return\s*\[(.*?)\];\s*\}/s
+)?.[1] ?? '';
+
+const sbAlphaPythonKeys = Array.from(
+	new Set(
+		Array.from(
+			sbAlphaRoutesBody.matchAll(
+				/'([^']+)'\s*=>\s*(?:sb_alpha_wp_page_url\([^)]*sb_python_route_url\('([^']+)'\)[^)]*\)|sb_python_route_url\('([^']+)'\))/g
+			)
+		).map((match) => match[1])
+	)
+);
+
+const sbAlphaCoverage = sbAlphaPythonKeys
+	.map((key) => ({
+		key,
+		hasPythonTemplate: pythonFiles.has(key),
+		templatePhp: pythonFiles.get(key) ?? null,
+		hasMineFrontPage: pageBlocks.has(key),
+	}))
+	.sort((a, b) => a.key.localeCompare(b.key));
+
+const sbAlphaMissing = sbAlphaCoverage.filter((row) => !row.hasMineFrontPage);
+
 const output = [
 	'# Python routes → mine-front migration audit',
 	'',
@@ -82,6 +109,10 @@ const output = [
 	`Routes with template in 'template-parts/python/*': **${migrationPool.length}**.`,
 	`Routes already migrated to 'mine-front/src/blocks/page-*': **${migrationPool.length - missingInMineFront.length}**.`,
 	`Routes still missing in 'mine-front': **${missingInMineFront.length}**.`,
+	'',
+	`sb_alpha_routes keys that reference legacy python routes: **${sbAlphaCoverage.length}**.`,
+	`sb_alpha_routes keys with mine-front page blocks: **${sbAlphaCoverage.length - sbAlphaMissing.length}**.`,
+	`sb_alpha_routes keys still missing in mine-front: **${sbAlphaMissing.length}**.`,
 	'',
 	'## Complexity (hard → easy, by template size)',
 	'',
@@ -99,6 +130,27 @@ const output = [
 	...missingInMineFront.map(
 		(row) => `- '${row.key}' → 'template-parts/python/${row.templatePhp}'`
 	),
+	'',
+	'## sb_alpha_routes coverage vs mine-front page blocks',
+	'',
+	'| Route key | Has python template | Mine-front page |',
+	'| --- | :---: | :---: |',
+	...sbAlphaCoverage.map(
+		(row) =>
+			`| ${row.key} | ${row.hasPythonTemplate ? '✅' : '—'} | ${
+				row.hasMineFrontPage ? '✅' : '❌'
+			} |`
+	),
+	'',
+	'## Missing from sb_alpha_routes coverage (duplicates ignored)',
+	'',
+	...sbAlphaMissing.map((row) => {
+		const templatePart = row.templatePhp
+			? `template-parts/python/${row.templatePhp}`
+			: 'no python template file';
+
+		return `- '${row.key}' → ${templatePart}`;
+	}),
 	'',
 	'## Suggested rollout waves',
 	'',
