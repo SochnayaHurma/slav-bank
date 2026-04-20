@@ -45,9 +45,10 @@ const sbAlphaPythonKeys = Array.from(
 const sbAlphaCoverage = sbAlphaPythonKeys
 	.map((key) => ({
 		key,
+		pageSlug: key.replace(/_/g, '-'),
 		hasPythonTemplate: pythonFiles.has(key),
 		templatePhp: pythonFiles.get(key) ?? null,
-		hasMineFrontPage: pageBlocks.has(key),
+		hasMineFrontPage: pageBlocks.has(key.replace(/_/g, '-')),
 	}))
 	.sort((a, b) => a.key.localeCompare(b.key));
 
