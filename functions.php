@@ -27,7 +27,34 @@ require_once get_template_directory() . '/inc/blocks-contacts.php';
 
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
 
+function sb_alpha_get_dynamic_styles_css(): string
+{
+    ob_start();
+    include get_template_directory() . '/dynamic-styles.php'; // <-- подставь реальный путь
+    $css = (string) ob_get_clean();
 
+    $css = preg_replace('#^\s*<style[^>]*>#i', '', $css);
+    $css = preg_replace('#</style>\s*$#i', '', $css);
+
+    return trim($css);
+}
+
+add_filter('block_editor_settings_all', function (array $settings, $context): array {
+    $css = sb_alpha_get_dynamic_styles_css();
+
+    if ($css === '') {
+        return $settings;
+    }
+
+    $settings['styles'][] = [
+        'css' => $css,
+    ];
+
+    return $settings;
+}, 10, 2);
+
+// 
+// 
 add_action('init', function () {
     $blocks_dir = __DIR__ . '/mine-front/build/blocks';
 

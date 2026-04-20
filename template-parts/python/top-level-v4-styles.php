@@ -336,27 +336,30 @@
   }
 
   .v4-strip-copy {
-    position: relative;
-    z-index: 1;
-    width: min(560px, calc(100% - 32px));
-    margin: 22px;
-    padding: 22px;
-    border-radius: 26px;
-    color: #fff;
+    position: relative !important;
+    z-index: 1 !important;
+    width: min(560px, calc(100% - 32px)) !important;
+    margin: 22px !important;
+    padding: 22px !important;
+    border-radius: 26px !important;
+    color: #fff !important;
   }
 
   .v4-strip-copy h3 {
-    margin: 14px 0 8px;
-    font-size: clamp(24px, 3vw, 34px);
-    line-height: 1.08;
-    max-width: 12ch;
+    margin: 14px 0 8px !important;
+    font-size: clamp(24px, 3vw, 34px) !important;
+    line-height: 1.08 !important;
+    max-width: 12ch !important;
+    color: #fff !important;
+
   }
 
   .v4-strip-copy p {
-    margin: 0;
-    color: rgba(255,255,255,.84);
-    line-height: 1.62;
-    max-width: 42ch;
+    font-size: 15px;
+    margin: 0 !important;
+    color: rgba(255,255,255,.84) !important;
+    line-height: 1.62 !important;
+    max-width: 42ch !important;
   }
   .v4-strip-actions {
     display: flex;

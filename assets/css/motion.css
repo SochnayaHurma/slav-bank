@@ -1,3 +1,5 @@
+
+
 @media (prefers-reduced-motion: no-preference) {
   .floaty {
     animation: floaty 9s var(--ease) infinite;
@@ -2106,6 +2108,7 @@
 
 .tip-card {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   align-items: flex-start;
   padding: 12px;
@@ -2274,6 +2277,7 @@
 }
 
 .compliance-card {
+  margin-top: 10px;
   padding: 14px;
   border-radius: 20px;
   border: 1px solid rgba(0, 103, 128, .14);

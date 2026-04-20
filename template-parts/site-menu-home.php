@@ -17,7 +17,7 @@
         ?>
       </nav>
       <button class="v3-search-btn" id="searchOpen" type="button" aria-label="Открыть поиск по сайту">
-        <span aria-hidden="true">🔎</span>
+        <span aria-hidden="true"><img class="search-icon" width="20px" src="<?php echo esc_url(sb_alpha_asset('png/search.png')); ?>" alt=""></span>
         <span>Поиск</span>
       </button>
       <a class="btn primary v3-head-cta" href="<?php echo esc_url(sb_alpha_url('write-to-bank')); ?>#form">Оставить обращение</a>
