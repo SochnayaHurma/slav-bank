@@ -104,6 +104,18 @@ const hasPlaceholderContent = (slug) => {
 	return /Редактируемый контент страницы|Заполните актуальными блоками/u.test(editSource);
 };
 
+
+const hasDraftLinks = (slug) => {
+	const editPath = bodyEditPath(slug);
+	if (!fs.existsSync(editPath)) {
+		return false;
+	}
+
+	const editSource = fs.readFileSync(editPath, 'utf8');
+
+	return /url:\s*'#'|href="#"|href='#'/u.test(editSource);
+};
+
 const sbAlphaCoverage = sbAlphaPythonKeys
 	.map((key) => {
 		const slug = key.replace(/_/g, '-');
@@ -118,6 +130,7 @@ const sbAlphaCoverage = sbAlphaPythonKeys
 			legacySource: findLegacySource(key, slug),
 			legacyNote: legacySourceNotes.get(key) ?? '',
 			hasPlaceholder: hasMineFrontPage ? hasPlaceholderContent(slug) : false,
+			hasDraftLinks: hasMineFrontPage ? hasDraftLinks(slug) : false,
 		};
 	})
 	.sort((a, b) => a.key.localeCompare(b.key));
@@ -125,6 +138,7 @@ const sbAlphaCoverage = sbAlphaPythonKeys
 const implemented = sbAlphaCoverage.filter((row) => row.hasMineFrontPage);
 const missing = sbAlphaCoverage.filter((row) => !row.hasMineFrontPage);
 const needsOriginals = sbAlphaCoverage.filter((row) => row.hasMineFrontPage && row.hasPlaceholder);
+const needsLinkFix = sbAlphaCoverage.filter((row) => row.hasMineFrontPage && row.hasDraftLinks);
 
 const output = [
 	'# Stage 4/5 migration status (sb_alpha_routes → mine-front)',
@@ -133,18 +147,19 @@ const output = [
 	`Implemented in mine-front page blocks: **${implemented.length}**.`,
 	`Missing in mine-front page blocks: **${missing.length}**.`,
 	`Implemented but still placeholder-first (needs legacy originals): **${needsOriginals.length}**.`,
+	`Implemented with draft links (#) to update before release: **${needsLinkFix.length}**.`,
 	'',
 	'> Duplicates are ignored by design (keys are deduplicated via Set).',
 	'',
 	'## Coverage table',
 	'',
-	'| Route key | Has python template | Mine-front page | Placeholder-only body | Legacy source candidate | Note |',
-	'| --- | :---: | :---: | :---: | --- | --- |',
+	'| Route key | Has python template | Mine-front page | Placeholder-only body | Draft links | Legacy source candidate | Note |',
+	'| --- | :---: | :---: | :---: | :---: | --- | --- |',
 	...sbAlphaCoverage.map(
 		(row) =>
 			`| ${row.key} | ${row.hasPythonTemplate ? '✅' : '—'} | ${
 				row.hasMineFrontPage ? '✅' : '❌'
-			} | ${row.hasPlaceholder ? '⚠️' : '✅'} | ${row.legacySource} | ${row.legacyNote || '—'} |`
+			} | ${row.hasPlaceholder ? '⚠️' : '✅'} | ${row.hasDraftLinks ? '⚠️' : '✅'} | ${row.legacySource} | ${row.legacyNote || '—'} |`
 	),
 	'',
 	'## Missing mine-front pages',
@@ -163,6 +178,15 @@ const output = [
 					`) ← использовать оригинал из ${row.legacySource}${row.legacyNote ? ` (${row.legacyNote})` : ''}`
 			)
 		: [ '- Нет блоков с placeholder-only body.' ]),
+	'',
+	'## Draft links to replace before release',
+	'',
+	...(needsLinkFix.length
+		? needsLinkFix.map(
+				(row) =>
+					`- '${row.key}' содержит '#' ссылки в mine-front/src/blocks/page-${row.pageSlug}-body/edit.js`
+			)
+		: [ '- Нет черновых ссылок (#).' ]),
 ];
 
 const reportPath = path.join(repoRoot, 'readme/python-page-migration-audit.md');
@@ -170,5 +194,5 @@ fs.writeFileSync(reportPath, `${output.join('\n')}\n`, 'utf8');
 
 console.log(`Saved report: ${path.relative(repoRoot, reportPath)}`);
 console.log(
-	`Summary: total=${sbAlphaCoverage.length}, implemented=${implemented.length}, missing=${missing.length}, needsOriginals=${needsOriginals.length}`
+	`Summary: total=${sbAlphaCoverage.length}, implemented=${implemented.length}, missing=${missing.length}, needsOriginals=${needsOriginals.length}, needsLinkFix=${needsLinkFix.length}`
 );
