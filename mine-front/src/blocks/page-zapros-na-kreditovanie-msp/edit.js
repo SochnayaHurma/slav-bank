@@ -6,9 +6,10 @@ const TEMPLATE = [
 		{
 			title: 'Запрос на кредитование МСП',
 			kicker: 'Заявки',
-			description: 'Редактируемая страница для маршрута zapros-na-kreditovanie-msp.',
+			description:
+				'Оставьте заявку на кредитование малого или среднего бизнеса. Банк рассмотрит обращение и свяжется с вами.',
 			actions: [
-				heroAction( 'Содержание', '#content' ),
+				heroAction( 'Заполнить форму', '#form' ),
 				heroAction( 'На главную', '/' ),
 			],
 		},

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/body-zapros-na-kreditovanie-msp",
+  "title": "Запрос на кредитование МСП: содержимое",
+  "category": "Наполнение",
+  "icon": "media-document",
+  "description": "Карточка содержимого страницы Запрос на кредитование МСП.",
+  "parent": [
+    "slav-bank/body-zapros-na-kreditovanie-msp-bento"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

@@ -1,43 +1,25 @@
 import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
-	[ 'slav-bank/kicker', { text: 'Запрос на открытие расчетного счета' } ],
 	[
-		'core/heading',
+		'slav-bank/page-pattern-lead',
 		{
-			level: 3,
-			content: 'Форма обращения',
+			kicker: 'Запрос на открытие расчетного счета',
+			text: 'Отправьте нам запрос на открытие расчетного счета в нашем банке. Специалисты банка свяжутся с вами в ближайшее время для уточнения информации.',
 		},
 	],
 	[
-		'core/paragraph',
+		'slav-bank/page-pattern-contact-form',
 		{
-			content:
-				'Ниже размещается шорткод Contact Form 7. Через него отображаются инпуты формы (название организации, e-mail, телефон и текст запроса).',
-			className: 'muted',
+			anchor: 'form',
+			title: 'Заполните форму и отправьте запрос прямо сейчас!',
+			shortcode:
+				'[contact-form-7 title="Запрос на открытие расчетного счета"]',
+			fallbackText:
+				'Форма запроса на открытие расчетного счета будет отображена после подключения Contact Form 7.',
 		},
 	],
-	[
-		'core/shortcode',
-		{
-			text: '[contact-form-7 title="Запрос на открытие расчетного счета"]',
-		},
-	],
-	[
-		'core/heading',
-		{
-			level: 4,
-			content: 'Согласие на обработку персональных данных',
-		},
-	],
-	[
-		'core/paragraph',
-		{
-			content:
-				'Добавьте или отредактируйте текст согласия в этом блоке. Содержимое полностью редактируется из Gutenberg.',
-			className: 'has-small-font-size',
-		},
-	],
+	[ 'slav-bank/page-pattern-consent', {} ],
 ];
 
 export default createBodyEdit( TEMPLATE );

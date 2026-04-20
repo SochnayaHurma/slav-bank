@@ -31,8 +31,7 @@ export default function save( { attributes } ) {
 					/>
 					<RichText.Content
 						tagName="div"
-						className="muted"
-						style={ { marginTop: '6px' } }
+						className="muted pdf-description"
 						value={ description }
 					/>
 				</div>
@@ -59,8 +58,7 @@ export default function save( { attributes } ) {
 			</div>
 			<RichText.Content
 				tagName="div"
-				className="muted"
-				style={ { marginTop: '10px', fontWeight: 300 } }
+				className="muted pdf-fallback"
 				value={ fallbackText }
 			/>
 		</div>

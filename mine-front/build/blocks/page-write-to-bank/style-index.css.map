@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/page-write-to-bank/style-index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/page-write-to-bank/style.scss"],"sourcesContent":[".wp-block-slav-bank-write-to-bank {\r\n\twidth: 100%;\r\n}\r\n"],"names":[],"sourceRoot":""}

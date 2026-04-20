@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/body-tariffs",
+  "title": "Тарифы банка: содержимое",
+  "category": "Наполнение",
+  "icon": "media-document",
+  "description": "Карточка содержимого страницы Тарифы банка.",
+  "parent": [
+    "slav-bank/body-tariffs-bento"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

@@ -10,7 +10,8 @@ const TEMPLATE = [
 			url: 'https://slavbank.ru/wp-content/uploads/tarif-depositny-1.pdf',
 			openText: 'Открыть',
 			downloadText: 'Скачать',
-			fallbackText: 'Если PDF не отображается, используйте кнопку «Открыть».',
+			fallbackText:
+				'Если PDF не отображается, используйте кнопку «Открыть».',
 		},
 	],
 ];

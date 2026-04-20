@@ -6,9 +6,10 @@ const TEMPLATE = [
 		{
 			title: 'Запрос на открытие расчетного счета',
 			kicker: 'Заявки',
-			description: 'Редактируемая страница для маршрута zapros-na-otkrytie-raschetnogo-scheta.',
+			description:
+				'Отправьте запрос на открытие расчетного счета. Специалист Банка свяжется с вами и уточнит следующие шаги.',
 			actions: [
-				heroAction( 'Содержание', '#content' ),
+				heroAction( 'Заполнить форму', '#form' ),
 				heroAction( 'На главную', '/' ),
 			],
 		},

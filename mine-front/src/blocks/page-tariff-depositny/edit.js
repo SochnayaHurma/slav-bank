@@ -9,8 +9,14 @@ const TEMPLATE = [
 			description: 'Тарифные условия по пакету «Депозитный».',
 			pillItems: [
 				heroBadge( 'Тарифы банка', '/tarify-banka.html/' ),
-				heroBadge( '«Славный»', '/tarify-banka-html/tarif_slavny.html/' ),
-				heroBadge( '«Приветственный»', '/tarify-banka-html/tarif_privetstvenny.html/' ),
+				heroBadge(
+					'«Славный»',
+					'/tarify-banka-html/tarif_slavny.html/'
+				),
+				heroBadge(
+					'«Приветственный»',
+					'/tarify-banka-html/tarif_privetstvenny.html/'
+				),
 			],
 			actions: [
 				heroAction( 'Перейти к содержимому', '#content' ),

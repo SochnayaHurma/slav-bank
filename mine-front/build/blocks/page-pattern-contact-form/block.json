@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/page-pattern-contact-form",
+  "title": "Страница: форма Contact Form 7",
+  "category": "Компоненты темы",
+  "icon": "email-alt",
+  "description": "Редактируемая обертка формы Contact Form 7 для страниц обращений.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Форма обращения"
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "shortcode": {
+      "type": "string",
+      "default": "[contact-form-7 title=\"Написать в банк\"]"
+    },
+    "fallbackText": {
+      "type": "string",
+      "default": "Форма будет отображена после подключения Contact Form 7 и выбора нужного шорткода."
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

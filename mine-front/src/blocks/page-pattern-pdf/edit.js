@@ -65,8 +65,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 						<RichText
 							tagName="div"
-							className="muted"
-							style={ { marginTop: '6px' } }
+							className="muted pdf-description"
 							value={ description }
 							allowedFormats={ ALLOWED_FORMATS }
 							onChange={ ( value ) =>
@@ -97,17 +96,23 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</div>
 				<div className="pdf-frame">
 					{ previewUrl ? (
-						<iframe title={ title } src={ previewUrl } loading="lazy" />
+						<iframe
+							title={ title }
+							src={ previewUrl }
+							loading="lazy"
+						/>
 					) : (
 						<div className="muted">
-							{ __( 'Выберите PDF-файл в настройках блока.', 'slav-bank' ) }
+							{ __(
+								'Выберите PDF-файл в настройках блока.',
+								'slav-bank'
+							) }
 						</div>
 					) }
 				</div>
 				<RichText
 					tagName="div"
-					className="muted"
-					style={ { marginTop: '10px', fontWeight: 300 } }
+					className="muted pdf-fallback"
 					value={ fallbackText }
 					allowedFormats={ ALLOWED_FORMATS }
 					onChange={ ( value ) =>

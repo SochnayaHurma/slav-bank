@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/page-legal-entities/style-index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/page-legal-entities/style.scss"],"sourcesContent":[".wp-block-slav-bank-legal-entities {\r\n\twidth: 100%;\r\n}\r\n"],"names":[],"sourceRoot":""}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/body-fx-account-service-bento",
+  "title": "Обслуживание счетов в иностранной валюте bento",
+  "category": "Наполнение",
+  "icon": "screenoptions",
+  "description": "Bento-секция страницы Обслуживание счетов в иностранной валюте.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

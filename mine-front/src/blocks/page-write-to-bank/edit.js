@@ -6,9 +6,10 @@ const TEMPLATE = [
 		{
 			title: 'Написать в банк',
 			kicker: 'Обратная связь',
-			description: 'Редактируемая страница для маршрута write-to-bank.',
+			description:
+				'Направьте обращение в Банк удобным способом или заполните форму обратной связи.',
 			actions: [
-				heroAction( 'Содержание', '#content' ),
+				heroAction( 'Заполнить форму', '#form' ),
 				heroAction( 'На главную', '/' ),
 			],
 		},

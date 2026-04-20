@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/body-write-to-bank",
+  "title": "Написать в банк: содержимое",
+  "category": "Наполнение",
+  "icon": "media-document",
+  "description": "Карточка содержимого страницы Написать в банк.",
+  "parent": [
+    "slav-bank/body-write-to-bank-bento"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

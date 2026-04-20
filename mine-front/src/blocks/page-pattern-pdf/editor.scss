@@ -1,3 +1,12 @@
 .wp-block-slav-bank-page-pattern-pdf.pdf-shell {
 	width: 100%;
 }
+
+.wp-block-slav-bank-page-pattern-pdf .pdf-description {
+	margin-top: 6px;
+}
+
+.wp-block-slav-bank-page-pattern-pdf .pdf-fallback {
+	margin-top: 10px;
+	font-weight: 300;
+}
