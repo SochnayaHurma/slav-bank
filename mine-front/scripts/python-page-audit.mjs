@@ -29,13 +29,27 @@ const pageBlocks = new Set(pageBlockDirs.map((name) => name.replace(/^page-/u, '
 
 
 const legacySourceHints = new Map([
-	[ 'client-bank-online', 'front/src/client-bank-blocks' ],
-	[ 'contacts', 'front/src/contacts-blocks' ],
-	[ 'currency-control', 'front/src/currency-control-blocks' ],
-	[ 'info-bank-page', 'front/src/info-bank-blocks' ],
-	[ 'requisites_bank', 'front/src/requisites-bank-blocks' ],
-	[ 'tariffs', 'front/src/tariffs-blocks' ],
+	[ 'client-bank-online', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/client-bank-online.html' ],
+	[ 'contacts', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/contacts.html' ],
+	[ 'currency-control', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/currency-control.html' ],
+	[ 'info-bank-page', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/info_bank.html' ],
+	[ 'reporting', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/reporting.html' ],
+	[ 'requisites_bank', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/requisites-bank.html' ],
+	[ 'tariffs', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/tariffs.html' ],
+	[ 'tariff_privetstvenny', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/tariff-privetstvenny.html' ],
+	[ 'tariffs_rub', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/tariffs-rub.html' ],
+	[ 'tariffs_slavny', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/tariffs-slavny.html' ],
+	[ 'tariffs-foreign-currency', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/tariffs-foreign-currency.html' ],
+	[ 'tariff-depositny', 'https://github.com/SochnayaHurma/slav-bank/blob/master/templates/tariff-depositny.html' ],
 ]);
+
+const legacySourceNotes = new Map([
+	[
+		'requisites_bank',
+		'Внимание: legacy PHP и jinja различаются по дизайну и SQL-данным; переносить без удаления старого шаблона.',
+	],
+]);
+
 
 
 const sbAlphaRoutesBody = functionsSource.match(
@@ -102,6 +116,7 @@ const sbAlphaCoverage = sbAlphaPythonKeys
 			templatePhp: pythonFiles.get(key) ?? null,
 			hasMineFrontPage,
 			legacySource: findLegacySource(key, slug),
+			legacyNote: legacySourceNotes.get(key) ?? '',
 			hasPlaceholder: hasMineFrontPage ? hasPlaceholderContent(slug) : false,
 		};
 	})
@@ -123,19 +138,19 @@ const output = [
 	'',
 	'## Coverage table',
 	'',
-	'| Route key | Has python template | Mine-front page | Placeholder-only body | Legacy source candidate |',
-	'| --- | :---: | :---: | :---: | --- |',
+	'| Route key | Has python template | Mine-front page | Placeholder-only body | Legacy source candidate | Note |',
+	'| --- | :---: | :---: | :---: | --- | --- |',
 	...sbAlphaCoverage.map(
 		(row) =>
 			`| ${row.key} | ${row.hasPythonTemplate ? '✅' : '—'} | ${
 				row.hasMineFrontPage ? '✅' : '❌'
-			} | ${row.hasPlaceholder ? '⚠️' : '✅'} | ${row.legacySource} |`
+			} | ${row.hasPlaceholder ? '⚠️' : '✅'} | ${row.legacySource} | ${row.legacyNote || '—'} |`
 	),
 	'',
 	'## Missing mine-front pages',
 	'',
 	...(missing.length
-		? missing.map((row) => `- '${row.key}' → ${row.legacySource}`)
+		? missing.map((row) => `- '${row.key}' → ${row.legacySource}${row.legacyNote ? ` (${row.legacyNote})` : ''}`)
 		: [ '- Нет пропущенных ключей.' ]),
 	'',
 	'## Needs legacy originals (replace placeholder-only body templates)',
@@ -145,7 +160,7 @@ const output = [
 				(row) =>
 					`- '${row.key}' (` +
 					`mine-front/src/blocks/page-${row.pageSlug}-body/edit.js` +
-					`) ← использовать оригинал из ${row.legacySource}`
+					`) ← использовать оригинал из ${row.legacySource}${row.legacyNote ? ` (${row.legacyNote})` : ''}`
 			)
 		: [ '- Нет блоков с placeholder-only body.' ]),
 ];
