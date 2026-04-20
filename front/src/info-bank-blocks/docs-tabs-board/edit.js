@@ -1,4 +1,4 @@
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
 import {
   PanelBody,
   TextControl,
@@ -39,9 +39,10 @@ function normalizeTabs(tabs) {
   return tabs;
 }
 
+
 export default function Edit({ attributes, setAttributes }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const title = attributes.title || 'Информация банка';
+  const title = attributes.title ?? 'Информация банка';
   const tabs = normalizeTabs(attributes.tabs);
   const activeTab = tabs[activeIndex] || tabs[0];
 
@@ -113,7 +114,14 @@ export default function Edit({ attributes, setAttributes }) {
 
       <div {...useBlockProps({ className: 'sb-doctabs-editor' })}>
         <div className="sb-doctabs-editor__header">
-          <strong>{title}</strong>
+          <strong>
+            <RichText
+              tagName="span"
+              value={title}
+              onChange={(value) => setAttributes({ title: value })}
+              placeholder="Информация банка"
+            />
+          </strong>
           <div className="sb-doctabs-editor__actions">
             <Button variant="secondary" onClick={addListTab}>+ Вкладка-список</Button>
             <Button variant="secondary" onClick={addHeroTab}>+ Hero-вкладка</Button>
@@ -230,6 +238,78 @@ export default function Edit({ attributes, setAttributes }) {
                 ))}
               </>
             )}
+            <div className="sb-doctabs-editor__preview" style={{ marginTop: '16px' }}>
+              <strong style={{ display: 'block', marginBottom: '8px' }}>Предпросмотр вкладки</strong>
+              <RichText
+                tagName="div"
+                className="muted"
+                style={{ lineHeight: 1.6 }}
+                value={activeTab.intro || ''}
+                onChange={(value) => updateTabField(activeIndex, 'intro', value)}
+                placeholder="Вводный текст вкладки"
+              />
+              {(activeTab.type || 'list') === 'hero' ? (
+                <div className="doc-hero" style={{ marginTop: '12px' }}>
+                  <span className="ico" aria-hidden="true">📄</span>
+                  <span>
+                    <strong>
+                      <RichText
+                        tagName="span"
+                        value={activeTab.heroTitle || ''}
+                        onChange={(value) => updateTabField(activeIndex, 'heroTitle', value)}
+                        placeholder="Заголовок hero-документа"
+                      />
+                    </strong>
+                    <small className="muted">
+                      <RichText
+                        tagName="span"
+                        value={activeTab.heroSubtitle || ''}
+                        onChange={(value) => updateTabField(activeIndex, 'heroSubtitle', value)}
+                        placeholder="Подпись hero-документа"
+                      />
+                    </small>
+                  </span>
+                  <span className="arrow" aria-hidden="true">→</span>
+                </div>
+              ) : (
+                <div className="doc-list" style={{ marginTop: '12px' }}>
+                  {(activeTab.rows || []).map((row, idx) => (
+                    <div
+                      className="doc-row"
+                      key={`preview-${idx}`}
+                    >
+                      <span className="doc-date">
+                        <RichText
+                          tagName="span"
+                          value={row.date || ''}
+                          onChange={(value) => updateRowField(activeIndex, idx, 'date', value)}
+                          placeholder="Дата"
+                        />
+                      </span>
+                      <span className="doc-title">
+                        <RichText
+                          tagName="span"
+                          value={row.title || ''}
+                          onChange={(value) => updateRowField(activeIndex, idx, 'title', value)}
+                          placeholder="Заголовок"
+                        />
+                      </span>
+                      <span className="doc-ext">
+                        <RichText
+                          tagName="span"
+                          value={row.ext || ''}
+                          onChange={(value) => updateRowField(activeIndex, idx, 'ext', value)}
+                          placeholder="Формат"
+                        />
+                      </span>
+                      <span className="doc-arrow" aria-hidden="true">→</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+
           </div>
         ) : null}
       </div>

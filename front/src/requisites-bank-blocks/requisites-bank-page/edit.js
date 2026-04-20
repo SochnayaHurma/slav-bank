@@ -1,9 +1,18 @@
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
 import {
   PanelBody,
   TextControl,
   TextareaControl
 } from '@wordpress/components';
+import { PREVIEW_LINK_PROPS } from '../../shared/previewLinkProps';
+
+const PREVIEW_ROWS = [
+  ['Наименование', 'АО НКБ «СЛАВЯНБАНК»'],
+  ['БИК', '044525000'],
+  ['Корр. счёт', '30101810...'],
+  ['ИНН', '0000000000'],
+];
+
 
 export default function Edit({ attributes, setAttributes }) {
   const {
@@ -107,28 +116,104 @@ export default function Edit({ attributes, setAttributes }) {
       </InspectorControls>
 
       <div {...useBlockProps({ className: 'sb-requisites-page-editor' })}>
-        <div className="sb-hero-split-editor">
-          <div className="sb-hero-split-editor__main">
-            {heroKicker ? <div className="kicker">{heroKicker}</div> : null}
-            {heroTitle ? <h2 className="sb-hero-split-editor__title">{heroTitle}</h2> : null}
-            {heroDescription ? <p className="muted">{heroDescription}</p> : null}
+        <section className="block" id={anchorTop || 'key'}>
+          <div className="container">
+            <div className="hero-wrap" style={{ padding: 'var(--s-5)' }}>
+              <div className="sb-hero-split-editor">
+                <div className="sb-hero-split-editor__main">
+                  <RichText
+                    tagName="div"
+                    className="kicker"
+                    value={heroKicker}
+                    onChange={(value) => setAttributes({ heroKicker: value })}
+                    placeholder="Кикер"
+                  />
+                  <RichText
+                    tagName="h2"
+                    className="sb-hero-split-editor__title"
+                    value={heroTitle}
+                    onChange={(value) => setAttributes({ heroTitle: value })}
+                    placeholder="Заголовок"
+                  />
+                  <RichText
+                    tagName="p"
+                    className="muted"
+                    value={heroDescription}
+                    onChange={(value) => setAttributes({ heroDescription: value })}
+                    placeholder="Описание"
+                  />
 
-            <div className="row" style={{ marginTop: '16px', flexWrap: 'wrap' }}>
-              {primaryText ? <span className="btn primary">{primaryText}</span> : null}
-              {secondaryText ? <span className="btn outline">{secondaryText}</span> : null}
+                  <div className="row" style={{ marginTop: '16px', flexWrap: 'wrap' }}>
+                    <a className="btn primary" href={primaryUrl || '#'} {...PREVIEW_LINK_PROPS}>
+                      <RichText
+                        tagName="span"
+                        value={primaryText}
+                        onChange={(value) => setAttributes({ primaryText: value })}
+                        placeholder="Кнопка 1"
+                      />
+                    </a>
+                    <a className="btn outline" href={secondaryUrl || '#'} {...PREVIEW_LINK_PROPS}>
+                      <RichText
+                        tagName="span"
+                        value={secondaryText}
+                        onChange={(value) => setAttributes({ secondaryText: value })}
+                        placeholder="Кнопка 2"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="sb-hero-split-editor__pill">
+                  <RichText
+                    tagName="span"
+                    className="sb-hero-split-editor__badge"
+                    value={badgeText}
+                    onChange={(value) => setAttributes({ badgeText: value })}
+                    placeholder="Badge"
+                  />
+                  <a className="sb-hero-split-editor__mono" href={phoneHref || '#'} {...PREVIEW_LINK_PROPS}>
+                    <RichText
+                      tagName="span"
+                      value={phoneText}
+                      onChange={(value) => setAttributes({ phoneText: value })}
+                      placeholder="Телефон"
+                    />
+                  </a>
+                  <a href={emailHref || '#'} {...PREVIEW_LINK_PROPS}>
+                    <RichText
+                      tagName="span"
+                      value={emailText}
+                      onChange={(value) => setAttributes({ emailText: value })}
+                      placeholder="Email"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div className="sb-hero-split-editor__pill">
-            {badgeText ? <span className="sb-hero-split-editor__badge">{badgeText}</span> : null}
-            {phoneText ? <span className="sb-hero-split-editor__mono">{phoneText}</span> : null}
-            {emailText ? <span>{emailText}</span> : null}
+        <section className="block dashv2" id={anchorTable || 'full'}>
+          <div className="container">
+            <div className="bento">
+              <div className="bento-card" style={{ padding: 'var(--s-4)' }}>
+                <div className="muted" style={{ marginBottom: '12px' }}>
+                  В проде итоговая страница собирается из PHP-паттерна (hero + секции + таблица реквизитов).
+                </div>
+                <table className="wp-block-table is-style-stripes">
+                  <tbody>
+                    {PREVIEW_ROWS.map(([key, value]) => (
+                      <tr key={key}>
+                        <td><strong>{key}</strong></td>
+                        <td>{value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div className="sb-requisites-page-editor__note">
-          Верхний контент и таблица реквизитов сейчас рендерятся в PHP по текущему стабильному паттерну страницы.
-        </div>
+        </section>
       </div>
     </>
   );

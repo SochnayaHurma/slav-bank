@@ -1,6 +1,7 @@
 import {
   useBlockProps,
   InnerBlocks,
+  RichText,
   InspectorControls,
   MediaUpload,
   MediaUploadCheck
@@ -11,6 +12,7 @@ import {
   TextareaControl,
   Button
 } from '@wordpress/components';
+import { PREVIEW_LINK_PROPS } from '../../shared/previewLinkProps';
 
 const ALLOWED_BLOCKS = ['slavbank/legal-service-card'];
 
@@ -25,41 +27,9 @@ const TEMPLATE = [
       detailsUrl: '/business-lending/',
       contactText: 'Более подробную информацию вы можете получить по телефонам: (8162) 66-52-56 или 66-52-63 в Управлении по кредитованию и инвестициям Банка.'
     }
-  ],
-  [
-    'slavbank/legal-service-card',
-    {
-      title: 'Обслуживание счетов в валюте РФ',
-      titleUrl: 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html',
-      itemsRaw: 'Открытие и ведение банковского счета в валюте Российской Федерации\nНаличные и безналичные расчеты\nПрием и отправка платежных документов на инкассо\nУчет денежных средств на счете и выдача выписок по счету\nВыдача справок, дубликатов платежно-расчетных документов, дубликатов выписок по счету\nОформление карточек с образцами подписей и оттиска печати\nЗакрытие счета',
-      detailsLabel: 'Подробнее с услугой можно ознакомиться здесь',
-      detailsUrl: 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html',
-      contactText: 'Более подробную информацию по обслуживанию счетов в валюте РФ Вы можете получить по тел. (8162) 66-52-05, +7-921-201-47-00.',
-      buttonText: 'ОТПРАВИТЬ ЗАПРОС НА ОТКРЫТИЕ РАСЧЕТНОГО СЧЕТА',
-      buttonUrl: '/zapros-na-otkrytie-raschetnogo-scheta/'
-    }
-  ],
-  [
-    'slavbank/legal-service-card',
-    {
-      title: 'Обслуживание счетов в иностранной валюте',
-      titleUrl: '/fx-account-service/',
-      itemsRaw: 'Открытие и ведение счета в иностранной валюте юридическим лицам\nОформление платежных документов при расчетах в валюте РФ',
-      contactText: 'Более подробную информацию по обслуживанию счетов в иностранной валюте Вы можете получить в Управлении валютных операций и контроля и по тел. (8162) 66-52-54.'
-    }
-  ],
-  [
-    'slavbank/legal-service-card',
-    {
-      title: 'Валютный контроль',
-      titleUrl: '/currency-control/',
-      leadText: 'Коммерческий банк АО НКБ «СЛАВЯНБАНК» предоставляет широкий спектр банковских услуг, связанных с выполнением Банком функций агента валютного контроля.',
-      detailsLabel: 'Подробнее с услугой можно ознакомиться здесь',
-      detailsUrl: '/currency-control/',
-      contactText: 'Кроме того, клиенты Банка имеют возможность бесплатно воспользоваться консультациями профессиональных специалистов по вопросам проведения валютных операций. Проведение любой валютной операции возможно в минимальные сроки.'
-    }
   ]
 ];
+
 
 export default function Edit({ attributes, setAttributes }) {
   const {
@@ -118,25 +88,74 @@ export default function Edit({ attributes, setAttributes }) {
       </InspectorControls>
 
       <div {...useBlockProps({ className: 'sb-bank-editor-page' })}>
-        <div className="sb-bank-editor-hero">
-          <strong>{heroTitle}</strong>
-          <p>{heroDescription}</p>
-        </div>
-
-        <div className="sb-bank-editor-body">
-          <div className="sb-bank-editor-alert">
-            <strong>{alertTitle}</strong>
-            <p>{alertText}</p>
+        <section className="block">
+          <div className="container">
+            <div className="hero-wrap" style={{ padding: 'var(--s-5)' }}>
+              <div className="v4-strips">
+                <div className="v4-strip">
+                  {heroImageUrl ? <img src={heroImageUrl} alt="" /> : null}
+                  <div className="v4-strip-copy v4-glass">
+                    <RichText
+                      tagName="h3"
+                      value={heroTitle}
+                      onChange={(value) => setAttributes({ heroTitle: value })}
+                      placeholder="Заголовок hero"
+                    />
+                    <RichText
+                      tagName="p"
+                      value={heroDescription}
+                      onChange={(value) => setAttributes({ heroDescription: value })}
+                      placeholder="Описание hero"
+                    />
+                    <div className="v4-strip-actions">
+                      <a className="btn primary" href={`#${anchorId || 'content'}`} {...PREVIEW_LINK_PROPS}>Содержание</a>
+                      <a className="btn outline" href="/" {...PREVIEW_LINK_PROPS}>На главную</a>
+                      <a className="btn outline" href="/napisat-v-bank/#form" {...PREVIEW_LINK_PROPS}>Связаться</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <InnerBlocks
-            allowedBlocks={ALLOWED_BLOCKS}
-            template={TEMPLATE}
-            templateLock={false}
-          />
-        </div>
+        <section className="block dashv2" id={anchorId || 'content'}>
+          <div className="container">
+            <div className="bento">
+              <div className="bento-card" style={{ padding: 'var(--s-4)', position: 'relative' }}>
+                <div className="alert">
+                  <div className="alert-dot" aria-hidden="true"></div>
+                  <div>
+                    <RichText
+                      tagName="div"
+                      style={{ fontWeight: 600 }}
+                      value={alertTitle}
+                      onChange={(value) => setAttributes({ alertTitle: value })}
+                      placeholder="Заголовок alert"
+                    />
+                    <RichText
+                      tagName="div"
+                      className="muted"
+                      style={{ marginTop: '4px' }}
+                      value={alertText}
+                      onChange={(value) => setAttributes({ alertText: value })}
+                      placeholder="Текст alert"
+                    />
+                  </div>
+                </div>
+
+                <div className="sb-le-body">
+                  <InnerBlocks
+                    allowedBlocks={ALLOWED_BLOCKS}
+                    template={TEMPLATE}
+                    templateLock={false}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
- 
-);
+  );
 }
