@@ -6,12 +6,20 @@
         <img src="<?php echo esc_url(sb_alpha_asset('img/logo2.png')); ?>" alt="СЛАВЯНБАНК" />
       </a>
       <nav class="v3-links" aria-label="Главная навигация">
-        <a href="<?php echo esc_url(sb_alpha_url('legal-entities')); ?>">Юридическим лицам</a>
-        <a href="<?php echo esc_url(sb_alpha_url('currency-control')); ?>">ВЭД</a>
-        <a href="<?php echo esc_url(sb_alpha_url('client-bank-online')); ?>">Клиент-Банк</a>
-        <a href="<?php echo esc_url(sb_alpha_url('tariffs')); ?>">Тарифы</a>
-        <a href="<?php echo esc_url(sb_alpha_url('contacts')); ?>">Контакты</a>
+        <?php
+        sb_alpha_render_menu_links('sb-alpha-header-main', [
+          ['label' => 'Юридическим лицам', 'url' => sb_alpha_url('legal-entities')],
+          ['label' => 'ВЭД', 'url' => sb_alpha_url('currency-control')],
+          ['label' => 'Клиент-Банк', 'url' => sb_alpha_url('client-bank-online')],
+          ['label' => 'Тарифы', 'url' => sb_alpha_url('tariffs')],
+          ['label' => 'Контакты', 'url' => sb_alpha_url('contacts')],
+        ]);
+        ?>
       </nav>
+      <button class="v3-search-btn" id="searchOpen" type="button" aria-label="Открыть поиск по сайту">
+        <span aria-hidden="true">🔎</span>
+        <span>Поиск</span>
+      </button>
       <a class="btn primary v3-head-cta" href="<?php echo esc_url(sb_alpha_url('write-to-bank')); ?>#form">Оставить обращение</a>
       <button class="v3-menu-btn" type="button" aria-expanded="false" aria-controls="v3MobileMenu" aria-label="Открыть меню">
         <span class="v3-menu-ic" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -26,11 +34,15 @@
       <button class="btn v3-mobile-close" type="button" aria-label="Закрыть меню">✕</button>
     </div>
     <nav class="v3-mobile-links" aria-label="Мобильная навигация">
-      <a href="<?php echo esc_url(sb_alpha_url('legal-entities')); ?>">Юридическим лицам</a>
-      <a href="<?php echo esc_url(sb_alpha_url('currency-control')); ?>">ВЭД</a>
-      <a href="<?php echo esc_url(sb_alpha_url('client-bank-online')); ?>">Клиент-Банк</a>
-      <a href="<?php echo esc_url(sb_alpha_url('tariffs')); ?>">Тарифы</a>
-      <a href="<?php echo esc_url(sb_alpha_url('contacts')); ?>">Контакты</a>
+      <?php
+      sb_alpha_render_menu_links('sb-alpha-header-mobile', [
+        ['label' => 'Юридическим лицам', 'url' => sb_alpha_url('legal-entities')],
+        ['label' => 'ВЭД', 'url' => sb_alpha_url('currency-control')],
+        ['label' => 'Клиент-Банк', 'url' => sb_alpha_url('client-bank-online')],
+        ['label' => 'Тарифы', 'url' => sb_alpha_url('tariffs')],
+        ['label' => 'Контакты', 'url' => sb_alpha_url('contacts')],
+      ]);
+      ?>
     </nav>
     <a class="btn primary v3-mobile-cta" href="<?php echo esc_url(sb_alpha_url('write-to-bank')); ?>#form">Оставить обращение</a>
   </aside>

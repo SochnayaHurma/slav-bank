@@ -131,8 +131,50 @@ function sb_alpha_setup(): void
         'html5',
         ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'script', 'style']
     );
+
+    register_nav_menus([
+        'sb-alpha-header-main' => __('Header Main Menu', 'sb-alpha'),
+        'sb-alpha-header-mobile' => __('Header Mobile Menu', 'sb-alpha'),
+        'sb-alpha-footer-about' => __('Footer: About', 'sb-alpha'),
+        'sb-alpha-footer-business' => __('Footer: Business', 'sb-alpha'),
+        'sb-alpha-footer-tariffs' => __('Footer: Tariffs', 'sb-alpha'),
+        'sb-alpha-footer-support' => __('Footer: Support', 'sb-alpha'),
+    ]);
 }
 add_action('after_setup_theme', 'sb_alpha_setup');
+
+function sb_alpha_menu_title(string $location, string $default): string
+{
+    $menu_name = wp_get_nav_menu_name($location);
+    if (is_string($menu_name) && $menu_name !== '') {
+        return $menu_name;
+    }
+
+    return $default;
+}
+
+function sb_alpha_render_menu_links(string $location, array $fallback_links): void
+{
+    if (has_nav_menu($location)) {
+        wp_nav_menu([
+            'theme_location' => $location,
+            'container' => false,
+            'fallback_cb' => false,
+            'depth' => 1,
+            'items_wrap' => '%3$s',
+        ]);
+        return;
+    }
+
+    foreach ($fallback_links as $item) {
+        $label = isset($item['label']) ? (string) $item['label'] : '';
+        $url = isset($item['url']) ? (string) $item['url'] : '';
+        if ($label === '' || $url === '') {
+            continue;
+        }
+        echo '<a href="' . esc_url($url) . '">' . esc_html($label) . '</a>';
+    }
+}
 
 function sb_alpha_asset(string $relative = ''): string
 {

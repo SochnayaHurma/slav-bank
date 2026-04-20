@@ -2,32 +2,48 @@
   <div class="container">
     <div class="sitemap">
       <div class="sitemapCol">
-        <div class="kicker">О банке</div>
-        <a href="<?php echo esc_url(sb_alpha_url('info-bank-page')); ?>">Информация банка</a>
-        <a href="<?php echo esc_url(sb_alpha_url('requisites_bank')); ?>">Реквизиты</a>
-        <a href="<?php echo esc_url(sb_alpha_url('governance')); ?>">Органы управления</a>
-        <a href="<?php echo esc_url(sb_alpha_url('novosti')); ?>">Новости</a>
+        <div class="kicker"><?php echo esc_html(sb_alpha_menu_title('sb-alpha-footer-about', 'О банке')); ?></div>
+        <?php
+        sb_alpha_render_menu_links('sb-alpha-footer-about', [
+          ['label' => 'Информация банка', 'url' => sb_alpha_url('info-bank-page')],
+          ['label' => 'Реквизиты', 'url' => sb_alpha_url('requisites_bank')],
+          ['label' => 'Органы управления', 'url' => sb_alpha_url('governance')],
+          ['label' => 'Новости', 'url' => sb_alpha_url('novosti')],
+        ]);
+        ?>
       </div>
       <div class="sitemapCol">
-        <div class="kicker">Бизнес</div>
-        <a href="<?php echo esc_url(sb_alpha_url('legal-entities')); ?>">Юридическим лицам</a>
-        <a href="<?php echo esc_url(sb_alpha_url('currency-control')); ?>">Валютный контроль</a>
-        <a href="<?php echo esc_url(sb_alpha_url('business-deposits')); ?>">Депозиты</a>
-        <a href="<?php echo esc_url(sb_alpha_url('business-lending')); ?>">Кредитование</a>
+        <div class="kicker"><?php echo esc_html(sb_alpha_menu_title('sb-alpha-footer-business', 'Бизнес')); ?></div>
+        <?php
+        sb_alpha_render_menu_links('sb-alpha-footer-business', [
+          ['label' => 'Юридическим лицам', 'url' => sb_alpha_url('legal-entities')],
+          ['label' => 'Валютный контроль', 'url' => sb_alpha_url('currency-control')],
+          ['label' => 'Депозиты', 'url' => sb_alpha_url('business-deposits')],
+          ['label' => 'Кредитование', 'url' => sb_alpha_url('business-lending')],
+        ]);
+        ?>
       </div>
       <div class="sitemapCol">
-        <div class="kicker">Тарифы</div>
-        <a href="<?php echo esc_url(sb_alpha_url('tariffs')); ?>">Тарифы банка</a>
-        <a href="<?php echo esc_url(sb_alpha_url('tariffs_rub')); ?>">Операции в валюте РФ</a>
-        <a href="<?php echo esc_url(sb_alpha_url('tariffs-foreign-currency')); ?>">Иностранная валюта</a>
-        <a href="<?php echo esc_url(sb_alpha_url('tariff-depositny')); ?>">Тариф «Депозитный»</a>
+        <div class="kicker"><?php echo esc_html(sb_alpha_menu_title('sb-alpha-footer-tariffs', 'Тарифы')); ?></div>
+        <?php
+        sb_alpha_render_menu_links('sb-alpha-footer-tariffs', [
+          ['label' => 'Тарифы банка', 'url' => sb_alpha_url('tariffs')],
+          ['label' => 'Операции в валюте РФ', 'url' => sb_alpha_url('tariffs_rub')],
+          ['label' => 'Иностранная валюта', 'url' => sb_alpha_url('tariffs-foreign-currency')],
+          ['label' => 'Тариф «Депозитный»', 'url' => sb_alpha_url('tariff-depositny')],
+        ]);
+        ?>
       </div>
       <div class="sitemapCol">
-        <div class="kicker">Поддержка</div>
-        <a href="<?php echo esc_url(sb_alpha_url('support')); ?>">Поддержка</a>
-        <a href="<?php echo esc_url(sb_alpha_url('security')); ?>">Безопасность</a>
-        <a href="<?php echo esc_url(sb_alpha_url('faq')); ?>">FAQ</a>
-        <a href="<?php echo esc_url(sb_alpha_url('contacts')); ?>">Контакты</a>
+        <div class="kicker"><?php echo esc_html(sb_alpha_menu_title('sb-alpha-footer-support', 'Поддержка')); ?></div>
+        <?php
+        sb_alpha_render_menu_links('sb-alpha-footer-support', [
+          ['label' => 'Поддержка', 'url' => sb_alpha_url('support')],
+          ['label' => 'Безопасность', 'url' => sb_alpha_url('security')],
+          ['label' => 'FAQ', 'url' => sb_alpha_url('faq')],
+          ['label' => 'Контакты', 'url' => sb_alpha_url('contacts')],
+        ]);
+        ?>
       </div>
     </div>
   </div>
