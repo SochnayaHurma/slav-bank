@@ -3,7 +3,7 @@
 Total sb_alpha_routes keys linked to legacy python routes: **38**.
 Implemented in mine-front page blocks: **38**.
 Missing in mine-front page blocks: **0**.
-Implemented but still placeholder-first (needs legacy originals): **2**.
+Implemented but still placeholder-first (needs legacy originals): **0**.
 
 > Duplicates are ignored by design (keys are deduplicated via Set).
 
@@ -18,8 +18,8 @@ Implemented but still placeholder-first (needs legacy originals): **2**.
 | business-lending | ✅ | ✅ | ✅ | template-parts/python/business-lending.php | — |
 | cash-payments | ✅ | ✅ | ✅ | template-parts/python/cash-payments.php | — |
 | cashless-payments | ✅ | ✅ | ✅ | template-parts/python/cashless-payments.php | — |
-| client-bank-online | — | ✅ | ⚠️ | https://github.com/SochnayaHurma/slav-bank/blob/master/templates/client-bank-online.html | — |
-| contacts | — | ✅ | ⚠️ | https://github.com/SochnayaHurma/slav-bank/blob/master/templates/contacts.html | — |
+| client-bank-online | — | ✅ | ✅ | https://github.com/SochnayaHurma/slav-bank/blob/master/templates/client-bank-online.html | — |
+| contacts | — | ✅ | ✅ | https://github.com/SochnayaHurma/slav-bank/blob/master/templates/contacts.html | — |
 | covid19 | ✅ | ✅ | ✅ | template-parts/python/covid19.php | — |
 | crs | ✅ | ✅ | ✅ | template-parts/python/crs.php | — |
 | currency-control | — | ✅ | ✅ | https://github.com/SochnayaHurma/slav-bank/blob/master/templates/currency-control.html | — |
@@ -56,5 +56,4 @@ Implemented but still placeholder-first (needs legacy originals): **2**.
 
 ## Needs legacy originals (replace placeholder-only body templates)
 
-- 'client-bank-online' (mine-front/src/blocks/page-client-bank-online-body/edit.js) ← использовать оригинал из https://github.com/SochnayaHurma/slav-bank/blob/master/templates/client-bank-online.html
-- 'contacts' (mine-front/src/blocks/page-contacts-body/edit.js) ← использовать оригинал из https://github.com/SochnayaHurma/slav-bank/blob/master/templates/contacts.html
+- Нет блоков с placeholder-only body.
