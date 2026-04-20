@@ -2,19 +2,10 @@ import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
 	[ 'slav-bank/kicker', { text: 'Заявки' } ],
-	[
-		'slav-bank/title',
-		{
-			title: 'Запрос на кредитование МСП',
-			level: '2',
-		},
-	],
+	[ 'slav-bank/title', { title: 'Запрос на кредитование МСП', level: '2' } ],
 	[
 		'core/paragraph',
-		{
-			content: 'Редактируемый контент страницы zapros-na-kreditovanie-msp. Заполните актуальными блоками.',
-			className: 'muted',
-		},
+		{ content: 'Страница предназначена для редактируемой формы запроса на кредитование МСП и сопроводительной информации.', className: 'muted' },
 	],
 ];
 

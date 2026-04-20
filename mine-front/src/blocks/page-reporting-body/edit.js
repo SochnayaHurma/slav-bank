@@ -1,18 +1,17 @@
 import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
-	[ 'slav-bank/kicker', { text: 'Информация банка' } ],
 	[
-		'slav-bank/title',
+		'slav-bank/page-pattern-alert',
 		{
 			title: 'Отчетность',
-			level: '2',
+			text: 'Годовая бухгалтерская (финансовая) отчетность АО НКБ «СЛАВЯНБАНК».',
 		},
 	],
 	[
 		'core/paragraph',
 		{
-			content: 'Редактируемый контент страницы reporting. Заполните актуальными блоками.',
+			content: 'Документы отчетности публикуются в формате PDF и поддерживаются как редактируемый список карточек документов.',
 			className: 'muted',
 		},
 	],

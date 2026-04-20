@@ -1,19 +1,21 @@
 import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
-	[ 'slav-bank/kicker', { text: 'Информация банка' } ],
 	[
-		'slav-bank/title',
+		'slav-bank/page-pattern-alert',
 		{
 			title: 'Реквизиты банка',
-			level: '2',
+			text: 'Актуальные реквизиты АО НКБ «СЛАВЯНБАНК» для платежей и договоров.',
 		},
 	],
 	[
-		'core/paragraph',
+		'slav-bank/page-pattern-list',
 		{
-			content: 'Редактируемый контент страницы requisites-bank. Заполните актуальными блоками.',
-			className: 'muted',
+			items: [
+				{ id: 'req-1', text: 'Полное наименование банка и юридический адрес.' },
+				{ id: 'req-2', text: 'БИК, корреспондентский счет, ИНН/КПП.' },
+				{ id: 'req-3', text: 'Контакты для уточнения реквизитов и платежных данных.' },
+			],
 		},
 	],
 ];

@@ -1,19 +1,16 @@
 import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
-	[ 'slav-bank/kicker', { text: 'Тарифы' } ],
 	[
-		'slav-bank/title',
+		'slav-bank/page-pattern-pdf',
 		{
-			title: 'Тариф Приветственный',
-			level: '2',
-		},
-	],
-	[
-		'core/paragraph',
-		{
-			content: 'Редактируемый контент страницы tariff-privetstvenny. Заполните актуальными блоками.',
-			className: 'muted',
+			kicker: 'PDF-документ',
+			title: 'Тарифы банка в валюте РФ и иностранной валюте «Приветственный»',
+			description: 'Откройте внутри страницы или скачайте файл.',
+			url: 'https://slavbank.ru/wp-content/uploads/tarif-privetstvenny.pdf',
+			openText: 'Открыть',
+			downloadText: 'Скачать',
+			fallbackText: 'Если PDF не отображается, используйте кнопку «Открыть».',
 		},
 	],
 ];

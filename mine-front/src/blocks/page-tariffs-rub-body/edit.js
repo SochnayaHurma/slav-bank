@@ -1,19 +1,16 @@
 import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
-	[ 'slav-bank/kicker', { text: 'Тарифы' } ],
 	[
-		'slav-bank/title',
+		'slav-bank/page-pattern-pdf',
 		{
-			title: 'Тарифы в рублях',
-			level: '2',
-		},
-	],
-	[
-		'core/paragraph',
-		{
-			content: 'Редактируемый контент страницы tariffs-rub. Заполните актуальными блоками.',
-			className: 'muted',
+			kicker: 'PDF-документ',
+			title: 'Тарифы по операциям в валюте РФ',
+			description: 'Откройте внутри страницы или скачайте файл.',
+			url: 'https://slavbank.ru/wp-content/uploads/tarify-v-valyute-rf-s-01072024-i-v-in.valyute-s-09.04.2025.pdf',
+			openText: 'Открыть',
+			downloadText: 'Скачать',
+			fallbackText: 'Если PDF не отображается, используйте кнопку «Открыть».',
 		},
 	],
 ];

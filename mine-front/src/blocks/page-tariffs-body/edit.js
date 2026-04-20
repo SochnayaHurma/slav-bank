@@ -2,18 +2,15 @@ import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
 	[ 'slav-bank/kicker', { text: 'Тарифы' } ],
+	[ 'slav-bank/title', { title: 'Тарифы банка', level: '2' } ],
 	[
-		'slav-bank/title',
+		'slav-bank/page-pattern-list',
 		{
-			title: 'Тарифы банка',
-			level: '2',
-		},
-	],
-	[
-		'core/paragraph',
-		{
-			content: 'Редактируемый контент страницы tariffs. Заполните актуальными блоками.',
-			className: 'muted',
+			items: [
+				{ id: 'trf-1', text: 'Тарифы по операциям в валюте РФ.' },
+				{ id: 'trf-2', text: 'Тарифы по операциям в иностранной валюте.' },
+				{ id: 'trf-3', text: 'Специальные тарифные планы «Приветственный» и «Славный».' },
+			],
 		},
 	],
 ];
