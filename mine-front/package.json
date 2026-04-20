@@ -12,9 +12,10 @@
     "lint:js": "wp-scripts lint-js src",
     "lint:css": "wp-scripts lint-style \"src/**/*.css\" \"src/**/*.scss\"",
     "lint:pkg": "wp-scripts lint-pkg-json",
-    "packages:update": "wp-scripts packages-update"
+    "packages:update": "wp-scripts packages-update",
+    "audit:python-pages": "node scripts/python-page-audit.mjs"
   },
-    "devDependencies": {
+  "devDependencies": {
     "@wordpress/scripts": "^31.8.0"
   }
 }
