@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "slav-bank/body-client-bank-online",
+	"title": "Клиент-Банк Online: содержимое",
+	"category": "Наполнение",
+	"icon": "media-document",
+	"description": "Карточка содержимого страницы Клиент-Банк Online.",
+	"parent": [ "slav-bank/body-client-bank-online-bento" ],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": true
+	}
+}
