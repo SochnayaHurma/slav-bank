@@ -1,10 +1,7 @@
 import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
-	[
-		'slav-bank/kicker',
-		{ text: 'Контент страницы' },
-	],
+	[ 'slav-bank/kicker', { text: 'Уведомление' } ],
 	[
 		'slav-bank/title',
 		{
@@ -15,23 +12,8 @@ const TEMPLATE = [
 	[
 		'core/paragraph',
 		{
-			content: 'Базовая структура перенесена на архитектуру main-hero-bento-body. Наполнение можно редактировать свободно в блоках ниже.',
-		},
-	],
-	[
-		'core/paragraph',
-		{
-			content: 'Источник legacy-контента: template-parts/python/notaries.php',
-			className: 'muted',
-		},
-	],
-	[
-		'slav-bank/page-pattern-tips',
-		{
-			items: [
-				{ id: 'tip-1', title: 'Сохранение дизайна', description: 'Сверяйте контент с legacy-шаблоном и переносите секциями, чтобы сохранить визуал на 90%.' },
-				{ id: 'tip-2', title: 'Ссылки', description: 'Для ссылок в hero используйте оба режима: url и pageId/linkMode.' },
-			],
+			content:
+				'АО НКБ «СЛАВЯНБАНК» информирует о том, что не практикует выдачу доверенностей на бумажном носителе в простой письменной форме для целей направления нотариусу уведомлений о залоге.',
 		},
 	],
 ];

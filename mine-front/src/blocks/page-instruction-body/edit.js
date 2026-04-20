@@ -1,36 +1,40 @@
 import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
-	[
-		'slav-bank/kicker',
-		{ text: 'Контент страницы' },
-	],
-	[
-		'slav-bank/title',
-		{
-			title: 'Инструкция по работе в системе Клиент-Банк',
-			level: '2',
-		},
-	],
+	[ 'slav-bank/kicker', { text: 'Краткая инструкция' } ],
 	[
 		'core/paragraph',
 		{
-			content: 'Базовая структура перенесена на архитектуру main-hero-bento-body. Наполнение можно редактировать свободно в блоках ниже.',
+			content:
+				'Полное руководство пользователя «Интернет-Клиент» можно скачать в формате PDF по ссылке ниже.',
+			className: 'has-dark-blue-color has-text-color',
 		},
 	],
 	[
-		'core/paragraph',
-		{
-			content: 'Источник legacy-контента: template-parts/python/instruction.php',
-			className: 'muted',
-		},
-	],
-	[
-		'slav-bank/page-pattern-tips',
+		'slav-bank/page-pattern-chips',
 		{
 			items: [
-				{ id: 'tip-1', title: 'Сохранение дизайна', description: 'Сверяйте контент с legacy-шаблоном и переносите секциями, чтобы сохранить визуал на 90%.' },
-				{ id: 'tip-2', title: 'Ссылки', description: 'Для ссылок в hero используйте оба режима: url и pageId/linkMode.' },
+				{
+					id: 'manual-pdf',
+					text: 'Руководство пользователя (PDF)',
+					url: 'https://slavbank.ru/wp-content/uploads/internet-klient.-rukovodstvo-polzovatelya.pdf',
+					opensInNewTab: true,
+				},
+			],
+		},
+	],
+	[
+		'slav-bank/page-pattern-list',
+		{
+			items: [
+				{
+					id: 'regen-link',
+					text: '<a href="/podderzhka-html/regen.html/">🗹 Перегенерация ключей</a>',
+				},
+				{
+					id: 'crypto-plugin',
+					text: '<a href="https://slavbank.ru/wp-content/uploads/zagruzka-i-ustanovka-kriptoplagina.pdf">🗹 Загрузка и установка криптоплагина</a>',
+				},
 			],
 		},
 	],

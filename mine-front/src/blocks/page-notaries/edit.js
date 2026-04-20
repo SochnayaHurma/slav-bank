@@ -5,11 +5,12 @@ const TEMPLATE = [
 		'slav-bank/hero-simple',
 		{
 			title: 'Информация для нотариусов',
-			kicker: 'Раздел',
-			description: 'Информация банка для нотариусов.',
+			kicker: 'Информация банка',
+			description:
+				'АО НКБ «СЛАВЯНБАНК» информирует о том, что не практикует выдачу доверенностей на бумажном носителе в простой письменной форме для целей направления нотариусу уведомлений о залоге.',
 			pillItems: [
-				heroBadge( 'Поддержка', '/podderzhka.html/' ),
-				heroBadge( 'Написать в банк', '/forma-obratnoj-svyazi.html/' ),
+				heroBadge( 'Реквизиты', '/o-banke-slavyanbank-html/rekvizity-banka.html/' ),
+				heroBadge( 'Информация банка', '/o-banke-slavyanbank-html/o-banke-slavyanbank-html-info_bank-html/' ),
 			],
 			actions: [
 				heroAction( 'Содержание', '#content' ),

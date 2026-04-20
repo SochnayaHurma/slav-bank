@@ -1,10 +1,7 @@
 import { createBodyEdit } from '../page-pattern';
 
 const TEMPLATE = [
-	[
-		'slav-bank/kicker',
-		{ text: 'Контент страницы' },
-	],
+	[ 'slav-bank/kicker', { text: 'Информация банка' } ],
 	[
 		'slav-bank/title',
 		{
@@ -15,23 +12,9 @@ const TEMPLATE = [
 	[
 		'core/paragraph',
 		{
-			content: 'Базовая структура перенесена на архитектуру main-hero-bento-body. Наполнение можно редактировать свободно в блоках ниже.',
-		},
-	],
-	[
-		'core/paragraph',
-		{
-			content: 'Источник legacy-контента: template-parts/python/governance.php',
+			content:
+				'На основании решения Совета директоров Банка России от 22.12.2023г. и решения Совета директоров АО НКБ «СЛАВЯНБАНК» от 08.02.2024г. информация о членах органов управления и иных должностных лицах банка не раскрывается.',
 			className: 'muted',
-		},
-	],
-	[
-		'slav-bank/page-pattern-tips',
-		{
-			items: [
-				{ id: 'tip-1', title: 'Сохранение дизайна', description: 'Сверяйте контент с legacy-шаблоном и переносите секциями, чтобы сохранить визуал на 90%.' },
-				{ id: 'tip-2', title: 'Ссылки', description: 'Для ссылок в hero используйте оба режима: url и pageId/linkMode.' },
-			],
 		},
 	],
 ];

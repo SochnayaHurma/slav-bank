@@ -5,11 +5,12 @@ const TEMPLATE = [
 		'slav-bank/hero-simple',
 		{
 			title: 'Органы управления',
-			kicker: 'О банке',
-			description: 'Сведения об органах управления банка.',
+			kicker: 'Информация банка',
+			description:
+				'На основании решения Совета директоров Банка России от 22.12.2023г. и решения Совета директоров АО НКБ «СЛАВЯНБАНК» от 08.02.2024г. информация о членах органов управления и иных должностных лицах банка не раскрывается.',
 			pillItems: [
-				heroBadge( 'Поддержка', '/podderzhka.html/' ),
-				heroBadge( 'Написать в банк', '/forma-obratnoj-svyazi.html/' ),
+				heroBadge( 'Реквизиты', '/o-banke-slavyanbank-html/rekvizity-banka.html/' ),
+				heroBadge( 'Информация банка', '/o-banke-slavyanbank-html/o-banke-slavyanbank-html-info_bank-html/' ),
 			],
 			actions: [
 				heroAction( 'Содержание', '#content' ),

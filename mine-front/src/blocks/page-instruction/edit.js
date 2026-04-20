@@ -6,10 +6,11 @@ const TEMPLATE = [
 		{
 			title: 'Инструкция по работе в системе Клиент-Банк',
 			kicker: 'Поддержка',
-			description: 'Материалы и инструкции для пользователей Клиент-Банка.',
+			description: 'Краткая инструкция и ключевые материалы для работы в системе Клиент-Банк.',
 			pillItems: [
-				heroBadge( 'Поддержка', '/podderzhka.html/' ),
-				heroBadge( 'Написать в банк', '/forma-obratnoj-svyazi.html/' ),
+				heroBadge( 'FAQ', '/podderzhka-html/chasto-zadavaemye-voprosy.html/' ),
+				heroBadge( 'Частным лицам', '/chastnym-liczam.html/' ),
+				heroBadge( 'ЭЦП', '/podderzhka-html/regen.html/' ),
 			],
 			actions: [
 				heroAction( 'Содержание', '#content' ),
