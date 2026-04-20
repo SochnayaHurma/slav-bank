@@ -1,6 +1,7 @@
 import {
   useBlockProps,
   InnerBlocks,
+  RichText,
   InspectorControls,
   MediaUpload,
   MediaUploadCheck
@@ -11,6 +12,7 @@ import {
   TextareaControl,
   Button
 } from '@wordpress/components';
+import { PREVIEW_LINK_PROPS } from '../../shared/previewLinkProps';
 
 const ALLOWED_BLOCKS = [
   'slavbank/client-bank-feature-group',
@@ -40,6 +42,7 @@ const TEMPLATE = [
     }
   ]
 ];
+
 
 export default function Edit({ attributes, setAttributes }) {
   const {
@@ -155,27 +158,134 @@ export default function Edit({ attributes, setAttributes }) {
       </InspectorControls>
 
       <div {...useBlockProps({ className: 'sb-bank-editor-page' })}>
-        <div className="sb-bank-editor-hero">
-          <strong>{heroTitle}</strong>
-          <p>{heroDescription}</p>
-        </div>
+        <section className="block">
+          <div className="container">
+            <div className="hero-wrap" style={{ padding: 'var(--s-5)' }}>
+              <div className="v4-strips">
+                <div className="v4-strip">
+                  {heroImageUrl ? (
+                    <img
+                      style={{ left: `${heroImageLeft || 0}px` }}
+                      src={heroImageUrl}
+                      alt=""
+                    />
+                  ) : null}
 
-        <div className="sb-bank-editor-body">
-          <div className="sb-cb-editor-access">
-            <div className="kicker">{accessKicker}</div>
-            <strong>{accessTitle}</strong>
-            <p>{accessText}</p>
+                  <div className="v4-strip-copy v4-glass">
+                    <RichText
+                      tagName="h3"
+                      value={heroTitle}
+                      onChange={(value) => setAttributes({ heroTitle: value })}
+                      placeholder="Заголовок hero"
+                    />
+                    <RichText
+                      tagName="p"
+                      value={heroDescription}
+                      onChange={(value) => setAttributes({ heroDescription: value })}
+                      placeholder="Описание hero"
+                    />
+
+                    <div className="v4-strip-actions">
+                      <a className="btn primary" href={`#${anchorId || 'content'}`} {...PREVIEW_LINK_PROPS}>Содержание</a>
+                      <a className="btn outline" href="/" {...PREVIEW_LINK_PROPS}>На главную</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          {leadText ? <p>{leadText}</p> : null}
-          {entryLinkText ? <div><strong>{entryLinkText}</strong></div> : null}
+        <section className="block dashv2" id={anchorId || 'content'}>
+          <div className="container">
+            <div className="bento">
+              <div className="bento-card" style={{ padding: 'var(--s-4)', position: 'relative' }}>
+                <div className="access-card" style={{ marginTop: '10px' }}>
+                  <RichText
+                    tagName="div"
+                    className="kicker"
+                    value={accessKicker}
+                    onChange={(value) => setAttributes({ accessKicker: value })}
+                    placeholder="Кикер"
+                  />
+                  <RichText
+                    tagName="div"
+                    className="access-title"
+                    value={accessTitle}
+                    onChange={(value) => setAttributes({ accessTitle: value })}
+                    placeholder="Заголовок карточки"
+                  />
+                  <RichText
+                    tagName="div"
+                    className="muted"
+                    style={{ marginTop: '6px' }}
+                    value={accessText}
+                    onChange={(value) => setAttributes({ accessText: value })}
+                    placeholder="Текст карточки"
+                  />
 
-          <InnerBlocks
-            allowedBlocks={ALLOWED_BLOCKS}
-            template={TEMPLATE}
-            templateLock={false}
-          />
-        </div>
+                  <div className="row" style={{ marginTop: '12px', flexWrap: 'wrap' }}>
+                    <a className="btn primary" href={accessPrimaryUrl || '#'} target="_blank" rel="noreferrer noopener" {...PREVIEW_LINK_PROPS}>
+                      <RichText
+                        tagName="span"
+                        value={accessPrimaryText}
+                        onChange={(value) => setAttributes({ accessPrimaryText: value })}
+                        placeholder="Текст основной кнопки"
+                      />
+                    </a>
+                    <a className="btn outline" href={accessSecondaryUrl || '#'} {...PREVIEW_LINK_PROPS}>
+                      <RichText
+                        tagName="span"
+                        value={accessSecondaryText}
+                        onChange={(value) => setAttributes({ accessSecondaryText: value })}
+                        placeholder="Текст второй кнопки"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="sb-cb-body">
+                  <RichText
+                    tagName="p"
+                    className="sb-cb-lead"
+                    value={leadText}
+                    onChange={(value) => setAttributes({ leadText: value })}
+                    placeholder="Основной абзац"
+                  />
+                  <div className="sb-cb-entry-link">
+                    {entryLinkUrl ? (
+                      <a href={entryLinkUrl} target="_blank" rel="noreferrer noopener" {...PREVIEW_LINK_PROPS}>
+                        <strong>
+                          <RichText
+                            tagName="span"
+                            value={entryLinkText}
+                            onChange={(value) => setAttributes({ entryLinkText: value })}
+                            placeholder="Текст ссылки входа"
+                          />
+                        </strong>
+                      </a>
+                    ) : (
+                      <strong>
+                        <RichText
+                          tagName="span"
+                          value={entryLinkText}
+                          onChange={(value) => setAttributes({ entryLinkText: value })}
+                          placeholder="Текст ссылки входа"
+                        />
+                      </strong>
+                    )}
+                  </div>
+
+                  <InnerBlocks
+                    allowedBlocks={ALLOWED_BLOCKS}
+                    template={TEMPLATE}
+                    templateLock={false}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );

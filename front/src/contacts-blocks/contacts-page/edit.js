@@ -1,5 +1,6 @@
-import { useBlockProps, InnerBlocks, MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, RichText, MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
+import { PREVIEW_LINK_PROPS } from '../../shared/previewLinkProps';
 
 const ALLOWED_BLOCKS = [
   'slavbank/contact-item',
@@ -9,7 +10,7 @@ const ALLOWED_BLOCKS = [
 ];
 
 const TEMPLATE = [
-    [
+  [
     'slavbank/info-item',
     {
       label: '',
@@ -81,10 +82,6 @@ export default function Edit({ attributes, setAttributes }) {
     mapAddress,
   } = attributes;
 
-  const blockProps = useBlockProps({
-    className: 'sbc-editor-page',
-  });
-
   return (
     <>
       <InspectorControls>
@@ -139,30 +136,91 @@ export default function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <div {...blockProps}>
-        <div className="sbc-editor-hero">
-          <strong>{heroTitle || 'Контакты'}</strong>
-          <p>{heroDescription || ''}</p>
-          {heroImageUrl ? <div className="sbc-editor-note">Картинка выбрана</div> : null}
-        </div>
+      <div {...useBlockProps({ className: 'sbc-page' })}>
+        <section className="block">
+          <div className="container">
+            <div className="hero-wrap" style={{ padding: 'var(--s-5)' }}>
+              <div className="v4-strips">
+                <div className="v4-strip">
+                  {heroImageUrl ? <img src={heroImageUrl} alt="" /> : null}
 
-        <div className="sbc-editor-main">
-          <div className="sbc-editor-intro">
-            <strong>{introTitle || 'Контакты банка'}</strong>
-            <p>{introText || ''}</p>
+                  <div className="v4-strip-copy v4-glass">
+                    <RichText
+                      tagName="h3"
+                      value={heroTitle}
+                      onChange={(value) => setAttributes({ heroTitle: value })}
+                      placeholder="Контакты"
+                    />
+                    <RichText
+                      tagName="p"
+                      value={heroDescription}
+                      onChange={(value) => setAttributes({ heroDescription: value })}
+                      placeholder="Описание страницы"
+                    />
+                    <div className="v4-strip-actions">
+                      <a className="btn primary" href="#content" {...PREVIEW_LINK_PROPS}>Перейти к содержимому</a>
+                      <a className="btn outline" href="/" {...PREVIEW_LINK_PROPS}>На главную</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <InnerBlocks
-            allowedBlocks={ALLOWED_BLOCKS}
-            template={TEMPLATE}
-            templateLock={false}
-          />
+        <section className="block dashv2">
+          <div className="container">
+            <div className="bento">
+              <div className="bento-card" style={{ padding: 'var(--s-4)', position: 'relative' }}>
+                <div className="prose">
+                  <div className="entry-content">
+                    <p className="muted" style={{ marginBottom: '12px' }}>
+                      <strong>
+                        <RichText
+                          tagName="span"
+                          value={introTitle}
+                          onChange={(value) => setAttributes({ introTitle: value })}
+                          placeholder="Контакты банка"
+                        />
+                      </strong>
+                      {' — '}
+                      <RichText
+                        tagName="span"
+                        value={introText}
+                        onChange={(value) => setAttributes({ introText: value })}
+                        placeholder="Вводный текст"
+                      />
+                    </p>
 
-          <div className="sbc-editor-map">
-            <strong>{mapTitle || 'Как нас найти'}</strong>
-            <p>{mapAddress || ''}</p>
+                    <InnerBlocks
+                      allowedBlocks={ALLOWED_BLOCKS}
+                      template={TEMPLATE}
+                      templateLock={false}
+                    />
+
+                    <p className="muted" style={{ marginTop: '12px' }}>
+                      <strong>
+                        <RichText
+                          tagName="span"
+                          value={mapTitle}
+                          onChange={(value) => setAttributes({ mapTitle: value })}
+                          placeholder="Как нас найти"
+                        />
+                      </strong>
+                      {' — '}
+                      <RichText
+                        tagName="span"
+                        value={mapAddress}
+                        onChange={(value) => setAttributes({ mapAddress: value })}
+                        placeholder="Адрес"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </>
   );
