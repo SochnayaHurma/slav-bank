@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/page-currency-control/style-index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/page-currency-control/style.scss"],"sourcesContent":[".wp-block-slav-bank-currency-control {\r\n\twidth: 100%;\r\n}\r\n"],"names":[],"sourceRoot":""}

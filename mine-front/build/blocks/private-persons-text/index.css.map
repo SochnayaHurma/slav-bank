@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/private-persons-text/index.css","mappings":";;;AAAA;EACC;EACA;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/private-persons-text/editor.scss"],"sourcesContent":[".wp-block-slav-bank-private-persons-text {\r\n\toutline: 1px dashed rgba(34, 113, 177, 0.25);\r\n\tpadding: 8px;\r\n}\r\n"],"names":[],"sourceRoot":""}

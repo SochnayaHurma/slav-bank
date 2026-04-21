@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/page-appeal-123-fz/style-index.css","mappings":";;;AAAA;EACC;AACD;;AAEA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/page-appeal-123-fz/style.scss"],"sourcesContent":["* {\r\n\tbox-sizing: border-box;\r\n}\r\n\r\n.wp-block-slav-bank-appeal-123-fz {\r\n\twidth: 100%;\r\n}\r\n"],"names":[],"sourceRoot":""}

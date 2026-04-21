@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/page-reporting/index.css","mappings":";;;AAAA;EACC;AACD;;AAEA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/page-reporting/editor.scss"],"sourcesContent":[".wp-block-slav-bank-page-reporting {\n\twidth: 100%;\n}\n\n.wp-block-slav-bank-page-reporting .toast {\n\tdisplay: none;\n}\n"],"names":[],"sourceRoot":""}

@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/page-pattern-alert/style-index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/page-pattern-alert/style.scss"],"sourcesContent":[".wp-block-slav-bank-page-pattern-alert.alert {\r\n\tmargin-bottom: 16px;\r\n}\r\n"],"names":[],"sourceRoot":""}

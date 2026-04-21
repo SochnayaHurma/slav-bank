@@ -57,13 +57,86 @@ add_filter('block_editor_settings_all', function (array $settings, $context): ar
 // 
 add_action('init', function () {
     $blocks_dir = __DIR__ . '/mine-front/build/blocks';
+    $blocks_manifest = __DIR__ . '/mine-front/build/blocks-manifest.php';
+    $bundle_dir = __DIR__ . '/mine-front/build/blocks-bundle';
 
     if (!is_dir($blocks_dir)) {
         return;
     }
 
-    foreach (glob($blocks_dir . '/*', GLOB_ONLYDIR) as $block_dir) {
-        register_block_type($block_dir);
+    if (function_exists('wp_register_block_metadata_collection') && file_exists($blocks_manifest)) {
+        wp_register_block_metadata_collection($blocks_dir, $blocks_manifest);
+    }
+
+    $block_args = [];
+
+    $bundle_script = $bundle_dir . '/index.js';
+    $bundle_asset = $bundle_dir . '/index.asset.php';
+
+    if (file_exists($bundle_script)) {
+        $asset = file_exists($bundle_asset) ? require $bundle_asset : [];
+        $handle = 'slavbank-mine-blocks-editor';
+
+        wp_register_script(
+            $handle,
+            get_theme_file_uri('mine-front/build/blocks-bundle/index.js'),
+            isset($asset['dependencies']) && is_array($asset['dependencies']) ? $asset['dependencies'] : [],
+            isset($asset['version']) ? $asset['version'] : filemtime($bundle_script)
+        );
+
+        $block_args['editorScript'] = $handle;
+    }
+
+    $bundle_editor_style = $bundle_dir . '/index.css';
+
+    if (file_exists($bundle_editor_style)) {
+        $handle = 'slavbank-mine-blocks-editor-style';
+
+        wp_register_style(
+            $handle,
+            get_theme_file_uri('mine-front/build/blocks-bundle/index.css'),
+            [],
+            filemtime($bundle_editor_style)
+        );
+        wp_style_add_data($handle, 'path', $bundle_editor_style);
+
+        if (file_exists($bundle_dir . '/index-rtl.css')) {
+            wp_style_add_data($handle, 'rtl', 'replace');
+        }
+
+        $block_args['editorStyle'] = $handle;
+    }
+
+    $bundle_style = $bundle_dir . '/style-index.css';
+
+    if (file_exists($bundle_style)) {
+        $handle = 'slavbank-mine-blocks-style';
+
+        wp_register_style(
+            $handle,
+            get_theme_file_uri('mine-front/build/blocks-bundle/style-index.css'),
+            [],
+            filemtime($bundle_style)
+        );
+        wp_style_add_data($handle, 'path', $bundle_style);
+
+        if (file_exists($bundle_dir . '/style-index-rtl.css')) {
+            wp_style_add_data($handle, 'rtl', 'replace');
+        }
+
+        $block_args['style'] = $handle;
+    }
+
+    $block_dirs = glob($blocks_dir . '/*', GLOB_ONLYDIR);
+
+    if (!$block_dirs) {
+        return;
+    }
+
+    sort($block_dirs);
+
+    foreach ($block_dirs as $block_dir) {
+        register_block_type($block_dir, $block_args);
     }
 });
 add_action( 'enqueue_block_editor_assets', function () {

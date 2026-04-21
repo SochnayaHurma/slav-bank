@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/crs-text/style-index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/crs-text/style.scss"],"sourcesContent":[".wp-block-slav-bank-crs-text.prose {\r\n\twidth: 100%;\r\n}\r\n"],"names":[],"sourceRoot":""}

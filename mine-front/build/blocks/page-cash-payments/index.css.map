@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/page-cash-payments/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/page-cash-payments/editor.scss"],"sourcesContent":[".wp-block-slav-bank-cash-payments {\r\n\twidth: 100%;\r\n}\r\n"],"names":[],"sourceRoot":""}

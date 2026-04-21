@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/support-prose/style-index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://your-theme-blocks/./src/blocks/support-prose/style.scss"],"sourcesContent":[".wp-block-slav-bank-support-prose.prose {\r\n\tmargin-top: 10px;\r\n}\r\n"],"names":[],"sourceRoot":""}
