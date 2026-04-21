@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slavbank/requisites-bank-page",
+  "title": "Славянбанк / Реквизиты банка",
+  "category": "widgets",
+  "icon": "feedback",
+  "description": "Редактируемый page-блок реквизитов банка для сборки страницы в редакторе.",
+  "textdomain": "slavbank",
+  "attributes": {
+    "heroKicker": {
+      "type": "string",
+      "default": "Реквизиты"
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "РЕКВИЗИТЫ БАНКА"
+    },
+    "heroDescription": {
+      "type": "string",
+      "default": "Основные реквизиты и контактные данные банка."
+    },
+    "primaryText": {
+      "type": "string",
+      "default": "Скачать PDF"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryText": {
+      "type": "string",
+      "default": "Перейти к таблице"
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "badgeText": {
+      "type": "string",
+      "default": "Контакты"
+    },
+    "phoneText": {
+      "type": "string",
+      "default": ""
+    },
+    "phoneHref": {
+      "type": "string",
+      "default": ""
+    },
+    "emailText": {
+      "type": "string",
+      "default": ""
+    },
+    "emailHref": {
+      "type": "string",
+      "default": ""
+    },
+    "anchorTop": {
+      "type": "string",
+      "default": "key"
+    },
+    "anchorTable": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "editorScript": "sb-contacts-blocks-editor",
+  "style": "sb-bank-pages",
+  "editorStyle": "sb-bank-pages-editor",
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  }
+}
