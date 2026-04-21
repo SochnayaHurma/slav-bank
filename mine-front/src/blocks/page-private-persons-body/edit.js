@@ -35,7 +35,7 @@ const TEMPLATE = [
 	[ 'slav-bank/private-persons-services', { items: DOCS } ],
 	[ 'slav-bank/kicker', { text: 'Документы' } ],
 	[ 'slav-bank/private-persons-documents', { items: DOCS } ],
-	[ 'slav-bank/kicker', { text: 'Текст страницы' } ],
+	[ 'slav-bank/kicker', { text: '' } ],
 	[ 'slav-bank/private-persons-text', {} ],
 ];
 

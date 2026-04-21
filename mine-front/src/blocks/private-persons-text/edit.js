@@ -20,14 +20,23 @@ const heading = ( content, attributes = {} ) => [
 const table = ( body ) => [
 	'core/table',
 	{
-		body,
+		body: body.map( ( row ) => ( {
+			...row,
+			cells: row.cells.map( ( cell ) => ( {
+				tag: 'td',
+				...cell,
+			} ) ),
+		} ) ),
 	},
 ];
 
 const TEXT_TEMPLATE = [
 	p(
 		'&emsp;&emsp;<strong>Кредитование физических лиц осуществляется в индивидуальном порядке</strong>.',
-		{ className: 'has-text-align-justify has-dark-blue-color has-text-color' }
+		{
+			className:
+				'has-text-align-justify has-dark-blue-color has-text-color',
+		}
 	),
 	p(
 		'&emsp;&emsp;<strong><em>Более подробную информацию Вы можете получить в</em></strong><br><strong><em>Управлении по кредитованию и инвестициям Банка по телефону:&nbsp; (8162) 66-52-56 или 66-52-63</em></strong>',
@@ -68,9 +77,12 @@ const TEXT_TEMPLATE = [
 		'&emsp;&emsp;<strong>Перечисленные процентные ставки действуют с 01&nbsp;января 2022 года.</strong>',
 		{ className: 'has-dark-blue-color has-text-color' }
 	),
-	p( '&emsp;&emsp;<strong>В АО НКБ «СЛАВЯНБАНК» Вы можете произвести:</strong>', {
-		className: 'has-text-align-justify',
-	} ),
+	p(
+		'&emsp;&emsp;<strong>В АО НКБ «СЛАВЯНБАНК» Вы можете произвести:</strong>',
+		{
+			className: 'has-text-align-justify',
+		}
+	),
 	p( '&emsp;&emsp;🗹 <strong>Перевод денежных средств: </strong>', {
 		className: 'has-text-align-justify has-dark-blue-color has-text-color',
 	} ),
@@ -87,15 +99,21 @@ const TEXT_TEMPLATE = [
 	p(
 		'» <strong><a href="https://slavbank.ru/wp-content/uploads/informacziya-o-transgranichnyh-perevodah_ang-prav.docx">Information on cross-border monetary funds transfers on behalf of individual clients&nbsp;without opening bank accounts</a></strong>'
 	),
-	p( '&emsp;&emsp;🗹 <strong>Операции с наличной иностранной валютой</strong>:', {
-		className: 'has-dark-blue-color has-text-color',
-	} ),
+	p(
+		'&emsp;&emsp;🗹 <strong>Операции с наличной иностранной валютой</strong>:',
+		{
+			className: 'has-dark-blue-color has-text-color',
+		}
+	),
 	p(
 		'» покупка наличной иностранной валюты за наличную валюту РФ;<br>» продажа наличной иностранной валюты за наличную валюту РФ;<br>» экспертиза денежных знаков иностранных государств'
 	),
-	p( '&emsp;&emsp;<strong>Прием коммунальных платежей с 01.06.2020 не производится</strong>!', {
-		className: 'has-text-color',
-	} ),
+	p(
+		'&emsp;&emsp;<strong>Прием коммунальных платежей с 01.06.2020 не производится</strong>!',
+		{
+			className: 'has-text-color',
+		}
+	),
 	p(
 		'&emsp;&emsp;Более подробную информацию по денежным переводам Вы можете получить:<br>» <em>по переводам в валюте РФ в Отделе по работе с вкладчиками и по тел.&nbsp; (8162) 66-52-74</em><br>» <em>по переводам в иностранной валюте — в Управлении валютных операций и контроля и по тел. (8162) 66-52-54</em>.',
 		{

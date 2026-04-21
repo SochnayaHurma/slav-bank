@@ -176,13 +176,8 @@ const FAQ_TEMPLATE = [
 ];
 
 export default function Edit() {
-	const blockProps = useBlockProps( {
-		className: 'bento-card',
-		style: { padding: 'var(--s-4)', position: 'relative' },
-	} );
-
 	return (
-		<div { ...blockProps }>
+		<div className='bento-card' style={{ padding: 'var(--s-4)', position: 'relative' }}>
 			<div className="prose">
 				<div className="entry-content">
 					<InnerBlocks template={ FAQ_TEMPLATE } />

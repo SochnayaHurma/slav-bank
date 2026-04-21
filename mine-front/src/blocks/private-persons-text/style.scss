@@ -1,3 +1,28 @@
 .wp-block-slav-bank-private-persons-text.prose {
 	margin-top: 10px;
+
+	.wp-block-table {
+		margin: 1rem 0 1.25rem;
+		overflow-x: auto;
+	}
+
+	.wp-block-table table {
+		width: 100%;
+		min-width: 420px;
+		border-collapse: collapse;
+		table-layout: auto;
+	}
+
+	.wp-block-table td,
+	.wp-block-table th {
+		padding: 10px 12px;
+		border: 1px solid rgba(2, 6, 23, 0.14);
+		vertical-align: top;
+	}
+
+	.wp-block-table td:last-child,
+	.wp-block-table th:last-child {
+		width: 34%;
+		white-space: nowrap;
+	}
 }
