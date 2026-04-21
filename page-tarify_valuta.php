@@ -1,8 +1,12 @@
-<?php
-if (function_exists('sb_alpha_route_page_has_migrated_content') && sb_alpha_route_page_has_migrated_content()) {
-    sb_alpha_route_render_editor_content_main();
-    return;
-}
+<?php get_header(); ?>
 
-$tariff_key = 'tariffs-foreign-currency';
-get_template_part('template-parts/routes/tariff', 'page');
+<main id="main">
+    <?php
+    while (have_posts()) :
+        the_post();
+        the_content();
+    endwhile;
+    ?>
+</main>
+
+<?php get_footer(); ?>
