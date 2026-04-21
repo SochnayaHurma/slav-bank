@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "slav-bank/body-credit-organization-tariffs-bento",
+	"title": "Тарифы на услуги кредитным организациям bento",
+	"category": "Наполнение",
+	"icon": "screenoptions",
+	"description": "Bento-секция страницы тарифов на услуги кредитным организациям.",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"supports": {
+		"html": false,
+		"inserter": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": true
+	}
+}

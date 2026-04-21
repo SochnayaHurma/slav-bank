@@ -73,8 +73,16 @@
 	padding-top: 0;
 }
 
+.acme-card5-sidebar-item__meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	column-gap: 4px;
+	row-gap: 2px;
+}
 
 .acme-card5-sidebar-item__meta span {
+	display: inline-block;
 	font-size: 12px;
 	color: #666;
 }

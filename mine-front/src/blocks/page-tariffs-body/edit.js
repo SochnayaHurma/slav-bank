@@ -13,8 +13,7 @@ const TEMPLATE = [
 	[
 		'core/list',
 		{
-			values:
-				'<ul><li><a href="/tariffs-rub/">Тарифы по операциям в валюте РФ</a></li><li><a href="/tariffs-foreign-currency/">Тарифы по операциям в иностранной валюте</a></li><li><a href="/tariff-privetstvenny/">Тариф «Приветственный»</a></li><li><a href="/tariffs-slavny/">Тариф «Славный»</a></li><li><a href="/tariff-depositny/">Тариф «Депозитный»</a></li></ul>',
+			values: '<ul><li><a href="/tariffs-rub/">Тарифы по операциям в валюте РФ</a></li><li><a href="/tariffs-foreign-currency/">Тарифы по операциям в иностранной валюте</a></li><li><a href="/tariff-privetstvenny/">Тариф «Приветственный»</a></li><li><a href="/tariffs-slavny/">Тариф «Славный»</a></li><li><a href="/tariff-depositny/">Тариф «Депозитный»</a></li><li><a href="/tarify-na-uslugi-kreditnym-organizacziyam.html/">Тарифы на услуги кредитным организациям</a></li><li><a href="/tarify-na-obsluzhivanie-korrespondentskih-schetov.html/">Тарифы на обслуживание корреспондентских счетов</a></li></ul>',
 		},
 	],
 	[

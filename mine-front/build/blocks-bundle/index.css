@@ -8,7 +8,7 @@
 .wp-block-slav-bank-ecp-regeneration-documents.doc-shelf{margin-bottom:12px}
 .wp-block-slav-bank-ecp-regeneration-steps.steps{margin-bottom:12px}
 .wp-block-slav-bank-ecp-regeneration-text.prose{width:100%}.wp-block-slav-bank-ecp-regeneration-text .entry-content{display:block}
-.wp-block-acme-blocks-card-5.acme-card5{position:relative}.acme-card5__action-label .block-editor-rich-text__editable,.acme-card5__badge-label .block-editor-rich-text__editable{display:inline-block;min-width:2ch;outline:none}.acme-card5__quick-add.components-button{background:#fff;border:1px solid #d0d5dd;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.12);height:34px;min-width:34px;opacity:0;padding:0;pointer-events:none;position:absolute;right:0;top:0;transform:translate(42%,-42%);transition:opacity .14s ease,transform .14s ease,box-shadow .14s ease;width:34px;z-index:5}.block.is-selected .acme-card5__quick-add,.block:focus-within .acme-card5__quick-add,.block:hover .acme-card5__quick-add{opacity:1;pointer-events:auto;transform:translate(42%,-42%) scale(1)}.acme-card5__quick-add.components-button:hover{box-shadow:0 8px 24px rgba(0,0,0,.16)}.acme-card5__add-menu{display:grid;gap:8px;min-width:220px;padding:8px}.acme-card5-sidebar-actions{display:flex;flex-wrap:wrap;gap:8px}.acme-card5-sidebar-empty{color:#757575;margin:0}.acme-card5-sidebar-item{border-top:1px solid #ececec;display:grid;gap:10px;padding:12px 0}.acme-card5-sidebar-item:first-child{border-top:0;padding-top:0}.acme-card5-sidebar-item__meta span{color:#666;font-size:12px}
+.wp-block-acme-blocks-card-5.acme-card5{position:relative}.acme-card5__action-label .block-editor-rich-text__editable,.acme-card5__badge-label .block-editor-rich-text__editable{display:inline-block;min-width:2ch;outline:none}.acme-card5__quick-add.components-button{background:#fff;border:1px solid #d0d5dd;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.12);height:34px;min-width:34px;opacity:0;padding:0;pointer-events:none;position:absolute;right:0;top:0;transform:translate(42%,-42%);transition:opacity .14s ease,transform .14s ease,box-shadow .14s ease;width:34px;z-index:5}.block.is-selected .acme-card5__quick-add,.block:focus-within .acme-card5__quick-add,.block:hover .acme-card5__quick-add{opacity:1;pointer-events:auto;transform:translate(42%,-42%) scale(1)}.acme-card5__quick-add.components-button:hover{box-shadow:0 8px 24px rgba(0,0,0,.16)}.acme-card5__add-menu{display:grid;gap:8px;min-width:220px;padding:8px}.acme-card5-sidebar-actions{display:flex;flex-wrap:wrap;gap:8px}.acme-card5-sidebar-empty{color:#757575;margin:0}.acme-card5-sidebar-item{border-top:1px solid #ececec;display:grid;gap:10px;padding:12px 0}.acme-card5-sidebar-item:first-child{border-top:0;padding-top:0}.acme-card5-sidebar-item__meta{align-items:baseline;-moz-column-gap:4px;column-gap:4px;display:flex;flex-wrap:wrap;row-gap:2px}.acme-card5-sidebar-item__meta span{color:#666;display:inline-block;font-size:12px}
 .wp-block-slav-bank-body-account-service-bento{width:100%}
 .wp-block-slav-bank-body-account-service{width:100%}
 .wp-block-slav-bank-account-service{width:100%}
@@ -24,6 +24,9 @@
 .wp-block-slav-bank-body-business-lending-bento{width:100%}
 .wp-block-slav-bank-body-business-lending{width:100%}
 .wp-block-slav-bank-business-lending{width:100%}
+.wp-block-slav-bank-body-cash-contribution-instruction-bento{display:block}
+.wp-block-slav-bank-body-cash-contribution-instruction{display:block}
+.wp-block-slav-bank-cash-contribution-instruction{display:block}
 .wp-block-slav-bank-body-cash-payments-bento{width:100%}
 .wp-block-slav-bank-body-cash-payments{width:100%}
 .wp-block-slav-bank-cash-payments{width:100%}
@@ -36,9 +39,15 @@
 .wp-block-slav-bank-body-contacts-bento{width:100%}
 .wp-block-slav-bank-body-contacts{width:100%}
 .wp-block-slav-bank-contacts{width:100%}
+.wp-block-slav-bank-body-correspondent-account-tariffs-bento{display:block}
+.wp-block-slav-bank-body-correspondent-account-tariffs{display:block}
+.wp-block-slav-bank-correspondent-account-tariffs{display:block}
 .wp-block-slav-bank-body-covid19-bento{width:100%}
 .wp-block-slav-bank-body-covid19{width:100%}
 .wp-block-slav-bank-covid19{width:100%}
+.wp-block-slav-bank-body-credit-organization-tariffs-bento{display:block}
+.wp-block-slav-bank-body-credit-organization-tariffs{display:block}
+.wp-block-slav-bank-credit-organization-tariffs{display:block}
 .wp-block-slav-bank-body-crs-bento{width:100%}
 .wp-block-slav-bank-body-crs{width:100%}
 .wp-block-slav-bank-crs{width:100%}
@@ -75,7 +84,7 @@
 .wp-block-slav-bank-body-novosti-bento{width:100%}
 .wp-block-slav-bank-body-novosti{width:100%}
 .wp-block-slav-bank-novosti{width:100%}
-.wp-block-slav-bank-page-pattern-alert.alert{margin-bottom:16px}
+.wp-block-slav-bank-page-pattern-alert.alert{margin-bottom:16px}.wp-block-slav-bank-page-pattern-alert .alert-dot{align-self:flex-start;display:block;flex:0 0 10px;height:10px;max-height:10px;max-width:10px;min-height:10px;min-width:10px;width:10px}
 .wp-block-slav-bank-page-pattern-checks.checks{margin-bottom:12px}
 .wp-block-slav-bank-page-pattern-chips.chip-row{margin-bottom:12px}
 .wp-block-slav-bank-page-pattern-consent.form-consent{margin-top:18px}.wp-block-slav-bank-page-pattern-consent.form-consent p{margin-bottom:10px}.wp-block-slav-bank-page-pattern-consent.form-consent ul{margin-bottom:12px}
@@ -88,6 +97,9 @@
 .wp-block-slav-bank-body-payment-demands-bento{width:100%}
 .wp-block-slav-bank-body-payment-demands{width:100%}
 .wp-block-slav-bank-payment-demands{width:100%}
+.wp-block-slav-bank-body-privacy-policy-bento{display:block}
+.wp-block-slav-bank-body-privacy-policy{display:block}
+.wp-block-slav-bank-privacy-policy{display:block}
 .wp-block-slav-bank-body-private-persons-bento{width:100%}
 .wp-block-slav-bank-body-private-persons{width:100%}
 .wp-block-slav-bank-private-persons{width:100%}

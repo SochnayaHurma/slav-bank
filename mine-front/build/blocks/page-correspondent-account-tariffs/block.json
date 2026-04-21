@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/correspondent-account-tariffs",
+  "title": "Страница Тарифы на обслуживание корреспондентских счетов",
+  "category": "Страницы",
+  "icon": "screenoptions",
+  "description": "Страница тарифов на обслуживание корреспондентских счетов.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

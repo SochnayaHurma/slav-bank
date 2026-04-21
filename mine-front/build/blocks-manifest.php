@@ -1051,6 +1051,73 @@ return array(
 			'layout' => true
 		)
 	),
+	'page-cash-contribution-instruction' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/cash-contribution-instruction',
+		'title' => 'Страница Объявление на взнос наличными',
+		'category' => 'Страницы',
+		'icon' => 'screenoptions',
+		'description' => 'Инструкция по заполнению объявления на взнос наличными.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-cash-contribution-instruction-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-cash-contribution-instruction-bento',
+		'title' => 'Объявление на взнос наличными bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Bento-секция инструкции объявления на взнос наличными.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'inserter' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-cash-contribution-instruction-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-cash-contribution-instruction',
+		'title' => 'Объявление на взнос наличными: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'media-spreadsheet',
+		'description' => 'Карточка инструкции объявления на взнос наличными.',
+		'parent' => array(
+			'slav-bank/body-cash-contribution-instruction-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'page-cash-payments' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -1322,6 +1389,73 @@ return array(
 			'layout' => true
 		)
 	),
+	'page-correspondent-account-tariffs' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/correspondent-account-tariffs',
+		'title' => 'Страница Тарифы на обслуживание корреспондентских счетов',
+		'category' => 'Страницы',
+		'icon' => 'screenoptions',
+		'description' => 'Страница тарифов на обслуживание корреспондентских счетов.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-correspondent-account-tariffs-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-correspondent-account-tariffs-bento',
+		'title' => 'Тарифы на обслуживание корреспондентских счетов bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Bento-секция тарифов на обслуживание корреспондентских счетов.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'inserter' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-correspondent-account-tariffs-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-correspondent-account-tariffs',
+		'title' => 'Тарифы на обслуживание корреспондентских счетов: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'table-col-after',
+		'description' => 'Карточка содержимого тарифов на обслуживание корреспондентских счетов.',
+		'parent' => array(
+			'slav-bank/body-correspondent-account-tariffs-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
 	'page-covid19' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -1375,6 +1509,73 @@ return array(
 		'description' => 'Карточка содержимого страницы COVID19.',
 		'parent' => array(
 			'slav-bank/body-covid19-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-credit-organization-tariffs' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/credit-organization-tariffs',
+		'title' => 'Страница Тарифы на услуги кредитным организациям',
+		'category' => 'Страницы',
+		'icon' => 'screenoptions',
+		'description' => 'Страница тарифов на услуги кредитным организациям.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-credit-organization-tariffs-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-credit-organization-tariffs-bento',
+		'title' => 'Тарифы на услуги кредитным организациям bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Bento-секция страницы тарифов на услуги кредитным организациям.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'inserter' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-credit-organization-tariffs-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-credit-organization-tariffs',
+		'title' => 'Тарифы на услуги кредитным организациям: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'media-document',
+		'description' => 'Карточка содержимого страницы тарифов на услуги кредитным организациям.',
+		'parent' => array(
+			'slav-bank/body-credit-organization-tariffs-bento'
 		),
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
@@ -2796,6 +2997,73 @@ return array(
 		'description' => 'Карточка содержимого страницы Платежные требования с акцептом.',
 		'parent' => array(
 			'slav-bank/body-payment-demands-bento'
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-privacy-policy' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/privacy-policy',
+		'title' => 'Страница Политика конфиденциальности',
+		'category' => 'Страницы',
+		'icon' => 'privacy',
+		'description' => 'Страница политики конфиденциальности.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-privacy-policy-bento' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-privacy-policy-bento',
+		'title' => 'Политика конфиденциальности bento',
+		'category' => 'Наполнение',
+		'icon' => 'screenoptions',
+		'description' => 'Bento-секция политики конфиденциальности.',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'supports' => array(
+			'html' => false,
+			'inserter' => false,
+			'anchor' => true,
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			),
+			'layout' => true
+		)
+	),
+	'page-privacy-policy-body' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'slav-bank/body-privacy-policy',
+		'title' => 'Политика конфиденциальности: содержимое',
+		'category' => 'Наполнение',
+		'icon' => 'privacy',
+		'description' => 'Карточка содержимого политики конфиденциальности.',
+		'parent' => array(
+			'slav-bank/body-privacy-policy-bento'
 		),
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',

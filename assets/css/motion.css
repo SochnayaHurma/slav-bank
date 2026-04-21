@@ -1977,8 +1977,15 @@
 }
 
 .alert-dot {
+  flex: 0 0 10px;
   width: 10px;
+  min-width: 10px;
+  max-width: 10px;
   height: 10px;
+  min-height: 10px;
+  max-height: 10px;
+  align-self: flex-start;
+  display: block;
   border-radius: 999px;
   margin-top: 5px;
   background: rgba(0, 103, 128, .80);

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/body-correspondent-account-tariffs-bento",
+  "title": "Тарифы на обслуживание корреспондентских счетов bento",
+  "category": "Наполнение",
+  "icon": "screenoptions",
+  "description": "Bento-секция тарифов на обслуживание корреспондентских счетов.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "inserter": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "slav-bank/body-correspondent-account-tariffs",
+	"title": "Тарифы на обслуживание корреспондентских счетов: содержимое",
+	"category": "Наполнение",
+	"icon": "table-col-after",
+	"description": "Карточка содержимого тарифов на обслуживание корреспондентских счетов.",
+	"parent": [ "slav-bank/body-correspondent-account-tariffs-bento" ],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": true
+	}
+}

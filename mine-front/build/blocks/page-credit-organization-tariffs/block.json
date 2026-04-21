@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "slav-bank/credit-organization-tariffs",
+  "title": "Страница Тарифы на услуги кредитным организациям",
+  "category": "Страницы",
+  "icon": "screenoptions",
+  "description": "Страница тарифов на услуги кредитным организациям.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "layout": true
+  }
+}

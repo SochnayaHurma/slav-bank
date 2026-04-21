@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "slav-bank/body-privacy-policy",
+	"title": "Политика конфиденциальности: содержимое",
+	"category": "Наполнение",
+	"icon": "privacy",
+	"description": "Карточка содержимого политики конфиденциальности.",
+	"parent": [ "slav-bank/body-privacy-policy-bento" ],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": true
+	}
+}
