@@ -26,7 +26,7 @@
           <div class="pill" style="align-self: flex-start">
             <a href="<?php echo esc_url(sb_alpha_url('requisites_bank')); ?>" class="mono badge">Реквизиты</a>
             <span class="muted">·</span>
-            <a href="<?php echo esc_url(sb_alpha_url('info_bank')); ?>" class="mono badge">Информация банка</a>
+            <a href="<?php echo esc_url(sb_alpha_url('info-bank-page')); ?>" class="mono badge">Информация банка</a>
           </div>
         </div>
       </div>

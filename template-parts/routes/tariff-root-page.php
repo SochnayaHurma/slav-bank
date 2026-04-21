@@ -1,6 +1,6 @@
 <?php
 
-get_template_part('template-parts/python/top-level-v4', 'styles');
+get_template_part('template-parts/route-partials/top-level-v4', 'styles');
  $hero_img = esc_url(sb_alpha_asset('png/12.png'));
     get_header();
     ?>

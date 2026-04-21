@@ -26,7 +26,7 @@ $tertiary_url = (string) ($attributes['tertiaryUrl'] ?? '');
 if ($variant === 'v4' && function_exists('get_template_part')) {
     // Быстрый путь переиспользовать существующие v4-стили.
     // Если позже захочешь, можно вынести их целиком в общий CSS-handle.
-    get_template_part('template-parts/python/top-level-v4', 'styles');
+    get_template_part('template-parts/route-partials/top-level-v4', 'styles');
 }
 ?>
 

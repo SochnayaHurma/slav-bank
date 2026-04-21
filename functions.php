@@ -6,16 +6,14 @@ if (!defined('ABSPATH')) {
 }
 
 require_once get_template_directory() . '/inc/page-data.php';
-require_once get_template_directory() . '/inc/python-routes.php';
-require_once get_template_directory() . '/inc/python-routes-wave2.php';
-require_once get_template_directory() . '/inc/python-routes-wave4.php';
+require_once get_template_directory() . '/inc/route-pages.php';
+require_once get_template_directory() . '/inc/route-partial-overrides.php';
 require_once get_template_directory() . '/inc/content-slots.php';
 require_once get_template_directory() . '/inc/page-mode.php';
 require_once get_template_directory() . '/inc/home-stack-data.php';
 require_once get_template_directory() . '/inc/admin-home-stack.php';
 
 // Миграции
-// require_once get_template_directory() . '/inc/route-migration-tariffs.php';
 // require_once get_template_directory() . '/migrations/slavbank-reporting-tariffs-migration-patterns.php';
 // require_once get_template_directory() . '/migrations/slavbank-requisites-tariffs-nohero-migration-patterns.php';
 // require_once get_template_directory() . '/migrations/slavbank-requisites-filled-migration.php';
@@ -23,7 +21,6 @@ require_once get_template_directory() . '/migrations/bootstrap.php';
 require_once get_template_directory() . '/inc/contacts-page-shared.php';
 require_once get_template_directory() . '/inc/blocks-contacts.php';
 
-// require_once get_template_directory() . '/inc/requisites-bank-page.php';
 
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
 
@@ -419,63 +416,63 @@ function sb_alpha_routes(): array
     return [
         'home' => home_url('/'),
         'search' => sb_alpha_search_page_url(),
-        'info-bank-page' => sb_alpha_wp_page_url('o-banke-slavyanbank-html-info_bank-html', sb_python_route_url('info-bank-page')),
-        'requisites_bank' => sb_python_route_url('requisites_bank'),
-        'governance' => sb_python_route_url('governance'),
-        'reporting' => sb_python_route_url('reporting'),
-        'disclosur-regulatory' => sb_python_route_url('disclosur-regulatory'),
-        'notaries' => sb_python_route_url('notaries'),
-        'novosti' => sb_python_route_url('novosti'),
-//         'tariffs' => sb_alpha_wp_page_url('tarify-banka-html', sb_python_route_url('tariffs')),
-        'tariffs' => sb_python_route_url('tariffs'),
-//   'requisites_bank' => sb_alpha_wp_page_url('rekvizity-banka', sb_python_route_url('requisites_bank')),
-  'requisites_bank' => sb_python_route_url('requisites_bank'),
-//   'reporting' => sb_alpha_wp_page_url('otchetnost', sb_python_route_url('reporting')),
-  'tariffs_rub' => sb_alpha_wp_page_url('tarify_rf', sb_python_route_url('tariffs_rub')),
-  'tariffs_slavny' => sb_alpha_wp_page_url('tarif_slavny', sb_python_route_url('tariffs_slavny')),
-  'tariff_privetstvenny' => sb_alpha_wp_page_url('tarif_privetstvenny', sb_python_route_url('tariff_privetstvenny')),
-//   'tariff-depositny' => sb_alpha_wp_page_url('tarif_depositny', sb_python_route_url('tariff-depositny')),
-  'tariffs-foreign-currency' => sb_alpha_wp_page_url('tarify_valuta', sb_python_route_url('tariffs-foreign-currency')),
-        // 'tariffs_rub' => sb_python_route_url('tariffs_rub'),
-        // 'tariffs_slavny' => sb_python_route_url('tariffs_slavny'),
-        // 'tariff_privetstvenny' => sb_python_route_url('tariff_privetstvenny'),
-        'tariff-depositny' => sb_python_route_url('tariff-depositny'),
-        // 'tariffs-foreign-currency' => sb_python_route_url('tariffs-foreign-currency'),
-        'legal-entities' => sb_python_route_url('legal-entities'),
-        'business-deposits' => sb_python_route_url('business-deposits'),
-        'business-lending' => sb_python_route_url('business-lending'),
-        'account-service' => sb_python_route_url('account-service'),
-        'fx-account-service' => sb_python_route_url('fx-account-service'),
-        'currency-control' => sb_python_route_url('currency-control'),
-        'aml-fatca' => sb_python_route_url('aml-fatca'),
-        'crs' => sb_python_route_url('crs'),
-        'cashless-payments' => sb_python_route_url('cashless-payments'),
-        'cash-payments' => sb_python_route_url('cash-payments'),
-        'payment-demands' => sb_python_route_url('payment-demands'),
-        'private-persons' => sb_python_route_url('private-persons'),
-        'client-bank-online' => sb_python_route_url('client-bank-online'),
-        'instruction' => sb_python_route_url('instruction'),
-        'faq' => sb_python_route_url('faq'),
-        'ecp-regeneration' => sb_python_route_url('ecp-regeneration'),
-        'support' => sb_python_route_url('support'),
-        'security' => sb_python_route_url('security'),
-        'appeal-123-fz' => sb_python_route_url('appeal-123-fz'),
-        'covid19' => sb_python_route_url('covid19'),
-        'contacts' => sb_python_route_url('contacts'),
-        'write-to-bank' => sb_python_route_url('write-to-bank'),
-        'vacancies' => sb_python_route_url('vacancies'),
-        // 'zapros-na-otkrytie-raschetnogo-scheta' => sb_python_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
-        // 'zapros-na-kreditovanie-msp' => sb_python_route_url('zapros-na-kreditovanie-msp'),
+        'info-bank-page' => sb_alpha_wp_page_url('o-banke-slavyanbank-html-info_bank-html', sb_alpha_route_url('info-bank-page')),
+        'requisites_bank' => sb_alpha_route_url('requisites_bank'),
+        'governance' => sb_alpha_route_url('governance'),
+        'reporting' => sb_alpha_route_url('reporting'),
+        'disclosur-regulatory' => sb_alpha_route_url('disclosur-regulatory'),
+        'notaries' => sb_alpha_route_url('notaries'),
+        'novosti' => sb_alpha_route_url('novosti'),
+//         'tariffs' => sb_alpha_wp_page_url('tarify-banka-html', sb_alpha_route_url('tariffs')),
+        'tariffs' => sb_alpha_route_url('tariffs'),
+//   'requisites_bank' => sb_alpha_wp_page_url('rekvizity-banka', sb_alpha_route_url('requisites_bank')),
+  'requisites_bank' => sb_alpha_route_url('requisites_bank'),
+//   'reporting' => sb_alpha_wp_page_url('otchetnost', sb_alpha_route_url('reporting')),
+  'tariffs_rub' => sb_alpha_wp_page_url('tarify_rf', sb_alpha_route_url('tariffs_rub')),
+  'tariffs_slavny' => sb_alpha_wp_page_url('tarif_slavny', sb_alpha_route_url('tariffs_slavny')),
+  'tariff_privetstvenny' => sb_alpha_wp_page_url('tarif_privetstvenny', sb_alpha_route_url('tariff_privetstvenny')),
+//   'tariff-depositny' => sb_alpha_wp_page_url('tarif_depositny', sb_alpha_route_url('tariff-depositny')),
+  'tariffs-foreign-currency' => sb_alpha_wp_page_url('tarify_valuta', sb_alpha_route_url('tariffs-foreign-currency')),
+        // 'tariffs_rub' => sb_alpha_route_url('tariffs_rub'),
+        // 'tariffs_slavny' => sb_alpha_route_url('tariffs_slavny'),
+        // 'tariff_privetstvenny' => sb_alpha_route_url('tariff_privetstvenny'),
+        'tariff-depositny' => sb_alpha_route_url('tariff-depositny'),
+        // 'tariffs-foreign-currency' => sb_alpha_route_url('tariffs-foreign-currency'),
+        'legal-entities' => sb_alpha_route_url('legal-entities'),
+        'business-deposits' => sb_alpha_route_url('business-deposits'),
+        'business-lending' => sb_alpha_route_url('business-lending'),
+        'account-service' => sb_alpha_route_url('account-service'),
+        'fx-account-service' => sb_alpha_route_url('fx-account-service'),
+        'currency-control' => sb_alpha_route_url('currency-control'),
+        'aml-fatca' => sb_alpha_route_url('aml-fatca'),
+        'crs' => sb_alpha_route_url('crs'),
+        'cashless-payments' => sb_alpha_route_url('cashless-payments'),
+        'cash-payments' => sb_alpha_route_url('cash-payments'),
+        'payment-demands' => sb_alpha_route_url('payment-demands'),
+        'private-persons' => sb_alpha_route_url('private-persons'),
+        'client-bank-online' => sb_alpha_route_url('client-bank-online'),
+        'instruction' => sb_alpha_route_url('instruction'),
+        'faq' => sb_alpha_route_url('faq'),
+        'ecp-regeneration' => sb_alpha_route_url('ecp-regeneration'),
+        'support' => sb_alpha_route_url('support'),
+        'security' => sb_alpha_route_url('security'),
+        'appeal-123-fz' => sb_alpha_route_url('appeal-123-fz'),
+        'covid19' => sb_alpha_route_url('covid19'),
+        'contacts' => sb_alpha_route_url('contacts'),
+        'write-to-bank' => sb_alpha_route_url('write-to-bank'),
+        'vacancies' => sb_alpha_route_url('vacancies'),
+        // 'zapros-na-otkrytie-raschetnogo-scheta' => sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
+        // 'zapros-na-kreditovanie-msp' => sb_alpha_route_url('zapros-na-kreditovanie-msp'),
         'zapros-na-otkrytie-raschetnogo-scheta' =>
     sb_alpha_wp_page_url(
         'zapros-na-otkrytie-raschetnogo-scheta',
-        sb_python_route_url('zapros-na-otkrytie-raschetnogo-scheta')
+        sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta')
     ),
 
 'zapros-na-kreditovanie-msp' =>
     sb_alpha_wp_page_url(
         'zapros-na-kreditovanie-msp',
-        sb_python_route_url('zapros-na-kreditovanie-msp')
+        sb_alpha_route_url('zapros-na-kreditovanie-msp')
     ),
         'client-bank-primary-login' => 'https://dbo.slavbank.ru:20101/',
         'client-bank-backup-login' => 'https://dbo1.slavbank.ru:20101/',

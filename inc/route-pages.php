@@ -3,10 +3,18 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-const SB_PYTHON_ROUTE_VERSION_OPTION = 'sb_python_route_version';
-const SB_PYTHON_ROUTE_VERSION = '2026.03.29.foundation.1';
+const SB_ALPHA_ROUTE_VERSION_OPTION = 'sb_alpha_route_version';
+const SB_ALPHA_ROUTE_VERSION = '2026.04.21.route-pages.1';
 
-function sb_python_route_definitions(): array
+if (!defined('SB_PYTHON_ROUTE_VERSION_OPTION')) {
+    define('SB_PYTHON_ROUTE_VERSION_OPTION', 'sb_python_route_version');
+}
+
+if (!defined('SB_PYTHON_ROUTE_VERSION')) {
+    define('SB_PYTHON_ROUTE_VERSION', SB_ALPHA_ROUTE_VERSION);
+}
+
+function sb_alpha_route_definitions(): array
 {
     static $routes = null;
 
@@ -263,16 +271,16 @@ function sb_wp_page_url(string $slug, string $fallback = '#'): string
     $page = get_page_by_path($slug, OBJECT, 'page');
     return $page ? get_permalink($page) : $fallback;
 }
-function sb_python_route_definition(string $route_key): ?array
+function sb_alpha_route_definition(string $route_key): ?array
 {
-    $routes = sb_python_route_definitions();
+    $routes = sb_alpha_route_definitions();
 
     return $routes[$route_key] ?? null;
 }
 
-function sb_python_route_url(string $route_key): string
+function sb_alpha_route_url(string $route_key): string
 {
-    $route = sb_python_route_definition($route_key);
+    $route = sb_alpha_route_definition($route_key);
     if (!is_array($route)) {
         return home_url('/');
     }
@@ -285,21 +293,24 @@ function sb_python_route_url(string $route_key): string
     return home_url('/' . $path . '/');
 }
 
-function sb_python_current_route_key(): string
+function sb_alpha_route_current_key(): string
 {
-    $key = get_query_var('sb_python_route');
+    $key = get_query_var('sb_alpha_route');
+    if (!is_string($key) || $key === '') {
+        $key = get_query_var('sb_python_route');
+    }
 
     return is_string($key) ? $key : '';
 }
 
-function sb_python_current_route(): ?array
+function sb_alpha_route_current(): ?array
 {
-    $key = sb_python_current_route_key();
+    $key = sb_alpha_route_current_key();
     if ($key === '') {
         return null;
     }
 
-    $route = sb_python_route_definition($key);
+    $route = sb_alpha_route_definition($key);
     if (!is_array($route)) {
         return null;
     }
@@ -309,16 +320,40 @@ function sb_python_current_route(): ?array
     return $route;
 }
 
-function sb_python_partial_file(string $partial): string
+function sb_alpha_route_partial_file(string $partial): string
 {
     $partial = trim($partial);
+    $candidate = get_theme_file_path('template-parts/route-partials/' . $partial . '.php');
 
-    return get_theme_file_path('template-parts/python/' . $partial . '.php');
+    return is_file($candidate)
+        ? $candidate
+        : get_theme_file_path('template-parts/python/' . $partial . '.php');
 }
 
-function sb_python_register_rewrites(): void
+function sb_alpha_route_current_partial(): string
 {
-    foreach (sb_python_route_definitions() as $route_key => $route) {
+    $route_key = sb_alpha_route_current_key();
+    if ($route_key !== '' && function_exists('sb_alpha_route_local_partial_for_route')) {
+        $partial = sb_alpha_route_local_partial_for_route($route_key);
+        if ($partial !== '') {
+            return $partial;
+        }
+    }
+
+    $route = sb_alpha_route_current();
+
+    return is_array($route) ? (string) ($route['partial'] ?? '') : '';
+}
+
+function sb_alpha_route_has_local_partial(string $route_key): bool
+{
+    return function_exists('sb_alpha_route_local_partial_for_route')
+        && sb_alpha_route_local_partial_for_route($route_key) !== '';
+}
+
+function sb_alpha_route_register_rewrites(): void
+{
+    foreach (sb_alpha_route_definitions() as $route_key => $route) {
         $path = trim((string) ($route['path'] ?? ''), '/');
         if ($path === '' || $path === 'search') {
             continue;
@@ -326,49 +361,50 @@ function sb_python_register_rewrites(): void
 
         add_rewrite_rule(
             '^' . preg_quote($path, '#') . '/?$',
-            'index.php?sb_python_route=' . $route_key,
+            'index.php?sb_alpha_route=' . $route_key,
             'top'
         );
     }
 }
-add_action('init', 'sb_python_register_rewrites', 20);
+add_action('init', 'sb_alpha_route_register_rewrites', 20);
 
-function sb_python_add_query_vars(array $vars): array
+function sb_alpha_route_add_query_vars(array $vars): array
 {
+    $vars[] = 'sb_alpha_route';
     $vars[] = 'sb_python_route';
 
     return $vars;
 }
-add_filter('query_vars', 'sb_python_add_query_vars');
+add_filter('query_vars', 'sb_alpha_route_add_query_vars');
 
-function sb_python_store_route_version(): void
+function sb_alpha_route_store_version(): void
 {
-    update_option(SB_PYTHON_ROUTE_VERSION_OPTION, SB_PYTHON_ROUTE_VERSION, false);
+    update_option(SB_ALPHA_ROUTE_VERSION_OPTION, SB_ALPHA_ROUTE_VERSION, false);
 }
 
-function sb_python_maybe_flush_rewrites(): void
+function sb_alpha_route_maybe_flush_rewrites(): void
 {
-    $stored = (string) get_option(SB_PYTHON_ROUTE_VERSION_OPTION, '');
+    $stored = (string) get_option(SB_ALPHA_ROUTE_VERSION_OPTION, '');
 
-    if ($stored === SB_PYTHON_ROUTE_VERSION) {
+    if ($stored === SB_ALPHA_ROUTE_VERSION) {
         return;
     }
 
-    sb_python_register_rewrites();
+    sb_alpha_route_register_rewrites();
     flush_rewrite_rules(false);
-    sb_python_store_route_version();
+    sb_alpha_route_store_version();
 }
-add_action('admin_init', 'sb_python_maybe_flush_rewrites');
+add_action('admin_init', 'sb_alpha_route_maybe_flush_rewrites');
 
-function sb_python_flush_rewrites_on_switch(): void
+function sb_alpha_route_flush_rewrites_on_switch(): void
 {
-    sb_python_register_rewrites();
+    sb_alpha_route_register_rewrites();
     flush_rewrite_rules(false);
-    sb_python_store_route_version();
+    sb_alpha_route_store_version();
 }
-add_action('after_switch_theme', 'sb_python_flush_rewrites_on_switch');
+add_action('after_switch_theme', 'sb_alpha_route_flush_rewrites_on_switch');
 
-function sb_python_prime_page_context(string $slug): void
+function sb_alpha_route_prime_page_context(string $slug): void
 {
     $slug = trim($slug, '/');
     if ($slug === '') {
@@ -395,36 +431,49 @@ function sb_python_prime_page_context(string $slug): void
     }
 }
 
-function sb_python_template_redirect(): void
+function sb_alpha_route_template_redirect(): void
 {
     if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
         return;
     }
 
-    $route = sb_python_current_route();
+    $route = sb_alpha_route_current();
     if (!is_array($route)) {
         return;
     }
 
+    $route_key = (string) ($route['key'] ?? '');
+    if ($route_key !== '' && sb_alpha_route_has_local_partial($route_key)) {
+        return;
+    }
+
     if (($route['mode'] ?? '') === 'external_redirect' && !empty($route['external_url'])) {
-        wp_redirect((string) $route['external_url'], 302, 'Slavyanbank Python Truth');
+        wp_redirect((string) $route['external_url'], 302, 'Slavyanbank Route');
         exit;
     }
 }
-add_action('template_redirect', 'sb_python_template_redirect', 1);
+add_action('template_redirect', 'sb_alpha_route_template_redirect', 1);
 
-function sb_python_template_include(string $template): string
+function sb_alpha_route_template_include(string $template): string
 {
-    $route = sb_python_current_route();
+    $route = sb_alpha_route_current();
     if (!is_array($route)) {
         return $template;
     }
 
     if (!empty($route['page_context_slug'])) {
-        sb_python_prime_page_context((string) $route['page_context_slug']);
+        sb_alpha_route_prime_page_context((string) $route['page_context_slug']);
     }
 
     $mode = (string) ($route['mode'] ?? '');
+    $route_key = (string) ($route['key'] ?? '');
+
+    if ($route_key !== '' && sb_alpha_route_has_local_partial($route_key)) {
+        $candidate = get_theme_file_path('page-route.php');
+        if (is_file($candidate)) {
+            return $candidate;
+        }
+    }
 
     if ($mode === 'template_file' && !empty($route['template_file'])) {
         $candidate = get_theme_file_path((string) $route['template_file']);
@@ -433,8 +482,8 @@ function sb_python_template_include(string $template): string
         }
     }
 
-    if ($mode === 'python_partial') {
-        $candidate = get_theme_file_path('page-python-route.php');
+    if ($mode === 'route_partial' || $mode === 'python_partial') {
+        $candidate = get_theme_file_path('page-route.php');
         if (is_file($candidate)) {
             return $candidate;
         }
@@ -442,11 +491,11 @@ function sb_python_template_include(string $template): string
 
     return $template;
 }
-add_filter('template_include', 'sb_python_template_include', 30);
+add_filter('template_include', 'sb_alpha_route_template_include', 30);
 
-function sb_python_document_title_parts(array $parts): array
+function sb_alpha_route_document_title_parts(array $parts): array
 {
-    $route = sb_python_current_route();
+    $route = sb_alpha_route_current();
     if (!is_array($route) || empty($route['title'])) {
         return $parts;
     }
@@ -455,15 +504,99 @@ function sb_python_document_title_parts(array $parts): array
 
     return $parts;
 }
-add_filter('document_title_parts', 'sb_python_document_title_parts', 40);
+add_filter('document_title_parts', 'sb_alpha_route_document_title_parts', 40);
 
-function sb_python_form_markup(string $route_key): string
+function sb_alpha_route_form_markup(string $route_key): string
 {
-    $shortcode = apply_filters('sb_python_form_shortcode_' . $route_key, '');
+    $shortcode = apply_filters('sb_alpha_route_form_shortcode_' . $route_key, '');
+    if (!is_string($shortcode) || trim($shortcode) === '') {
+        $shortcode = apply_filters('sb_python_form_shortcode_' . $route_key, '');
+    }
 
     if (!is_string($shortcode) || trim($shortcode) === '') {
         return '';
     }
 
     return sb_alpha_apply_shortcode_markup($shortcode);
+}
+
+// Backward compatibility for older templates, filters and cached rewrite rules.
+function sb_python_route_definitions(): array
+{
+    return sb_alpha_route_definitions();
+}
+
+function sb_python_route_definition(string $route_key): ?array
+{
+    return sb_alpha_route_definition($route_key);
+}
+
+function sb_python_route_url(string $route_key): string
+{
+    return sb_alpha_route_url($route_key);
+}
+
+function sb_python_current_route_key(): string
+{
+    return sb_alpha_route_current_key();
+}
+
+function sb_python_current_route(): ?array
+{
+    return sb_alpha_route_current();
+}
+
+function sb_python_partial_file(string $partial): string
+{
+    return sb_alpha_route_partial_file($partial);
+}
+
+function sb_python_register_rewrites(): void
+{
+    sb_alpha_route_register_rewrites();
+}
+
+function sb_python_add_query_vars(array $vars): array
+{
+    return sb_alpha_route_add_query_vars($vars);
+}
+
+function sb_python_store_route_version(): void
+{
+    sb_alpha_route_store_version();
+}
+
+function sb_python_maybe_flush_rewrites(): void
+{
+    sb_alpha_route_maybe_flush_rewrites();
+}
+
+function sb_python_flush_rewrites_on_switch(): void
+{
+    sb_alpha_route_flush_rewrites_on_switch();
+}
+
+function sb_python_prime_page_context(string $slug): void
+{
+    sb_alpha_route_prime_page_context($slug);
+}
+
+function sb_python_template_redirect(): void
+{
+    sb_alpha_route_template_redirect();
+}
+
+function sb_python_template_include(string $template): string
+{
+    return sb_alpha_route_template_include($template);
+}
+
+function sb_python_document_title_parts(array $parts): array
+{
+    return sb_alpha_route_document_title_parts($parts);
+}
+
+function sb_python_form_markup(string $route_key): string
+{
+    return sb_alpha_route_form_markup($route_key);
 }

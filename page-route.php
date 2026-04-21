@@ -1,7 +1,8 @@
 <?php
-$route = sb_python_current_route();
-$partial = is_array($route) ? (string) ($route['partial'] ?? '') : '';
-$partial_file = $partial !== '' ? sb_python_partial_file($partial) : '';
+$partial = function_exists('sb_alpha_route_current_partial') ? sb_alpha_route_current_partial() : '';
+$partial_file = $partial !== '' && function_exists('sb_alpha_route_partial_file')
+    ? sb_alpha_route_partial_file($partial)
+    : '';
 
 get_header();
 ?>
@@ -16,7 +17,7 @@ get_header();
         <div class="kicker">Маршрут</div>
         <h1 style="margin:8px 0 10px;">Страница пока не собрана локально</h1>
         <p class="muted" style="max-width:78ch;">
-          Для этого python-маршрута foundation уже подключен, но локальный partial ещё не добавлен в тему.
+          Для этого маршрута foundation уже подключен, но локальный partial ещё не добавлен в тему.
         </p>
         <div class="row" style="margin-top: var(--s-4); flex-wrap:wrap;">
           <a class="btn primary" href="<?php echo esc_url(sb_alpha_url('home')); ?>">На главную</a>
