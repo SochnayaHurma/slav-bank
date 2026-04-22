@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="<?php echo esc_url(sb_alpha_asset('css/v3-menu.css')); ?>" />
+<style>
+	.v3-links > li {
+		list-style: none;
+	}
+</style>
 <div class="v3-mobile-nav" data-v3-mobile-nav>
   <header class="header reveal v3-header" data-reveal="scale">
     <div class="container v3-nav">

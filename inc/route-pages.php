@@ -14,6 +14,215 @@ if (!defined('SB_PYTHON_ROUTE_VERSION')) {
     define('SB_PYTHON_ROUTE_VERSION', SB_ALPHA_ROUTE_VERSION);
 }
 
+
+function sb_alpha_route_aliases(): array
+{
+    return [
+        'vakansii-html'          => 'vacancies',
+        'vakansii.html'          => 'vacancies',
+        'vakansii'               => 'vacancies',
+
+        'napisat-v-bank-html'          => 'write-to-bank',
+        'napisat-v-bank.html'          => 'write-to-bank',
+        'napisat-v-bank'               => 'write-to-bank',
+
+        'kontakty-html'          => 'contacts',
+        'kontakty.html'          => 'contacts',
+        'kontakty'               => 'contacts',
+
+        'podderzhka-html'          => 'support',
+        'podderzhka.html'          => 'support',
+        'podderzhka'               => 'support',
+
+        'recom_bezopasnost-html'          => 'security',
+        'recom_bezopasnost.html'          => 'security',
+        'recom_bezopasnost'               => 'security',
+        'podderzhka-html/recom_bezopasnost-html'          => 'security',
+        'podderzhka-html/recom_bezopasnost.html'          => 'security',
+        'podderzhka-html/recom_bezopasnost'               => 'security',
+
+        'obrashhenie-po-123-fz-html'          => 'appeal-123-fz',
+        'obrashhenie-po-123-fz.html'          => 'appeal-123-fz',
+        'obrashhenie-po-123-fz'               => 'appeal-123-fz',
+
+        'covid19-html'          => 'covid19',
+        'covid19.html'          => 'covid19',
+        'covid19'               => 'covid19',
+
+        'klient-bank-online-html'          => 'client-bank-online',
+        'klient-bank-online.html'          => 'client-bank-online',
+        'klient-bank-online'               => 'client-bank-online',
+
+        'instrukcziya-po-rabote-v-sisteme-klient-bank-html'          => 'instruction',
+        'instrukcziya-po-rabote-v-sisteme-klient-bank.html'          => 'instruction',
+        'instrukcziya-po-rabote-v-sisteme-klient-bank'               => 'instruction',
+
+        'chasto-zadavaemye-voprosy-html'          => 'faq',
+        'chasto-zadavaemye-voprosy.html'          => 'faq',
+        'chasto-zadavaemye-voprosy'               => 'faq',
+
+        'regen-html'          => 'ecp-regeneration',
+        'regen.html'          => 'ecp-regeneration',
+        'regen'               => 'ecp-regeneration',
+
+        'chastnym-liczam-html'          => 'private-persons',
+        'chastnym-liczam.html'          => 'private-persons',
+        'chastnym-liczam'               => 'private-persons',
+
+        'otchetnost-html'          => 'reporting',
+        'otchetnost.html'          => 'reporting',
+        'otchetnost'               => 'reporting',
+
+        'o-banke-slavyanbank-html/organy_upravlenya-html'          => 'governance',
+        'o-banke-slavyanbank-html/organy_upravlenya.html'          => 'governance',
+        'o-banke-slavyanbank-html/organy_upravlenya'               => 'governance',
+        'organy_upravlenya-html'          => 'governance',
+        'organy_upravlenya.html'          => 'governance',
+        'organy_upravlenya'               => 'governance',
+
+        'o-banke-slavyanbank-html/info_bank-html-html'          => 'info-bank-page',
+        'o-banke-slavyanbank-html/info_bank-html.html'          => 'info-bank-page',
+        'o-banke-slavyanbank-html/info_bank-html'               => 'info-bank-page',
+        'info_bank-html-html'          => 'info-bank-page',
+        'info_bank-html.html'          => 'info-bank-page',
+        'info_bank-html'               => 'info-bank-page',
+        'informaciya-banka-html'          => 'info-bank-page',
+        'informaciya-banka.html'          => 'info-bank-page',
+        'informaciya-banka'               => 'info-bank-page',
+
+        'rekvizity-banka-html'          => 'requisites_bank',
+        'rekvizity-banka.html'          => 'requisites_bank',
+        'rekvizity-banka'               => 'requisites_bank',
+        'o-banke-slavyanbank-html/rekvizity-banka-html'          => 'requisites_bank',
+        'o-banke-slavyanbank-html/rekvizity-banka.html'          => 'requisites_bank',
+        'o-banke-slavyanbank-html/rekvizity-banka'               => 'requisites_bank',
+
+        'tarify-banka-html'          => 'tariffs',
+        'tarify-banka.html'          => 'tariffs',
+        'tarify-banka'               => 'tariffs',
+
+        'yuridicheskim-liczam-html'          => 'legal-entities',
+        'yuridicheskim-liczam.html'          => 'legal-entities',
+        'yuridicheskim-liczam'               => 'legal-entities',
+
+        'zapros-na-kreditovanie-msp-html'          => 'zapros-na-kreditovanie-msp',
+        'zapros-na-kreditovanie-msp.html'          => 'zapros-na-kreditovanie-msp',
+        'zapros-na-kreditovanie-msp'               => 'zapros-na-kreditovanie-msp',
+
+        'valutny-kontrol-html'          => 'currency-control',
+        'valutny-kontrol.html'          => 'currency-control',
+        'valutny-kontrol'               => 'currency-control',
+
+        'yuridicheskim-liczam-html/valutny-kontrol-html'          => 'currency-control',
+        'yuridicheskim-liczam-html/valutny-kontrol.html'          => 'currency-control',
+        'yuridicheskim-liczam-html/valutny-kontrol'               => 'currency-control',
+
+        'obsluzivanie-schetov-rf-html'          => 'account-service',
+        'obsluzivanie-schetov-rf.html'          => 'account-service',
+        'obsluzivanie-schetov-rf'               => 'account-service',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf-html'          => 'account-service',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html'          => 'account-service',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf'               => 'account-service',
+
+
+        'beznalichnye-raschety-html'          => 'cashless-payments',
+        'beznalichnye-raschety.html'          => 'cashless-payments',
+        'beznalichnye-raschety'               => 'cashless-payments',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety-html'          => 'cashless-payments',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html'          => 'cashless-payments',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety'               => 'cashless-payments',
+
+        'nalichnye-raschety-html'          => 'cash-payments',
+        'nalichnye-raschety.html'          => 'cash-payments',
+        'nalichnye-raschety'               => 'cash-payments',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety-html'          => 'cash-payments',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html'          => 'cash-payments',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety'               => 'cash-payments',
+
+        'pod-ft-fromu-html'          => 'aml-fatca',
+        'pod-ft-fromu.html'          => 'aml-fatca',
+        'pod-ft-fromu'               => 'aml-fatca',
+
+        'obsluzivanie-valut-schetov-html'          => 'fx-account-service',
+        'obsluzivanie-valut-schetov.html'          => 'fx-account-service',
+        'obsluzivanie-valut-schetov'               => 'fx-account-service',
+        'yuridicheskim-liczam-html/obsluzivanie-valut-schetov-html'          => 'fx-account-service',
+        'yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html'          => 'fx-account-service',
+        'yuridicheskim-liczam-html/obsluzivanie-valut-schetov'               => 'fx-account-service',
+
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom-html'          => 'payment-demands',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html'          => 'payment-demands',
+        'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom'               => 'payment-demands',
+        'platezhnye-trebovaniya-s-akczeptom-html'          => 'payment-demands',
+        'platezhnye-trebovaniya-s-akczeptom.html'          => 'payment-demands',
+        'platezhnye-trebovaniya-s-akczeptom'               => 'payment-demands',
+
+        'kreditovanie-yuridicheskih-licz-html'          => 'business-lending',
+        'kreditovanie-yuridicheskih-licz.html'          => 'business-lending',
+        'kreditovanie-yuridicheskih-licz'               => 'business-lending',
+        'yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz-html'          => 'business-lending',
+        'yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html'          => 'business-lending',
+        'yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz'               => 'business-lending',
+
+        'kreditovanie-yuridicheskih-licz-html'          => 'business-deposits',
+        'kreditovanie-yuridicheskih-licz.html'          => 'business-deposits',
+        'kreditovanie-yuridicheskih-licz'               => 'business-deposits',
+        'yuridicheskim-liczam-html/deposity-dlya-yur-lic-html'          => 'business-deposits',
+        'yuridicheskim-liczam-html/deposity-dlya-yur-lic.html'          => 'business-deposits',
+        'yuridicheskim-liczam-html/deposity-dlya-yur-lic'               => 'business-deposits',
+
+        'tarif_privetstvenny-html'          => 'tariff_privetstvenny',
+        'tarif_privetstvenny.html'          => 'tariff_privetstvenny',
+        'tarif_privetstvenny'               => 'tariff_privetstvenny',
+        'tarify-banka-html/tarif_privetstvenny.html-html'          => 'tariff_privetstvenny',
+        'tarify-banka-html/tarif_privetstvenny.html.html'          => 'tariff_privetstvenny',
+        'tarify-banka-html/tarif_privetstvenny.html'               => 'tariff_privetstvenny',
+
+        'tarif_slavny-html'          => 'tariffs_slavny',
+        'tarif_slavny.html'          => 'tariffs_slavny',
+        'tarif_slavny'               => 'tariffs_slavny',
+        'tarify-banka-html/tarif_slavny.html-html'          => 'tariffs_slavny',
+        'tarify-banka-html/tarif_slavny.html.html'          => 'tariffs_slavny',
+        'tarify-banka-html/tarif_slavny.html'               => 'tariffs_slavny',
+    ];
+}
+
+function sb_alpha_request_path(): string
+{
+    $uri  = (string) ($_SERVER['REQUEST_URI'] ?? '/');
+    $path = (string) parse_url($uri, PHP_URL_PATH);
+
+    return trim($path, '/');
+}
+
+function sb_alpha_redirect_route_aliases(): void
+{
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+
+    $requested = sb_alpha_request_path();
+    if ($requested === '') {
+        return;
+    }
+
+    $aliases = sb_alpha_route_aliases();
+    if (!isset($aliases[$requested])) {
+        return;
+    }
+
+    $target = sb_alpha_url($aliases[$requested]);
+    $targetPath = trim((string) parse_url($target, PHP_URL_PATH), '/');
+
+    if ($targetPath === '' || $targetPath === $requested) {
+        return;
+    }
+
+    wp_safe_redirect($target, 301, 'Slavyanbank Canonical');
+    exit;
+}
+add_action('template_redirect', 'sb_alpha_redirect_route_aliases', 0);
+
 function sb_alpha_route_definitions(): array
 {
     static $routes = null;
@@ -31,7 +240,7 @@ function sb_alpha_route_definitions(): array
             'page_context_slug' => 'informaciya-banka',
         ],
         'requisites_bank' => [
-            'path' => 'o-banke-slavyanbank-html/rekvizity-banka.html',
+            'path' => 'o-banke-slavyanbank-html/rekvizity-banka-html',
             'title' => 'Реквизиты банка - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'template_file',
             'template_file' => 'page-rekvizity-banka.php',
@@ -44,7 +253,7 @@ function sb_alpha_route_definitions(): array
             'external_url' => 'https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html/',
         ],
         'reporting' => [
-            'path' => 'otchetnost.html',
+            'path' => 'otchetnost-html',
             'title' => 'Отчетность - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'template_file',
             'template_file' => 'page-otchetnost.php',
@@ -70,7 +279,7 @@ function sb_alpha_route_definitions(): array
             'page_context_slug' => 'novosti',
         ],
         'tariffs' => [
-            'path' => 'tarify-banka.html',
+            'path' => 'tarify-banka-html',
             'title' => 'Тарифы банка - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'template_file',
             'template_file' => 'page-tarify-banka.php',
@@ -83,13 +292,13 @@ function sb_alpha_route_definitions(): array
             'external_url' => 'https://slavbank.ru/tarify-banka-html/tarify_rf.html/',
         ],
         'tariffs_slavny' => [
-            'path' => 'tarify-banka-html/tarif_slavny.html',
+            'path' => 'tarify-banka-html/tarif_slavny',
             'title' => 'Тарифы «Славный» - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_slavny.html/',
         ],
         'tariff_privetstvenny' => [
-            'path' => 'tarify-banka-html/tarif_privetstvenny.html',
+            'path' => 'tarify-banka-html/tarif_privetstvenny',
             'title' => 'Тарифы «Приветственный» - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html/',
@@ -101,49 +310,49 @@ function sb_alpha_route_definitions(): array
             'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_depositny/',
         ],
         'tariffs-foreign-currency' => [
-            'path' => 'tarify-banka-html/tarify_valuta.html',
+            'path' => 'tarify-banka-html/tarify_valuta-html',
             'title' => 'Тарифы в иностранной валюте - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/tarify-banka-html/tarify_valuta.html/',
         ],
         'legal-entities' => [
-            'path' => 'yuridicheskim-liczam',
+            'path' => 'yuridicheskim-liczam-html',
             'title' => 'Юридическим лицам - АО НКБ "СЛАВЯНБАНК"',
                         'template_file' => 'page-tarify-banka.php',
             'page_context_slug' => 'legal-entities',
         ],
         'business-deposits' => [
-            'path' => 'yuridicheskim-liczam-html/deposity-dlya-yur-lic.html',
+            'path' => 'yuridicheskim-liczam-html/deposity-dlya-yur-lic',
             'title' => 'Депозиты для юридических лиц - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/yuridicheskim-liczam-html/deposity-dlya-yur-lic.html/',
         ],
         'business-lending' => [
-            'path' => 'yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html',
+            'path' => 'yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz',
             'title' => 'Кредитование юридических лиц - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/yuridicheskim-liczam-html/kreditovanie-yuridicheskih-licz.html/',
         ],
         'account-service' => [
-            'path' => 'yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html',
+            'path' => 'yuridicheskim-liczam-html/obsluzivanie-schetov-rf-html',
             'title' => 'Обслуживание счетов в валюте РФ - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf.html/',
         ],
         'fx-account-service' => [
-            'path' => 'yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html',
+            'path' => 'yuridicheskim-liczam-html/obsluzivanie-valut-schetov',
             'title' => 'Обслуживание счетов в иностранной валюте - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-valut-schetov.html/',
         ],
         'currency-control' => [
-            'path' => 'yuridicheskim-liczam-html/valutny-kontrol',
+            'path' => 'yuridicheskim-liczam-html/valutny-kontrol-html',
             'title' => 'Валютный контроль - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'template_file',
             'template_file' => 'page-valutny-kontrol.php',
         ],
         'aml-fatca' => [
-            'path' => 'pod-ft-fromu.html',
+            'path' => 'pod-ft-fromu',
             'title' => 'ПОД/ФТ/ФРОМУ/FATCA - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/pod-ft-fromu.html/',
@@ -155,19 +364,20 @@ function sb_alpha_route_definitions(): array
             'external_url' => 'https://slavbank.ru/crs-obmen-s-fns.html/',
         ],
         'cashless-payments' => [
-            'path' => 'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html',
+            'path' => 'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety',
             'title' => 'Безналичные расчеты - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety.html/',
         ],
         'cash-payments' => [
-            'path' => 'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html',
+            'path' => 'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety',
             'title' => 'Наличные расчеты - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/nalichnye-raschety.html/',
+            'mode' => 'template_file',
+            'template_file' => 'page-nalichnye-raschety.php',
+            'page_context_slug' => 'nalichnye-raschety',
         ],
         'payment-demands' => [
-            'path' => 'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html',
+            'path' => 'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom',
             'title' => 'Платежные требования с акцептом - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html/',
@@ -179,7 +389,7 @@ function sb_alpha_route_definitions(): array
             'external_url' => 'https://slavbank.ru/chastnym-liczam.html/',
         ],
         'client-bank-online' => [
-            'path' => 'klient-bank-online',
+            'path' => 'klient-bank-online-html',
             'title' => 'Клиент-Банк - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'template_file',
             'template_file' => 'page-klient-bank-online.php',
@@ -211,13 +421,14 @@ function sb_alpha_route_definitions(): array
             'page_context_slug' => 'podderzhka',
         ],
         'security' => [
-            'path' => 'podderzhka-html/recom_bezopasnost.html',
+            'path' => 'podderzhka/recom_bezopasnost',
             'title' => 'Рекомендации по безопасности - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/podderzhka-html/recom_bezopasnost.html/',
+            'external_url' => 'https://slavbank.ru/podderzhka/recom_bezopasnost/',
+
         ],
         'appeal-123-fz' => [
-            'path' => 'obrashhenie-po-123-fz.html',
+            'path' => 'obrashhenie-po-123-fz',
             'title' => 'Обращение по 123-ФЗ - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/obrashhenie-po-123-fz.html/',
@@ -229,7 +440,7 @@ function sb_alpha_route_definitions(): array
             'external_url' => 'https://slavbank.ru/covid19.html/',
         ],
         'contacts' => [
-            'path' => 'kontakty.html',
+            'path' => 'kontakty-html',
             'title' => 'Контакты - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'template_file',
             'template_file' => 'page-kontakty.php',
@@ -242,8 +453,8 @@ function sb_alpha_route_definitions(): array
             'template_file' => 'page-napisat-v-bank.php',
             'page_context_slug' => 'napisat-v-bank',
         ],
-        'vacancies' => [
-            'path' => 'vakansii.html',
+        'vacancies' => [ //+
+            'path' => 'vakansii-html',
             'title' => 'Вакансии - АО НКБ "СЛАВЯНБАНК"',
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/vakansii.html/',

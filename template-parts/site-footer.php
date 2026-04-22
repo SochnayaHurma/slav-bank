@@ -1,3 +1,9 @@
+
+<style>
+	.menu-item {
+		list-style: none;
+	}
+</style>
 <footer class="footI">
   <div class="container">
     <div class="sitemap">

@@ -7,7 +7,7 @@ $font_cygre = esc_url(sb_alpha_asset('fonts/Cygre-SemiBold.woff2'));
     @font-face {
   font-family: "Cygre";
   src: url("assets/fonts/Cygre-Book.woff2") format("woff2");
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -159,6 +159,8 @@ $font_cygre = esc_url(sb_alpha_asset('fonts/Cygre-SemiBold.woff2'));
   @media (max-width: 1180px) {
     .v3-hero-grid, .v3-profile { grid-template-columns:1fr; }
     .v3-routes, .v3-news { grid-template-columns:repeat(2, 1fr); }
+	      .v3-side {display: none;}
+	  .v3-links > li {margin-bottom: 20px;}
   }
   @media (max-width: 760px) {
     .v3-brand { width:160px; flex:0 0 auto; }

@@ -893,3 +893,12 @@ function sb_alpha_should_preserve_wp_post_styles(): bool
 {
     return !is_admin() && is_singular('post');
 }
+add_action('wp_enqueue_scripts', function () {
+    $styles = wp_styles();
+
+    foreach (['common', 'forms'] as $handle) {
+        if (isset($styles->registered[$handle])) {
+            $styles->registered[$handle]->src = false;
+        }
+    }
+}, 100);

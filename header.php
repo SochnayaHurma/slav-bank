@@ -36,9 +36,15 @@ $home_menu_candidate = get_theme_file_path('template-parts/site-menu-home.php');
 <div class="overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Поиск по сайту">
   <div class="modal card pad">
     <div class="row" style="align-items: center">
-      <div style="font-weight: 600">Поиск</div>
+      <div style="font-weight: bold">Поиск</div>
       <div class="spacer"></div>
-      <button class="btn" id="searchClose" type="button">Закрыть</button>
+      <button class="btn outline" style="
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 300;
+" id="searchClose" type="button">х</button>
     </div>
 
     <form class="searchbox" style="margin-top: 12px" role="search" method="get" action="<?php echo esc_url(sb_alpha_url('search')); ?>">
@@ -51,7 +57,7 @@ $home_menu_candidate = get_theme_file_path('template-parts/site-menu-home.php');
         autocomplete="off"
         value="<?php echo esc_attr(sb_alpha_get_search_term()); ?>"
       />
-      <button class="btn primary" type="submit">Найти</button>
+      <button class="btn outline" type="submit">Найти</button>
     </form>
 
     <div id="searchHints" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px">

@@ -6,7 +6,11 @@ $route_ved_image = esc_url(sb_alpha_asset('img/home/route-ved.svg'));
 $route_control_image = esc_url(sb_alpha_asset('img/home/route-control.svg'));
 get_header();
 ?>
-
+<style>
+	.v3-title {
+		color: white;
+	}
+</style>
 
 <main id="main" class="v3home">
   <section class="block">
