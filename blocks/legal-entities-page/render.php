@@ -16,7 +16,7 @@ if ($hero_image_url === '' && function_exists('sb_alpha_asset')) {
 }
 
 if (function_exists('get_template_part')) {
-    get_template_part('template-parts/route-partials/top-level-v4', 'styles');
+    get_template_part('template-parts/top-level-v4', 'styles');
 }
 
 $routes = function_exists('sb_contacts_routes') ? sb_contacts_routes() : [

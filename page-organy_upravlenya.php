@@ -1,6 +1,12 @@
-<?php
-$helper = get_theme_file_path('inc/route-migration-bank-pages.php');
-if (is_string($helper) && $helper !== '' && file_exists($helper)) {
-    require_once $helper;
-}
-require get_theme_file_path('template-parts/routes/governance-page.php');
+<?php get_header(); ?>
+
+<main id="main">
+    <?php
+    while (have_posts()) :
+        the_post();
+        the_content();
+    endwhile;
+    ?>
+</main>
+
+<?php get_footer(); ?>

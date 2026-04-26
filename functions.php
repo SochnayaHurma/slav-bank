@@ -7,16 +7,12 @@ if (!defined('ABSPATH')) {
 
 require_once get_template_directory() . '/inc/page-data.php';
 require_once get_template_directory() . '/inc/route-pages.php';
-require_once get_template_directory() . '/inc/route-partial-overrides.php';
 require_once get_template_directory() . '/inc/content-slots.php';
 require_once get_template_directory() . '/inc/page-mode.php';
 require_once get_template_directory() . '/inc/home-stack-data.php';
 require_once get_template_directory() . '/inc/admin-home-stack.php';
 
 // Миграции
-// require_once get_template_directory() . '/migrations/slavbank-reporting-tariffs-migration-patterns.php';
-// require_once get_template_directory() . '/migrations/slavbank-requisites-tariffs-nohero-migration-patterns.php';
-// require_once get_template_directory() . '/migrations/slavbank-requisites-filled-migration.php';
 require_once get_template_directory() . '/migrations/bootstrap.php';
 require_once get_template_directory() . '/inc/contacts-page-shared.php';
 require_once get_template_directory() . '/inc/blocks-contacts.php';
@@ -28,7 +24,7 @@ const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
 function sb_alpha_get_dynamic_styles_css(): string
 {
     ob_start();
-    include get_template_directory() . '/dynamic-styles.php'; // <-- подставь реальный путь
+    include get_template_directory() . '/dynamic-styles.php';
     $css = (string) ob_get_clean();
 
     $css = preg_replace('#^\s*<style[^>]*>#i', '', $css);
@@ -51,8 +47,6 @@ add_filter('block_editor_settings_all', function (array $settings, $context): ar
     return $settings;
 }, 10, 2);
 
-// 
-// 
 add_action('init', function () {
     $blocks_dir = __DIR__ . '/mine-front/build/blocks';
     $blocks_manifest = __DIR__ . '/mine-front/build/blocks-manifest.php';

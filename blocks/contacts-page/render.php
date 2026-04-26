@@ -22,7 +22,7 @@ if ($hero_image_url === '' && function_exists('sb_alpha_asset')) {
 
 if (function_exists('get_template_part')) {
     // Если v4-стили у тебя до сих пор живут отдельным template-part, можно временно переиспользовать их так.
-    get_template_part('template-parts/route-partials/top-level-v4', 'styles');
+    get_template_part('template-parts/top-level-v4', 'styles');
 }
 
 ob_start();
