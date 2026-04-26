@@ -21,6 +21,8 @@ require_once get_template_directory() . '/migrations/bootstrap.php';
 require_once get_template_directory() . '/inc/contacts-page-shared.php';
 require_once get_template_directory() . '/inc/blocks-contacts.php';
 
+require_once get_template_directory() . '/inc/legacy-page-redirects.php'; // Подключение legacy роутов
+
 
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
 
@@ -414,28 +416,82 @@ function sb_alpha_wp_page_url(string $slug, string $fallback = ''): string
 function sb_alpha_routes(): array
 {
     return [
+        // TODO +++ Перенос первого чанка
+//         'info-bank-page' => sb_alpha_wp_page_url('o-banke-slavyanbank-html-info_bank-html', sb_alpha_route_url('info-bank-page')),
+//         'requisites_bank' => sb_alpha_route_url('requisites_bank'),
+//   'requisites_bank' => sb_alpha_route_url('requisites_bank'),
+//         'governance' => sb_alpha_route_url('governance'),
+//         'reporting' => sb_alpha_route_url('reporting'),
+//         'disclosur-regulatory' => sb_alpha_route_url('disclosur-regulatory'),
+//         'notaries' => sb_alpha_route_url('notaries'),
+// //         'tariffs' => sb_alpha_wp_page_url('tarify-banka-html', sb_alpha_route_url('tariffs')),
+//         'tariffs' => sb_alpha_route_url('tariffs'),
+//   'tariffs_rub' => sb_alpha_wp_page_url('tarify_rf', sb_alpha_route_url('tariffs_rub')),
+//         // 'tariffs_rub' => sb_alpha_route_url('tariffs_rub'),
+//   'tariffs_slavny' => sb_alpha_wp_page_url('tarif_slavny', sb_alpha_route_url('tariffs_slavny')),
+//         // 'tariffs_slavny' => sb_alpha_route_url('tariffs_slavny'),
+//   'tariff_privetstvenny' => sb_alpha_wp_page_url('tarif_privetstvenny', sb_alpha_route_url('tariff_privetstvenny')),
+//         // 'tariff_privetstvenny' => sb_alpha_route_url('tariff_privetstvenny'),
+        // TODO --- Перенос первого чанка
+// todo +++ Новый чанк 1
+'info-bank-page' => sb_alpha_wp_page_url(
+    'o-banke-slavyanbank-html-info_bank-html',
+    home_url('/o-banke-slavyanbank-html-info_bank-html/')
+),
+
+'requisites_bank' => sb_alpha_wp_page_url(
+    'rekvizity-banka-html',
+    home_url('/rekvizity-banka-html/')
+),
+
+'governance' => sb_alpha_wp_page_url(
+    'organy_upravlenya',
+    home_url('/organy_upravlenya/')
+),
+
+'reporting' => sb_alpha_wp_page_url(
+    'otchetnost-html',
+    home_url('/otchetnost-html/')
+),
+
+'disclosur-regulatory' => sb_alpha_wp_page_url(
+    'raskritie-informacii',
+    home_url('/raskritie-informacii/')
+),
+
+'notaries' => sb_alpha_wp_page_url(
+    'informacziya-dlya-notariusov',
+    home_url('/informacziya-dlya-notariusov/')
+),
+
+'tariffs' => sb_alpha_wp_page_url(
+    'tarify-banka-html',
+    home_url('/tarify-banka-html/')
+),
+
+'tariffs_rub' => sb_alpha_wp_page_url(
+    'tarify_rf-html',
+    home_url('/tarify_rf-html/')
+),
+
+'tariffs_slavny' => sb_alpha_wp_page_url(
+    'tarif_slavny',
+    home_url('/tarif_slavny/')
+),
+
+'tariff_privetstvenny' => sb_alpha_wp_page_url(
+    'tarif_privetstvenny',
+    home_url('/tarif_privetstvenny/')
+),
+// todo --- Новый чанк 1
+
         'home' => home_url('/'),
         'search' => sb_alpha_search_page_url(),
-        'info-bank-page' => sb_alpha_wp_page_url('o-banke-slavyanbank-html-info_bank-html', sb_alpha_route_url('info-bank-page')),
-        'requisites_bank' => sb_alpha_route_url('requisites_bank'),
-        'governance' => sb_alpha_route_url('governance'),
-        'reporting' => sb_alpha_route_url('reporting'),
-        'disclosur-regulatory' => sb_alpha_route_url('disclosur-regulatory'),
-        'notaries' => sb_alpha_route_url('notaries'),
         'novosti' => sb_alpha_route_url('novosti'),
-//         'tariffs' => sb_alpha_wp_page_url('tarify-banka-html', sb_alpha_route_url('tariffs')),
-        'tariffs' => sb_alpha_route_url('tariffs'),
 //   'requisites_bank' => sb_alpha_wp_page_url('rekvizity-banka', sb_alpha_route_url('requisites_bank')),
-  'requisites_bank' => sb_alpha_route_url('requisites_bank'),
 //   'reporting' => sb_alpha_wp_page_url('otchetnost', sb_alpha_route_url('reporting')),
-  'tariffs_rub' => sb_alpha_wp_page_url('tarify_rf', sb_alpha_route_url('tariffs_rub')),
-  'tariffs_slavny' => sb_alpha_wp_page_url('tarif_slavny', sb_alpha_route_url('tariffs_slavny')),
-  'tariff_privetstvenny' => sb_alpha_wp_page_url('tarif_privetstvenny', sb_alpha_route_url('tariff_privetstvenny')),
 //   'tariff-depositny' => sb_alpha_wp_page_url('tarif_depositny', sb_alpha_route_url('tariff-depositny')),
   'tariffs-foreign-currency' => sb_alpha_wp_page_url('tarify_valuta', sb_alpha_route_url('tariffs-foreign-currency')),
-        // 'tariffs_rub' => sb_alpha_route_url('tariffs_rub'),
-        // 'tariffs_slavny' => sb_alpha_route_url('tariffs_slavny'),
-        // 'tariff_privetstvenny' => sb_alpha_route_url('tariff_privetstvenny'),
         'tariff-depositny' => sb_alpha_route_url('tariff-depositny'),
         // 'tariffs-foreign-currency' => sb_alpha_route_url('tariffs-foreign-currency'),
         'legal-entities' => sb_alpha_route_url('legal-entities'),
