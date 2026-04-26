@@ -31,11 +31,40 @@ function sb_alpha_route_aliases(): array
 'podderzhka-html/regen'      => 'ecp-regeneration',
 
 'podderzhka/recom_bezopasnost' => 'security',
+'tarify_valuta-html'                  => 'tariffs-foreign-currency',
+'tarify_valuta.html'                  => 'tariffs-foreign-currency',
+'tarify_valuta'                       => 'tariffs-foreign-currency',
+'tarify-banka-html/tarify_valuta.html'=> 'tariffs-foreign-currency',
+'tarify-banka-html/tarify_valuta'     => 'tariffs-foreign-currency',
 
+'tarif_depositny-html-html'                  => 'tariff-depositny',
+'tarif_depositny-html.html'                  => 'tariff-depositny',
+'tarif_depositny-html'                       => 'tariff-depositny',
+'tarif_depositny.html'                       => 'tariff-depositny',
+'tarif_depositny'                            => 'tariff-depositny',
+'tarify-banka-html/tarif_depositny.html'     => 'tariff-depositny',
+'tarify-banka-html/tarif_depositny'          => 'tariff-depositny',
 
-        'vakansii-html'          => 'vacancies',
-        'vakansii.html'          => 'vacancies',
-        'vakansii'               => 'vacancies',
+'crs-obmen-s-fns-html' => 'crs',
+'crs-obmen-s-fns.html' => 'crs',
+'crs-obmen-s-fns'      => 'crs',
+
+'chastnym-liczam-html' => 'private-persons',
+'chastnym-liczam.html' => 'private-persons',
+'chastnym-liczam'      => 'private-persons',
+
+'vakansii-html' => 'vacancies',
+'vakansii.html' => 'vacancies',
+'vakansii'      => 'vacancies',
+
+'zapros-na-otkrytie-raschetnogo-scheta-html' => 'zapros-na-otkrytie-raschetnogo-scheta',
+'zapros-na-otkrytie-raschetnogo-scheta.html' => 'zapros-na-otkrytie-raschetnogo-scheta',
+'zapros-na-otkrytie-raschetnogo-scheta'      => 'zapros-na-otkrytie-raschetnogo-scheta',
+
+'zapros-na-kreditovanie-msp-html' => 'zapros-na-kreditovanie-msp',
+'zapros-na-kreditovanie-msp.html' => 'zapros-na-kreditovanie-msp',
+'zapros-na-kreditovanie-msp'      => 'zapros-na-kreditovanie-msp',
+
 
         'napisat-v-bank-html'          => 'write-to-bank',
         'napisat-v-bank.html'          => 'write-to-bank',
@@ -80,9 +109,6 @@ function sb_alpha_route_aliases(): array
         'regen.html'          => 'ecp-regeneration',
         'regen'               => 'ecp-regeneration',
 
-        'chastnym-liczam-html'          => 'private-persons',
-        'chastnym-liczam.html'          => 'private-persons',
-        'chastnym-liczam'               => 'private-persons',
 
         'otchetnost-html'          => 'reporting',
         'otchetnost.html'          => 'reporting',
@@ -120,9 +146,6 @@ function sb_alpha_route_aliases(): array
         'yuridicheskim-liczam.html'          => 'legal-entities',
         'yuridicheskim-liczam'               => 'legal-entities',
 
-        'zapros-na-kreditovanie-msp-html'          => 'zapros-na-kreditovanie-msp',
-        'zapros-na-kreditovanie-msp.html'          => 'zapros-na-kreditovanie-msp',
-        'zapros-na-kreditovanie-msp'               => 'zapros-na-kreditovanie-msp',
 
         'valutny-kontrol-html'          => 'currency-control',
         'valutny-kontrol.html'          => 'currency-control',
@@ -319,18 +342,18 @@ function sb_alpha_route_definitions(): array
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html/',
         ],
-        'tariff-depositny' => [
-            'path' => 'tarify-banka-html/tarif_depositny-html',
-            'title' => 'Тарифы «Депозитный» - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_depositny/',
-        ],
-        'tariffs-foreign-currency' => [
-            'path' => 'tarify-banka-html/tarify_valuta-html',
-            'title' => 'Тарифы в иностранной валюте - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/tarify-banka-html/tarify_valuta.html/',
-        ],
+        // 'tariff-depositny' => [
+        //     'path' => 'tarify-banka-html/tarif_depositny-html',
+        //     'title' => 'Тарифы «Депозитный» - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_depositny/',
+        // ],
+        // 'tariffs-foreign-currency' => [
+        //     'path' => 'tarify-banka-html/tarify_valuta-html',
+        //     'title' => 'Тарифы в иностранной валюте - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/tarify-banka-html/tarify_valuta.html/',
+        // ],
         // 'legal-entities' => [
         //     'path' => 'yuridicheskim-liczam-html',
         //     'title' => 'Юридическим лицам - АО НКБ "СЛАВЯНБАНК"',
@@ -373,12 +396,12 @@ function sb_alpha_route_definitions(): array
         //     'mode' => 'external_redirect',
         //     'external_url' => 'https://slavbank.ru/pod-ft-fromu.html/',
         // ],
-        'crs' => [
-            'path' => 'crs-obmen-s-fns.html',
-            'title' => 'CRS — обмен с ФНС - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/crs-obmen-s-fns.html/',
-        ],
+        // 'crs' => [
+        //     'path' => 'crs-obmen-s-fns.html',
+        //     'title' => 'CRS — обмен с ФНС - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/crs-obmen-s-fns.html/',
+        // ],
         // 'cashless-payments' => [
         //     'path' => 'yuridicheskim-liczam-html/obsluzivanie-schetov-rf/beznalichnye-raschety',
         //     'title' => 'Безналичные расчеты - АО НКБ "СЛАВЯНБАНК"',
@@ -398,12 +421,12 @@ function sb_alpha_route_definitions(): array
         //     'mode' => 'external_redirect',
         //     'external_url' => 'https://slavbank.ru/yuridicheskim-liczam-html/obsluzivanie-schetov-rf/platezhnye-trebovaniya-s-akczeptom.html/',
         // ],
-        'private-persons' => [
-            'path' => 'chastnym-liczam.html',
-            'title' => 'Частным лицам - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/chastnym-liczam.html/',
-        ],
+        // 'private-persons' => [
+        //     'path' => 'chastnym-liczam.html',
+        //     'title' => 'Частным лицам - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/chastnym-liczam.html/',
+        // ],
         // 'client-bank-online' => [
         //     'path' => 'klient-bank-online-html',
         //     'title' => 'Клиент-Банк - АО НКБ "СЛАВЯНБАНК"',
@@ -469,24 +492,24 @@ function sb_alpha_route_definitions(): array
         //     'template_file' => 'page-napisat-v-bank.php',
         //     'page_context_slug' => 'napisat-v-bank',
         // ],
-        'vacancies' => [ //+
-            'path' => 'vakansii-html',
-            'title' => 'Вакансии - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/vakansii.html/',
-        ],
-        'zapros-na-otkrytie-raschetnogo-scheta' => [
-            'path' => 'zapros-na-otkrytie-raschetnogo-scheta.html',
-            'title' => 'Запрос на открытие расчетного счета - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/zapros-na-otkrytie-raschetnogo-scheta.html/',
-        ],
-        'zapros-na-kreditovanie-msp' => [
-            'path' => 'zapros-na-kreditovanie-msp.html',
-            'title' => 'Запрос на кредитование МСП - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/zapros-na-kreditovanie-msp.html/',
-        ],
+        // 'vacancies' => [ //+
+        //     'path' => 'vakansii-html',
+        //     'title' => 'Вакансии - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/vakansii.html/',
+        // ],
+        // 'zapros-na-otkrytie-raschetnogo-scheta' => [
+        //     'path' => 'zapros-na-otkrytie-raschetnogo-scheta.html',
+        //     'title' => 'Запрос на открытие расчетного счета - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/zapros-na-otkrytie-raschetnogo-scheta.html/',
+        // ],
+        // 'zapros-na-kreditovanie-msp' => [
+        //     'path' => 'zapros-na-kreditovanie-msp.html',
+        //     'title' => 'Запрос на кредитование МСП - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/zapros-na-kreditovanie-msp.html/',
+        // ],
     ];
 
     return $routes;

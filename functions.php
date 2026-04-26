@@ -354,7 +354,6 @@ function sb_alpha_document_title_parts(array $parts): array
         'podderzhka' => 'Поддержка - АО НКБ "СЛАВЯНБАНК"',
         'tarify-banka' => 'Тарифы банка - АО НКБ "СЛАВЯНБАНК"',
 
-        'otchetnost' => 'Отчетность - АО НКБ "СЛАВЯНБАНК"',
         'tarify-banka-html' => 'Тарифы банка - АО НКБ "СЛАВЯНБАНК"',
         'tarify_rf' => 'Тарифы по операциям в валюте РФ - АО НКБ "СЛАВЯНБАНК"',
         'tarify_valuta' => 'Тарифы по операциям в иностранной валюте - АО НКБ "СЛАВЯНБАНК"',
@@ -379,6 +378,13 @@ function sb_alpha_document_title_parts(array $parts): array
 'kreditovanie-yuridicheskih-licz' => 'Кредитование юридических лиц - АО НКБ "СЛАВЯНБАНК"',
 'deposity-dlya-yur-lic' => 'Депозиты для юридических лиц - АО НКБ "СЛАВЯНБАНК"',
 'pod-ft-fromu' => 'ПОД/ФТ/ФРОМУ/FATCA - АО НКБ "СЛАВЯНБАНК"',
+'tarify_valuta-html' => 'Тарифы по операциям в иностранной валюте - АО НКБ "СЛАВЯНБАНК"',
+'tarif_depositny-html-html' => 'Тарифы «Депозитный» - АО НКБ "СЛАВЯНБАНК"',
+'crs-obmen-s-fns' => 'CRS — обмен с ФНС - АО НКБ "СЛАВЯНБАНК"',
+'chastnym-liczam' => 'Частным лицам - АО НКБ "СЛАВЯНБАНК"',
+'vakansii-html' => 'Вакансии - АО НКБ "СЛАВЯНБАНК"',
+'zapros-na-otkrytie-raschetnogo-scheta-html' => 'Запрос на открытие расчетного счета - АО НКБ "СЛАВЯНБАНК"',
+'zapros-na-kreditovanie-msp' => 'Запрос на кредитование МСП - АО НКБ "СЛАВЯНБАНК"',
     ];
 
     foreach ($page_titles as $slug => $title) {
@@ -475,6 +481,28 @@ function sb_alpha_routes(): array
         // 'business-lending' => sb_alpha_route_url('business-lending'),
         // 'aml-fatca' => sb_alpha_route_url('aml-fatca'),
         // TODO --- Перенос третьего чанка
+        // TODO +++ Перенос четвертого чанка
+
+//   'tariffs-foreign-currency' => sb_alpha_wp_page_url('tarify_valuta', sb_alpha_route_url('tariffs-foreign-currency')),
+//         'tariff-depositny' => sb_alpha_route_url('tariff-depositny'),
+//         // 'tariffs-foreign-currency' => sb_alpha_route_url('tariffs-foreign-currency'),
+//         'crs' => sb_alpha_route_url('crs'),
+//         'private-persons' => sb_alpha_route_url('private-persons'),
+//         'vacancies' => sb_alpha_route_url('vacancies'),
+//         // 'zapros-na-otkrytie-raschetnogo-scheta' => sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
+//         // 'zapros-na-kreditovanie-msp' => sb_alpha_route_url('zapros-na-kreditovanie-msp'),
+//         'zapros-na-otkrytie-raschetnogo-scheta' =>
+//     sb_alpha_wp_page_url(
+//         'zapros-na-otkrytie-raschetnogo-scheta',
+//         sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta')
+//     ),
+// 'zapros-na-kreditovanie-msp' =>
+//     sb_alpha_wp_page_url(
+//         'zapros-na-kreditovanie-msp',
+//         sb_alpha_route_url('zapros-na-kreditovanie-msp')
+//     ),
+
+        // TODO --- Перенос четвертого чанка
 
 // todo +++ Новый чанк 1
 'info-bank-page' => sb_alpha_wp_page_url(
@@ -631,6 +659,42 @@ function sb_alpha_routes(): array
 ),
 
 // todo --- Новый чанк 3
+// todo +++ Новый чанк 4
+'tariffs-foreign-currency' => sb_alpha_wp_page_url(
+    'tarify_valuta-html',
+    home_url('/tarify_valuta-html/')
+),
+
+'tariff-depositny' => sb_alpha_wp_page_url(
+    'tarif_depositny-html-html',
+    home_url('/tarif_depositny-html-html/')
+),
+
+'crs' => sb_alpha_wp_page_url(
+    'crs-obmen-s-fns',
+    home_url('/crs-obmen-s-fns/')
+),
+
+'private-persons' => sb_alpha_wp_page_url(
+    'chastnym-liczam',
+    home_url('/chastnym-liczam/')
+),
+
+'vacancies' => sb_alpha_wp_page_url(
+    'vakansii-html',
+    home_url('/vakansii-html/')
+),
+
+'zapros-na-otkrytie-raschetnogo-scheta' => sb_alpha_wp_page_url(
+    'zapros-na-otkrytie-raschetnogo-scheta-html',
+    home_url('/zapros-na-otkrytie-raschetnogo-scheta-html/')
+),
+
+'zapros-na-kreditovanie-msp' => sb_alpha_wp_page_url(
+    'zapros-na-kreditovanie-msp',
+    home_url('/zapros-na-kreditovanie-msp/')
+),
+// todo --- Новый чанк 4
 
         'home' => home_url('/'),
         'search' => sb_alpha_search_page_url(),
@@ -638,27 +702,7 @@ function sb_alpha_routes(): array
 //   'requisites_bank' => sb_alpha_wp_page_url('rekvizity-banka', sb_alpha_route_url('requisites_bank')),
 //   'reporting' => sb_alpha_wp_page_url('otchetnost', sb_alpha_route_url('reporting')),
 //   'tariff-depositny' => sb_alpha_wp_page_url('tarif_depositny', sb_alpha_route_url('tariff-depositny')),
-  'tariffs-foreign-currency' => sb_alpha_wp_page_url('tarify_valuta', sb_alpha_route_url('tariffs-foreign-currency')),
-        'tariff-depositny' => sb_alpha_route_url('tariff-depositny'),
-        // 'tariffs-foreign-currency' => sb_alpha_route_url('tariffs-foreign-currency'),
 
-        'crs' => sb_alpha_route_url('crs'),
-        'private-persons' => sb_alpha_route_url('private-persons'),
-
-        'vacancies' => sb_alpha_route_url('vacancies'),
-        // 'zapros-na-otkrytie-raschetnogo-scheta' => sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
-        // 'zapros-na-kreditovanie-msp' => sb_alpha_route_url('zapros-na-kreditovanie-msp'),
-        'zapros-na-otkrytie-raschetnogo-scheta' =>
-    sb_alpha_wp_page_url(
-        'zapros-na-otkrytie-raschetnogo-scheta',
-        sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta')
-    ),
-
-'zapros-na-kreditovanie-msp' =>
-    sb_alpha_wp_page_url(
-        'zapros-na-kreditovanie-msp',
-        sb_alpha_route_url('zapros-na-kreditovanie-msp')
-    ),
         'client-bank-primary-login' => 'https://dbo.slavbank.ru:20101/',
         'client-bank-backup-login' => 'https://dbo1.slavbank.ru:20101/',
         'client-bank-login' => 'https://ved.slavbank.ru/',
