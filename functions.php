@@ -361,7 +361,14 @@ function sb_alpha_document_title_parts(array $parts): array
         'tarif_slavny' => 'Тарифы «Славный» - АО НКБ "СЛАВЯНБАНК"',
         'tarif_privetstvenny' => 'Тарифы «Приветственный» - АО НКБ "СЛАВЯНБАНК"',
         'tarif_depositny' => 'Тарифы «Депозитный» - АО НКБ "СЛАВЯНБАНК"',
-
+'kontakty-html' => 'Контакты - АО НКБ "СЛАВЯНБАНК"',
+'klient-bank-online-html' => 'Клиент-Банк - АО НКБ "СЛАВЯНБАНК"',
+'instrukcziya-po-rabote-v-sisteme-klient-bank' => 'Инструкция по работе в системе - АО НКБ "СЛАВЯНБАНК"',
+'chasto-zadavaemye-voprosy' => 'Часто задаваемые вопросы - АО НКБ "СЛАВЯНБАНК"',
+'regen' => 'Перегенерация ЭЦП - АО НКБ "СЛАВЯНБАНК"',
+'recom_bezopasnost-html' => 'Рекомендации по безопасности - АО НКБ "СЛАВЯНБАНК"',
+'obrashhenie-po-123-fz' => 'Обращение по 123-ФЗ - АО НКБ "СЛАВЯНБАНК"',
+'covid19' => 'COVID-19 - АО НКБ "СЛАВЯНБАНК"',
     ];
 
     foreach ($page_titles as $slug => $title) {
@@ -433,6 +440,19 @@ function sb_alpha_routes(): array
 //   'tariff_privetstvenny' => sb_alpha_wp_page_url('tarif_privetstvenny', sb_alpha_route_url('tariff_privetstvenny')),
 //         // 'tariff_privetstvenny' => sb_alpha_route_url('tariff_privetstvenny'),
         // TODO --- Перенос первого чанка
+        // TODO +++ Перенос второго чанка
+        // 'support' => sb_alpha_route_url('support'),
+        // 'contacts' => sb_alpha_route_url('contacts'),
+        // 'write-to-bank' => sb_alpha_route_url('write-to-bank'),
+        // 'client-bank-online' => sb_alpha_route_url('client-bank-online'),
+        // 'instruction' => sb_alpha_route_url('instruction'),
+        // 'faq' => sb_alpha_route_url('faq'),
+        // 'ecp-regeneration' => sb_alpha_route_url('ecp-regeneration'),
+        // 'security' => sb_alpha_route_url('security'),
+        // 'appeal-123-fz' => sb_alpha_route_url('appeal-123-fz'),
+        // 'covid19' => sb_alpha_route_url('covid19'),
+        // TODO --- Перенос второго чанка
+
 // todo +++ Новый чанк 1
 'info-bank-page' => sb_alpha_wp_page_url(
     'o-banke-slavyanbank-html-info_bank-html',
@@ -485,6 +505,58 @@ function sb_alpha_routes(): array
 ),
 // todo --- Новый чанк 1
 
+// todo +++ Новый чанк 2
+'support' => sb_alpha_wp_page_url(
+    'podderzhka',
+    home_url('/podderzhka/')
+),
+
+'contacts' => sb_alpha_wp_page_url(
+    'kontakty-html',
+    home_url('/kontakty-html/')
+),
+
+'write-to-bank' => sb_alpha_wp_page_url(
+    'napisat-v-bank',
+    home_url('/napisat-v-bank/')
+),
+
+'client-bank-online' => sb_alpha_wp_page_url(
+    'klient-bank-online-html',
+    home_url('/klient-bank-online-html/')
+),
+
+'instruction' => sb_alpha_wp_page_url(
+    'instrukcziya-po-rabote-v-sisteme-klient-bank',
+    home_url('/instrukcziya-po-rabote-v-sisteme-klient-bank/')
+),
+
+'faq' => sb_alpha_wp_page_url(
+    'chasto-zadavaemye-voprosy',
+    home_url('/chasto-zadavaemye-voprosy/')
+),
+
+'ecp-regeneration' => sb_alpha_wp_page_url(
+    'regen',
+    home_url('/regen/')
+),
+
+'security' => sb_alpha_wp_page_url(
+    'recom_bezopasnost-html',
+    home_url('/recom_bezopasnost-html/')
+),
+
+'appeal-123-fz' => sb_alpha_wp_page_url(
+    'obrashhenie-po-123-fz',
+    home_url('/obrashhenie-po-123-fz/')
+),
+
+'covid19' => sb_alpha_wp_page_url(
+    'covid19',
+    home_url('/covid19/')
+),
+// todo --- Новый чанк 2
+
         'home' => home_url('/'),
         'search' => sb_alpha_search_page_url(),
         'novosti' => sb_alpha_route_url('novosti'),
@@ -506,16 +578,11 @@ function sb_alpha_routes(): array
         'cash-payments' => sb_alpha_route_url('cash-payments'),
         'payment-demands' => sb_alpha_route_url('payment-demands'),
         'private-persons' => sb_alpha_route_url('private-persons'),
-        'client-bank-online' => sb_alpha_route_url('client-bank-online'),
-        'instruction' => sb_alpha_route_url('instruction'),
-        'faq' => sb_alpha_route_url('faq'),
-        'ecp-regeneration' => sb_alpha_route_url('ecp-regeneration'),
-        'support' => sb_alpha_route_url('support'),
-        'security' => sb_alpha_route_url('security'),
-        'appeal-123-fz' => sb_alpha_route_url('appeal-123-fz'),
-        'covid19' => sb_alpha_route_url('covid19'),
-        'contacts' => sb_alpha_route_url('contacts'),
-        'write-to-bank' => sb_alpha_route_url('write-to-bank'),
+
+        
+
+
+
         'vacancies' => sb_alpha_route_url('vacancies'),
         // 'zapros-na-otkrytie-raschetnogo-scheta' => sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
         // 'zapros-na-kreditovanie-msp' => sb_alpha_route_url('zapros-na-kreditovanie-msp'),

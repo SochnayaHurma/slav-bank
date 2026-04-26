@@ -18,6 +18,21 @@ if (!defined('SB_PYTHON_ROUTE_VERSION')) {
 function sb_alpha_route_aliases(): array
 {
     return [
+'forma-obratnoj-svyazi.html' => 'write-to-bank',
+'forma-obratnoj-svyazi'      => 'write-to-bank',
+
+'podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html' => 'instruction',
+'podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank'      => 'instruction',
+
+'podderzhka-html/chasto-zadavaemye-voprosy.html' => 'faq',
+'podderzhka-html/chasto-zadavaemye-voprosy'      => 'faq',
+
+'podderzhka-html/regen.html' => 'ecp-regeneration',
+'podderzhka-html/regen'      => 'ecp-regeneration',
+
+'podderzhka/recom_bezopasnost' => 'security',
+
+
         'vakansii-html'          => 'vacancies',
         'vakansii.html'          => 'vacancies',
         'vakansii'               => 'vacancies',
@@ -388,71 +403,71 @@ function sb_alpha_route_definitions(): array
             'mode' => 'external_redirect',
             'external_url' => 'https://slavbank.ru/chastnym-liczam.html/',
         ],
-        'client-bank-online' => [
-            'path' => 'klient-bank-online-html',
-            'title' => 'Клиент-Банк - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'template_file',
-            'template_file' => 'page-klient-bank-online.php',
-			          'page_context_slug' => 'client-bank-online',
-        ],
-        'instruction' => [
-            'path' => 'podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html',
-            'title' => 'Инструкция по работе в системе - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html/',
-        ],
-        'faq' => [
-            'path' => 'podderzhka-html/chasto-zadavaemye-voprosy.html',
-            'title' => 'Часто задаваемые вопросы - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/podderzhka-html/chasto-zadavaemye-voprosy.html/',
-        ],
-        'ecp-regeneration' => [
-            'path' => 'podderzhka-html/regen.html',
-            'title' => 'Перегенерация ЭЦП - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/podderzhka-html/regen.html/',
-        ],
-        'support' => [
-            'path' => 'podderzhka.html',
-            'title' => 'Поддержка - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'template_file',
-            'template_file' => 'page-podderzhka.php',
-            'page_context_slug' => 'podderzhka',
-        ],
-        'security' => [
-            'path' => 'podderzhka/recom_bezopasnost',
-            'title' => 'Рекомендации по безопасности - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/podderzhka/recom_bezopasnost/',
+        // 'client-bank-online' => [
+        //     'path' => 'klient-bank-online-html',
+        //     'title' => 'Клиент-Банк - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'template_file',
+        //     'template_file' => 'page-klient-bank-online.php',
+		// 	          'page_context_slug' => 'client-bank-online',
+        // ],
+        // 'instruction' => [
+        //     'path' => 'podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html',
+        //     'title' => 'Инструкция по работе в системе - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/podderzhka-html/instrukcziya-po-rabote-v-sisteme-klient-bank.html/',
+        // ],
+        // 'faq' => [
+        //     'path' => 'podderzhka-html/chasto-zadavaemye-voprosy.html',
+        //     'title' => 'Часто задаваемые вопросы - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/podderzhka-html/chasto-zadavaemye-voprosy.html/',
+        // ],
+        // 'ecp-regeneration' => [
+        //     'path' => 'podderzhka-html/regen.html',
+        //     'title' => 'Перегенерация ЭЦП - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/podderzhka-html/regen.html/',
+        // ],
+        // 'support' => [
+        //     'path' => 'podderzhka.html',
+        //     'title' => 'Поддержка - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'template_file',
+        //     'template_file' => 'page-podderzhka.php',
+        //     'page_context_slug' => 'podderzhka',
+        // ],
+        // 'security' => [
+        //     'path' => 'podderzhka/recom_bezopasnost',
+        //     'title' => 'Рекомендации по безопасности - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/podderzhka/recom_bezopasnost/',
 
-        ],
-        'appeal-123-fz' => [
-            'path' => 'obrashhenie-po-123-fz',
-            'title' => 'Обращение по 123-ФЗ - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/obrashhenie-po-123-fz.html/',
-        ],
-        'covid19' => [
-            'path' => 'covid19.html',
-            'title' => 'COVID‑19 - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/covid19.html/',
-        ],
-        'contacts' => [
-            'path' => 'kontakty-html',
-            'title' => 'Контакты - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'template_file',
-            'template_file' => 'page-kontakty.php',
-            'page_context_slug' => 'kontakty',
-        ],
-        'write-to-bank' => [
-            'path' => 'forma-obratnoj-svyazi.html',
-            'title' => 'Написать в банк - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'template_file',
-            'template_file' => 'page-napisat-v-bank.php',
-            'page_context_slug' => 'napisat-v-bank',
-        ],
+        // ],
+        // 'appeal-123-fz' => [
+        //     'path' => 'obrashhenie-po-123-fz',
+        //     'title' => 'Обращение по 123-ФЗ - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/obrashhenie-po-123-fz.html/',
+        // ],
+        // 'covid19' => [
+        //     'path' => 'covid19.html',
+        //     'title' => 'COVID‑19 - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/covid19.html/',
+        // ],
+        // 'contacts' => [
+        //     'path' => 'kontakty-html',
+        //     'title' => 'Контакты - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'template_file',
+        //     'template_file' => 'page-kontakty.php',
+        //     'page_context_slug' => 'kontakty',
+        // ],
+        // 'write-to-bank' => [
+        //     'path' => 'forma-obratnoj-svyazi.html',
+        //     'title' => 'Написать в банк - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'template_file',
+        //     'template_file' => 'page-napisat-v-bank.php',
+        //     'page_context_slug' => 'napisat-v-bank',
+        // ],
         'vacancies' => [ //+
             'path' => 'vakansii-html',
             'title' => 'Вакансии - АО НКБ "СЛАВЯНБАНК"',
