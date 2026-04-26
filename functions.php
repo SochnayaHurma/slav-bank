@@ -369,6 +369,16 @@ function sb_alpha_document_title_parts(array $parts): array
 'recom_bezopasnost-html' => 'Рекомендации по безопасности - АО НКБ "СЛАВЯНБАНК"',
 'obrashhenie-po-123-fz' => 'Обращение по 123-ФЗ - АО НКБ "СЛАВЯНБАНК"',
 'covid19' => 'COVID-19 - АО НКБ "СЛАВЯНБАНК"',
+'yuridicheskim-liczam-html' => 'Юридическим лицам - АО НКБ "СЛАВЯНБАНК"',
+'obsluzivanie-schetov-rf-html' => 'Обслуживание счетов в валюте РФ - АО НКБ "СЛАВЯНБАНК"',
+'obsluzivanie-valut-schetov' => 'Обслуживание счетов в иностранной валюте - АО НКБ "СЛАВЯНБАНК"',
+'valutny-kontrol-html' => 'Валютный контроль - АО НКБ "СЛАВЯНБАНК"',
+'beznalichnye-raschety' => 'Безналичные расчеты - АО НКБ "СЛАВЯНБАНК"',
+'nalichnye-raschety' => 'Наличные расчеты - АО НКБ "СЛАВЯНБАНК"',
+'platezhnye-trebovaniya-s-akczeptom-html' => 'Платежные требования с акцептом - АО НКБ "СЛАВЯНБАНК"',
+'kreditovanie-yuridicheskih-licz' => 'Кредитование юридических лиц - АО НКБ "СЛАВЯНБАНК"',
+'deposity-dlya-yur-lic' => 'Депозиты для юридических лиц - АО НКБ "СЛАВЯНБАНК"',
+'pod-ft-fromu' => 'ПОД/ФТ/ФРОМУ/FATCA - АО НКБ "СЛАВЯНБАНК"',
     ];
 
     foreach ($page_titles as $slug => $title) {
@@ -452,6 +462,19 @@ function sb_alpha_routes(): array
         // 'appeal-123-fz' => sb_alpha_route_url('appeal-123-fz'),
         // 'covid19' => sb_alpha_route_url('covid19'),
         // TODO --- Перенос второго чанка
+        // TODO +++ Перенос третьего чанка
+
+        // 'legal-entities' => sb_alpha_route_url('legal-entities'),
+        // 'account-service' => sb_alpha_route_url('account-service'),
+        // 'fx-account-service' => sb_alpha_route_url('fx-account-service'),
+        // 'currency-control' => sb_alpha_route_url('currency-control'),
+        // 'cashless-payments' => sb_alpha_route_url('cashless-payments'),
+        // 'cash-payments' => sb_alpha_route_url('cash-payments'),
+        // 'payment-demands' => sb_alpha_route_url('payment-demands'),
+        // 'business-deposits' => sb_alpha_route_url('business-deposits'),
+        // 'business-lending' => sb_alpha_route_url('business-lending'),
+        // 'aml-fatca' => sb_alpha_route_url('aml-fatca'),
+        // TODO --- Перенос третьего чанка
 
 // todo +++ Новый чанк 1
 'info-bank-page' => sb_alpha_wp_page_url(
@@ -556,6 +579,58 @@ function sb_alpha_routes(): array
     home_url('/covid19/')
 ),
 // todo --- Новый чанк 2
+// todo +++ Новый чанк 3
+'legal-entities' => sb_alpha_wp_page_url(
+    'yuridicheskim-liczam-html',
+    home_url('/yuridicheskim-liczam-html/')
+),
+
+'account-service' => sb_alpha_wp_page_url(
+    'obsluzivanie-schetov-rf-html',
+    home_url('/obsluzivanie-schetov-rf-html/')
+),
+
+'fx-account-service' => sb_alpha_wp_page_url(
+    'obsluzivanie-valut-schetov',
+    home_url('/obsluzivanie-valut-schetov/')
+),
+
+'currency-control' => sb_alpha_wp_page_url(
+    'valutny-kontrol-html',
+    home_url('/valutny-kontrol-html/')
+),
+
+'cashless-payments' => sb_alpha_wp_page_url(
+    'beznalichnye-raschety',
+    home_url('/beznalichnye-raschety/')
+),
+
+'cash-payments' => sb_alpha_wp_page_url(
+    'nalichnye-raschety',
+    home_url('/nalichnye-raschety/')
+),
+
+'payment-demands' => sb_alpha_wp_page_url(
+    'platezhnye-trebovaniya-s-akczeptom-html',
+    home_url('/platezhnye-trebovaniya-s-akczeptom-html/')
+),
+
+'business-lending' => sb_alpha_wp_page_url(
+    'kreditovanie-yuridicheskih-licz',
+    home_url('/kreditovanie-yuridicheskih-licz/')
+),
+
+'business-deposits' => sb_alpha_wp_page_url(
+    'deposity-dlya-yur-lic',
+    home_url('/deposity-dlya-yur-lic/')
+),
+
+'aml-fatca' => sb_alpha_wp_page_url(
+    'pod-ft-fromu',
+    home_url('/pod-ft-fromu/')
+),
+
+// todo --- Новый чанк 3
 
         'home' => home_url('/'),
         'search' => sb_alpha_search_page_url(),
@@ -566,22 +641,9 @@ function sb_alpha_routes(): array
   'tariffs-foreign-currency' => sb_alpha_wp_page_url('tarify_valuta', sb_alpha_route_url('tariffs-foreign-currency')),
         'tariff-depositny' => sb_alpha_route_url('tariff-depositny'),
         // 'tariffs-foreign-currency' => sb_alpha_route_url('tariffs-foreign-currency'),
-        'legal-entities' => sb_alpha_route_url('legal-entities'),
-        'business-deposits' => sb_alpha_route_url('business-deposits'),
-        'business-lending' => sb_alpha_route_url('business-lending'),
-        'account-service' => sb_alpha_route_url('account-service'),
-        'fx-account-service' => sb_alpha_route_url('fx-account-service'),
-        'currency-control' => sb_alpha_route_url('currency-control'),
-        'aml-fatca' => sb_alpha_route_url('aml-fatca'),
+
         'crs' => sb_alpha_route_url('crs'),
-        'cashless-payments' => sb_alpha_route_url('cashless-payments'),
-        'cash-payments' => sb_alpha_route_url('cash-payments'),
-        'payment-demands' => sb_alpha_route_url('payment-demands'),
         'private-persons' => sb_alpha_route_url('private-persons'),
-
-        
-
-
 
         'vacancies' => sb_alpha_route_url('vacancies'),
         // 'zapros-na-otkrytie-raschetnogo-scheta' => sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
