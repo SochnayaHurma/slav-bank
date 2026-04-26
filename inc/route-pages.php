@@ -271,45 +271,45 @@ function sb_alpha_route_definitions(): array
     }
 
     $routes = [
-        'info-bank-page' => [
-            'path' => 'o-banke-slavyanbank-html/o-banke-slavyanbank-html-info_bank-html/',
-            'title' => 'Информация банка - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'template_file',
-            'template_file' => 'page-informaciya-banka.php',
-            'page_context_slug' => 'informaciya-banka',
-        ],
-        'requisites_bank' => [
-            'path' => 'o-banke-slavyanbank-html/rekvizity-banka-html',
-            'title' => 'Реквизиты банка - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'template_file',
-            'template_file' => 'page-rekvizity-banka.php',
-            'page_context_slug' => 'requisites_bank',
-        ],
-        'governance' => [
-            'path' => 'o-banke-slavyanbank-html/organy_upravlenya.html',
-            'title' => 'Органы управления - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html/',
-        ],
-        'reporting' => [
-            'path' => 'otchetnost-html',
-            'title' => 'Отчетность - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'template_file',
-            'template_file' => 'page-otchetnost.php',
-            'page_context_slug' => 'otchetnost',
-        ],
-        'disclosur-regulatory' => [
-            'path' => 'o-banke-html/info_bank-html/raskritie-informacii.html',
-            'title' => 'Раскрытие информации - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html/',
-        ],
-        'notaries' => [
-            'path' => 'informacziya-dlya-notariusov.html',
-            'title' => 'Информация для нотариусов - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/informacziya-dlya-notariusov.html/',
-        ],
+        // 'info-bank-page' => [
+        //     'path' => 'o-banke-slavyanbank-html/o-banke-slavyanbank-html-info_bank-html/',
+        //     'title' => 'Информация банка - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'template_file',
+        //     'template_file' => 'page-informaciya-banka.php',
+        //     'page_context_slug' => 'informaciya-banka',
+        // ],
+        // 'requisites_bank' => [
+        //     'path' => 'o-banke-slavyanbank-html/rekvizity-banka-html',
+        //     'title' => 'Реквизиты банка - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'template_file',
+        //     'template_file' => 'page-rekvizity-banka.php',
+        //     'page_context_slug' => 'requisites_bank',
+        // ],
+        // 'governance' => [
+        //     'path' => 'o-banke-slavyanbank-html/organy_upravlenya.html',
+        //     'title' => 'Органы управления - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/o-banke-slavyanbank-html/organy_upravlenya.html/',
+        // ],
+        // 'reporting' => [
+        //     'path' => 'otchetnost-html',
+        //     'title' => 'Отчетность - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'template_file',
+        //     'template_file' => 'page-otchetnost.php',
+        //     'page_context_slug' => 'otchetnost',
+        // ],
+        // 'disclosur-regulatory' => [
+        //     'path' => 'o-banke-html/info_bank-html/raskritie-informacii.html',
+        //     'title' => 'Раскрытие информации - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/o-banke-html/info_bank-html/raskritie-informacii.html/',
+        // ],
+        // 'notaries' => [
+        //     'path' => 'informacziya-dlya-notariusov.html',
+        //     'title' => 'Информация для нотариусов - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/informacziya-dlya-notariusov.html/',
+        // ],
         'novosti' => [
             'path' => 'novosti.html',
             'title' => 'Новости - АО НКБ "СЛАВЯНБАНК"',
@@ -317,31 +317,31 @@ function sb_alpha_route_definitions(): array
             'template_file' => 'page-novosti.php',
             'page_context_slug' => 'novosti',
         ],
-        'tariffs' => [
-            'path' => 'tarify-banka-html',
-            'title' => 'Тарифы банка - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'template_file',
-            'template_file' => 'page-tarify-banka.php',
-            'page_context_slug' => 'tarify-banka',
-        ],
-        'tariffs_rub' => [
-            'path' => 'tarify-banka-html/tarify_rf.html',
-            'title' => 'Тарифы в валюте РФ - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/tarify-banka-html/tarify_rf.html/',
-        ],
-        'tariffs_slavny' => [
-            'path' => 'tarify-banka-html/tarif_slavny',
-            'title' => 'Тарифы «Славный» - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_slavny.html/',
-        ],
-        'tariff_privetstvenny' => [
-            'path' => 'tarify-banka-html/tarif_privetstvenny',
-            'title' => 'Тарифы «Приветственный» - АО НКБ "СЛАВЯНБАНК"',
-            'mode' => 'external_redirect',
-            'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html/',
-        ],
+        // 'tariffs' => [
+        //     'path' => 'tarify-banka-html',
+        //     'title' => 'Тарифы банка - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'template_file',
+        //     'template_file' => 'page-tarify-banka.php',
+        //     'page_context_slug' => 'tarify-banka',
+        // ],
+        // 'tariffs_rub' => [
+        //     'path' => 'tarify-banka-html/tarify_rf.html',
+        //     'title' => 'Тарифы в валюте РФ - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/tarify-banka-html/tarify_rf.html/',
+        // ],
+        // 'tariffs_slavny' => [
+        //     'path' => 'tarify-banka-html/tarif_slavny',
+        //     'title' => 'Тарифы «Славный» - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_slavny.html/',
+        // ],
+        // 'tariff_privetstvenny' => [
+        //     'path' => 'tarify-banka-html/tarif_privetstvenny',
+        //     'title' => 'Тарифы «Приветственный» - АО НКБ "СЛАВЯНБАНК"',
+        //     'mode' => 'external_redirect',
+        //     'external_url' => 'https://slavbank.ru/tarify-banka-html/tarif_privetstvenny.html/',
+        // ],
     ];
 
     return $routes;
@@ -429,8 +429,7 @@ function sb_alpha_route_current_partial(): string
 
 function sb_alpha_route_has_local_partial(string $route_key): bool
 {
-    return function_exists('sb_alpha_route_local_partial_for_route')
-        && sb_alpha_route_local_partial_for_route($route_key) !== '';
+    return false;
 }
 
 function sb_alpha_route_register_rewrites(): void
