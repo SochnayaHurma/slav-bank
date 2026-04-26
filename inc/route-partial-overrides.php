@@ -5,33 +5,7 @@ if (!defined('ABSPATH')) {
 
 function sb_alpha_route_partial_overrides(): array
 {
-    return [
-        // 'business-lending' => 'business-lending',
-        // 'account-service' => 'account-service',
-        // 'fx-account-service' => 'fx-account-service',
-        // 'instruction' => 'instruction',
-        // 'faq' => 'faq',
-        // 'ecp-regeneration' => 'ecp-regeneration',
-        // 'security' => 'security',
-        // 'tariffs_rub' => 'tariffs-rub',
-        // 'tariffs_slavny' => 'tariffs-slavny',
-        // 'tariff_privetstvenny' => 'tariff-privetstvenny',
-        // 'tariff-depositny' => 'tariff-depositny',
-        // 'tariffs-foreign-currency' => 'tariffs-foreign-currency',
-        // 'business-deposits' => 'business-deposits',
-        // 'cashless-payments' => 'cashless-payments',
-        // 'cash-payments' => 'cash-payments',
-        // 'payment-demands' => 'payment-demands',
-        // 'private-persons' => 'private-persons',
-        // 'vacancies' => 'vacancies',
-        // 'appeal-123-fz' => 'appeal-123-fz',
-        // 'covid19' => 'covid19',
-        // 'aml-fatca' => 'aml-fatca',
-        // 'crs' => 'crs',
-        // 'governance' => 'governance',
-        // 'disclosur-regulatory' => 'disclosure-regulatory',
-        // 'notaries' => 'notaries',
-    ];
+    return [];
 }
 
 function sb_alpha_route_local_partial_for_route(string $route_key): string

@@ -21,7 +21,6 @@ require_once get_template_directory() . '/migrations/bootstrap.php';
 require_once get_template_directory() . '/inc/contacts-page-shared.php';
 require_once get_template_directory() . '/inc/blocks-contacts.php';
 
-require_once get_template_directory() . '/inc/legacy-page-redirects.php'; // Подключение legacy роутов
 
 
 const SB_ALPHA_REWRITE_VERSION_OPTION = 'sb_alpha_rewrite_version';
@@ -139,8 +138,8 @@ add_action('init', function () {
     }
 });
 add_action( 'enqueue_block_editor_assets', function () {
-	$dir =  __DIR__  . '/assets/css/';
-	$url =  __DIR__  . '/assets/css/';
+	$dir =  get_template_directory()  . '/assets/css/';
+	$url =  get_template_directory_uri()  . '/assets/css/';
 
 	$files = glob( $dir . '*.css' );
 	sort( $files );
@@ -439,71 +438,6 @@ function sb_alpha_wp_page_url(string $slug, string $fallback = ''): string
 function sb_alpha_routes(): array
 {
     return [
-        // TODO +++ Перенос первого чанка
-//         'info-bank-page' => sb_alpha_wp_page_url('o-banke-slavyanbank-html-info_bank-html', sb_alpha_route_url('info-bank-page')),
-//         'requisites_bank' => sb_alpha_route_url('requisites_bank'),
-//   'requisites_bank' => sb_alpha_route_url('requisites_bank'),
-//         'governance' => sb_alpha_route_url('governance'),
-//         'reporting' => sb_alpha_route_url('reporting'),
-//         'disclosur-regulatory' => sb_alpha_route_url('disclosur-regulatory'),
-//         'notaries' => sb_alpha_route_url('notaries'),
-// //         'tariffs' => sb_alpha_wp_page_url('tarify-banka-html', sb_alpha_route_url('tariffs')),
-//         'tariffs' => sb_alpha_route_url('tariffs'),
-//   'tariffs_rub' => sb_alpha_wp_page_url('tarify_rf', sb_alpha_route_url('tariffs_rub')),
-//         // 'tariffs_rub' => sb_alpha_route_url('tariffs_rub'),
-//   'tariffs_slavny' => sb_alpha_wp_page_url('tarif_slavny', sb_alpha_route_url('tariffs_slavny')),
-//         // 'tariffs_slavny' => sb_alpha_route_url('tariffs_slavny'),
-//   'tariff_privetstvenny' => sb_alpha_wp_page_url('tarif_privetstvenny', sb_alpha_route_url('tariff_privetstvenny')),
-//         // 'tariff_privetstvenny' => sb_alpha_route_url('tariff_privetstvenny'),
-        // TODO --- Перенос первого чанка
-        // TODO +++ Перенос второго чанка
-        // 'support' => sb_alpha_route_url('support'),
-        // 'contacts' => sb_alpha_route_url('contacts'),
-        // 'write-to-bank' => sb_alpha_route_url('write-to-bank'),
-        // 'client-bank-online' => sb_alpha_route_url('client-bank-online'),
-        // 'instruction' => sb_alpha_route_url('instruction'),
-        // 'faq' => sb_alpha_route_url('faq'),
-        // 'ecp-regeneration' => sb_alpha_route_url('ecp-regeneration'),
-        // 'security' => sb_alpha_route_url('security'),
-        // 'appeal-123-fz' => sb_alpha_route_url('appeal-123-fz'),
-        // 'covid19' => sb_alpha_route_url('covid19'),
-        // TODO --- Перенос второго чанка
-        // TODO +++ Перенос третьего чанка
-
-        // 'legal-entities' => sb_alpha_route_url('legal-entities'),
-        // 'account-service' => sb_alpha_route_url('account-service'),
-        // 'fx-account-service' => sb_alpha_route_url('fx-account-service'),
-        // 'currency-control' => sb_alpha_route_url('currency-control'),
-        // 'cashless-payments' => sb_alpha_route_url('cashless-payments'),
-        // 'cash-payments' => sb_alpha_route_url('cash-payments'),
-        // 'payment-demands' => sb_alpha_route_url('payment-demands'),
-        // 'business-deposits' => sb_alpha_route_url('business-deposits'),
-        // 'business-lending' => sb_alpha_route_url('business-lending'),
-        // 'aml-fatca' => sb_alpha_route_url('aml-fatca'),
-        // TODO --- Перенос третьего чанка
-        // TODO +++ Перенос четвертого чанка
-
-//   'tariffs-foreign-currency' => sb_alpha_wp_page_url('tarify_valuta', sb_alpha_route_url('tariffs-foreign-currency')),
-//         'tariff-depositny' => sb_alpha_route_url('tariff-depositny'),
-//         // 'tariffs-foreign-currency' => sb_alpha_route_url('tariffs-foreign-currency'),
-//         'crs' => sb_alpha_route_url('crs'),
-//         'private-persons' => sb_alpha_route_url('private-persons'),
-//         'vacancies' => sb_alpha_route_url('vacancies'),
-//         // 'zapros-na-otkrytie-raschetnogo-scheta' => sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta'),
-//         // 'zapros-na-kreditovanie-msp' => sb_alpha_route_url('zapros-na-kreditovanie-msp'),
-//         'zapros-na-otkrytie-raschetnogo-scheta' =>
-//     sb_alpha_wp_page_url(
-//         'zapros-na-otkrytie-raschetnogo-scheta',
-//         sb_alpha_route_url('zapros-na-otkrytie-raschetnogo-scheta')
-//     ),
-// 'zapros-na-kreditovanie-msp' =>
-//     sb_alpha_wp_page_url(
-//         'zapros-na-kreditovanie-msp',
-//         sb_alpha_route_url('zapros-na-kreditovanie-msp')
-//     ),
-
-        // TODO --- Перенос четвертого чанка
-
 // todo +++ Новый чанк 1
 'info-bank-page' => sb_alpha_wp_page_url(
     'o-banke-slavyanbank-html-info_bank-html',
@@ -699,9 +633,6 @@ function sb_alpha_routes(): array
         'home' => home_url('/'),
         'search' => sb_alpha_search_page_url(),
         'novosti' => sb_alpha_route_url('novosti'),
-//   'requisites_bank' => sb_alpha_wp_page_url('rekvizity-banka', sb_alpha_route_url('requisites_bank')),
-//   'reporting' => sb_alpha_wp_page_url('otchetnost', sb_alpha_route_url('reporting')),
-//   'tariff-depositny' => sb_alpha_wp_page_url('tarif_depositny', sb_alpha_route_url('tariff-depositny')),
 
         'client-bank-primary-login' => 'https://dbo.slavbank.ru:20101/',
         'client-bank-backup-login' => 'https://dbo1.slavbank.ru:20101/',
