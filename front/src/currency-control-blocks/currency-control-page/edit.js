@@ -11,6 +11,12 @@ import {
   TextareaControl,
   Button
 } from '@wordpress/components';
+import { HeroButtonsControls, normalizeHeroButtons } from '../../shared/HeroButtonsControls';
+
+const DEFAULT_HERO_BUTTONS = [
+  { text: 'Содержание', url: '#content', style: 'primary' },
+  { text: 'На главную', url: '/', style: 'outline' }
+];
 
 const ALLOWED_BLOCKS = [
   'slavbank/currency-point-group',
@@ -80,8 +86,11 @@ export default function Edit({ attributes, setAttributes }) {
     heroImageLeft,
     anchorId,
     alertTitle,
-    alertText
+    alertText,
+    heroButtons
   } = attributes;
+
+  const normalizedHeroButtons = normalizeHeroButtons(heroButtons, DEFAULT_HERO_BUTTONS);
 
   return (
     <>
@@ -120,6 +129,12 @@ export default function Edit({ attributes, setAttributes }) {
           </MediaUploadCheck>
         </PanelBody>
 
+        <HeroButtonsControls
+          buttons={heroButtons}
+          defaults={DEFAULT_HERO_BUTTONS}
+          onChange={(value) => setAttributes({ heroButtons: value })}
+        />
+
         <PanelBody title="Alert" initialOpen={false}>
           <TextControl
             label="Заголовок alert"
@@ -138,6 +153,18 @@ export default function Edit({ attributes, setAttributes }) {
         <div className="sb-bank-editor-hero">
           <strong>{heroTitle}</strong>
           <p>{heroDescription}</p>
+          <div className="v4-strip-actions">
+            {normalizedHeroButtons.map((button, index) => (
+              button.text ? (
+                <span
+                  key={button.key || index}
+                  className={`btn ${button.style === 'primary' ? 'primary' : 'outline'}`}
+                >
+                  {button.text}
+                </span>
+              ) : null
+            ))}
+          </div>
         </div>
 
         <div className="sb-bank-editor-body">

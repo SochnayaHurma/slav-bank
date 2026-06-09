@@ -34,6 +34,26 @@
     "alertText": {
       "type": "string",
       "default": "Для юридических лиц АО НКБ «СЛАВЯНБАНК» предлагает следующие банковские услуги:"
+    },
+    "heroButtons": {
+      "type": "array",
+      "default": [
+        {
+          "text": "Содержание",
+          "url": "#content",
+          "style": "primary"
+        },
+        {
+          "text": "На главную",
+          "url": "/",
+          "style": "outline"
+        },
+        {
+          "text": "Связаться",
+          "url": "/napisat-v-bank/#form",
+          "style": "outline"
+        }
+      ]
     }
   },
   "editorScript": "sb-contacts-blocks-editor",

@@ -47,6 +47,33 @@ if (function_exists('get_template_part')) {
 ob_start();
 get_template_part('template-parts/home', 'stack');
 $stack_html = ob_get_clean();
+
+$default_hero_buttons = [
+    ['text' => 'Содержание', 'url' => '#' . $anchor_id, 'style' => 'primary'],
+    ['text' => 'На главную', 'url' => home_url('/'), 'style' => 'outline'],
+];
+$hero_buttons = array_key_exists('heroButtons', $attributes) && is_array($attributes['heroButtons'])
+    ? $attributes['heroButtons']
+    : $default_hero_buttons;
+
+$render_hero_buttons = static function (array $buttons): void {
+    foreach ($buttons as $button) {
+        if (!is_array($button)) {
+            continue;
+        }
+
+        $text = isset($button['text']) ? (string) $button['text'] : '';
+        $url = isset($button['url']) ? (string) $button['url'] : '';
+        $style = isset($button['style']) && $button['style'] === 'primary' ? 'primary' : 'outline';
+
+        if ($text === '' || $url === '') {
+            continue;
+        }
+        ?>
+        <a class="btn <?php echo esc_attr($style); ?>" href="<?php echo esc_url($url); ?>"><?php echo esc_html($text); ?></a>
+        <?php
+    }
+};
 ?>
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
@@ -68,8 +95,7 @@ $stack_html = ob_get_clean();
                             <p><?php echo esc_html($hero_description); ?></p>
 
                             <div class="v4-strip-actions">
-                                <a class="btn primary" href="#<?php echo esc_attr($anchor_id); ?>">Содержание</a>
-                                <a class="btn outline" href="<?php echo esc_url(home_url('/')); ?>">На главную</a>
+                                <?php $render_hero_buttons($hero_buttons); ?>
                             </div>
                         </div>
                     </div>
