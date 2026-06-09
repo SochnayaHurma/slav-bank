@@ -13,6 +13,12 @@ import {
   Button
 } from '@wordpress/components';
 import { PREVIEW_LINK_PROPS } from '../../shared/previewLinkProps';
+import { HeroButtonsControls, normalizeHeroButtons } from '../../shared/HeroButtonsControls';
+
+const DEFAULT_HERO_BUTTONS = [
+  { text: 'Содержание', url: '#content', style: 'primary' },
+  { text: 'На главную', url: '/', style: 'outline' }
+];
 
 const ALLOWED_BLOCKS = [
   'slavbank/client-bank-feature-group',
@@ -60,8 +66,11 @@ export default function Edit({ attributes, setAttributes }) {
     accessSecondaryUrl,
     leadText,
     entryLinkText,
-    entryLinkUrl
+    entryLinkUrl,
+    heroButtons
   } = attributes;
+
+  const normalizedHeroButtons = normalizeHeroButtons(heroButtons, DEFAULT_HERO_BUTTONS);
 
   return (
     <>
@@ -99,6 +108,12 @@ export default function Edit({ attributes, setAttributes }) {
             />
           </MediaUploadCheck>
         </PanelBody>
+
+        <HeroButtonsControls
+          buttons={heroButtons}
+          defaults={DEFAULT_HERO_BUTTONS}
+          onChange={(value) => setAttributes({ heroButtons: value })}
+        />
 
         <PanelBody title="Карточка входа" initialOpen={false}>
           <TextControl
@@ -186,8 +201,18 @@ export default function Edit({ attributes, setAttributes }) {
                     />
 
                     <div className="v4-strip-actions">
-                      <a className="btn primary" href={`#${anchorId || 'content'}`} {...PREVIEW_LINK_PROPS}>Содержание</a>
-                      <a className="btn outline" href="/" {...PREVIEW_LINK_PROPS}>На главную</a>
+                      {normalizedHeroButtons.map((button, index) => (
+                        button.text ? (
+                          <a
+                            key={button.key || index}
+                            className={`btn ${button.style === 'primary' ? 'primary' : 'outline'}`}
+                            href={button.url || '#'}
+                            {...PREVIEW_LINK_PROPS}
+                          >
+                            {button.text}
+                          </a>
+                        ) : null
+                      ))}
                     </div>
                   </div>
                 </div>
