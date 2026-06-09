@@ -31,7 +31,7 @@ function sb_register_contacts_blocks(): void
             'sb-contacts-blocks-editor',
             get_template_directory_uri() . $editor_js_rel,
             $editor_meta['dependencies'] ?? [],
-            $editor_meta['version'] ?? $theme_version,
+            filemtime($editor_js_abs) ?: ($editor_meta['version'] ?? $theme_version),
             true
         );
     }

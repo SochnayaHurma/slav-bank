@@ -71,6 +71,21 @@
     "entryLinkUrl": {
       "type": "string",
       "default": "https://dbo.slavbank.ru:20101/"
+    },
+    "heroButtons": {
+      "type": "array",
+      "default": [
+        {
+          "text": "Содержание",
+          "url": "#content",
+          "style": "primary"
+        },
+        {
+          "text": "На главную",
+          "url": "/",
+          "style": "outline"
+        }
+      ]
     }
   },
   "editorScript": "sb-contacts-blocks-editor",
