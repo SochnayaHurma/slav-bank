@@ -10,6 +10,7 @@ require_once get_template_directory() . '/inc/route-pages.php';
 require_once get_template_directory() . '/inc/content-slots.php';
 require_once get_template_directory() . '/inc/page-mode.php';
 require_once get_template_directory() . '/inc/home-stack-data.php';
+require_once get_template_directory() . '/inc/hero-buttons.php';
 require_once get_template_directory() . '/inc/admin-home-stack.php';
 
 // Миграции

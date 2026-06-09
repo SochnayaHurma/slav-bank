@@ -41,6 +41,21 @@
     "mapAddress": {
       "type": "string",
       "default": "г. Великий Новгород, ул. Черемнова-Конюхова, дом 12"
+    },
+    "heroButtons": {
+      "type": "array",
+      "default": [
+        {
+          "text": "Перейти к содержимому",
+          "url": "#content",
+          "style": "primary"
+        },
+        {
+          "text": "На главную",
+          "url": "/",
+          "style": "outline"
+        }
+      ]
     }
   },
   "editorScript": "sb-contacts-blocks-editor",

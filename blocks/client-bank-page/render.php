@@ -47,6 +47,11 @@ if (function_exists('get_template_part')) {
 ob_start();
 get_template_part('template-parts/home', 'stack');
 $stack_html = ob_get_clean();
+
+$default_hero_buttons = [
+    ['text' => 'Содержание', 'url' => '#' . $anchor_id, 'style' => 'primary'],
+    ['text' => 'На главную', 'url' => home_url('/'), 'style' => 'outline'],
+];
 ?>
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
@@ -68,8 +73,7 @@ $stack_html = ob_get_clean();
                             <p><?php echo esc_html($hero_description); ?></p>
 
                             <div class="v4-strip-actions">
-                                <a class="btn primary" href="#<?php echo esc_attr($anchor_id); ?>">Содержание</a>
-                                <a class="btn outline" href="<?php echo esc_url(home_url('/')); ?>">На главную</a>
+                                <?php sb_alpha_render_hero_buttons($attributes['heroButtons'] ?? null, $default_hero_buttons); ?>
                             </div>
                         </div>
                     </div>

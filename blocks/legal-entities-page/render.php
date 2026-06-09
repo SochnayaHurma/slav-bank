@@ -24,6 +24,11 @@ $routes = function_exists('sb_contacts_routes') ? sb_contacts_routes() : [
     'write_to_bank' => home_url('/napisat-v-bank/#form'),
 ];
 
+$default_hero_buttons = [
+    ['text' => 'Содержание', 'url' => '#' . $anchor_id, 'style' => 'primary'],
+    ['text' => 'На главную', 'url' => $routes['home'] ?? home_url('/'), 'style' => 'outline'],
+    ['text' => 'Связаться', 'url' => $routes['write_to_bank'] ?? home_url('/napisat-v-bank/#form'), 'style' => 'outline'],
+];
 ob_start();
 get_template_part('template-parts/home', 'stack');
 $stack_html = ob_get_clean();
@@ -47,9 +52,7 @@ $stack_html = ob_get_clean();
                             <p><?php echo esc_html($hero_description); ?></p>
 
                             <div class="v4-strip-actions">
-                                <a class="btn primary" href="#<?php echo esc_attr($anchor_id); ?>">Содержание</a>
-                                <a class="btn outline" href="<?php echo esc_url($routes['home'] ?? home_url('/')); ?>">На главную</a>
-                                <a class="btn outline" href="<?php echo esc_url($routes['write_to_bank'] ?? home_url('/napisat-v-bank/#form')); ?>">Связаться</a>
+                                <?php sb_alpha_render_hero_buttons($attributes['heroButtons'] ?? null, $default_hero_buttons); ?>
                             </div>
                         </div>
                     </div>

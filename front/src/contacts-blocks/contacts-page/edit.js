@@ -1,6 +1,12 @@
 import { useBlockProps, InnerBlocks, RichText, MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
 import { PREVIEW_LINK_PROPS } from '../../shared/previewLinkProps';
+import { HeroButtonsControls, normalizeHeroButtons } from '../../shared/HeroButtonsControls';
+
+const DEFAULT_HERO_BUTTONS = [
+  { text: 'Перейти к содержимому', url: '#content', style: 'primary' },
+  { text: 'На главную', url: '/', style: 'outline' }
+];
 
 const ALLOWED_BLOCKS = [
   'slavbank/contact-item',
@@ -80,7 +86,10 @@ export default function Edit({ attributes, setAttributes }) {
     introText,
     mapTitle,
     mapAddress,
+    heroButtons,
   } = attributes;
+
+  const normalizedHeroButtons = normalizeHeroButtons(heroButtons, DEFAULT_HERO_BUTTONS);
 
   return (
     <>
@@ -108,6 +117,12 @@ export default function Edit({ attributes, setAttributes }) {
             />
           </MediaUploadCheck>
         </PanelBody>
+
+        <HeroButtonsControls
+          buttons={heroButtons}
+          defaults={DEFAULT_HERO_BUTTONS}
+          onChange={(value) => setAttributes({ heroButtons: value })}
+        />
 
         <PanelBody title="Вводный блок" initialOpen={false}>
           <TextControl
@@ -158,8 +173,18 @@ export default function Edit({ attributes, setAttributes }) {
                       placeholder="Описание страницы"
                     />
                     <div className="v4-strip-actions">
-                      <a className="btn primary" href="#content" {...PREVIEW_LINK_PROPS}>Перейти к содержимому</a>
-                      <a className="btn outline" href="/" {...PREVIEW_LINK_PROPS}>На главную</a>
+                      {normalizedHeroButtons.map((button, index) => (
+                        button.text ? (
+                          <a
+                            key={button.key || index}
+                            className={`btn ${button.style === 'primary' ? 'primary' : 'outline'}`}
+                            href={button.url || '#'}
+                            {...PREVIEW_LINK_PROPS}
+                          >
+                            {button.text}
+                          </a>
+                        ) : null
+                      ))}
                     </div>
                   </div>
                 </div>
