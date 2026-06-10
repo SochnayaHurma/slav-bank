@@ -23,7 +23,13 @@ $routes = function_exists('sb_contacts_routes') ? sb_contacts_routes() : [
     'home' => home_url('/'),
     'write_to_bank' => home_url('/napisat-v-bank/#form'),
 ];
-
+$buttonsA = $attributes['buttonsA'] ?? [];
+$buttonsB = $attributes['buttonsB'] ?? [];
+$allowed_styles = [
+    'primary',
+    'secondary',
+    'outline',
+];
 ob_start();
 get_template_part('template-parts/home', 'stack');
 $stack_html = ob_get_clean();
@@ -47,9 +53,25 @@ $stack_html = ob_get_clean();
                             <p><?php echo esc_html($hero_description); ?></p>
 
                             <div class="v4-strip-actions">
-                                <a class="btn primary" href="#<?php echo esc_attr($anchor_id); ?>">Содержание</a>
-                                <a class="btn outline" href="<?php echo esc_url($routes['home'] ?? home_url('/')); ?>">На главную</a>
-                                <a class="btn outline" href="<?php echo esc_url($routes['write_to_bank'] ?? home_url('/napisat-v-bank/#form')); ?>">Связаться</a>
+                                    <?php foreach ($buttonsA as $button): ?>
+        <?php
+        $enabled = $button['enabled'] ?? true;
+        $text = $button['text'] ?? '';
+        $url = $button['url'] ?? '';
+        $style = $button['style'] ?? 'primary';
+
+        if (!$enabled || !$text || !$url) {
+            continue;
+        }
+
+        if (!in_array($style, $allowed_styles, true)) {
+            $style = 'primary';
+        }
+        ?>
+        <a class="btn <?php echo esc_attr($style); ?>" href="<?php echo esc_url($url); ?>">
+            <?php echo esc_html($text); ?>
+        </a>
+    <?php endforeach; ?>
                             </div>
                         </div>
                     </div>

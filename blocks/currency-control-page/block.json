@@ -39,6 +39,14 @@
     "alertText": {
       "type": "string",
       "default": "Помогаем с экспертизой контрактов, расчётами и валютным контролем."
+    },
+            "buttonsA": {
+      "type": "array",
+      "default": [{"id": 1, "text":"Содержание", "url": "#content", "enabled": true}, {"id": 2, "text": "На главную", "url": "/", "enabled": true}]
+    },
+        "buttonsB": {
+      "type": "array",
+      "default": []
     }
   },
   "editorScript": "sb-contacts-blocks-editor",

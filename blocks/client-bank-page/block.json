@@ -12,6 +12,14 @@
     "slavbank/client-bank-note"
   ],
   "attributes": {
+       "buttonsA": {
+      "type": "array",
+      "default": [{"id": 1, "text":"Содержание", "url": "#content", "enabled": true}, {"id": 2, "text": "На главную", "url": "/", "enabled": true}]
+    },
+        "buttonsB": {
+      "type": "array",
+      "default": []
+    },
     "heroTitle": {
       "type": "string",
       "default": "КЛИЕНТ-БАНК ВХОД ОНЛАЙН"

@@ -380,3 +380,75 @@
   white-space: pre-wrap;
 }
 
+
+.crud-buttons-editor {
+    padding: 20px;
+    border: 1px dashed #b5b5b5;
+    background: #fafafa;
+}
+
+.crud-buttons-editor__preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.crud-buttons-editor__empty {
+    margin: 0;
+    color: #757575;
+}
+
+.crud-buttons-editor__list {
+    display: grid;
+    gap: 16px;
+}
+
+.crud-buttons-editor__item {
+    padding: 16px;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+.crud-buttons-editor__url {
+    margin-bottom: 16px;
+}
+
+.crud-buttons-editor__url span {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.crud-buttons-editor__actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.crud-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.crud-button--primary {
+    background: #111;
+    color: #fff;
+}
+
+.crud-button--secondary {
+    background: #e5e5e5;
+    color: #111;
+}
+
+.crud-button--outline {
+    border: 1px solid #111;
+    background: transparent;
+    color: #111;
+}

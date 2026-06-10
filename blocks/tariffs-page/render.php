@@ -25,6 +25,13 @@ if (function_exists('get_template_part')) {
     get_template_part('template-parts/top-level-v4', 'styles');
 }
 
+$buttonsA = $attributes['buttonsA'] ?? [];
+$buttonsB = $attributes['buttonsB'] ?? [];
+$allowed_styles = [
+    'primary',
+    'secondary',
+    'outline',
+];
 ob_start();
 get_template_part('template-parts/home', 'stack');
 $stack_html = ob_get_clean();
@@ -49,8 +56,25 @@ $stack_html = ob_get_clean();
                             <p><?php echo esc_html($hero_description); ?></p>
 
                             <div class="v4-strip-actions">
-                                <a class="btn primary" href="#<?php echo esc_attr($anchor_id); ?>">Перейти к содержимому</a>
-                                <a class="btn outline" href="<?php echo esc_url(home_url('/')); ?>">На главную</a>
+                                 <?php foreach ($buttonsA as $button): ?>
+        <?php
+        $enabled = $button['enabled'] ?? true;
+        $text = $button['text'] ?? '';
+        $url = $button['url'] ?? '';
+        $style = $button['style'] ?? 'primary';
+
+        if (!$enabled || !$text || !$url) {
+            continue;
+        }
+
+        if (!in_array($style, $allowed_styles, true)) {
+            $style = 'primary';
+        }
+        ?>
+        <a class="btn <?php echo esc_attr($style); ?>" href="<?php echo esc_url($url); ?>">
+            <?php echo esc_html($text); ?>
+        </a>
+    <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
