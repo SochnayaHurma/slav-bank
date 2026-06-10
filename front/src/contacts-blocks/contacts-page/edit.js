@@ -1,6 +1,22 @@
-import { useBlockProps, InnerBlocks, RichText, MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
+import {
+  useBlockProps,
+  InnerBlocks,
+  RichText,
+  InspectorControls,
+  MediaUpload,
+  MediaUploadCheck,  
+    URLInputButton
+} from '@wordpress/block-editor';
+import {
+  PanelBody,
+  TextControl,
+  TextareaControl,
+  Button,  
+    SelectControl,
+    ToggleControl
+} from '@wordpress/components';
 import { PREVIEW_LINK_PROPS } from '../../shared/previewLinkProps';
+import { __ } from '@wordpress/i18n';
 
 const ALLOWED_BLOCKS = [
   'slavbank/contact-item',
@@ -82,9 +98,178 @@ export default function Edit({ attributes, setAttributes }) {
     mapAddress,
   } = attributes;
 
+const { buttonsA = [] } = attributes;
+
+    const addButton = () => {
+        const newButton = {
+            id: String(Date.now()),
+            text: 'Новая кнопка',
+            url: '',
+            style: 'primary',
+            enabled: true,
+            newTab: false
+        };
+
+        setAttributes({
+            buttonsA: [...buttonsA, newButton]
+        });
+    };
+
+    const updateButton = (index, field, value) => {
+        const updatedButtons = buttonsA.map((button, currentIndex) => {
+            if (currentIndex !== index) {
+                return button;
+            }
+
+            return {
+                ...button,
+                [field]: value
+            };
+        });
+
+        setAttributes({
+            buttonsA: updatedButtons
+        });
+    };
+
+    const removeButton = (index) => {
+        setAttributes({
+            buttonsA: buttonsA.filter((_, currentIndex) => currentIndex !== index)
+        });
+    };
+
+    const moveButtonUp = (index) => {
+        if (index === 0) {
+            return;
+        }
+
+        const updatedButtons = [...buttonsA];
+
+        const previous = updatedButtons[index - 1];
+        updatedButtons[index - 1] = updatedButtons[index];
+        updatedButtons[index] = previous;
+
+        setAttributes({
+            buttonsA: updatedButtons
+        });
+    };
+
+    const moveButtonDown = (index) => {
+        if (index === buttonsA.length - 1) {
+            return;
+        }
+
+        const updatedButtons = [...buttonsA];
+
+        const next = updatedButtons[index + 1];
+        updatedButtons[index + 1] = updatedButtons[index];
+        updatedButtons[index] = next;
+
+        setAttributes({
+            buttonsA: updatedButtons
+        });
+    };
+
   return (
     <>
       <InspectorControls>
+        <PanelBody title="Кнопки блока" initialOpen={true}>
+                    <Button variant="primary" onClick={addButton}>
+                        Добавить кнопку
+                    </Button>
+
+
+
+                <div className="crud-buttons-editor__list">
+                    {buttonsA.map((button, index) => (
+                        <div className="crud-buttons-editor__item" key={button.id}>
+                            <TextControl
+                                label="Текст кнопки"
+                                value={button.text || ''}
+                                onChange={(value) => {
+                                    updateButton(index, 'text', value);
+                                }}
+                            />
+
+                            <div className="crud-buttons-editor__url">
+                                <span>Ссылка кнопки</span>
+
+                                <URLInputButton
+                                    url={button.url || ''}
+                                    onChange={(url) => {
+                                        updateButton(index, 'url', url);
+                                    }}
+                                />
+                            </div>
+
+                            <SelectControl
+                                label="Стиль кнопки"
+                                value={button.style || 'primary'}
+                                options={[
+                                    {
+                                        label: 'Основная',
+                                        value: 'primary'
+                                    },
+                                    {
+                                        label: 'Вторичная',
+                                        value: 'secondary'
+                                    },
+                                    {
+                                        label: 'Контурная',
+                                        value: 'outline'
+                                    }
+                                ]}
+                                onChange={(value) => {
+                                    updateButton(index, 'style', value);
+                                }}
+                            />
+
+                            <ToggleControl
+                                label="Показывать кнопку"
+                                checked={button.enabled !== false}
+                                onChange={(value) => {
+                                    updateButton(index, 'enabled', value);
+                                }}
+                            />
+
+                            <ToggleControl
+                                label="Открывать в новой вкладке"
+                                checked={button.newTab === true}
+                                onChange={(value) => {
+                                    updateButton(index, 'newTab', value);
+                                }}
+                            />
+
+                            <div className="crud-buttons-editor__actions">
+                                <Button
+                                    variant="secondary"
+                                    onClick={() => moveButtonUp(index)}
+                                    disabled={index === 0}
+                                >
+                                    Выше
+                                </Button>
+
+                                <Button
+                                    variant="secondary"
+                                    onClick={() => moveButtonDown(index)}
+                                    disabled={index === buttonsA.length - 1}
+                                >
+                                    Ниже
+                                </Button>
+
+                                <Button
+                                    variant="secondary"
+                                    isDestructive
+                                    onClick={() => removeButton(index)}
+                                >
+                                    Удалить
+                                </Button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                </PanelBody>
+
         <PanelBody title="Hero" initialOpen={true}>
           <TextControl
             label="Заголовок"
@@ -158,8 +343,20 @@ export default function Edit({ attributes, setAttributes }) {
                       placeholder="Описание страницы"
                     />
                     <div className="v4-strip-actions">
-                      <a className="btn primary" href="#content" {...PREVIEW_LINK_PROPS}>Перейти к содержимому</a>
-                      <a className="btn outline" href="/" {...PREVIEW_LINK_PROPS}>На главную</a>
+                      <div>
+            {buttonsA
+                        .filter((button) => button.enabled)
+                        .map((button) => (
+                            <a
+                                key={button.id}
+                                href={button.url || '#'}
+                                className={`btn ${button.style}`}
+                                onClick={(event) => event.preventDefault()}
+                            >
+                                {button.text || 'Кнопка'}
+                            </a>
+                        ))}
+          </div>
                     </div>
                   </div>
                 </div>
