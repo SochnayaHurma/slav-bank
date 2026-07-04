@@ -34,6 +34,85 @@ function sb_register_contacts_blocks(): void
             $editor_meta['version'] ?? $theme_version,
             true
         );
+
+        wp_add_inline_script(
+            'sb-contacts-blocks-editor',
+            <<<'JS'
+(function (wp) {
+    if (!wp || !wp.hooks) {
+        return;
+    }
+
+    var pageBlocks = {
+        'slavbank/client-bank-page': true,
+        'slavbank/contacts-page': true,
+        'slavbank/currency-control-page': true,
+        'slavbank/legal-entities-page': true,
+        'slavbank/tariffs-page': true
+    };
+
+    wp.hooks.addFilter(
+        'blocks.registerBlockType',
+        'slavbank/unlock-page-inner-blocks',
+        function (settings, name) {
+            if (pageBlocks[name] && settings && settings.allowedBlocks) {
+                settings = Object.assign({}, settings);
+                delete settings.allowedBlocks;
+            }
+
+            return settings;
+        }
+    );
+})(window.wp);
+JS,
+            'before'
+        );
+
+        wp_add_inline_script(
+            'sb-contacts-blocks-editor',
+            <<<'JS'
+(function (wp) {
+    if (!wp || !wp.blockEditor || !wp.element || wp.blockEditor.__sbPageInnerBlocksUnlocked) {
+        return;
+    }
+
+    var OriginalInnerBlocks = wp.blockEditor.InnerBlocks;
+
+    if (!OriginalInnerBlocks) {
+        return;
+    }
+
+    var unlockedAllowedLists = {
+        'slavbank/client-bank-feature-group|slavbank/client-bank-note': true,
+        'slavbank/contact-item|slavbank/address-item|slavbank/hours-item|slavbank/info-item': true,
+        'slavbank/currency-point-group|slavbank/currency-note': true,
+        'slavbank/legal-service-card': true,
+        'slavbank/tariff-group': true
+    };
+
+    function shouldUnlock(allowedBlocks) {
+        return Array.isArray(allowedBlocks) && unlockedAllowedLists[allowedBlocks.join('|')];
+    }
+
+    function SbPageInnerBlocks(props) {
+        if (props && shouldUnlock(props.allowedBlocks)) {
+            props = Object.assign({}, props);
+            delete props.allowedBlocks;
+        }
+
+        return wp.element.createElement(OriginalInnerBlocks, props);
+    }
+
+    Object.keys(OriginalInnerBlocks).forEach(function (key) {
+        SbPageInnerBlocks[key] = OriginalInnerBlocks[key];
+    });
+
+    wp.blockEditor.InnerBlocks = SbPageInnerBlocks;
+    wp.blockEditor.__sbPageInnerBlocksUnlocked = true;
+})(window.wp);
+JS,
+            'after'
+        );
     }
 
     wp_register_style(
