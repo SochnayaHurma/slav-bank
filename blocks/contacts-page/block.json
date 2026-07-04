@@ -7,12 +7,6 @@
   "icon": "id-alt",
   "description": "Полная страница контактов с hero, повторяемыми контактными карточками и динамическим sidebar.",
   "textdomain": "slavbank",
-  "allowedBlocks": [
-    "slavbank/contact-item",
-    "slavbank/address-item",
-    "slavbank/hours-item",
-    "slavbank/info-item"
-  ],
   "attributes": {
        "buttonsA": {
       "type": "array",
