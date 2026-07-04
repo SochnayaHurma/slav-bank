@@ -7,10 +7,6 @@
   "icon": "money-alt",
   "description": "Страница валютного контроля с фиксированным hero и динамическим stack.",
   "textdomain": "slavbank",
-  "allowedBlocks": [
-    "slavbank/currency-point-group",
-    "slavbank/currency-note"
-  ],
   "attributes": {
     "heroTitle": {
       "type": "string",
