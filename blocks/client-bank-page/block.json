@@ -7,10 +7,6 @@
   "icon": "laptop",
   "description": "Страница входа в Клиент-Банк с hero, карточкой доступа, списком возможностей и динамическим stack.",
   "textdomain": "slavbank",
-  "allowedBlocks": [
-    "slavbank/client-bank-feature-group",
-    "slavbank/client-bank-note"
-  ],
   "attributes": {
        "buttonsA": {
       "type": "array",
