@@ -35,9 +35,7 @@ function sb_register_contacts_blocks(): void
             true
         );
 
-        wp_add_inline_script(
-            'sb-contacts-blocks-editor',
-            <<<'JS'
+        $unlock_page_block_settings = <<<'JS'
 (function (wp) {
     if (!wp || !wp.hooks) {
         return;
@@ -64,13 +62,11 @@ function sb_register_contacts_blocks(): void
         }
     );
 })(window.wp);
-JS,
-            'before'
-        );
+JS;
 
-        wp_add_inline_script(
-            'sb-contacts-blocks-editor',
-            <<<'JS'
+        wp_add_inline_script('sb-contacts-blocks-editor', $unlock_page_block_settings, 'before');
+
+        $unlock_page_inner_blocks = <<<'JS'
 (function (wp) {
     if (!wp || !wp.blockEditor || !wp.element || wp.blockEditor.__sbPageInnerBlocksUnlocked) {
         return;
@@ -110,9 +106,9 @@ JS,
     wp.blockEditor.InnerBlocks = SbPageInnerBlocks;
     wp.blockEditor.__sbPageInnerBlocksUnlocked = true;
 })(window.wp);
-JS,
-            'after'
-        );
+JS;
+
+        wp_add_inline_script('sb-contacts-blocks-editor', $unlock_page_inner_blocks, 'after');
     }
 
     wp_register_style(
