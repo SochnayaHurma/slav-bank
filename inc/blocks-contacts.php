@@ -53,9 +53,16 @@ function sb_register_contacts_blocks(): void
         'blocks.registerBlockType',
         'slavbank/unlock-page-inner-blocks',
         function (settings, name) {
-            if (pageBlocks[name] && settings && settings.allowedBlocks) {
+            if (pageBlocks[name] && settings) {
                 settings = Object.assign({}, settings);
-                delete settings.allowedBlocks;
+
+                if (settings.allowedBlocks) {
+                    delete settings.allowedBlocks;
+                }
+
+                settings.supports = Object.assign({}, settings.supports, {
+                    inserter: false
+                });
             }
 
             return settings;
