@@ -7,9 +7,6 @@
   "icon": "media-document",
   "description": "Страница тарифов банка с неизменным hero и динамическим stack.",
   "textdomain": "slavbank",
-  "allowedBlocks": [
-    "slavbank/tariff-group"
-  ],
   "attributes": {
        "buttonsA": {
       "type": "array",
