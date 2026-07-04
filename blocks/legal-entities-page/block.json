@@ -7,9 +7,6 @@
   "icon": "building",
   "description": "Страница для юридических лиц с hero, повторяемыми карточками услуг и динамическим stack.",
   "textdomain": "slavbank",
-  "allowedBlocks": [
-    "slavbank/legal-service-card"
-  ],
   "attributes": {
     "heroTitle": {
       "type": "string",
