@@ -51,6 +51,7 @@
   "render": "file:./render.php",
   "supports": {
     "html": false,
+    "inserter": false,
     "multiple": false,
     "reusable": false
   }
